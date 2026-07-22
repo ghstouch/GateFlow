@@ -9,7 +9,7 @@ _The most complete open-source AI proxy — **one endpoint**, **160+ providers**
 [![npm](https://img.shields.io/npm/v/GateFlow?logo=npm&style=flat-square)](https://www.npmjs.com/package/GateFlow)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A522.22.2-brightgreen?style=flat-square)](package.json)
-[![Stars](https://img.shields.io/github/stars/diegosouzapw/GateFlow?style=social)](https://github.com/diegosouzapw/GateFlow)
+[![Stars](https://img.shields.io/github/stars/ghstouch/GateFlow?style=social)](https://github.com/ghstouch/GateFlow)
 [![Trendshift](https://trendshift.io/api/badge/repositories/23589)](https://trendshift.io/repositories/23589)
 
 <br/>
@@ -22,7 +22,7 @@ _The most complete open-source AI proxy — **one endpoint**, **160+ providers**
 
 <br/>
 
-<a href="https://trendshift.io/repositories/23589" target="_blank"><img src="https://trendshift.io/api/badge/repositories/23589" alt="diegosouzapw%2FGateFlow | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+<a href="https://trendshift.io/repositories/23589" target="_blank"><img src="https://trendshift.io/api/badge/repositories/23589" alt="ghstouch%2FGateFlow | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
 [🚀 Quick Start](#-quick-start) • [💡 Features](#-key-features) • [🗜️ Compression](#%EF%B8%8F-prompt-compression--save-15-95-eligible-tokens-automatically) • [💰 Pricing](#-pricing-at-a-glance) • [🎯 Use Cases](#-use-cases--ready-made-combo-playbooks) • [🌍 Proxy](#-bypass-geographic-blocks--use-ai-from-any-country) • [❓ FAQ](#-frequently-asked-questions) • [📖 Docs](#-documentation) • [💬 WhatsApp](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t)
 
@@ -43,15 +43,15 @@ _The most complete open-source AI proxy — **one endpoint**, **160+ providers**
 ![NPM Monthly](https://img.shields.io/npm/dm/GateFlow?label=npm/month&color=cb3837&logo=npm)
 ![NPM Yearly](https://img.shields.io/npm/d18m/GateFlow?label=npm/year&color=cb3837&logo=npm)
 
-[![Docker Hub](https://img.shields.io/docker/v/diegosouzapw/GateFlow?label=Docker%20Hub&logo=docker&color=2496ED)](https://hub.docker.com/r/diegosouzapw/GateFlow)
-![Docker Pulls](https://img.shields.io/docker/pulls/diegosouzapw/GateFlow?label=docker%20pulls&logo=docker&color=2496ED)
-![Electron Downloads](https://img.shields.io/github/downloads/diegosouzapw/GateFlow/total?style=flat&label=electron%20downloads&logo=electron&color=47848F)
-[![license](https://custom-icon-badges.demolab.com/github/license/diegosouzapw/GateFlow?logo=law)](https://github.com/diegosouzapw/GateFlow/blob/main/LICENSE)
+[![Docker Hub](https://img.shields.io/docker/v/ghstouch/GateFlow?label=Docker%20Hub&logo=docker&color=2496ED)](https://hub.docker.com/r/ghstouch/GateFlow)
+![Docker Pulls](https://img.shields.io/docker/pulls/ghstouch/GateFlow?label=docker%20pulls&logo=docker&color=2496ED)
+![Electron Downloads](https://img.shields.io/github/downloads/ghstouch/GateFlow/total?style=flat&label=electron%20downloads&logo=electron&color=47848F)
+[![license](https://custom-icon-badges.demolab.com/github/license/ghstouch/GateFlow?logo=law)](https://github.com/ghstouch/GateFlow/blob/main/LICENSE)
 
 <!-- Community & Social -->
 
-[![total contributions](https://custom-icon-badges.demolab.com/badge/dynamic/json?logo=graph&logoColor=fff&color=blue&label=total%20contributions&query=%24.totalContributions&url=https%3A%2F%2Fstreak-stats.demolab.com%2F%3Fuser%3Ddiegosouzapw%26type%3Djson)](https://github.com/diegosouzapw)
-[![github streak](https://custom-icon-badges.demolab.com/badge/dynamic/json?logo=fire&logoColor=fff&color=orange&label=github%20streak&query=%24.currentStreak.length&suffix=%20days&url=https%3A%2F%2Fstreak-stats.demolab.com%2F%3Fuser%3Ddiegosouzapw%26type%3Djson)](https://github.com/diegosouzapw)
+[![total contributions](https://custom-icon-badges.demolab.com/badge/dynamic/json?logo=graph&logoColor=fff&color=blue&label=total%20contributions&query=%24.totalContributions&url=https%3A%2F%2Fstreak-stats.demolab.com%2F%3Fuser%3Dghstouch%26type%3Djson)](https://github.com/ghstouch)
+[![github streak](https://custom-icon-badges.demolab.com/badge/dynamic/json?logo=fire&logoColor=fff&color=orange&label=github%20streak&query=%24.currentStreak.length&suffix=%20days&url=https%3A%2F%2Fstreak-stats.demolab.com%2F%3Fuser%3Dghstouch%26type%3Djson)](https://github.com/ghstouch)
 [![Website](https://img.shields.io/badge/Website-GateFlow.online-blue?logo=google-chrome&logoColor=white)](https://GateFlow.online)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Community-25D366?logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t)
 
@@ -205,7 +205,7 @@ _Connect any AI-powered IDE or CLI tool through GateFlow — free API gateway fo
 
 </div>
 
-> 🎬 **Made a video about GateFlow?** We'd love to feature it here! Open an [issue](https://github.com/diegosouzapw/GateFlow/issues/new) or [discussion](https://github.com/diegosouzapw/GateFlow/discussions) with the link and we'll add it to this showcase.
+> 🎬 **Made a video about GateFlow?** We'd love to feature it here! Open an [issue](https://github.com/ghstouch/GateFlow/issues/new) or [discussion](https://github.com/ghstouch/GateFlow/discussions) with the link and we'll add it to this showcase.
 
 ---
 
@@ -240,8 +240,8 @@ _Connect any AI-powered IDE or CLI tool through GateFlow — free API gateway fo
 > 💬 **Join our community!** [WhatsApp Group](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t) — Get help, share tips, and stay updated.
 
 - **Website**: [GateFlow.online](https://GateFlow.online)
-- **GitHub**: [github.com/diegosouzapw/GateFlow](https://github.com/diegosouzapw/GateFlow)
-- **Issues**: [github.com/diegosouzapw/GateFlow/issues](https://github.com/diegosouzapw/GateFlow/issues)
+- **GitHub**: [github.com/ghstouch/GateFlow](https://github.com/ghstouch/GateFlow)
+- **Issues**: [github.com/ghstouch/GateFlow/issues](https://github.com/ghstouch/GateFlow/issues)
 - **WhatsApp**: [Community Group](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t)
 - **Contributing**: See [CONTRIBUTING.md](CONTRIBUTING.md), open a PR, or pick a `good first issue`
 - **Original Project**: [9router by decolua](https://github.com/decolua/9router)
@@ -653,7 +653,7 @@ Works with Claude Code, Codex CLI, Gemini CLI, Cursor, Cline, OpenClaw, OpenCode
 **Docker:**
 
 ```bash
-docker run -d --name GateFlow --restart unless-stopped -p 20128:20128 -v GateFlow-data:/app/data diegosouzapw/GateFlow:latest
+docker run -d --name GateFlow --restart unless-stopped -p 20128:20128 -v GateFlow-data:/app/data ghstouch/GateFlow:latest
 ```
 
 **From source:**
@@ -683,7 +683,7 @@ PORT=20128 DASHBOARD_PORT=20129 NEXT_PUBLIC_BASE_URL=http://localhost:20129 npm 
 
 ## 🐳 Docker
 
-GateFlow is available as a public Docker image on [Docker Hub](https://hub.docker.com/r/diegosouzapw/GateFlow).
+GateFlow is available as a public Docker image on [Docker Hub](https://hub.docker.com/r/ghstouch/GateFlow).
 
 **Quick run:**
 
@@ -694,7 +694,7 @@ docker run -d \
   --stop-timeout 40 \
   -p 20128:20128 \
   -v GateFlow-data:/app/data \
-  diegosouzapw/GateFlow:latest
+  ghstouch/GateFlow:latest
 ```
 
 **With environment file:**
@@ -710,7 +710,7 @@ docker run -d \
   --env-file .env \
   -p 20128:20128 \
   -v GateFlow-data:/app/data \
-  diegosouzapw/GateFlow:latest
+  ghstouch/GateFlow:latest
 ```
 
 **Using Docker Compose:**
@@ -743,7 +743,7 @@ GateFlow can be securely exposed using Caddy's automatic SSL provisioning. Ensur
 ```yaml
 services:
   GateFlow:
-    image: diegosouzapw/GateFlow:latest
+    image: ghstouch/GateFlow:latest
     container_name: GateFlow
     restart: unless-stopped
     volumes:
@@ -767,8 +767,8 @@ volumes:
 
 | Image                    | Tag      | Size   | Description           |
 | ------------------------ | -------- | ------ | --------------------- |
-| `diegosouzapw/GateFlow` | `latest` | ~250MB | Latest stable release |
-| `diegosouzapw/GateFlow` | `3.7.8`  | ~250MB | Current version       |
+| `ghstouch/GateFlow` | `latest` | ~250MB | Latest stable release |
+| `ghstouch/GateFlow` | `3.7.8`  | ~250MB | Current version       |
 
 📖 **Full Docker documentation:** [`docs/DOCKER_GUIDE.md`](docs/DOCKER_GUIDE.md) — Compose profiles, Caddy HTTPS, Cloudflare tunnels, and more.
 
@@ -836,7 +836,7 @@ Access from any device on the same network: `http://PHONE_IP:20128/v1`
 
 ### 🆓 1proxy — Free Proxy Marketplace
 
-> Contributed by [@oyi77](https://github.com/oyi77) — [#1847](https://github.com/diegosouzapw/GateFlow/pull/1847)
+> Contributed by [@oyi77](https://github.com/oyi77) — [#1847](https://github.com/ghstouch/GateFlow/pull/1847)
 
 No proxy? Use the built-in **1proxy** integration for **hundreds of free, validated proxies** worldwide:
 
@@ -1361,7 +1361,7 @@ See the [Proxy Guide](docs/PROXY_GUIDE.md) for setup instructions.
 - **CI/CD**: GitHub Actions (auto npm publish + Docker Hub on release)
 - **Website**: [GateFlow.online](https://GateFlow.online)
 - **Package**: [npmjs.com/package/GateFlow](https://www.npmjs.com/package/GateFlow)
-- **Docker**: [hub.docker.com/r/diegosouzapw/GateFlow](https://hub.docker.com/r/diegosouzapw/GateFlow)
+- **Docker**: [hub.docker.com/r/ghstouch/GateFlow](https://hub.docker.com/r/ghstouch/GateFlow)
 - **Resilience**: Circuit breaker, exponential backoff, anti-thundering herd, TLS spoofing, auto-combo self-healing
 
 </details>
@@ -1486,7 +1486,7 @@ See the [Proxy Guide](docs/PROXY_GUIDE.md) for setup instructions.
 
 ## 👥 Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=diegosouzapw/GateFlow&max=100&columns=20&anon=1)](https://github.com/diegosouzapw/GateFlow/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=ghstouch/GateFlow&max=100&columns=20&anon=1)](https://github.com/ghstouch/GateFlow/graphs/contributors)
 
 ### How to Contribute
 
@@ -1509,21 +1509,21 @@ gh release create v2.0.0 --title "v2.0.0" --generate-notes
 
 ## 📊 Star History
 
-<a href="https://www.star-history.com/?repos=diegosouzapw%2FGateFlow&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=ghstouch%2FGateFlow&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=diegosouzapw/GateFlow&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=diegosouzapw/GateFlow&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=diegosouzapw/GateFlow&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=ghstouch/GateFlow&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=ghstouch/GateFlow&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=ghstouch/GateFlow&type=date&legend=top-left" />
  </picture>
 </a>
 
 ## 🌍 StarMapper
 
-<a href="https://starmapper.bruniaux.com/diegosouzapw/GateFlow">
+<a href="https://starmapper.bruniaux.com/ghstouch/GateFlow">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/GateFlow?theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/GateFlow?theme=light" />
-    <img alt="StarMapper" src="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/GateFlow" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://starmapper.bruniaux.com/api/map-image/ghstouch/GateFlow?theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://starmapper.bruniaux.com/api/map-image/ghstouch/GateFlow?theme=light" />
+    <img alt="StarMapper" src="https://starmapper.bruniaux.com/api/map-image/ghstouch/GateFlow" />
   </picture>
 </a>
 
