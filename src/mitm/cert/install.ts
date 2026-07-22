@@ -12,7 +12,7 @@ import {
 const IS_WIN = process.platform === "win32";
 const IS_MAC = process.platform === "darwin";
 
-const LINUX_CERT_NAME = "omniroute-mitm.crt";
+const LINUX_CERT_NAME = "GateFlow-mitm.crt";
 
 interface LinuxCertConfig {
   dir: string;
@@ -92,7 +92,7 @@ async function updateNssDatabases(
         shell: "/bin/bash",
         env: {
           ...process.env,
-          CERT_NAME: "OmniRoute MITM Root CA",
+          CERT_NAME: "GateFlow MITM Root CA",
           CERT_PATH: certPath || "",
           ACTION: action,
         },

@@ -22,6 +22,7 @@ import {
 } from "@/shared/components";
 import {
   LOCAL_PROVIDERS,
+  FREE_PROVIDERS,
   getProviderAlias,
   isOpenAICompatibleProvider,
   isAnthropicCompatibleProvider,
@@ -1352,13 +1353,16 @@ export default function ProviderDetailPage() {
           )
         );
         setModelTestStatus((prev) => ({ ...prev, [modelId]: "ok" }));
+        return true;
       } else {
         notify.error(data.error || "Model test failed");
         setModelTestStatus((prev) => ({ ...prev, [modelId]: "error" }));
+        return false;
       }
     } catch (err) {
       notify.error("Network error testing model");
       setModelTestStatus((prev) => ({ ...prev, [modelId]: "error" }));
+      return false;
     } finally {
       setTestingModelId(null);
     }
@@ -5014,6 +5018,11 @@ function CompatibleModelsSection({
   const [adding, setAdding] = useState(false);
   const [importing, setImporting] = useState(false);
   const [modelFilter, setModelFilter] = useState("");
+  const [visibilityFilter, setVisibilityFilter] = useState<"all" | "visible" | "hidden">("all");
+  const [pricingFilter, setPricingFilter] = useState<"all" | "free" | "paid">("all");
+  const [freeFirst, setFreeFirst] = useState(false);
+  const [autoHideFailed, setAutoHideFailed] = useState(false);
+  const [batchTestingModels, setBatchTestingModels] = useState(false);
   const notify = useNotificationStore();
   const customModelMap = useMemo(() => buildCompatMap(customModels), [customModels]);
 
@@ -5055,7 +5064,9 @@ function CompatibleModelsSection({
 
     return rows;
   }, [customModelMap, fallbackModels, isModelHidden, providerAliases, providerStorageAlias]);
-  const filteredModels = allModels.filter((model) =>
+
+  // Filter: search query
+  const searchFiltered = allModels.filter((model) =>
     matchesModelCatalogQuery(modelFilter, {
       modelId: model.modelId,
       modelName: model.displayName,
@@ -5063,9 +5074,61 @@ function CompatibleModelsSection({
       source: model.source,
     })
   );
+
+  // Filter: visibility (All / Visible only / Hidden only)
+  const visibilityFiltered = searchFiltered.filter((model) => {
+    if (visibilityFilter === "visible") return !model.isHidden;
+    if (visibilityFilter === "hidden") return model.isHidden;
+    return true;
+  });
+
+  // Filter: pricing (All / Free only / Paid only)
+  const pricingFiltered = visibilityFiltered.filter((model) => {
+    if (pricingFilter === "all") return true;
+    const isFree =
+      model.source === "fallback" &&
+      !!FREE_PROVIDERS[providerStorageAlias as keyof typeof FREE_PROVIDERS];
+    return pricingFilter === "free" ? isFree : !isFree;
+  });
+
+  // Sort: free first
+  const filteredModels = useMemo(() => {
+    if (!freeFirst) return pricingFiltered;
+    return [...pricingFiltered].sort((a, b) => {
+      const aFree =
+        a.source === "fallback" &&
+        !!FREE_PROVIDERS[providerStorageAlias as keyof typeof FREE_PROVIDERS];
+      const bFree =
+        b.source === "fallback" &&
+        !!FREE_PROVIDERS[providerStorageAlias as keyof typeof FREE_PROVIDERS];
+      return (aFree ? 0 : 1) - (bFree ? 0 : 1);
+    });
+  }, [pricingFiltered, freeFirst, providerStorageAlias]);
+
   const activeCount = allModels.filter((model) => !model.isHidden).length;
   const hiddenFilteredCount = filteredModels.filter((model) => model.isHidden).length;
   const visibleFilteredCount = filteredModels.length - hiddenFilteredCount;
+
+  // Batch test all visible models
+  const handleTestAllModels = useCallback(async () => {
+    if (!onTestModel || batchTestingModels) return;
+    const modelsToTest = filteredModels.filter((m) => !m.isHidden);
+    if (modelsToTest.length === 0) return;
+    setBatchTestingModels(true);
+    for (const model of modelsToTest) {
+      const fullModel = `${providerDisplayAlias}/${model.modelId}`;
+      try {
+        const ok = await onTestModel(model.modelId, fullModel);
+        // Auto-hide failed models if enabled
+        if (autoHideFailed && !ok) {
+          await onToggleHidden(model.modelId, true);
+        }
+      } catch {
+        // individual test errors are handled by onTestModel
+      }
+    }
+    setBatchTestingModels(false);
+  }, [filteredModels, onTestModel, batchTestingModels, providerDisplayAlias, autoHideFailed, onToggleHidden]);
 
   const resolveAlias = useCallback(
     (modelId: string, workingAliases: Record<string, string>) =>
@@ -5209,27 +5272,148 @@ function CompatibleModelsSection({
 
       {allModels.length > 0 && (
         <div className="flex flex-col gap-3">
-          <ModelVisibilityToolbar
-            t={t}
-            filterValue={modelFilter}
-            onFilterChange={setModelFilter}
-            activeCount={activeCount}
-            totalCount={allModels.length}
-            onSelectAll={() =>
-              onBulkToggleHidden(
-                filteredModels.map((model) => model.modelId),
-                false
-              )
-            }
-            onDeselectAll={() =>
-              onBulkToggleHidden(
-                filteredModels.map((model) => model.modelId),
-                true
-              )
-            }
-            selectAllDisabled={hiddenFilteredCount === 0 || bulkTogglePending}
-            deselectAllDisabled={visibleFilteredCount === 0 || bulkTogglePending}
-          />
+          {/* Search + visibility filter */}
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="relative min-w-[220px] flex-1">
+              <span className="material-symbols-outlined pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-[15px] text-text-muted">
+                search
+              </span>
+              <input
+                type="text"
+                value={modelFilter}
+                onChange={(e) => setModelFilter(e.target.value)}
+                placeholder={providerText(t, "filterModels", "Filter models…")}
+                className="w-full rounded-lg border border-border bg-sidebar/50 py-1.5 pl-7 pr-3 text-xs text-text-main placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+            </div>
+            {/* Visible / Hidden toggle */}
+            <div className="flex rounded-lg border border-border overflow-hidden text-[12px]">
+              {(["all", "visible", "hidden"] as const).map((vf) => (
+                <button
+                  key={vf}
+                  onClick={() => setVisibilityFilter(vf)}
+                  className={`px-2.5 py-1 transition-colors ${
+                    visibilityFilter === vf
+                      ? "bg-primary/20 text-primary"
+                      : "bg-transparent text-text-muted hover:text-text-main"
+                  }`}
+                >
+                  {vf === "all"
+                    ? providerText(t, "filterAll", "All")
+                    : vf === "visible"
+                      ? providerText(t, "visibleOnly", "Visible only")
+                      : providerText(t, "hiddenOnly", "Hidden only")}
+                </button>
+              ))}
+            </div>
+            {/* Free / Paid toggle */}
+            <div className="flex rounded-lg border border-border overflow-hidden text-[12px]">
+              {(["all", "free", "paid"] as const).map((pf) => (
+                <button
+                  key={pf}
+                  onClick={() => setPricingFilter(pf)}
+                  className={`px-2.5 py-1 transition-colors ${
+                    pricingFilter === pf
+                      ? "bg-primary/20 text-primary"
+                      : "bg-transparent text-text-muted hover:text-text-main"
+                  }`}
+                >
+                  {pf === "all"
+                    ? providerText(t, "filterAll", "All")
+                    : pf === "free"
+                      ? providerText(t, "freeOnly", "Free only")
+                      : providerText(t, "paidOnly", "Paid only")}
+                </button>
+              ))}
+            </div>
+            {/* Free first */}
+            <button
+              onClick={() => setFreeFirst(!freeFirst)}
+              className={`flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[12px] transition-colors ${
+                freeFirst
+                  ? "border-primary/40 bg-primary/10 text-primary"
+                  : "border-border bg-transparent text-text-muted hover:text-text-main"
+              }`}
+              title={providerText(t, "freeFirst", "Free first")}
+            >
+              <span className="material-symbols-outlined text-[14px]">sort</span>
+              {providerText(t, "freeFirst", "Free first")}
+            </button>
+          </div>
+          {/* Action bar: Auto-hide failed, Test all, Select all, Deselect all */}
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Auto-hide failed */}
+            <button
+              onClick={() => setAutoHideFailed(!autoHideFailed)}
+              className={`flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[12px] transition-colors ${
+                autoHideFailed
+                  ? "border-primary/40 bg-primary/10 text-primary"
+                  : "border-border bg-transparent text-text-muted hover:text-text-main"
+              }`}
+              title={providerText(t, "autoHideFailedModels", "Auto-hide failed models")}
+            >
+              <span className="material-symbols-outlined text-[14px]">
+                {autoHideFailed ? "visibility_off" : "visibility"}
+              </span>
+              {providerText(t, "autoHideFailedModels", "Auto-hide failed models")}
+            </button>
+            {/* Test all models */}
+            {onTestModel && (
+              <button
+                onClick={handleTestAllModels}
+                disabled={batchTestingModels || !!testingModelId}
+                className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-[12px] font-medium transition-colors ${
+                  batchTestingModels
+                    ? "border-primary/40 bg-primary/10 text-primary animate-pulse"
+                    : "border-border bg-transparent text-text-muted hover:text-text-main hover:border-primary/40"
+                } disabled:cursor-not-allowed disabled:opacity-50`}
+                title={providerText(t, "testAllModels", "Test all models")}
+              >
+                <span className="material-symbols-outlined text-[14px]">
+                  {batchTestingModels ? "sync" : "play_arrow"}
+                </span>
+                {batchTestingModels
+                  ? providerText(t, "testing", "Testing…")
+                  : providerText(t, "testAllModels", "Test all models")}
+              </button>
+            )}
+            {/* Select all */}
+            <button
+              onClick={() =>
+                onBulkToggleHidden(
+                  filteredModels.map((model) => model.modelId),
+                  false
+                )
+              }
+              disabled={hiddenFilteredCount === 0 || bulkTogglePending}
+              className="flex items-center gap-1.5 rounded-lg border border-border bg-transparent px-2.5 py-1 text-[12px] text-text-main disabled:cursor-not-allowed disabled:opacity-50"
+              title={providerText(t, "selectAllModels", "Select all")}
+            >
+              <span className="material-symbols-outlined text-[16px]">done_all</span>
+              <span>{providerText(t, "selectAllModels", "Select all")}</span>
+            </button>
+            {/* Deselect all */}
+            <button
+              onClick={() =>
+                onBulkToggleHidden(
+                  filteredModels.map((model) => model.modelId),
+                  true
+                )
+              }
+              disabled={visibleFilteredCount === 0 || bulkTogglePending}
+              className="flex items-center gap-1.5 rounded-lg border border-border bg-transparent px-2.5 py-1 text-[12px] text-text-main disabled:cursor-not-allowed disabled:opacity-50"
+              title={providerText(t, "deselectAllModels", "Deselect all")}
+            >
+              <span className="material-symbols-outlined text-[16px]">remove_done</span>
+              <span>{providerText(t, "deselectAllModels", "Deselect all")}</span>
+            </button>
+            <span className="whitespace-nowrap text-xs text-text-muted">
+              {providerText(t, "modelsActiveCount", "{active}/{total} active", {
+                active: activeCount,
+                total: allModels.length,
+              })}
+            </span>
+          </div>
           {filteredModels.map(({ modelId, alias, isHidden, source }) => (
             <PassthroughModelRow
               key={`${providerStorageAlias}:${modelId}`}
@@ -5249,6 +5433,9 @@ function CompatibleModelsSection({
               compatDisabled={compatSavingModelId === modelId}
               onToggleHidden={onToggleHidden}
               togglingHidden={togglingModelId === modelId}
+              onTestModel={onTestModel}
+              testStatus={modelTestStatus?.[modelId] ?? null}
+              testingModel={testingModelId === modelId}
             />
           ))}
           {filteredModels.length === 0 && modelFilter && (

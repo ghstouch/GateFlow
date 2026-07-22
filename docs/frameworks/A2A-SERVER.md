@@ -1,12 +1,12 @@
 ---
-title: "OmniRoute A2A Server Documentation"
+title: "GateFlow A2A Server Documentation"
 version: 3.8.0
 lastUpdated: 2026-05-13
 ---
 
-# OmniRoute A2A Server Documentation
+# GateFlow A2A Server Documentation
 
-> Agent-to-Agent Protocol v0.3 — OmniRoute as an intelligent routing agent
+> Agent-to-Agent Protocol v0.3 — GateFlow as an intelligent routing agent
 
 The A2A surface has two faces:
 
@@ -21,7 +21,7 @@ Tasks are tracked by `A2ATaskManager` (`src/lib/a2a/taskManager.ts`, default 5-m
 curl http://localhost:20128/.well-known/agent.json
 ```
 
-Returns the Agent Card describing OmniRoute's capabilities, skills, and authentication requirements.
+Returns the Agent Card describing GateFlow's capabilities, skills, and authentication requirements.
 
 The Agent Card's `version` field is sourced from `process.env.npm_package_version` (see `src/app/.well-known/agent.json/route.ts:13`), so it stays auto-synced with `package.json` on every release.
 
@@ -32,7 +32,7 @@ The Agent Card's `version` field is sourced from `process.env.npm_package_versio
 All `/a2a` requests require an API key via the `Authorization` header:
 
 ```
-Authorization: Bearer YOUR_OMNIROUTE_API_KEY
+Authorization: Bearer YOUR_GateFlow_API_KEY
 ```
 
 If no API key is configured on the server, authentication is bypassed.
@@ -139,11 +139,11 @@ curl -X POST http://localhost:20128/a2a \
 
 ## Available Skills
 
-OmniRoute exposes 5 A2A skills wired in `src/lib/a2a/taskExecution.ts::A2A_SKILL_HANDLERS`. Each skill module lives in `src/lib/a2a/skills/`.
+GateFlow exposes 5 A2A skills wired in `src/lib/a2a/taskExecution.ts::A2A_SKILL_HANDLERS`. Each skill module lives in `src/lib/a2a/skills/`.
 
 | Skill              | ID                   | Description                                                                                 |
 | :----------------- | :------------------- | :------------------------------------------------------------------------------------------ |
-| Smart Routing      | `smart-routing`      | Routes a prompt through the optimal provider/combo using OmniRoute's combo engine + scoring |
+| Smart Routing      | `smart-routing`      | Routes a prompt through the optimal provider/combo using GateFlow's combo engine + scoring |
 | Quota Management   | `quota-management`   | Reports per-provider quota state, helps callers decide when to throttle/switch              |
 | Provider Discovery | `provider-discovery` | Lists installed providers with capabilities, free-tier flags, OAuth status                  |
 | Cost Analysis      | `cost-analysis`      | Estimates cost of a request/conversation given the catalog + recent usage                   |

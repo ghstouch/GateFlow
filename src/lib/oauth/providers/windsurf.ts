@@ -6,7 +6,7 @@ import { WINDSURF_CONFIG } from "../constants/oauth";
  * Uses PKCE Authorization Code Flow — same pattern as Codex CLI.
  * Extracted from Devin CLI binary (devin.exe string analysis):
  *
- *   1. OmniRoute starts a local callback server (random port, 127.0.0.1)
+ *   1. GateFlow starts a local callback server (random port, 127.0.0.1)
  *   2. Browser opens:
  *        https://app.devin.ai/editor/signin
  *          ?response_type=code
@@ -84,7 +84,7 @@ export const windsurf = {
   },
 
   /**
-   * Map exchange response to OmniRoute connection fields.
+   * Map exchange response to GateFlow connection fields.
    * The Windsurf Connect response uses camelCase JSON:
    *   windsurfApiKey, apiServerUrl, devinWebappHost, devinApiUrl
    */

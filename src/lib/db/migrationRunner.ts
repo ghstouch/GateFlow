@@ -183,7 +183,7 @@ const INITIAL_SCHEMA_SENTINELS = ["provider_connections", "combos", "call_logs"]
  */
 function ensureMigrationsTable(db: Database.Database): void {
   db.exec(`
-    CREATE TABLE IF NOT EXISTS _omniroute_migrations (
+    CREATE TABLE IF NOT EXISTS _OMNIROUTE_migrations (
       version TEXT PRIMARY KEY,
       name TEXT NOT NULL,
       applied_at TEXT NOT NULL DEFAULT (datetime('now'))
@@ -245,7 +245,7 @@ function filterSupersededDuplicateMigrations(
  * Get list of already-applied migration versions.
  */
 function getAppliedVersions(db: Database.Database): Set<string> {
-  const rows = db.prepare("SELECT version FROM _omniroute_migrations").all() as Array<{
+  const rows = db.prepare("SELECT version FROM _OMNIROUTE_migrations").all() as Array<{
     version: string;
   }>;
   return new Set(rows.map((r) => r.version));
@@ -256,7 +256,7 @@ function getAppliedVersions(db: Database.Database): Set<string> {
  */
 function getAppliedRecords(db: Database.Database): Array<{ version: string; name: string }> {
   return db
-    .prepare("SELECT version, name FROM _omniroute_migrations ORDER BY version")
+    .prepare("SELECT version, name FROM _OMNIROUTE_migrations ORDER BY version")
     .all() as Array<{
     version: string;
     name: string;
@@ -560,7 +560,7 @@ function reconcileRenumberedMigrations(
     }
 
     const legacyRow = db
-      .prepare("SELECT version, name FROM _omniroute_migrations WHERE version = ? AND name = ?")
+      .prepare("SELECT version, name FROM _OMNIROUTE_migrations WHERE version = ? AND name = ?")
       .get(compatibility.fromVersion, compatibility.fromName) as
       | { version: string; name: string }
       | undefined;
@@ -569,18 +569,18 @@ function reconcileRenumberedMigrations(
     }
 
     const targetRow = db
-      .prepare("SELECT version FROM _omniroute_migrations WHERE version = ?")
+      .prepare("SELECT version FROM _OMNIROUTE_migrations WHERE version = ?")
       .get(compatibility.toVersion) as { version: string } | undefined;
 
     const applyRepair = db.transaction(() => {
       if (targetRow) {
-        db.prepare("DELETE FROM _omniroute_migrations WHERE version = ? AND name = ?").run(
+        db.prepare("DELETE FROM _OMNIROUTE_migrations WHERE version = ? AND name = ?").run(
           compatibility.fromVersion,
           compatibility.fromName
         );
       } else {
         db.prepare(
-          "UPDATE _omniroute_migrations SET version = ?, name = ? WHERE version = ? AND name = ?"
+          "UPDATE _OMNIROUTE_migrations SET version = ?, name = ? WHERE version = ? AND name = ?"
         ).run(
           compatibility.toVersion,
           compatibility.toName,
@@ -603,7 +603,7 @@ function reconcileRenumberedMigrations(
     // placed at that version number — e.g. 028_create_files_and_batches.sql
     // would be skipped because getAppliedVersions() still sees version "028".
     const residualRow = db
-      .prepare("SELECT version, name FROM _omniroute_migrations WHERE version = ?")
+      .prepare("SELECT version, name FROM _OMNIROUTE_migrations WHERE version = ?")
       .get(compatibility.fromVersion) as { version: string; name: string } | undefined;
     if (residualRow) {
       console.warn(
@@ -611,7 +611,7 @@ function reconcileRenumberedMigrations(
           `(name: "${residualRow.name}") still present after compat rewrite — ` +
           `removing to unblock new migration at this version slot.`
       );
-      db.prepare("DELETE FROM _omniroute_migrations WHERE version = ?").run(
+      db.prepare("DELETE FROM _OMNIROUTE_migrations WHERE version = ?").run(
         compatibility.fromVersion
       );
     }
@@ -634,7 +634,7 @@ function rehomeLegacyVersionSlotMigrations(
     }
 
     const legacyRow = db
-      .prepare("SELECT version, name FROM _omniroute_migrations WHERE version = ? AND name = ?")
+      .prepare("SELECT version, name FROM _OMNIROUTE_migrations WHERE version = ? AND name = ?")
       .get(legacy.version, legacy.name) as { version: string; name: string } | undefined;
     if (!legacyRow) {
       continue;
@@ -643,18 +643,18 @@ function rehomeLegacyVersionSlotMigrations(
     const legacyVersion = `legacy-${legacy.version}-${legacy.name}`;
     const applyRepair = db.transaction(() => {
       const existingLegacyRow = db
-        .prepare("SELECT version FROM _omniroute_migrations WHERE version = ?")
+        .prepare("SELECT version FROM _OMNIROUTE_migrations WHERE version = ?")
         .get(legacyVersion) as { version: string } | undefined;
 
       if (existingLegacyRow) {
-        db.prepare("DELETE FROM _omniroute_migrations WHERE version = ? AND name = ?").run(
+        db.prepare("DELETE FROM _OMNIROUTE_migrations WHERE version = ? AND name = ?").run(
           legacy.version,
           legacy.name
         );
         return;
       }
 
-      db.prepare("UPDATE _omniroute_migrations SET version = ? WHERE version = ? AND name = ?").run(
+      db.prepare("UPDATE _OMNIROUTE_migrations SET version = ? WHERE version = ? AND name = ?").run(
         legacyVersion,
         legacy.version,
         legacy.name
@@ -736,14 +736,14 @@ export function runMigrations(db: Database.Database, options?: { isNewDb?: boole
     );
     console.error(
       `[Migration] The version-only tracking will skip these (version already applied), ` +
-        `but please report this to the OmniRoute maintainers.`
+        `but please report this to the GateFlow maintainers.`
     );
   }
 
   // ── Gap Reconciliation: Identify non-contiguous missing migrations ──
   // Do not rely on any highest-version-applied heuristic. We must explicitly
   // iterate through all missing files on disk and apply them if they are missing
-  // from the _omniroute_migrations table.
+  // from the _OMNIROUTE_migrations table.
   const numericApplied = Array.from(applied)
     .map((v) => Number.parseInt(v, 10))
     .filter((n) => !Number.isNaN(n));
@@ -833,7 +833,7 @@ export function runMigrations(db: Database.Database, options?: { isNewDb?: boole
         const sql = fs.readFileSync(migration.path, "utf-8");
         db.exec(sql);
       }
-      db.prepare("INSERT INTO _omniroute_migrations (version, name) VALUES (?, ?)").run(
+      db.prepare("INSERT INTO _OMNIROUTE_migrations (version, name) VALUES (?, ?)").run(
         migration.version,
         migration.name
       );
@@ -849,7 +849,7 @@ export function runMigrations(db: Database.Database, options?: { isNewDb?: boole
       if (message.includes("duplicate column name")) {
         const applyMarkerOnly = db.transaction(() => {
           db.prepare(
-            "INSERT OR IGNORE INTO _omniroute_migrations (version, name) VALUES (?, ?)"
+            "INSERT OR IGNORE INTO _OMNIROUTE_migrations (version, name) VALUES (?, ?)"
           ).run(migration.version, migration.name);
         });
         applyMarkerOnly();
@@ -916,7 +916,7 @@ export function getMigrationStatus(db: Database.Database): {
   ensureMigrationsTable(db);
 
   const appliedRows = db
-    .prepare("SELECT version, name, applied_at FROM _omniroute_migrations ORDER BY version")
+    .prepare("SELECT version, name, applied_at FROM _OMNIROUTE_migrations ORDER BY version")
     .all() as Array<{ version: string; name: string; applied_at: string }>;
 
   const appliedVersions = new Set(appliedRows.map((r) => r.version));

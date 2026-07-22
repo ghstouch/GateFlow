@@ -95,11 +95,11 @@ export function runAssessmentMigration(dbPath: string): void {
   db.exec(MIGRATION_SQL);
 
   const versionRow = db
-    .prepare("SELECT COUNT(*) as count FROM _omniroute_migrations WHERE name = ?")
+    .prepare("SELECT COUNT(*) as count FROM _OMNIROUTE_migrations WHERE name = ?")
     .get("assessment_engine") as { count: number };
   if (versionRow.count === 0) {
     db.prepare(
-      "INSERT INTO _omniroute_migrations (name, applied_at) VALUES (?, datetime('now'))"
+      "INSERT INTO _OMNIROUTE_migrations (name, applied_at) VALUES (?, datetime('now'))"
     ).run("assessment_engine");
   }
 

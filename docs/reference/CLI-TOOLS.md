@@ -1,17 +1,17 @@
 ---
-title: "CLI Tools — OmniRoute v3.8.0"
+title: "CLI Tools — GateFlow v3.8.0"
 version: 3.8.0
 lastUpdated: 2026-05-13
 ---
 
-# CLI Tools — OmniRoute v3.8.0
+# CLI Tools — GateFlow v3.8.0
 
 Last updated: 2026-05-13
 
-OmniRoute integrates with two categories of CLI tools:
+GateFlow integrates with two categories of CLI tools:
 
-1. **External CLI integrations** — third-party CLIs (Cursor, Cline, Codex, Claude Code, Qwen Code, Windsurf, Hermes, Amp, etc.) that you point at OmniRoute's local OpenAI-compatible endpoint.
-2. **Internal OmniRoute CLI** — commands bundled with the `omniroute` binary for server lifecycle, setup, diagnostics, and provider management.
+1. **External CLI integrations** — third-party CLIs (Cursor, Cline, Codex, Claude Code, Qwen Code, Windsurf, Hermes, Amp, etc.) that you point at GateFlow's local OpenAI-compatible endpoint.
+2. **Internal GateFlow CLI** — commands bundled with the `GateFlow` binary for server lifecycle, setup, diagnostics, and provider management.
 
 ---
 
@@ -20,10 +20,10 @@ OmniRoute integrates with two categories of CLI tools:
 ```
 Claude / Codex / OpenCode / Cline / KiloCode / Continue / Cursor / Windsurf / Hermes / Amp / Qwen
            │
-           ▼  (all point to OmniRoute)
+           ▼  (all point to GateFlow)
     http://YOUR_SERVER:20128/v1
            │
-           ▼  (OmniRoute routes to the right provider)
+           ▼  (GateFlow routes to the right provider)
     Anthropic / OpenAI / Gemini / DeepSeek / Groq / Mistral / ...
 ```
 
@@ -42,7 +42,7 @@ Claude / Codex / OpenCode / Cline / KiloCode / Continue / Cursor / Windsurf / He
 
 The dashboard cards in `/dashboard/cli-tools` are generated from
 `src/shared/constants/cliTools.ts`. The internal helper `bin/cli-commands.mjs`
-keeps the small set of "fully scriptable" tools that `omniroute setup` can write
+keeps the small set of "fully scriptable" tools that `GateFlow setup` can write
 config files for automatically.
 
 ### Current Catalog (v3.8.0)
@@ -58,7 +58,7 @@ config files for automatically.
 | **Cline**          | `cline`       | custom / VS Code    | `npm i -g cline` + VS Code ext       | API key                             |
 | **Kilo Code**      | `kilo`        | custom / VS Code    | `npm i -g kilocode` + VS Code ext    | API key                             |
 | **Continue**       | `continue`    | guide (config.yaml) | VS Code extension                    | API key                             |
-| **Antigravity**    | `antigravity` | MITM                | OmniRoute built-in                   | API key (MITM proxy)                |
+| **Antigravity**    | `antigravity` | MITM                | GateFlow built-in                   | API key (MITM proxy)                |
 | **GitHub Copilot** | `copilot`     | custom / VS Code    | VS Code extension                    | API key (CLI fingerprint: `github`) |
 | **OpenCode**       | `opencode`    | guide (json)        | `npm i -g opencode-ai`               | API key (OpenAI-compatible)         |
 | **Hermes**         | `hermes`      | guide (json)        | install per docs                     | API key (OpenAI-compatible)         |
@@ -70,7 +70,7 @@ config files for automatically.
 > Notes:
 >
 > - "Web wrappers" like ChatGPT/Claude/Grok/Perplexity browser sessions are not
->   listed here. OmniRoute can proxy them through the `chatgpt-web`,
+>   listed here. GateFlow can proxy them through the `chatgpt-web`,
 >   `claude-web`, `grok-web`, `perplexity-web`, `blackbox-web`,
 >   `muse-spark-web` provider connections, but those are **provider connections**
 >   (configured under `/dashboard/providers`), not CLI tools. They do not surface
@@ -95,9 +95,9 @@ Legacy IDs still accepted for compatibility: `copilot`, `kimi-coding`, `qwen`.
 
 ---
 
-### Step 1 — Get an OmniRoute API Key
+### Step 1 — Get an GateFlow API Key
 
-1. Open the OmniRoute dashboard → **API Manager** (`/dashboard/api-manager`)
+1. Open the GateFlow dashboard → **API Manager** (`/dashboard/api-manager`)
 2. Click **Create API Key**
 3. Give it a name (e.g. `cli-tools`) and select all permissions
 4. Copy the key — you'll need it for every CLI below
@@ -154,13 +154,13 @@ kiro-cli --version   # 1.x.x
 Add to `~/.bashrc` (or `~/.zshrc`), then run `source ~/.bashrc`:
 
 ```bash
-# OmniRoute Universal Endpoint
+# GateFlow Universal Endpoint
 export OPENAI_BASE_URL="http://localhost:20128/v1"
-export OPENAI_API_KEY="sk-your-omniroute-key"
+export OPENAI_API_KEY="sk-your-GateFlow-key"
 export ANTHROPIC_BASE_URL="http://localhost:20128"
-export ANTHROPIC_AUTH_TOKEN="sk-your-omniroute-key"
+export ANTHROPIC_AUTH_TOKEN="sk-your-GateFlow-key"
 export GEMINI_BASE_URL="http://localhost:20128/v1"
-export GEMINI_API_KEY="sk-your-omniroute-key"
+export GEMINI_API_KEY="sk-your-GateFlow-key"
 ```
 
 > For a **remote server** replace `localhost:20128` with the server IP or domain,
@@ -178,7 +178,7 @@ mkdir -p ~/.claude && cat > ~/.claude/settings.json << EOF
 {
   "env": {
     "ANTHROPIC_BASE_URL": "http://localhost:20128",
-    "ANTHROPIC_AUTH_TOKEN": "sk-your-omniroute-key"
+    "ANTHROPIC_AUTH_TOKEN": "sk-your-GateFlow-key"
   }
 }
 EOF
@@ -195,7 +195,7 @@ Use the unified Anthropic gateway root for Claude Code. Do not append `/v1` here
 ```bash
 mkdir -p ~/.codex && cat > ~/.codex/config.yaml << EOF
 model: auto
-apiKey: sk-your-omniroute-key
+apiKey: sk-your-GateFlow-key
 apiBaseUrl: http://localhost:20128/v1
 EOF
 ```
@@ -211,12 +211,12 @@ mkdir -p ~/.config/opencode && cat > ~/.config/opencode/opencode.json << EOF
 {
   "\$schema": "https://opencode.ai/config.json",
   "provider": {
-    "omniroute": {
+    "GateFlow": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "OmniRoute",
+      "name": "GateFlow",
       "options": {
         "baseURL": "http://localhost:20128/v1",
-        "apiKey": "sk-your-omniroute-key"
+        "apiKey": "sk-your-GateFlow-key"
       },
       "models": {
         "claude-sonnet-4-5": { "name": "claude-sonnet-4-5" },
@@ -231,7 +231,7 @@ EOF
 
 **Test:** `opencode`
 
-> Use `opencode run "your prompt" --model omniroute/claude-sonnet-4-5-thinking --variant high`
+> Use `opencode run "your prompt" --model GateFlow/claude-sonnet-4-5-thinking --variant high`
 > to send thinking variants.
 
 ---
@@ -245,7 +245,7 @@ mkdir -p ~/.cline/data && cat > ~/.cline/data/globalState.json << EOF
 {
   "apiProvider": "openai",
   "openAiBaseUrl": "http://localhost:20128/v1",
-  "openAiApiKey": "sk-your-omniroute-key"
+  "openAiApiKey": "sk-your-GateFlow-key"
 }
 EOF
 ```
@@ -253,7 +253,7 @@ EOF
 **VS Code mode:**
 Cline extension settings → API Provider: `OpenAI Compatible` → Base URL: `http://localhost:20128/v1`
 
-Or use the OmniRoute dashboard → **CLI Tools → Cline → Apply Config**.
+Or use the GateFlow dashboard → **CLI Tools → Cline → Apply Config**.
 
 ---
 
@@ -262,7 +262,7 @@ Or use the OmniRoute dashboard → **CLI Tools → Cline → Apply Config**.
 **CLI mode:**
 
 ```bash
-kilocode --api-base http://localhost:20128/v1 --api-key sk-your-omniroute-key
+kilocode --api-base http://localhost:20128/v1 --api-key sk-your-GateFlow-key
 ```
 
 **VS Code settings:**
@@ -270,11 +270,11 @@ kilocode --api-base http://localhost:20128/v1 --api-key sk-your-omniroute-key
 ```json
 {
   "kilo-code.openAiBaseUrl": "http://localhost:20128/v1",
-  "kilo-code.apiKey": "sk-your-omniroute-key"
+  "kilo-code.apiKey": "sk-your-GateFlow-key"
 }
 ```
 
-Or use the OmniRoute dashboard → **CLI Tools → KiloCode → Apply Config**.
+Or use the GateFlow dashboard → **CLI Tools → KiloCode → Apply Config**.
 
 ---
 
@@ -284,11 +284,11 @@ Edit `~/.continue/config.yaml`:
 
 ```yaml
 models:
-  - name: OmniRoute
+  - name: GateFlow
     provider: openai
     model: auto
     apiBase: http://localhost:20128/v1
-    apiKey: sk-your-omniroute-key
+    apiKey: sk-your-GateFlow-key
     default: true
 ```
 
@@ -302,12 +302,12 @@ Restart VS Code after editing.
 # Login to your AWS/Kiro account:
 kiro-cli login
 
-# The CLI uses its own auth — OmniRoute is not needed as backend for Kiro CLI itself.
-# Use kiro-cli alongside OmniRoute for other tools.
+# The CLI uses its own auth — GateFlow is not needed as backend for Kiro CLI itself.
+# Use kiro-cli alongside GateFlow for other tools.
 kiro-cli status
 ```
 
-For the **Kiro IDE** desktop app, use the MITM endpoint exposed by OmniRoute
+For the **Kiro IDE** desktop app, use the MITM endpoint exposed by GateFlow
 under `/dashboard/cli-tools → Kiro`.
 
 ---
@@ -316,14 +316,14 @@ under `/dashboard/cli-tools → Kiro`.
 
 Qwen Code supports OpenAI-compatible API endpoints via environment variables or `settings.json`.
 
-> Qwen OAuth free tier was discontinued on 2026-04-15. Use OmniRoute with
+> Qwen OAuth free tier was discontinued on 2026-04-15. Use GateFlow with
 > `alicode` / `openrouter` / `anthropic` / `gemini` providers instead.
 
 **Option 1: Environment variables (`~/.qwen/.env`)**
 
 ```bash
 mkdir -p ~/.qwen && cat > ~/.qwen/.env << EOF
-OPENAI_API_KEY="sk-your-omniroute-key"
+OPENAI_API_KEY="sk-your-GateFlow-key"
 OPENAI_BASE_URL="http://localhost:20128/v1"
 OPENAI_MODEL="auto"
 EOF
@@ -337,7 +337,7 @@ EOF
   "security": {
     "auth": {
       "selectedType": "openai",
-      "apiKey": "sk-your-omniroute-key",
+      "apiKey": "sk-your-GateFlow-key",
       "baseUrl": "http://localhost:20128/v1"
     }
   },
@@ -351,7 +351,7 @@ EOF
 
 ```bash
 OPENAI_BASE_URL="http://localhost:20128/v1" \
-OPENAI_API_KEY="sk-your-omniroute-key" \
+OPENAI_API_KEY="sk-your-GateFlow-key" \
 OPENAI_MODEL="auto" \
 qwen
 ```
@@ -364,13 +364,13 @@ qwen
 
 #### Cursor (Desktop App)
 
-> **Note:** Cursor routes requests through its cloud. For OmniRoute integration,
-> enable **Cloud Endpoint** in OmniRoute Settings and use your public domain URL.
+> **Note:** Cursor routes requests through its cloud. For GateFlow integration,
+> enable **Cloud Endpoint** in GateFlow Settings and use your public domain URL.
 
 Via GUI: **Settings → Models → OpenAI API Key**
 
 - Base URL: `https://your-domain.com/v1`
-- API Key: your OmniRoute key
+- API Key: your GateFlow key
 
 ---
 
@@ -383,8 +383,8 @@ Via GUI: **Settings → Models → OpenAI API Key**
 1. Open AI Settings inside Windsurf.
 2. Select **Add custom provider** (OpenAI-compatible).
 3. Base URL: `http://localhost:20128/v1`
-4. API Key: your OmniRoute key
-5. Pick a model from the OmniRoute catalog.
+4. API Key: your GateFlow key
+5. Pick a model from the GateFlow catalog.
 
 ---
 
@@ -396,7 +396,7 @@ Via GUI: **Settings → Models → OpenAI API Key**
   "provider": {
     "type": "openai",
     "baseURL": "http://localhost:20128/v1",
-    "apiKey": "sk-your-omniroute-key",
+    "apiKey": "sk-your-GateFlow-key",
     "model": "claude-sonnet-4-6"
   }
 }
@@ -407,7 +407,7 @@ Via GUI: **Settings → Models → OpenAI API Key**
 #### Amp CLI (Sourcegraph)
 
 ```bash
-export OPENAI_API_KEY="sk-your-omniroute-key"
+export OPENAI_API_KEY="sk-your-GateFlow-key"
 export OPENAI_BASE_URL="http://localhost:20128/v1"
 amp --model "claude-sonnet-4-6"
 
@@ -422,7 +422,7 @@ amp --model "claude-sonnet-4-6"
 
 ### Dashboard Auto-Configuration
 
-The OmniRoute dashboard automates configuration for most tools:
+The GateFlow dashboard automates configuration for most tools:
 
 1. Go to `http://localhost:20128/dashboard/cli-tools`
 2. Expand any tool card
@@ -434,8 +434,8 @@ The OmniRoute dashboard automates configuration for most tools:
 
 ### Built-in Agents: Droid & Open Claw
 
-**Droid** and **Open Claw** are AI agents built directly into OmniRoute — no
-installation needed. They run as internal routes and use OmniRoute's model
+**Droid** and **Open Claw** are AI agents built directly into GateFlow — no
+installation needed. They run as internal routes and use GateFlow's model
 routing automatically.
 
 - Access: `http://localhost:20128/dashboard/agents`
@@ -444,13 +444,13 @@ routing automatically.
 
 ---
 
-## 2. Internal OmniRoute CLI
+## 2. Internal GateFlow CLI
 
-The `omniroute` binary (installed via `npm install -g omniroute` or bundled
+The `GateFlow` binary (installed via `npm install -g GateFlow` or bundled
 with the desktop app) provides commands beyond running the server. The full
 matrix is implemented in:
 
-- `bin/omniroute.mjs` — entry point and `--help` text
+- `bin/GateFlow.mjs` — entry point and `--help` text
 - `bin/cli/index.mjs` — dispatcher for the supported subcommands
 - `bin/cli/commands/setup.mjs`, `bin/cli/commands/doctor.mjs`,
   `bin/cli/commands/providers.mjs` — the three core subcommands
@@ -463,26 +463,26 @@ serve, stop, restart, open, update, test) are wired through
 ### Server Lifecycle
 
 ```bash
-omniroute                              # Start server (default port 20128)
-omniroute --port 3000                  # Override port
-omniroute --no-open                    # Don't auto-open browser
-omniroute --mcp                        # Start as MCP server (stdio transport)
-omniroute serve                        # Same as `omniroute`
-omniroute stop                         # Stop the running server
-omniroute restart                      # Restart the server
-omniroute dashboard                    # Open dashboard in default browser
-omniroute open                         # Alias for `dashboard`
-omniroute --version                    # Print version
-omniroute --help                       # Show all commands
+GateFlow                              # Start server (default port 20128)
+GateFlow --port 3000                  # Override port
+GateFlow --no-open                    # Don't auto-open browser
+GateFlow --mcp                        # Start as MCP server (stdio transport)
+GateFlow serve                        # Same as `GateFlow`
+GateFlow stop                         # Stop the running server
+GateFlow restart                      # Restart the server
+GateFlow dashboard                    # Open dashboard in default browser
+GateFlow open                         # Alias for `dashboard`
+GateFlow --version                    # Print version
+GateFlow --help                       # Show all commands
 ```
 
 ### Setup & Initialization
 
 ```bash
-omniroute setup                        # Interactive setup wizard
-omniroute setup --non-interactive      # CI/automation mode (reads env vars + flags)
-omniroute setup --password '<value>'   # Set admin password directly
-omniroute setup --add-provider \
+GateFlow setup                        # Interactive setup wizard
+GateFlow setup --non-interactive      # CI/automation mode (reads env vars + flags)
+GateFlow setup --password '<value>'   # Set admin password directly
+GateFlow setup --add-provider \
   --provider openai \
   --api-key '<value>' \
   --test-provider                      # Add and test a provider in one shot
@@ -492,22 +492,22 @@ Recognized environment variables for non-interactive setup:
 
 | Var                           | Purpose                                      |
 | ----------------------------- | -------------------------------------------- |
-| `OMNIROUTE_SETUP_PASSWORD`    | Admin password (>=8 chars)                   |
-| `OMNIROUTE_PROVIDER`          | Provider id (e.g. `openai`, `anthropic`)     |
-| `OMNIROUTE_PROVIDER_NAME`     | Display name for the connection              |
-| `OMNIROUTE_PROVIDER_BASE_URL` | Optional OpenAI-compatible base URL override |
-| `OMNIROUTE_API_KEY`           | Provider API key                             |
-| `OMNIROUTE_DEFAULT_MODEL`     | Optional default model                       |
-| `DATA_DIR`                    | Override the OmniRoute data directory        |
+| `GateFlow_SETUP_PASSWORD`    | Admin password (>=8 chars)                   |
+| `GateFlow_PROVIDER`          | Provider id (e.g. `openai`, `anthropic`)     |
+| `GateFlow_PROVIDER_NAME`     | Display name for the connection              |
+| `GateFlow_PROVIDER_BASE_URL` | Optional OpenAI-compatible base URL override |
+| `GateFlow_API_KEY`           | Provider API key                             |
+| `GateFlow_DEFAULT_MODEL`     | Optional default model                       |
+| `DATA_DIR`                    | Override the GateFlow data directory        |
 
 ### Diagnostics
 
 ```bash
-omniroute doctor                       # Check config, DB, ports, runtime, memory, liveness
-omniroute doctor --json                # Machine-readable JSON
-omniroute doctor --no-liveness         # Skip the HTTP health probe
-omniroute doctor --host 0.0.0.0        # Override liveness host
-omniroute doctor --liveness-url <url>  # Full health endpoint URL override
+GateFlow doctor                       # Check config, DB, ports, runtime, memory, liveness
+GateFlow doctor --json                # Machine-readable JSON
+GateFlow doctor --no-liveness         # Skip the HTTP health probe
+GateFlow doctor --host 0.0.0.0        # Override liveness host
+GateFlow doctor --liveness-url <url>  # Full health endpoint URL override
 ```
 
 The doctor runs these checks: `Config`, `Database`, `Storage/encryption`,
@@ -517,63 +517,63 @@ The doctor runs these checks: `Config`, `Database`, `Storage/encryption`,
 ### Provider Management
 
 ```bash
-omniroute providers available                       # OmniRoute provider catalog
-omniroute providers available --search openai       # Filter catalog by id/name/alias/category
-omniroute providers available --category api-key    # Filter by category (api-key, oauth, free, ...)
-omniroute providers available --json                # Machine-readable JSON
+GateFlow providers available                       # GateFlow provider catalog
+GateFlow providers available --search openai       # Filter catalog by id/name/alias/category
+GateFlow providers available --category api-key    # Filter by category (api-key, oauth, free, ...)
+GateFlow providers available --json                # Machine-readable JSON
 
-omniroute providers list                            # Configured provider connections
-omniroute providers list --json
+GateFlow providers list                            # Configured provider connections
+GateFlow providers list --json
 
-omniroute providers test <id|name>                  # Test one configured connection
-omniroute providers test-all                        # Test every active connection
-omniroute providers validate                        # Local-only structural validation
+GateFlow providers test <id|name>                  # Test one configured connection
+GateFlow providers test-all                        # Test every active connection
+GateFlow providers validate                        # Local-only structural validation
 ```
 
-> `providers available` reads the OmniRoute catalog; `providers list/test/test-all/validate`
+> `providers available` reads the GateFlow catalog; `providers list/test/test-all/validate`
 > read the local SQLite database directly and do not require the server to be running.
 
 ### Recovery & Reset
 
 ```bash
-omniroute reset-password                # Reset the admin password (legacy alias still works)
-omniroute reset-encrypted-columns       # Show warning + dry-run for encrypted credential reset
-omniroute reset-encrypted-columns --force  # Actually null out encrypted credentials in SQLite
+GateFlow reset-password                # Reset the admin password (legacy alias still works)
+GateFlow reset-encrypted-columns       # Show warning + dry-run for encrypted credential reset
+GateFlow reset-encrypted-columns --force  # Actually null out encrypted credentials in SQLite
 ```
 
 ### Other subcommands (via `cli-commands.mjs`)
 
-These are dispatched in `bin/cli-commands.mjs` and assume a running OmniRoute
+These are dispatched in `bin/cli-commands.mjs` and assume a running GateFlow
 server, unless noted otherwise:
 
 ```bash
-omniroute status                       # Comprehensive runtime status
-omniroute logs                         # Stream request logs (--json, --search, --follow)
-omniroute config show                  # Display current configuration
+GateFlow status                       # Comprehensive runtime status
+GateFlow logs                         # Stream request logs (--json, --search, --follow)
+GateFlow config show                  # Display current configuration
 
-omniroute provider list                # List available providers (alias of providers list)
-omniroute provider add                 # Register OmniRoute as a provider on a tool
-omniroute keys add | list | remove     # Manage API keys
-omniroute models [provider]            # List models (--json, --search)
-omniroute combo list | switch | create | delete
+GateFlow provider list                # List available providers (alias of providers list)
+GateFlow provider add                 # Register GateFlow as a provider on a tool
+GateFlow keys add | list | remove     # Manage API keys
+GateFlow models [provider]            # List models (--json, --search)
+GateFlow combo list | switch | create | delete
 
-omniroute backup                       # Snapshot config + DB
-omniroute restore                      # Restore from a previous snapshot
+GateFlow backup                       # Snapshot config + DB
+GateFlow restore                      # Restore from a previous snapshot
 
-omniroute health                       # Detailed health (breakers, cache, memory)
-omniroute quota                        # Provider quota usage
-omniroute cache                        # Cache status
-omniroute cache clear                  # Clear semantic + signature caches
+GateFlow health                       # Detailed health (breakers, cache, memory)
+GateFlow quota                        # Provider quota usage
+GateFlow cache                        # Cache status
+GateFlow cache clear                  # Clear semantic + signature caches
 
-omniroute mcp status | restart         # MCP server status / restart
-omniroute a2a status | card            # A2A server status / agent card
+GateFlow mcp status | restart         # MCP server status / restart
+GateFlow a2a status | card            # A2A server status / agent card
 
-omniroute tunnel list | create | stop  # Manage tunnels (cloudflare/tailscale/ngrok)
-omniroute env show | get <k> | set <k> <v>  # Inspect / set env vars (temporary)
+GateFlow tunnel list | create | stop  # Manage tunnels (cloudflare/tailscale/ngrok)
+GateFlow env show | get <k> | set <k> <v>  # Inspect / set env vars (temporary)
 
-omniroute test                         # Provider connectivity smoke test
-omniroute update                       # Check for updates
-omniroute completion                   # Generate shell completion
+GateFlow test                         # Provider connectivity smoke test
+GateFlow update                       # Check for updates
+GateFlow completion                   # Generate shell completion
 ```
 
 ### Common flags
@@ -608,14 +608,14 @@ omniroute completion                   # Generate shell completion
 
 | Error                                             | Cause                       | Fix                                                                         |
 | ------------------------------------------------- | --------------------------- | --------------------------------------------------------------------------- |
-| `Connection refused`                              | OmniRoute not running       | `omniroute serve` or `pm2 start omniroute`                                  |
+| `Connection refused`                              | GateFlow not running       | `GateFlow serve` or `pm2 start GateFlow`                                  |
 | `401 Unauthorized`                                | Wrong API key               | Check in `/dashboard/api-manager`                                           |
 | `No combo configured`                             | No active routing combo     | Set up in `/dashboard/combos`                                               |
 | `invalid model`                                   | Model not in catalog        | Use `auto` or check `/dashboard/providers`                                  |
 | CLI shows "not installed"                         | Binary not in PATH          | Check `which <command>`                                                     |
 | `kiro-cli: not found`                             | Not in PATH                 | `export PATH="$HOME/.local/bin:$PATH"`                                      |
 | `doctor` reports SQLite incompatible              | Wrong native binary         | `cd app && npm rebuild better-sqlite3`                                      |
-| `doctor` reports `STORAGE_ENCRYPTION_KEY` missing | Encrypted creds without key | Set `STORAGE_ENCRYPTION_KEY` or `omniroute reset-encrypted-columns --force` |
+| `doctor` reports `STORAGE_ENCRYPTION_KEY` missing | Encrypted creds without key | Set `STORAGE_ENCRYPTION_KEY` or `GateFlow reset-encrypted-columns --force` |
 
 ---
 
@@ -627,9 +627,9 @@ cat > my-setup.sh <<'EOF'
 set -euo pipefail
 
 # === Edit these ===
-OMNIROUTE_URL="http://localhost:20128/v1"
-OMNIROUTE_ANTHROPIC_URL="http://localhost:20128"
-OMNIROUTE_KEY="sk-your-omniroute-key"
+GateFlow_URL="http://localhost:20128/v1"
+GateFlow_ANTHROPIC_URL="http://localhost:20128"
+GateFlow_KEY="sk-your-GateFlow-key"
 # ==================
 
 # 1. Install the external CLIs
@@ -653,41 +653,41 @@ mkdir -p ~/.claude ~/.codex ~/.config/opencode ~/.continue ~/.qwen
 cat > ~/.claude/settings.json <<JSON
 {
   "env": {
-    "ANTHROPIC_BASE_URL": "${OMNIROUTE_ANTHROPIC_URL}",
-    "ANTHROPIC_AUTH_TOKEN": "${OMNIROUTE_KEY}"
+    "ANTHROPIC_BASE_URL": "${GateFlow_ANTHROPIC_URL}",
+    "ANTHROPIC_AUTH_TOKEN": "${GateFlow_KEY}"
   }
 }
 JSON
 
 cat > ~/.codex/config.yaml <<YAML
 model: auto
-apiKey: ${OMNIROUTE_KEY}
-apiBaseUrl: ${OMNIROUTE_URL}
+apiKey: ${GateFlow_KEY}
+apiBaseUrl: ${GateFlow_URL}
 YAML
 
 cat > ~/.qwen/.env <<ENV
-OPENAI_API_KEY="${OMNIROUTE_KEY}"
-OPENAI_BASE_URL="${OMNIROUTE_URL}"
+OPENAI_API_KEY="${GateFlow_KEY}"
+OPENAI_BASE_URL="${GateFlow_URL}"
 OPENAI_MODEL="auto"
 ENV
 
 # 4. Append global env vars (idempotent guard)
-if ! grep -q "OmniRoute Universal Endpoint" ~/.bashrc 2>/dev/null; then
+if ! grep -q "GateFlow Universal Endpoint" ~/.bashrc 2>/dev/null; then
   cat >> ~/.bashrc <<ENV
 
-# OmniRoute Universal Endpoint
-export OPENAI_BASE_URL="${OMNIROUTE_URL}"
-export OPENAI_API_KEY="${OMNIROUTE_KEY}"
-export ANTHROPIC_BASE_URL="${OMNIROUTE_ANTHROPIC_URL}"
-export ANTHROPIC_AUTH_TOKEN="${OMNIROUTE_KEY}"
+# GateFlow Universal Endpoint
+export OPENAI_BASE_URL="${GateFlow_URL}"
+export OPENAI_API_KEY="${GateFlow_KEY}"
+export ANTHROPIC_BASE_URL="${GateFlow_ANTHROPIC_URL}"
+export ANTHROPIC_AUTH_TOKEN="${GateFlow_KEY}"
 ENV
 fi
 
 # 5. Validate via the internal CLI
-omniroute doctor || true
-omniroute providers list || true
+GateFlow doctor || true
+GateFlow providers list || true
 
-echo "All CLIs installed and configured for OmniRoute"
+echo "All CLIs installed and configured for GateFlow"
 EOF
 chmod +x my-setup.sh
 ./my-setup.sh

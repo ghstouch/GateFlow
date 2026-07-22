@@ -4,7 +4,7 @@
  * OmniRoute CLI — Smart AI Router with Auto Fallback
  *
  * Usage:
- *   omniroute                          Start the server (default port 20128)
+ *   omniroute                          Start the server (default port 1750)
  *   omniroute --port 3000              Start on custom port
  *   omniroute --no-open                Start without opening browser
  *   omniroute --mcp                    Start MCP server (stdio transport for IDEs)
@@ -111,7 +111,7 @@ if (args.includes("--help") || args.includes("-h")) {
     omniroute doctor          Run local health checks
     omniroute providers available  List supported providers
     omniroute providers list  List configured providers
-    omniroute --port <port>   Use custom API port (default: 20128)
+    omniroute --port <port>   Use custom API port (default: 1750)
     omniroute --no-open       Don't open browser automatically
     omniroute --mcp           Start MCP server (stdio transport for IDEs)
     omniroute reset-encrypted-columns  Reset encrypted credentials (recovery)
@@ -373,7 +373,7 @@ function parsePort(value, fallback) {
   return Number.isFinite(parsed) && parsed > 0 && parsed <= 65535 ? parsed : fallback;
 }
 
-let port = parsePort(process.env.PORT || "20128", 20128);
+let port = parsePort(process.env.PORT || "1750", 1750);
 const portIdx = args.indexOf("--port");
 if (portIdx !== -1 && args[portIdx + 1]) {
   const cliPort = parsePort(args[portIdx + 1], null);

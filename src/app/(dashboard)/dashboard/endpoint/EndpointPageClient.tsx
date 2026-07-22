@@ -776,7 +776,7 @@ export default function APIPageClient({ machineId }: Readonly<APIPageClientProps
           type: "info",
           message: translateOrFallback(
             "tailscaleWaitingForLogin",
-            "Complete the Tailscale login in the opened browser tab. OmniRoute will retry automatically."
+            "Complete the Tailscale login in the opened browser tab. gateflow will retry automatically."
           ),
         });
 
@@ -804,7 +804,7 @@ export default function APIPageClient({ machineId }: Readonly<APIPageClientProps
           type: "info",
           message: translateOrFallback(
             "tailscaleWaitingForFunnel",
-            "Enable Funnel for this device in the opened browser tab. OmniRoute will keep polling."
+            "Enable Funnel for this device in the opened browser tab. gateflow will keep polling."
           ),
         });
 
@@ -2008,7 +2008,7 @@ export default function APIPageClient({ machineId }: Readonly<APIPageClientProps
                 </div>
                 <div className="mt-3 rounded-lg bg-bg p-3 border border-border/70">
                   <p className="text-xs font-semibold mb-1">{t("quickStart") || "Quick Start"}</p>
-                  <code className="text-xs font-mono break-all">omniroute --mcp</code>
+                  <code className="text-xs font-mono break-all">gateflow --mcp</code>
                 </div>
                 <div className="mt-3">
                   <Link
@@ -2076,14 +2076,14 @@ export default function APIPageClient({ machineId }: Readonly<APIPageClientProps
                   {t("mcpQuickStartTitle") || "MCP Quick Start"}
                 </h4>
                 <ol className="text-sm text-text-muted space-y-1 list-decimal list-inside">
-                  <li>{t("mcpQuickStartStep1") || "Run the MCP server via `omniroute --mcp`."}</li>
+                  <li>{t("mcpQuickStartStep1") || "Run the MCP server via `gateflow --mcp`."}</li>
                   <li>
                     {t("mcpQuickStartStep2") ||
                       "Configure your MCP client to connect over stdio transport."}
                   </li>
                   <li>
                     {t("mcpQuickStartStep3") ||
-                      "Invoke tools such as `omniroute_get_health` and `omniroute_list_combos`."}
+                      "Invoke tools such as `OMNIROUTE_get_health` and `OMNIROUTE_list_combos`."}
                   </li>
                 </ol>
               </div>
@@ -2280,7 +2280,7 @@ export default function APIPageClient({ machineId }: Readonly<APIPageClientProps
             <p className="text-sm font-medium text-blue-300">
               {translateOrFallback(
                 "tailscaleInstallIntro",
-                "Installs Tailscale on this machine and prepares OmniRoute to enable Funnel."
+                "Installs Tailscale on this machine and prepares gateflow to enable Funnel."
               )}
             </p>
             <p className="mt-2 text-sm text-blue-200/80">

@@ -35,7 +35,7 @@ For full test matrix, see `CONTRIBUTING.md` → "Running Tests". For deep archit
 
 ## Project at a Glance
 
-**OmniRoute** — unified AI proxy/router. One endpoint, 160+ LLM providers, auto-fallback.
+**GateFlow** — unified AI proxy/router. One endpoint, 160+ LLM providers, auto-fallback.
 
 | Layer         | Location                | Purpose                                                            |
 | ------------- | ----------------------- | ------------------------------------------------------------------ |
@@ -78,7 +78,7 @@ API routes follow a consistent pattern: `Route → CORS preflight → Zod body v
 
 ## Resilience Runtime State
 
-OmniRoute has three related but distinct temporary-failure mechanisms. Keep their
+GateFlow has three related but distinct temporary-failure mechanisms. Keep their
 scope separate when debugging routing behavior. See the
 [3-layer resilience diagram](./docs/diagrams/exported/resilience-3layers.svg)
 (source: [docs/diagrams/resilience-3layers.mmd](./docs/diagrams/resilience-3layers.mmd))
@@ -219,7 +219,7 @@ connection continue serving other models.
 ### Code Style
 
 - **2 spaces**, semicolons, double quotes, 100 char width, es5 trailing commas (enforced by lint-staged via Prettier)
-- **Imports**: external → internal (`@/`, `@omniroute/open-sse`) → relative
+- **Imports**: external → internal (`@/`, `@GateFlow/open-sse`) → relative
 - **Naming**: files=camelCase/kebab, components=PascalCase, constants=UPPER_SNAKE
 - **ESLint**: `no-eval`, `no-implied-eval`, `no-new-func` = error everywhere; `no-explicit-any` = warn in `open-sse/` and `tests/`
 - **TypeScript**: `strict: false`, target ES2022, module esnext, resolution bundler. Prefer explicit types.
@@ -389,9 +389,9 @@ git push -u origin feat/your-feature
 
 - **Runtime**: Node.js ≥20.20.2 <21 || ≥22.22.2 <23 || ≥24 <25, ES Modules
 - **TypeScript**: 5.9+, target ES2022, module esnext, resolution bundler
-- **Path aliases**: `@/*` → `src/`, `@omniroute/open-sse` → `open-sse/`, `@omniroute/open-sse/*` → `open-sse/*`
+- **Path aliases**: `@/*` → `src/`, `@GateFlow/open-sse` → `open-sse/`, `@GateFlow/open-sse/*` → `open-sse/*`
 - **Default port**: 20128 (API + dashboard on same port)
-- **Data directory**: `DATA_DIR` env var, defaults to `~/.omniroute/`
+- **Data directory**: `DATA_DIR` env var, defaults to `~/.GateFlow/`
 - **Key env vars**: `PORT`, `JWT_SECRET`, `API_KEY_SECRET`, `INITIAL_PASSWORD`, `REQUIRE_API_KEY`, `APP_LOG_LEVEL`
 - Setup: `cp .env.example .env` then generate `JWT_SECRET` (`openssl rand -base64 48`) and `API_KEY_SECRET` (`openssl rand -hex 32`)
 

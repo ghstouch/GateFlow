@@ -17,7 +17,7 @@
 - **feat(providers):** add 9 new free AI providers — LLM7, Lepton, Kluster, UncloseAI, BazaarLink, Completions, Enally, FreeTheAi (#2096)
 - **feat(providers):** batch delete provider connections via checkbox multi-select (#2094)
 - **feat(cursor):** full OpenAI parity — tool calls, streaming, and session management (#2082)
-- **feat(cli):** comprehensive CLI enhancement suite with 20+ new commands including `omniroute providers`, `omniroute combos`, `omniroute doctor` (#2074)
+- **feat(cli):** comprehensive CLI enhancement suite with 20+ new commands including `GateFlow providers`, `GateFlow combos`, `GateFlow doctor` (#2074)
 - **feat(cli):** add modular CLI setup and provider management commands (#2046)
 - **feat(mcp):** add DeepSeek quota and limit monitoring feature (#2089)
 - **feat(circuit-breaker):** classify 429 errors and apply per-kind cooldowns (#2116)
@@ -156,7 +156,7 @@ Thank you to all **38 community contributors** who made v3.8.0 possible! 🎉
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -234,7 +234,7 @@ Thank you to all **38 community contributors** who made v3.8.0 possible! 🎉
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -273,7 +273,7 @@ Thank you to all **38 community contributors** who made v3.8.0 possible! 🎉
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -305,7 +305,7 @@ Thank you to all **38 community contributors** who made v3.8.0 possible! 🎉
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -344,7 +344,7 @@ Thank you to all **38 community contributors** who made v3.8.0 possible! 🎉
 
 We identified that **155 community PRs** across the entire project history (from inception through v3.7.5) were manually integrated into release branches but closed instead of properly merged through GitHub, preventing contributors from receiving merge credit on their profiles. We sincerely apologize for this oversight and have since updated our workflows to ensure this never happens again.
 
-**The following contributors had their code and ideas integrated across multiple releases without proper merge credit. Thank you for your invaluable contributions to OmniRoute:**
+**The following contributors had their code and ideas integrated across multiple releases without proper merge credit. Thank you for your invaluable contributions to GateFlow:**
 
 | Contributor                                                  | PRs (Total) | All Contributions                                                                                                                                                                   |
 | :----------------------------------------------------------- | :---------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -408,7 +408,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -425,7 +425,7 @@ We identified that **155 community PRs** across the entire project history (from
 - **fix(db):** wrap quota_snapshots access in try/catch to gracefully handle pending database migrations (#1784)
 - **feat(providers):** add support for glm-cn (BigModel) provider (#1770)
 - **fix(grok-web):** fix Grok validator and cookie parsing (#1793)
-- **fix(antigravity):** scrub internal OmniRoute headers (#1794)
+- **fix(antigravity):** scrub internal GateFlow headers (#1794)
 - **fix(chatgpt-web):** restore validator + expand model catalog to ChatGPT Plus tier (#1792)
 - **fix(codex):** stabilize Copilot responses replay state (#1791)
 - **fix(antigravity):** cap Claude bridge output tokens (#1785)
@@ -460,7 +460,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -523,7 +523,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -599,7 +599,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -607,13 +607,13 @@ We identified that **155 community PRs** across the entire project history (from
 - **fix(auth):** fix Codex assistant final_answer response sanitization (#1965)
 
 - **feat(providers):** Add GPT-5.5 support to the Codex provider — includes 1.05M context window, tool calling, vision, and reasoning capabilities with proper pricing entries across `cx` and `openai` providers. Refactors `splitCodexReasoningSuffix()` into a shared helper for cleaner effort-level parsing (#1617 — thanks @Zhaba1337228).
-- **feat(cli):** Add `omniroute reset-encrypted-columns` recovery command — nulls encrypted credential columns (`api_key`, `access_token`, `refresh_token`, `id_token`) in `provider_connections` while preserving provider metadata, giving users affected by #1622 a clean recovery path without losing configurations.
+- **feat(cli):** Add `GateFlow reset-encrypted-columns` recovery command — nulls encrypted credential columns (`api_key`, `access_token`, `refresh_token`, `id_token`) in `provider_connections` while preserving provider metadata, giving users affected by #1622 a clean recovery path without losing configurations.
 - **feat(i18n):** Expand locale coverage with nine new language packs (Bengali, Farsi, Gujarati, Indonesian, Marathi, Swahili, Tamil, Telugu, Urdu), bringing total language support from 32 to 41 locales.
 
 ### 🐛 Bug Fixes
 
 - **fix(rate-limit):** Add per-model rate limiting for GitHub Copilot provider — a 429 on one model (e.g. `gpt-5.1-codex-max`) no longer locks the entire connection, matching the existing Gemini per-model quota pattern (#1624 — thanks @slewis3600).
-- **fix(cli-tools):** Preserve existing OpenCode configuration (MCP servers, custom providers, comments) when saving OmniRoute settings — uses `jsonc-parser` for tree-preserving edits instead of destructive JSON roundtrip. Fix API key clipboard copy to use raw keys instead of masked placeholders. Add theme-aware OpenCode light/dark SVG logos (#1626 — thanks @JasonLandbridge).
+- **fix(cli-tools):** Preserve existing OpenCode configuration (MCP servers, custom providers, comments) when saving GateFlow settings — uses `jsonc-parser` for tree-preserving edits instead of destructive JSON roundtrip. Fix API key clipboard copy to use raw keys instead of masked placeholders. Add theme-aware OpenCode light/dark SVG logos (#1626 — thanks @JasonLandbridge).
 - **fix(cli-tools):** Fix OpenCode guide step 3 `{{baseUrl}}` double-brace placeholder to use ICU-style `{baseUrl}` across all 41 locales, restoring next-intl interpolation (#1626).
 - **fix(codex):** Make `wreq-js` native module import lazy and optional to prevent server crash on startup when the platform-specific binary is missing — affects pnpm installs, Docker Alpine, macOS ARM, and Windows (#1612, #1613, #1616).
 - **fix(i18n):** Add 14 missing translation keys (`logs.runningRequests`, `logs.model`, `logs.provider`, `logs.account`, `logs.elapsed`, `logs.count`, `logs.payloads`, etc.) for the Active Requests panel across all locales. Replace 83 placeholder values in usage/evals namespace. Add 5 missing health namespace keys for rate limit status.
@@ -639,7 +639,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### Dokumentasyon
 
-- **docs(env):** Add `OMNIROUTE_ALLOW_PRIVATE_PROVIDER_URLS` to `.env.example` with documentation for LM Studio and other local provider use cases (#1623).
+- **docs(env):** Add `GateFlow_ALLOW_PRIVATE_PROVIDER_URLS` to `.env.example` with documentation for LM Studio and other local provider use cases (#1623).
 
 ---
 
@@ -647,7 +647,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -667,7 +667,7 @@ We identified that **155 community PRs** across the entire project history (from
 - **feat(codex):** support GPT-5.5 responses websocket (#1573)
 - **feat(sse):** Codex CLI image_generation + DALL-E-style image route (#1544)
 - **feat(dashboard):** Complete the reconciled v3.7.0 dashboard task set: MCP cache tools and count, video endpoint visibility, provider taxonomy, upstream proxy visibility, provider count badges, costs overview, eval suite management, Custom CLI builder, ACP-focused Agents copy, Translator stream transformer, logs convergence, learned rate-limit health cards, docs expansion, and active request payload inspection.
-- **feat(mcp):** Register `omniroute_cache_stats` and `omniroute_cache_flush` across MCP schemas, server registration, handlers, docs, and tests.
+- **feat(mcp):** Register `GateFlow_cache_stats` and `GateFlow_cache_flush` across MCP schemas, server registration, handlers, docs, and tests.
 - **feat(providers):** Complete the v3.7.0 provider onboarding wave with self-hosted/local providers (`lm-studio`, `vllm`, `lemonade`, `llamafile`, `triton`, `docker-model-runner`, `xinference`, `oobabooga`), OpenAI-compatible gateways (`glhf`, `cablyai`, `thebai`, `fenayai`, `empower`, `poe`), enterprise providers (`datarobot`, `azure-openai`, `azure-ai`, `bedrock`, `watsonx`, `oci`, `sap`), specialty providers (`clarifai`, `modal`, `reka`, `nous-research`, `nlpcloud`, `petals`, `vertex-partner`), `amazon-q`, GitLab/GitLab Duo, and Chutes.ai.
 - **feat(providers):** Add Cloudflare Workers AI integration and UI support for robust backend execution.
 - **feat(telemetry):** Implement proactive public IP capture from client headers (`x-forwarded-for`, `x-real-ip`, etc.) within `safeLogEvents` for accurate database observability.
@@ -812,7 +812,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -822,7 +822,7 @@ We identified that **155 community PRs** across the entire project history (from
 - **feat(providers):** Implement Image Generation and Editing capabilities for ChatGPT Web, including in-band chat image generation and caching (#1606).
 - **feat(ui):** Integrate OpenCode Zen/Go API tool logo SVG and polish API key copy-to-clipboard interactions (#1607).
 
-- **feat(providers):** Mark Qwen OAuth provider as deprecated following the upstream free tier shutdown on 2026-04-15. Adds deprecation warning to CLI tool UI and rewrites `saveQwenConfig` to inject OmniRoute as a multi-provider (openai, anthropic, gemini) via `.qwen/settings.json` and `.qwen/.env` (#1437)
+- **feat(providers):** Mark Qwen OAuth provider as deprecated following the upstream free tier shutdown on 2026-04-15. Adds deprecation warning to CLI tool UI and rewrites `saveQwenConfig` to inject GateFlow as a multi-provider (openai, anthropic, gemini) via `.qwen/settings.json` and `.qwen/.env` (#1437)
 - **feat(cc-compatible):** Align Claude Code-compatible request shape with the official Claude CLI protocol, including proper system skeleton and request normalization (#1411)
 - **feat(skills):** Provider-aware marketplace UX with scored AUTO injection and memory pipeline hardening. Skills now show relevance scores and can automatically inject context into requests (#1411)
 - **feat(claude-code):** Update Claude Code obfuscation to version 2.1.114, centralize hardcoded version strings, and use standard logger (#1403)
@@ -901,7 +901,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -988,7 +988,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1041,9 +1041,9 @@ We identified that **155 community PRs** across the entire project history (from
 - **fix(cli):** Resolve codex routing config parsing by strictly quoting section keys array, enforcing responses wire_api with fallback, and standardizing select-model button positioning mirroring Claude UI
 - **fix(providers):** Correct Lobehub provider icons rendering by removing unsupported local references ensuring local SVG/PNG fallback mechanism invokes natively
 - **fix(db):** Implement Database migration tracking safety abort safeguards (pre-migration backups via `VACUUM INTO` and mass renumbering warnings) to protect existing database structures on startup upgrades (#1281)
-- **fix(dashboard):** Cleaned up target codex `config.toml` structure preventing recursive section rendering by enforcing quotes on section dot paths and mapping correct UI `OMNIROUTE_API_KEY` names.
+- **fix(dashboard):** Cleaned up target codex `config.toml` structure preventing recursive section rendering by enforcing quotes on section dot paths and mapping correct UI `GateFlow_API_KEY` names.
 - **fix(mcp):** Add dedicated explicit timeout constraint overrides for search handlers (#1280)
-- **fix(crypto):** Add validation guard to encryption layer to surface clear UI errors when cryptographic environment variables are missing, replacing raw Node.js TypeErrors. Legacy env vars `OMNIROUTE_CRYPT_KEY` and `OMNIROUTE_API_KEY_BASE64` now also accepted as fallbacks (#1165)
+- **fix(crypto):** Add validation guard to encryption layer to surface clear UI errors when cryptographic environment variables are missing, replacing raw Node.js TypeErrors. Legacy env vars `GateFlow_CRYPT_KEY` and `GateFlow_API_KEY_BASE64` now also accepted as fallbacks (#1165)
 - **fix(providers):** Update Pollinations provider definition to require API keys and specify their new limited pollen/hour free tier (#1177)
 - **Streaming `\n\n` Artifact Fix (#1211):** Changed `<omniModel>` tag-stripping regex from `?` to `*` quantifier across `combo.ts`, `comboAgentMiddleware.ts`, and `contextHandoff.ts` to greedily strip all accumulated JSON-escaped newline sequences surrounding the tag. This prevents literal `\n\n` prefix artifacts from appearing in consumer streaming responses
 - **E2E Combo Test Locator:** Fixed Playwright strict-mode violation in `combo-unification.spec.ts` by replacing ambiguous `getByRole` locator with a compound filter locator for the "All" strategy tab
@@ -1071,7 +1071,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1088,7 +1088,7 @@ We identified that **155 community PRs** across the entire project history (from
 - **Claude Code Native Parity:** Full header/body signing parity with the Claude Code 2.1.87 OAuth client — CCH xxHash64 body signing with singleton WASM initialization promise (fixing race conditions), dynamic per-request fingerprint, bidirectional TitleCase ↔ lowercase tool name remapping (14 tools), API constraint enforcement (`temperature=1` for thinking, max 4 `cache_control` blocks, auto-inject ephemeral on last user message), and optional ZWJ obfuscation. Wired into `BaseExecutor` for automatic CCH signing on all `anthropic-compatible-cc-*` providers and into `chatCore` for synchronous parity pipeline steps (#1188 — thanks @RaviTharuma)
 - **Per-Connection Codex Defaults:** Codex Fast Service Tier and Reasoning Effort settings are now per-connection instead of a single global toggle. Existing connections are migrated automatically on startup via an idempotent backfill migration (#1176 — thanks @rdself)
 - **Cursor Usage Dashboard:** New `getCursorUsage()` fetches quotas from Cursor's `/api/usage`, `/api/auth/me`, and `/api/subscription` endpoints. Displays standard requests, on-demand usage, and per-plan limits (Free/Pro/Business/Team). Client version bumped to `3.1.0` and `x-cursor-user-agent` header added for parity
-- **Database Health Check System:** Automated periodic SQLite integrity monitoring via `runDbHealthCheck()` — detects orphan quota/domain rows, broken combo references, stale snapshots, and invalid JSON state. Runs every 6 hours (configurable via `OMNIROUTE_DB_HEALTHCHECK_INTERVAL_MS`), with auto-repair and pre-repair backup. Exposed as **MCP tool #18** (`omniroute_db_health_check`) with Zod schemas and `autoRepair` option. Dashboard panel in Health page with status card, issue count, repaired count, and one-click repair button
+- **Database Health Check System:** Automated periodic SQLite integrity monitoring via `runDbHealthCheck()` — detects orphan quota/domain rows, broken combo references, stale snapshots, and invalid JSON state. Runs every 6 hours (configurable via `GateFlow_DB_HEALTHCHECK_INTERVAL_MS`), with auto-repair and pre-repair backup. Exposed as **MCP tool #18** (`GateFlow_db_health_check`) with Zod schemas and `autoRepair` option. Dashboard panel in Health page with status card, issue count, repaired count, and one-click repair button
 - **OpenAI Responses API Store Opt-In:** Per-connection `openaiStoreEnabled` flag controls whether the `store` field is preserved or forced to `false` on Codex Responses API requests. When enabled, `previous_response_id`, `prompt_cache_key`, `session_id`, and `conversation_id` fields are round-tripped through the Chat Completions → Responses translation, enabling multi-turn context caching on supported providers
 - **Email Privacy Toggle (Combos Page):** Global email visibility toggle (`EmailPrivacyToggle`) added to the Combos page header with responsive layout, tooltip guidance, and per-connection label masking via `pickDisplayValue()`. All combo builder options, provider connection lists, and quota screens now respect the global privacy state from `emailPrivacyStore`
 - **skills.sh Integration:** Added `skills.sh` as an external skill provider. Users can now search, browse, and install agent skills directly from a new "skills.sh" tab in the Skills dashboard. Includes backend API resolvers, frontend implementation with search/install states, and a dedicated unit test suite (#1223 — thanks @RaviTharuma)
@@ -1142,7 +1142,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1172,7 +1172,7 @@ We identified that **155 community PRs** across the entire project history (from
 ### ⚡ Performance
 
 - **Middleware Lazy Loading:** Refactored `src/proxy.ts` to lazy-import `apiAuth`, `db/settings`, and `modelSyncScheduler` modules, reducing middleware cold-start overhead. Added inline `isPublicApiRoute()` to avoid loading the full auth module for public routes
-- **E2E Auth Bypass:** Added `NEXT_PUBLIC_OMNIROUTE_E2E_MODE` environment flag to bypass authentication gates for dashboard and management API routes during Playwright E2E test runs
+- **E2E Auth Bypass:** Added `NEXT_PUBLIC_GateFlow_E2E_MODE` environment flag to bypass authentication gates for dashboard and management API routes during Playwright E2E test runs
 
 ### 🐛 Bug Fixes
 
@@ -1200,7 +1200,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 - **Auth Bypass on Backup Routes (Critical):** Added `isAuthenticated` guards to `/api/db-backups/exportAll` (full database export) and `/api/db-backups` (list, create, and restore backups) — both were previously accessible without authentication
 - **Auth Guard on Translator Save:** Added `isAuthenticated` guard to `/api/translator/save` for defense-in-depth consistency
-- **API Key Secret Hardening:** Removed the hardcoded `"omniroute-default-insecure-api-key-secret"` fallback from `apiKey.ts` — the function now fails fast if `API_KEY_SECRET` is unset, relying on the startup validator to auto-generate it
+- **API Key Secret Hardening:** Removed the hardcoded `"GateFlow-default-insecure-api-key-secret"` fallback from `apiKey.ts` — the function now fails fast if `API_KEY_SECRET` is unset, relying on the startup validator to auto-generate it
 - **NPM Tarball Leak Fix:** Added `app/.env*` to `.npmignore` to prevent the working `.env` file from being shipped inside the npm tarball distribution
 - **Electron Builder CVE Fix:** Bumped `electron-builder` to 26.8.1 to resolve `tar` CVEs in the desktop build pipeline
 
@@ -1249,7 +1249,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1280,8 +1280,8 @@ We identified that **155 community PRs** across the entire project history (from
 - **Vertex JSON Validation Crash:** Prevented `invalid character in header` crashes inside the `/validate` endpoint by creating a native authentication parser that correctly handles Google Identity Service Account JSON flows prior to pinging endpoints (#1153)
 - **Extraneous Payload Rejection:** Globally prevented upstream `400 Bad Request` execution crashes by stripping the non-standard `prompt_cache_retention` attribute forcibly attached by Cursor/Cline IDE engines when targeting strict OpenAI/Anthropic routes (#1154)
 - **Reasoning Content Drop:** Prevented pure reasoning packets, common in advanced fallback models like DeepSeek, from being aborted mid-stream by explicitly adjusting the `Empty Content (502)` circuit breakers to acknowledge `reasoning_content` states as valid (#1155)
-- **Desktop Windows Build Crash:** Fixed `better_sqlite3.node is not a valid Win32 application` preventing OmniRoute Desktop from launching on Windows by properly removing the ABI-mismatched sqlite cache from Next.js standalone and falling back to the cross-compiled Electron equivalent during packager build steps (#1163)
-- **Login Visual Security:** Removed the raw fallback hash dump that artificially rendered underneath the login modal in Docker instances missing `OMNIROUTE_API_KEY_BASE64` flags (#1148)
+- **Desktop Windows Build Crash:** Fixed `better_sqlite3.node is not a valid Win32 application` preventing GateFlow Desktop from launching on Windows by properly removing the ABI-mismatched sqlite cache from Next.js standalone and falling back to the cross-compiled Electron equivalent during packager build steps (#1163)
+- **Login Visual Security:** Removed the raw fallback hash dump that artificially rendered underneath the login modal in Docker instances missing `GateFlow_API_KEY_BASE64` flags (#1148)
 
 ### 🔧 Maintenance & Dependencies
 
@@ -1294,7 +1294,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1307,7 +1307,7 @@ We identified that **155 community PRs** across the entire project history (from
 - **feat(providers):** Integrate AgentRouter as a new OpenAI-compatible passthrough provider with $200 free credits via sign-up (Issue #1572).
 - **feat(ui):** Implement on-demand per-model testing in the provider dashboard, allowing single-token diagnostic checks without triggering rate-limits (Issue #1532).
 
-- **33 New API Key Providers:** Massive provider expansion adding DeepInfra, Vercel AI Gateway, Lambda AI, SambaNova, nScale, OVHcloud AI, Baseten, PublicAI, Moonshot AI, Meta Llama API, v0 (Vercel), Morph, Featherless AI, FriendliAI, LlamaGate, Galadriel, Weights & Biases Inference, Volcengine, AI21 Labs, Venice.ai, Codestral, Upstage, Maritalk, Xiaomi MiMo, Inference.net, NanoGPT, Predibase, Bytez, Heroku AI, Databricks, Snowflake Cortex, and GigaChat (Sber). OmniRoute now supports **100+ providers** (4 Free + 8 OAuth + 91 API Key + Custom compatible)
+- **33 New API Key Providers:** Massive provider expansion adding DeepInfra, Vercel AI Gateway, Lambda AI, SambaNova, nScale, OVHcloud AI, Baseten, PublicAI, Moonshot AI, Meta Llama API, v0 (Vercel), Morph, Featherless AI, FriendliAI, LlamaGate, Galadriel, Weights & Biases Inference, Volcengine, AI21 Labs, Venice.ai, Codestral, Upstage, Maritalk, Xiaomi MiMo, Inference.net, NanoGPT, Predibase, Bytez, Heroku AI, Databricks, Snowflake Cortex, and GigaChat (Sber). GateFlow now supports **100+ providers** (4 Free + 8 OAuth + 91 API Key + Custom compatible)
 - **Global Email Privacy Toggle:** Added a persistent eye-icon toggle button across all dashboard pages (Providers, Usage Limits, Playground) that reveals or hides masked email addresses. Toggle state is stored in localStorage and synced globally via Zustand store
 - **Documentation Refresh:** Updated README, ARCHITECTURE, FEATURES, AGENTS.md, and API_REFERENCE for v3.6.2 with accurate provider counts (100+), new executor list, and system API documentation
 - **Uninstall Guide:** Created comprehensive `docs/guides/UNINSTALL.md` covering clean uninstallation for all deployment methods (npm, Docker, Electron, source)
@@ -1333,7 +1333,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1369,7 +1369,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features & Analytics
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1406,7 +1406,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1446,7 +1446,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features & Analytics
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1505,7 +1505,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1558,7 +1558,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1590,7 +1590,7 @@ We identified that **155 community PRs** across the entire project history (from
 - **Proxy Connection Healthchecks:** Applied proxy resolution per connection in the sweeping loop (`tokenHealthCheck.ts`) and global provider validation sweeps, resolving Node 22 bypass and improving proxy stability (#1051, #1056, #1061).
 - **Security Vulnerability Remediation:** Resolved multiple CodeQL scanning alerts including SSRF in model sync, insecure randomness in web crypto (`generateSessionId`), and incomplete URL sanitization.
 - **Context Relay Typing & Synchronization:** Reverted out-of-scope test breakages and resolved `handoffProvider` and response `input` extraction payload typing.
-- **Legacy OpenAI-Compatible Responses Routing:** Fixed legacy/imported OpenAI-compatible providers (for example `openai-compatible-sp-openai`) incorrectly routing Chat Completions traffic to `/chat/completions` when the real provider node was configured as `apiType: "responses"`. OmniRoute now treats `providerSpecificData.apiType` as authoritative across routing, executors, and translator tools, avoiding false empty-content failures during combo/provider smoke tests (#1069).
+- **Legacy OpenAI-Compatible Responses Routing:** Fixed legacy/imported OpenAI-compatible providers (for example `openai-compatible-sp-openai`) incorrectly routing Chat Completions traffic to `/chat/completions` when the real provider node was configured as `apiType: "responses"`. GateFlow now treats `providerSpecificData.apiType` as authoritative across routing, executors, and translator tools, avoiding false empty-content failures during combo/provider smoke tests (#1069).
 - **Gemini PDF Attachment Integration:** Fixed payload generation and format for parsing `inline_data` and generic base64 sources for deep Gemini PDF routing (#993, #1021).
 - **Vercel AI SDK Fallbacks:** Mapped `max_output_tokens` to `max_tokens` for strict OpenAI-compatible providers, resolving errors from standard AI agents and frameworks (#994).
 - **External Auth & UI Reliability:** Handled null `state` failures in Cline OAuth exchange (#1016), added 3rd-party 400 error patterns to combo fallback (#1024), and resolved desktop sidebar layout and popover overflows (#1039, #1001).
@@ -1612,7 +1612,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1707,7 +1707,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1746,7 +1746,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1781,7 +1781,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1797,8 +1797,8 @@ We identified that **155 community PRs** across the entire project history (from
 - **Auto-Combo & Routing:** Completed native CRUD lifecycle integration for the advanced Auto-Combo engine (#955).
 - **Core Operations:** Fixed missing translations for new native Auto-Combos options (#955).
 - **Security Validation:** Disabled SQLite auto-backup tasks natively during unit test CI execution to explicitly resolve Node 22 Event Loop hanging memory leaks (#956).
-- **Ecosystem Proxies:** Completed explicit integration mapping model synchronization schedulers, OAuth cycles, and Token Check refreshes safely through OmniRoute's native system upstream proxies (#953).
-- **MCP Extensibility:** Added and successfully registered the new `omniroute_web_search` MCP framework tool out of beta into production schemas (#951).
+- **Ecosystem Proxies:** Completed explicit integration mapping model synchronization schedulers, OAuth cycles, and Token Check refreshes safely through GateFlow's native system upstream proxies (#953).
+- **MCP Extensibility:** Added and successfully registered the new `GateFlow_web_search` MCP framework tool out of beta into production schemas (#951).
 - **Tokens Buffer Logic:** Added runtime configuration limits extending configurable input/output token buffers for precise Usage Tracking metrics (#959).
 
 ### 🐛 Bug Fixes
@@ -1892,7 +1892,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1933,7 +1933,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -1964,7 +1964,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 - **GitHub Copilot Token Stability:** Repaired the Copilot token refresh loop where stale tokens weren't deep-merged into DB, and removed `reasoning_text` fields that were fatally breaking downstream Anthropic block conversions for multi-turn chats (#923).
 - **Global Timeout Matrix:** Centralized and parameterized request timeouts explicitly from `REQUEST_TIMEOUT_MS` to prevent hidden (~300s) default fetch buffers prematurely cutting off long-lived SSE streaming responses from heavy reasoning models (#918).
-- **Cloudflare Quick Tunnels State:** Fixed a severe state inconsistency where restarted OmniRoute instances erroneously showed destroyed tunnels as active, and defaulted cloudflared tunneling to `HTTP/2` to eliminate UDP receive buffer log spam (#925).
+- **Cloudflare Quick Tunnels State:** Fixed a severe state inconsistency where restarted GateFlow instances erroneously showed destroyed tunnels as active, and defaulted cloudflared tunneling to `HTTP/2` to eliminate UDP receive buffer log spam (#925).
 - **i18n Translation Overhaul (Czech & Hindi):** Fixed Hindi code from DEPRECATED `in.json` to canonical `hi.json`, overhauled Czech text mappings, extracted `untranslatable-keys.json` to fix CI/CD false-positive validations, and generated comprehensive `I18N.md` docs to guide translators (#912).
 - **Tokens Provider Recovery:** Fixed Qwen losing specific `resourceUrl` endpoints after automatic health-check token refreshes because of missing DB deep merges (#917).
 - **CC Compatible UX & Streaming:** Unified the Add CC/OpenAI/Anthropic compatible actions around the Anthropic UI treatment, forced CC-compatible upstream requests to use SSE while still returning streaming or non-streaming responses based on the client request, removed CC model-list configuration/import support in favor of an explicit unsupported-model-listing error, and made CC-compatible Available Models mirror the OAuth Claude Code registry list (#921).
@@ -2002,7 +2002,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -2017,7 +2017,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 - **Antigravity Memory & Skills:** Completed remote memory and skills injection for the Antigravity provider at the proxy network level.
 - **Claude Code Compatibility:** Built a natively hidden compatibility bridge for Claude Code, passing tools and formatting through cleanly.
-- **Web Search MCP:** Added the `omniroute_web_search` tool with the `execute:search` scope.
+- **Web Search MCP:** Added the `GateFlow_web_search` tool with the `execute:search` scope.
 - **Cache Components:** Implemented dynamic cache components utilizing TDD.
 - **UI & Customization:** Added custom favicon support, appearance tabs, wired whitelabeling to the sidebar, and added Windsurf guide steps across all 33 languages.
 - **Log Retention:** Unified request log retention and artifacts natively.
@@ -2065,11 +2065,11 @@ We identified that **155 community PRs** across the entire project history (from
 
 > [!WARNING]
 > **BREAKING CHANGE: request logging, retention, and logging environment variables have been redesigned.**
-> On the first startup after upgrading, OmniRoute archives legacy request logs from `DATA_DIR/logs/`, legacy `DATA_DIR/call_logs/`, and `DATA_DIR/log.txt` into `DATA_DIR/log_archives/*.zip`, then removes the deprecated layout and switches to the new unified artifact format under `DATA_DIR/call_logs/`.
+> On the first startup after upgrading, GateFlow archives legacy request logs from `DATA_DIR/logs/`, legacy `DATA_DIR/call_logs/`, and `DATA_DIR/log.txt` into `DATA_DIR/log_archives/*.zip`, then removes the deprecated layout and switches to the new unified artifact format under `DATA_DIR/call_logs/`.
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -2132,7 +2132,7 @@ We identified that **155 community PRs** across the entire project history (from
 ### Mga Tampok
 
 - **Subscription Utilization Analytics:** Added quota snapshot time-series tracking, Provider Utilization and Combo Health tabs with recharts visualizations, and corresponding API endpoints (#847)
-- **SQLite Backup Control:** New `OMNIROUTE_DISABLE_AUTO_BACKUP` env flag to disable automatic SQLite backups (#846)
+- **SQLite Backup Control:** New `GateFlow_DISABLE_AUTO_BACKUP` env flag to disable automatic SQLite backups (#846)
 - **Model Registry Update:** Injected `gpt-5.4-mini` into the Codex provider's array of models (#756)
 - **Provider Limit Tracking:** Track and display when provider rate limits were last refreshed per account (#843)
 
@@ -2250,7 +2250,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -2287,7 +2287,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -2346,7 +2346,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 - **CI/CD Reliability:** Patched GitHub Actions to stable dependency versions (`actions/checkout@v4`, `actions/upload-artifact@v4`) to mitigate unannounced builder environment deprecations.
 - **Image Fallbacks:** Replaced arbitrary fallback chains in `ProviderIcon.tsx` with explicit asset validation to prevent UI loading `<Image>` components for files that don't exist, eliminating `404` errors in dashboard console logs (#745).
-- **Admin Updater:** Dynamic source-installation detection for the dashboard Updater. Safely disables the `Update Now` button when OmniRoute is built locally rather than through npm, prompting for `git pull` (#743).
+- **Admin Updater:** Dynamic source-installation detection for the dashboard Updater. Safely disables the `Update Now` button when GateFlow is built locally rather than through npm, prompting for `git pull` (#743).
 - **Update ERESOLVE Error:** Injected `package.json` overrides for `react`/`react-dom` and enabled `--legacy-peer-deps` within the internal automatic updater scripts to resolve breaking dependency tree conflicts with `@lobehub/ui`.
 
 ---
@@ -2355,7 +2355,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -2520,7 +2520,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ Enhancements & Refactoring
 
-- **Void Linux Deployment Support (#732)** — Integrated `xbps-src` packaging template and instructions to natively compile and install OmniRoute with `better-sqlite3` bindings via cross-compilation target.
+- **Void Linux Deployment Support (#732)** — Integrated `xbps-src` packaging template and instructions to natively compile and install GateFlow with `better-sqlite3` bindings via cross-compilation target.
 
 ## [3.2.4] — 2026-03-29
 
@@ -2572,7 +2572,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -2607,7 +2607,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -2620,7 +2620,7 @@ We identified that **155 community PRs** across the entire project history (from
 - **feat(providers):** Integrate AgentRouter as a new OpenAI-compatible passthrough provider with $200 free credits via sign-up (Issue #1572).
 - **feat(ui):** Implement on-demand per-model testing in the provider dashboard, allowing single-token diagnostic checks without triggering rate-limits (Issue #1532).
 
-- **Global Fallback Provider (#689)** — When all combo models are exhausted (502/503), OmniRoute now attempts a configurable global fallback model before returning the error. Set `globalFallbackModel` in settings to enable.
+- **Global Fallback Provider (#689)** — When all combo models are exhausted (502/503), GateFlow now attempts a configurable global fallback model before returning the error. Set `globalFallbackModel` in settings to enable.
 
 ### 🐛 Bug Fixes
 
@@ -2646,7 +2646,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -2675,7 +2675,7 @@ We identified that **155 community PRs** across the entire project history (from
 - **fix(cli):** Replace shell-interpolated setup and privileged command execution paths with argument-based `spawn`/`execFile` helpers for database setup, Tailscale sudo commands, MITM DNS edits, and certificate install/uninstall flows.
 - **fix(ui):** Keep provider icons resilient by using direct `@lobehub/icons` components first, then local PNG/SVG fallbacks, avoiding the `@lobehub/ui` peer runtime in the dashboard.
 
-- **Fix #708** — Prevented token bleeding for Claude Code users routing through OmniRoute by correctly preserving native \`cache_control\` headers during Claude-to-Claude passthrough (PR #708 by @tombii)
+- **Fix #708** — Prevented token bleeding for Claude Code users routing through GateFlow by correctly preserving native \`cache_control\` headers during Claude-to-Claude passthrough (PR #708 by @tombii)
 - **Fix #719** — Setup internal auth boundaries for \`ModelSyncScheduler\` to prevent unauthenticated daemon failures on startup (PR #719 by @rdself)
 - **Fix #718** — Rebuilt badge rendering in Provider Limits UI preventing bad quota boundaries overlap (PR #718 by @rdself)
 - **Fix #704** — Fixed Combo Fallbacks breaking on HTTP 400 content-policy errors preventing model-rotation dead-routing (PR #704 by @rdself)
@@ -2707,7 +2707,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -2772,7 +2772,7 @@ We identified that **155 community PRs** across the entire project history (from
 - **fix(cli):** Replace shell-interpolated setup and privileged command execution paths with argument-based `spawn`/`execFile` helpers for database setup, Tailscale sudo commands, MITM DNS edits, and certificate install/uninstall flows.
 - **fix(ui):** Keep provider icons resilient by using direct `@lobehub/icons` components first, then local PNG/SVG fallbacks, avoiding the `@lobehub/ui` peer runtime in the dashboard.
 
-- **Claude Prompt Caching Passthrough** — Fixed cache_control markers being stripped in Claude passthrough mode (Claude → OmniRoute → Claude), which caused Claude Code users to deplete their Anthropic API quota 5-10x faster than direct connections. OmniRoute now preserves client's cache_control markers when sourceFormat and targetFormat are both Claude, ensuring prompt caching works correctly and dramatically reducing token consumption.
+- **Claude Prompt Caching Passthrough** — Fixed cache_control markers being stripped in Claude passthrough mode (Claude → GateFlow → Claude), which caused Claude Code users to deplete their Anthropic API quota 5-10x faster than direct connections. GateFlow now preserves client's cache_control markers when sourceFormat and targetFormat are both Claude, ensuring prompt caching works correctly and dramatically reducing token consumption.
 
 ## [3.1.8] - 2026-03-27
 
@@ -2897,7 +2897,7 @@ We identified that **155 community PRs** across the entire project history (from
 - **fix(ui):** Keep provider icons resilient by using direct `@lobehub/icons` components first, then local PNG/SVG fallbacks, avoiding the `@lobehub/ui` peer runtime in the dashboard.
 
 - **Critical: Tool Calling Regression** — Fixed `proxy_Bash` errors by disabling the `proxy_` tool name prefix in the Claude passthrough path. Tools like `Bash`, `Read`, `Write` were being renamed to `proxy_Bash`, `proxy_Read`, etc., causing Claude to reject them (#618)
-- **Kiro Account Ban Documentation** — Documented as upstream AWS anti-fraud false positive, not an OmniRoute issue (#649)
+- **Kiro Account Ban Documentation** — Documented as upstream AWS anti-fraud false positive, not an GateFlow issue (#649)
 
 ### 🧪 Tests
 
@@ -2909,7 +2909,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -2950,7 +2950,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -3065,7 +3065,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -3108,7 +3108,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -3133,7 +3133,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -3175,7 +3175,7 @@ We identified that **155 community PRs** across the entire project history (from
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -3296,7 +3296,7 @@ MCP tools (e.g. `pencil`, `computer_use`) forward tool definitions with `{type:"
 
 ## [3.0.0] — 2026-03-24
 
-### 🎉 OmniRoute v3.0.0 — The Free AI Gateway, Now with 67+ Providers
+### 🎉 GateFlow v3.0.0 — The Free AI Gateway, Now with 67+ Providers
 
 > **The biggest release ever.** From 36 providers in v2.9.5 to **67+ providers** in v3.0.0 — with MCP Server, A2A Protocol, auto-combo engine, Provider Icons, Registered Keys API, 926 tests, and contributions from **12 community members** across **10 merged PRs**.
 >
@@ -3348,7 +3348,7 @@ MCP tools (e.g. `pencil`, `computer_use`) forward tool definitions with `{type:"
 
 #### 🔑 Registered Keys Provisioning API (#464)
 
-Auto-generate and issue OmniRoute API keys programmatically with per-provider and per-account quota enforcement.
+Auto-generate and issue GateFlow API keys programmatically with per-provider and per-account quota enforcement.
 
 | Endpoint                        | Method       | Description                                      |
 | ------------------------------- | ------------ | ------------------------------------------------ |
@@ -3573,10 +3573,10 @@ Full media generation playground at `/dashboard/media`: Image Generation, Video,
 
 ```bash
 # npm
-npm install -g omniroute@3.0.0
+npm install -g GateFlow@3.0.0
 
 # Docker
-docker pull diegosouzapw/omniroute:3.0.0
+docker pull diegosouzapw/GateFlow:3.0.0
 
 # Migrations run automatically on first startup
 ```
@@ -3627,7 +3627,7 @@ docker pull diegosouzapw/omniroute:3.0.0
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -3649,7 +3649,7 @@ docker pull diegosouzapw/omniroute:3.0.0
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -3753,7 +3753,7 @@ docker pull diegosouzapw/omniroute:3.0.0
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -3807,7 +3807,7 @@ Both providers use the new `OpencodeExecutor` with multi-format routing (`/chat/
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -3822,7 +3822,7 @@ Both providers use the new `OpencodeExecutor` with multi-format routing (`/chat/
 
 #### 🔑 Registered Keys Provisioning API (#464)
 
-Auto-generate and issue OmniRoute API keys programmatically with per-provider and per-account quota enforcement.
+Auto-generate and issue GateFlow API keys programmatically with per-provider and per-account quota enforcement.
 
 | Endpoint                              | Method    | Description                                      |
 | ------------------------------------- | --------- | ------------------------------------------------ |
@@ -3850,7 +3850,7 @@ Fallback chain: **Lobehub SVG → existing `/providers/{id}.png` → generic ico
 
 #### 🔄 Model Auto-Sync Scheduler (#488)
 
-OmniRoute now automatically refreshes model lists for connected providers every **24 hours**.
+GateFlow now automatically refreshes model lists for connected providers every **24 hours**.
 
 - Runs on server startup via the existing `/api/sync/initialize` hook
 - Configurable via `MODEL_SYNC_INTERVAL_HOURS` environment variable
@@ -3863,7 +3863,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 #### OAuth & Auth
 
-- **#537 — Gemini CLI OAuth:** Clear actionable error when `GEMINI_OAUTH_CLIENT_SECRET` is missing in Docker/self-hosted deployments. Previously showed cryptic `client_secret is missing` from Google. Now provides specific `docker-compose.yml` and `~/.omniroute/.env` instructions.
+- **#537 — Gemini CLI OAuth:** Clear actionable error when `GEMINI_OAUTH_CLIENT_SECRET` is missing in Docker/self-hosted deployments. Previously showed cryptic `client_secret is missing` from Google. Now provides specific `docker-compose.yml` and `~/.GateFlow/.env` instructions.
 
 #### Providers & Routing
 
@@ -3883,7 +3883,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 - **#489 — Antigravity:** Missing `googleProjectId` returns a structured 422 error with reconnect guidance instead of a cryptic crash.
 - **#510 — Windows paths:** MSYS2/Git-Bash paths (`/c/Program Files/...`) are now normalized to `C:\Program Files\...` automatically.
-- **#492 — CLI startup:** `omniroute` CLI now detects `mise`/`nvm`-managed Node when `app/server.js` is missing and shows targeted fix instructions.
+- **#492 — CLI startup:** `GateFlow` CLI now detects `mise`/`nvm`-managed Node when `app/server.js` is missing and shows targeted fix instructions.
 
 ---
 
@@ -3931,7 +3931,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 - **T01** — `requested_model` column in `call_logs` (migration 009): track which model the client originally requested vs the actual routed model. Enables fallback rate analytics.
 - **T02** — Strip empty text blocks from nested `tool_result.content`: prevents Anthropic 400 errors (`text content blocks must be non-empty`) when Claude Code chains tool results.
 - **T03** — Parse `x-codex-5h-*` / `x-codex-7d-*` headers: `parseCodexQuotaHeaders()` + `getCodexResetTime()` extract Codex quota windows for precise cooldown scheduling instead of generic 5-min fallback.
-- **T04** — `X-Session-Id` header for external sticky routing: `extractExternalSessionId()` in `sessionManager.ts` reads `x-session-id` / `x-omniroute-session` headers with `ext:` prefix to avoid collision with internal SHA-256 session IDs. Nginx-compatible (hyphenated header).
+- **T04** — `X-Session-Id` header for external sticky routing: `extractExternalSessionId()` in `sessionManager.ts` reads `x-session-id` / `x-GateFlow-session` headers with `ext:` prefix to avoid collision with internal SHA-256 session IDs. Nginx-compatible (hyphenated header).
 - **T06** — Account deactivated → permanent block: `isAccountDeactivated()` in `accountFallback.ts` detects 401 deactivation signals and applies a 1-year cooldown to prevent retrying permanently dead accounts.
 - **T07** — X-Forwarded-For IP validation: new `src/lib/ipUtils.ts` with `extractClientIp()` and `getClientIpFromRequest()` — skips `unknown`/non-IP entries in `X-Forwarded-For` chains (Nginx/proxy-forwarded requests).
 - **T10** — Credits exhausted → distinct fallback: `isCreditsExhausted()` in `accountFallback.ts` returns 1h cooldown with `creditsExhausted` flag, distinct from generic 429 rate limiting.
@@ -3949,7 +3949,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -3979,7 +3979,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -4002,7 +4002,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -4044,7 +4044,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 - **#532** — OpenCode GO API key validation now uses the correct `zen/v1` endpoint (`testKeyBaseUrl`)
 - **#489** — Antigravity: missing `googleProjectId` returns structured 422 error with reconnect guidance
 - **#510** — Windows: MSYS2/Git-Bash paths (`/c/Program Files/...`) are now normalized to `C:\Program Files\...`
-- **#492** — `omniroute` CLI now detects `mise`/`nvm` when `app/server.js` is missing and shows targeted fix
+- **#492** — `GateFlow` CLI now detects `mise`/`nvm` when `app/server.js` is missing and shows targeted fix
 
 ### Dokumentasyon
 
@@ -4186,7 +4186,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 - **#508** — Tool call format regression: requested proxy logs and provider chain info (`needs-info`)
 - **#510** — Windows CLI healthcheck path: requested shell/Node version info (`needs-info`)
-- **#485** — Kiro MCP tool calls: closed as external Kiro issue (not OmniRoute)
+- **#485** — Kiro MCP tool calls: closed as external Kiro issue (not GateFlow)
 - **#442** — Baseten /models endpoint: closed (documented manual workaround)
 - **#464** — Key provisioning API: acknowledged as roadmap item
 
@@ -4218,7 +4218,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -4692,7 +4692,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -4759,9 +4759,9 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### 🔧 MCP Server Improvements
 
-- **feat(mcp)**: 2 new advanced tool schemas: `omniroute_get_provider_metrics` (p50/p95/p99 per provider) and `omniroute_explain_route` (routing decision explanation)
+- **feat(mcp)**: 2 new advanced tool schemas: `GateFlow_get_provider_metrics` (p50/p95/p99 per provider) and `GateFlow_explain_route` (routing decision explanation)
 - **feat(mcp)**: MCP tool auth scopes updated — `metrics:read` scope added for provider metrics tools
-- **feat(mcp)**: `omniroute_best_combo_for_task` now accepts `languageHint` parameter for multilingual routing
+- **feat(mcp)**: `GateFlow_best_combo_for_task` now accepts `languageHint` parameter for multilingual routing
 
 ### 📊 Observability
 
@@ -4805,7 +4805,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 - **fix(cli):** Replace shell-interpolated setup and privileged command execution paths with argument-based `spawn`/`execFile` helpers for database setup, Tailscale sudo commands, MITM DNS edits, and certificate install/uninstall flows.
 - **fix(ui):** Keep provider icons resilient by using direct `@lobehub/icons` components first, then local PNG/SVG fallbacks, avoiding the `@lobehub/ui` peer runtime in the dashboard.
 
-- **fix(install/#426)**: On Windows, `npm install -g omniroute` used to fail with `better_sqlite3.node is not a valid Win32 application` because the bundled native binary was compiled for Linux. Adds **Strategy 1.5** to `scripts/postinstall.mjs`: uses `@mapbox/node-pre-gyp install --fallback-to-build=false` (bundled within `better-sqlite3`) to download the correct prebuilt binary for the current OS/arch without requiring any build tools (no node-gyp, no Python, no MSVC). Falls back to `npm rebuild` only if the download fails. Adds platform-specific error messages with clear manual fix instructions.
+- **fix(install/#426)**: On Windows, `npm install -g GateFlow` used to fail with `better_sqlite3.node is not a valid Win32 application` because the bundled native binary was compiled for Linux. Adds **Strategy 1.5** to `scripts/postinstall.mjs`: uses `@mapbox/node-pre-gyp install --fallback-to-build=false` (bundled within `better-sqlite3`) to download the correct prebuilt binary for the current OS/arch without requiring any build tools (no node-gyp, no Python, no MSVC). Falls back to `npm rebuild` only if the download fails. Adds platform-specific error messages with clear manual fix instructions.
 
 ---
 
@@ -4919,7 +4919,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -5205,7 +5205,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -5265,7 +5265,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 - **fix(db) #373**: Add `provider_connections.group` column to base schema + backfill migration for existing databases — column was used in all queries but missing from schema definition
 - **fix(i18n) #371**: Replace non-existent `t("deleteConnection")` key with existing `providers.delete` key — fixes `MISSING_MESSAGE: providers.deleteConnection` runtime error on provider detail page
 - **fix(auth) #372**: Clear stale error metadata (`errorCode`, `lastErrorType`, `lastErrorSource`) from provider accounts after genuine recovery — previously, recovered accounts kept appearing as failed
-- **fix(startup) #369**: Unify env loading across `npm run start`, `run-standalone.mjs`, and Electron to respect `DATA_DIR/.env → ~/.omniroute/.env → ./.env` priority — prevents generating a new `STORAGE_ENCRYPTION_KEY` over an existing encrypted database
+- **fix(startup) #369**: Unify env loading across `npm run start`, `run-standalone.mjs`, and Electron to respect `DATA_DIR/.env → ~/.GateFlow/.env → ./.env` priority — prevents generating a new `STORAGE_ENCRYPTION_KEY` over an existing encrypted database
 
 ### 🔧 Code Quality
 
@@ -5277,7 +5277,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features (PRs #366, #367, #368)
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -5312,7 +5312,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features (PRs #363 & #365)
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -5328,7 +5328,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 - **Strict-Random Routing Strategy**: Fisher-Yates shuffle deck with anti-repeat guarantee and mutex serialization for concurrent requests. Independent decks per combo and per provider.
 - **API Key Access Controls**: `allowedConnections` (restrict which connections a key can use), `is_active` (enable/disable key with 403), `accessSchedule` (time-based access control), `autoResolve` toggle, rename keys via PATCH.
 - **Connection Groups**: Group provider connections by environment. Accordion view in Limits page with localStorage persistence and smart auto-switch.
-- **External Pricing Sync (LiteLLM)**: 3-tier pricing resolution (user overrides → synced → defaults). Opt-in via `PRICING_SYNC_ENABLED=true`. MCP tool `omniroute_sync_pricing`. 23 new tests.
+- **External Pricing Sync (LiteLLM)**: 3-tier pricing resolution (user overrides → synced → defaults). Opt-in via `PRICING_SYNC_ENABLED=true`. MCP tool `GateFlow_sync_pricing`. 23 new tests.
 - **i18n**: 30 languages updated with strict-random strategy, API key management strings. pt-BR fully translated.
 
 ### 🐛 Bug Fixes
@@ -5355,7 +5355,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -5379,7 +5379,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -5416,7 +5416,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -5532,7 +5532,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 - **Qoder OAuth (#339)**: Restored the valid default `clientSecret` — was previously an empty string, causing "Bad client credentials" on every connect attempt. The public credential is now the default fallback (overridable via `QODER_OAUTH_CLIENT_SECRET` env var).
 - **MITM server not found (#335)**: `prepublish.mjs` now compiles `src/mitm/*.ts` to JavaScript using `tsc` before copying to the npm bundle. Previously only raw `.ts` files were copied — meaning `server.js` never existed in npm/Volta global installs.
-- **GeminiCLI missing projectId (#338)**: Instead of throwing a hard 500 error when `projectId` is missing from stored credentials (e.g. after Docker restart), OmniRoute now logs a warning and attempts the request — returning a meaningful provider-side error instead of an OmniRoute crash.
+- **GeminiCLI missing projectId (#338)**: Instead of throwing a hard 500 error when `projectId` is missing from stored credentials (e.g. after Docker restart), GateFlow now logs a warning and attempts the request — returning a meaningful provider-side error instead of an GateFlow crash.
 - **Electron version mismatch (#323)**: Synced `electron/package.json` version to `2.3.13` (was `2.0.13`) so the desktop binary version matches the npm package.
 
 ### ✨ New Models (#334)
@@ -5546,7 +5546,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 
 ### ✨ New Features
 
-- **feat(docs):** integrate multi-page documentation into OmniRoute dashboard (#1969)
+- **feat(docs):** integrate multi-page documentation into GateFlow dashboard (#1969)
 - **feat(settings):** add request body limit setting (#1968)
 - **feat(auth):** add Gemini CLI OAuth client secret default (#1974)
 - **feat(models):** expose models.dev context windows in /v1/models (#1972)
@@ -5560,7 +5560,7 @@ OmniRoute now automatically refreshes model lists for connected providers every 
 - **feat(ui):** Implement on-demand per-model testing in the provider dashboard, allowing single-token diagnostic checks without triggering rate-limits (Issue #1532).
 
 - **Tiered Quota Scoring (Auto-Combo)**: Added `tierPriority` as a 7th scoring factor — accounts with Ultra/Pro tiers are now preferred over Free tiers when other factors are equal. New optional fields `accountTier` and `quotaResetIntervalSecs` on `ProviderCandidate`. All 4 mode packs updated (`ship-fast`, `cost-saver`, `quality-first`, `offline-friendly`).
-- **Intra-Family Model Fallback (T5)**: When a model is unavailable (404/400/403), OmniRoute now automatically falls back to sibling models from the same family before returning an error (`modelFamilyFallback.ts`).
+- **Intra-Family Model Fallback (T5)**: When a model is unavailable (404/400/403), GateFlow now automatically falls back to sibling models from the same family before returning an error (`modelFamilyFallback.ts`).
 - **Configurable API Bridge Timeout**: `API_BRIDGE_PROXY_TIMEOUT_MS` env var lets operators tune the proxy timeout (default 30s). Fixes 504 errors on slow upstream responses. (#332)
 - **Star History**: Replaced star-history.com widget with starchart.cc (`?variant=adaptive`) in all 30 READMEs — adapts to light/dark theme, real-time updates.
 

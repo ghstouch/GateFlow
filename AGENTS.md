@@ -1,4 +1,4 @@
-# omniroute — Agent Guidelines
+# GateFlow — Agent Guidelines
 
 ## Project
 
@@ -12,7 +12,7 @@ with **MCP Server** (37 tools), **A2A v0.3 Protocol**, and **Electron desktop ap
 
 - **Runtime**: Next.js 16 (App Router), Node.js `>=20.20.2 <21`, `>=22.22.2 <23`, or `>=24.0.0 <25`, ES Modules (`"type": "module"`)
 - **Language**: TypeScript 5.9 (`src/`) + JavaScript (`open-sse/`, `electron/`)
-- **Database**: better-sqlite3 (SQLite) — `DATA_DIR` configurable, default `~/.omniroute/`
+- **Database**: better-sqlite3 (SQLite) — `DATA_DIR` configurable, default `~/.GateFlow/`
 - **Streaming**: SSE via `open-sse` internal workspace package
 - **Styling**: Tailwind CSS v4
 - **i18n**: next-intl with 40+ languages
@@ -83,7 +83,7 @@ Always run `prettier --write` on changed files.
 
 - **Target**: ES2022 · **Module**: `esnext` · **Resolution**: `bundler`
 - `strict: false` — prefer explicit types, don't rely on inference
-- Path aliases: `@/*` → `src/`, `@omniroute/open-sse` → `open-sse/`, `@omniroute/open-sse/*` → `open-sse/*`
+- Path aliases: `@/*` → `src/`, `@GateFlow/open-sse` → `open-sse/`, `@GateFlow/open-sse/*` → `open-sse/*`
 
 ### ESLint Rules
 
@@ -104,7 +104,7 @@ Always run `prettier --write` on changed files.
 
 ### Imports
 
-- **Order**: external → internal (`@/`, `@omniroute/open-sse`) → relative (`./`, `../`)
+- **Order**: external → internal (`@/`, `@GateFlow/open-sse`) → relative (`./`, `../`)
 - **No barrel imports** from `localDb.ts` — import from the specific `db/` module instead
 
 ### Error Handling
@@ -150,7 +150,7 @@ Schema migrations live in `db/migrations/` (55 files) and run via `migrationRunn
 - **`core.ts`**: `getDbInstance()` returns a singleton `better-sqlite3` instance with WAL
   journaling. `SCHEMA_SQL` defines 15 base tables. Helpers: `rowToCamel`, `encryptConnectionFields`.
 - **`migrationRunner.ts`**: Applies versioned SQL files from `db/migrations/` inside transactions.
-  Tracks applied migrations in `_omniroute_migrations` table.
+  Tracks applied migrations in `_GateFlow_migrations` table.
 - **Migrations**: 55 files (`001_initial_schema.sql` → `055_command_code_auth_sessions.sql`).
   Each migration is idempotent and runs in a transaction. Live count: `ls src/lib/db/migrations/*.sql | wc -l`.
 - **Domain modules** import `getDbInstance()` from `core.ts` for all CRUD operations.
@@ -367,7 +367,7 @@ list_compression_combos, compression_combo_stats.
 handler: async (args) => {...} }`. Zod validates inputs before the handler fires.
 - **`createMcpServer()`** and **`startMcpStdio()`** exported from `mcp-server/index.ts`.
   `createMcpServer()` wires all tool sets; `startMcpStdio()` launches the stdio transport.
-- **Transports**: stdio (CLI `omniroute --mcp`), SSE (`/api/mcp/sse`), Streamable HTTP
+- **Transports**: stdio (CLI `GateFlow --mcp`), SSE (`/api/mcp/sse`), Streamable HTTP
   (`/api/mcp/stream`). All share the same tool/scope engine.
 - **Scopes** (10): Control which tool categories an API key can access. Enforcement happens
   before handler dispatch.
@@ -414,7 +414,7 @@ custom skill support, interception, and injection.
   Receives skill name + input, looks up the skill, runs it in the sandbox.
 - **`sandbox.ts`**: Isolation layer for custom (user-provided) skills. Limits resource
   access and execution time.
-- **Built-in skills**: Ship with OmniRoute (e.g., quota management, routing). Located
+- **Built-in skills**: Ship with GateFlow (e.g., quota management, routing). Located
   alongside the registry.
 - **Interception/Injection**: Skills can intercept requests in the pipeline (pre/post
   processing) or inject context into prompts.

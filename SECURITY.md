@@ -2,10 +2,10 @@
 
 ## Reporting Vulnerabilities
 
-If you discover a security vulnerability in OmniRoute, please report it responsibly:
+If you discover a security vulnerability in GateFlow, please report it responsibly:
 
 1. **DO NOT** open a public GitHub issue
-2. Use [GitHub Security Advisories](https://github.com/diegosouzapw/OmniRoute/security/advisories/new)
+2. Use [GitHub Security Advisories](https://github.com/diegosouzapw/GateFlow/security/advisories/new)
 3. Include: description, reproduction steps, and potential impact
 
 ## Response Timeline
@@ -28,7 +28,7 @@ If you discover a security vulnerability in OmniRoute, please report it responsi
 
 ## Security Architecture
 
-OmniRoute implements a multi-layered security model:
+GateFlow implements a multi-layered security model:
 
 ```
 Request → CORS → Authz pipeline (classify → policies → enforce)
@@ -63,7 +63,7 @@ STORAGE_ENCRYPTION_KEY=$(openssl rand -hex 32)
 
 ### 🛡️ Guardrails Framework
 
-OmniRoute ships a hot-reloadable **guardrails registry** (`src/lib/guardrails/`) with 3 built-in guardrails ordered by priority:
+GateFlow ships a hot-reloadable **guardrails registry** (`src/lib/guardrails/`) with 3 built-in guardrails ordered by priority:
 
 | Guardrail          | Priority | Purpose                                                                                 |
 | ------------------ | -------- | --------------------------------------------------------------------------------------- |
@@ -71,7 +71,7 @@ OmniRoute ships a hot-reloadable **guardrails registry** (`src/lib/guardrails/`)
 | `pii-masker`       | 10       | Pre+post call PII redaction (emails, phone, CPF, CNPJ, credit cards, SSN)               |
 | `prompt-injection` | 20       | Detects override/role-hijack/jailbreak/leak patterns                                    |
 
-Custom guardrails register via `registerGuardrail(new MyGuardrail())`. The model is fail-open (exceptions never block traffic). Per-request opt-out via `x-omniroute-disabled-guardrails` header. → See [`docs/security/GUARDRAILS.md`](docs/security/GUARDRAILS.md).
+Custom guardrails register via `registerGuardrail(new MyGuardrail())`. The model is fail-open (exceptions never block traffic). Per-request opt-out via `x-GateFlow-disabled-guardrails` header. → See [`docs/security/GUARDRAILS.md`](docs/security/GUARDRAILS.md).
 
 ### 🧠 Prompt Injection Guard
 
@@ -168,15 +168,15 @@ The server actively rejects known-weak values like `changeme`, `secret`, or `pas
 
 ```bash
 docker run -d \
-  --name omniroute \
+  --name GateFlow \
   --restart unless-stopped \
   --read-only \
   -p 20128:20128 \
-  -v omniroute-data:/app/data \
+  -v GateFlow-data:/app/data \
   -e JWT_SECRET="$(openssl rand -base64 48)" \
   -e API_KEY_SECRET="$(openssl rand -hex 32)" \
   -e STORAGE_ENCRYPTION_KEY="$(openssl rand -hex 32)" \
-  diegosouzapw/omniroute:latest
+  diegosouzapw/GateFlow:latest
 ```
 
 ---

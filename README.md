@@ -1,15 +1,15 @@
 <div align="center">
 
-# 🚀 OmniRoute — The Free AI Gateway
+# 🚀 GateFlow — The Free AI Gateway
 
 ### Never stop coding. Save 15-95% eligible tokens with RTK+Caveman compression + auto-fallback to **FREE & low-cost AI models**.
 
 _The most complete open-source AI proxy — **one endpoint**, **160+ providers**, **13 routing strategies**, zero downtime. Multi-platform: **Web**, **Desktop (Electron)**, **Mobile (PWA + Termux)**. Fully extensible via **MCP Server (37 tools)**, **A2A Protocol**, and **Memory/Skills** systems. Available in **40+ languages**._
 
-[![npm](https://img.shields.io/npm/v/omniroute?logo=npm&style=flat-square)](https://www.npmjs.com/package/omniroute)
+[![npm](https://img.shields.io/npm/v/GateFlow?logo=npm&style=flat-square)](https://www.npmjs.com/package/GateFlow)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A522.22.2-brightgreen?style=flat-square)](package.json)
-[![Stars](https://img.shields.io/github/stars/diegosouzapw/OmniRoute?style=social)](https://github.com/diegosouzapw/OmniRoute)
+[![Stars](https://img.shields.io/github/stars/diegosouzapw/GateFlow?style=social)](https://github.com/diegosouzapw/GateFlow)
 [![Trendshift](https://trendshift.io/api/badge/repositories/23589)](https://trendshift.io/repositories/23589)
 
 <br/>
@@ -22,7 +22,7 @@ _The most complete open-source AI proxy — **one endpoint**, **160+ providers**
 
 <br/>
 
-<a href="https://trendshift.io/repositories/23589" target="_blank"><img src="https://trendshift.io/api/badge/repositories/23589" alt="diegosouzapw%2FOmniRoute | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+<a href="https://trendshift.io/repositories/23589" target="_blank"><img src="https://trendshift.io/api/badge/repositories/23589" alt="diegosouzapw%2FGateFlow | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
 [🚀 Quick Start](#-quick-start) • [💡 Features](#-key-features) • [🗜️ Compression](#%EF%B8%8F-prompt-compression--save-15-95-eligible-tokens-automatically) • [💰 Pricing](#-pricing-at-a-glance) • [🎯 Use Cases](#-use-cases--ready-made-combo-playbooks) • [🌍 Proxy](#-bypass-geographic-blocks--use-ai-from-any-country) • [❓ FAQ](#-frequently-asked-questions) • [📖 Docs](#-documentation) • [💬 WhatsApp](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t)
 
@@ -38,21 +38,21 @@ _The most complete open-source AI proxy — **one endpoint**, **160+ providers**
 
 <div align="center">
 
-[![npm version](https://img.shields.io/npm/v/omniroute?color=cb3837&logo=npm)](https://www.npmjs.com/package/omniroute)
-![NPM Weekly](https://img.shields.io/npm/dw/omniroute?label=npm/week&color=cb3837&logo=npm)
-![NPM Monthly](https://img.shields.io/npm/dm/omniroute?label=npm/month&color=cb3837&logo=npm)
-![NPM Yearly](https://img.shields.io/npm/d18m/omniroute?label=npm/year&color=cb3837&logo=npm)
+[![npm version](https://img.shields.io/npm/v/GateFlow?color=cb3837&logo=npm)](https://www.npmjs.com/package/GateFlow)
+![NPM Weekly](https://img.shields.io/npm/dw/GateFlow?label=npm/week&color=cb3837&logo=npm)
+![NPM Monthly](https://img.shields.io/npm/dm/GateFlow?label=npm/month&color=cb3837&logo=npm)
+![NPM Yearly](https://img.shields.io/npm/d18m/GateFlow?label=npm/year&color=cb3837&logo=npm)
 
-[![Docker Hub](https://img.shields.io/docker/v/diegosouzapw/omniroute?label=Docker%20Hub&logo=docker&color=2496ED)](https://hub.docker.com/r/diegosouzapw/omniroute)
-![Docker Pulls](https://img.shields.io/docker/pulls/diegosouzapw/omniroute?label=docker%20pulls&logo=docker&color=2496ED)
-![Electron Downloads](https://img.shields.io/github/downloads/diegosouzapw/omniroute/total?style=flat&label=electron%20downloads&logo=electron&color=47848F)
-[![license](https://custom-icon-badges.demolab.com/github/license/diegosouzapw/OmniRoute?logo=law)](https://github.com/diegosouzapw/OmniRoute/blob/main/LICENSE)
+[![Docker Hub](https://img.shields.io/docker/v/diegosouzapw/GateFlow?label=Docker%20Hub&logo=docker&color=2496ED)](https://hub.docker.com/r/diegosouzapw/GateFlow)
+![Docker Pulls](https://img.shields.io/docker/pulls/diegosouzapw/GateFlow?label=docker%20pulls&logo=docker&color=2496ED)
+![Electron Downloads](https://img.shields.io/github/downloads/diegosouzapw/GateFlow/total?style=flat&label=electron%20downloads&logo=electron&color=47848F)
+[![license](https://custom-icon-badges.demolab.com/github/license/diegosouzapw/GateFlow?logo=law)](https://github.com/diegosouzapw/GateFlow/blob/main/LICENSE)
 
 <!-- Community & Social -->
 
 [![total contributions](https://custom-icon-badges.demolab.com/badge/dynamic/json?logo=graph&logoColor=fff&color=blue&label=total%20contributions&query=%24.totalContributions&url=https%3A%2F%2Fstreak-stats.demolab.com%2F%3Fuser%3Ddiegosouzapw%26type%3Djson)](https://github.com/diegosouzapw)
 [![github streak](https://custom-icon-badges.demolab.com/badge/dynamic/json?logo=fire&logoColor=fff&color=orange&label=github%20streak&query=%24.currentStreak.length&suffix=%20days&url=https%3A%2F%2Fstreak-stats.demolab.com%2F%3Fuser%3Ddiegosouzapw%26type%3Djson)](https://github.com/diegosouzapw)
-[![Website](https://img.shields.io/badge/Website-omniroute.online-blue?logo=google-chrome&logoColor=white)](https://omniroute.online)
+[![Website](https://img.shields.io/badge/Website-GateFlow.online-blue?logo=google-chrome&logoColor=white)](https://GateFlow.online)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Community-25D366?logo=whatsapp&logoColor=white)](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t)
 
 </div>
@@ -62,7 +62,7 @@ _The most complete open-source AI proxy — **one endpoint**, **160+ providers**
 ## 🖼️ Main Dashboard
 
 <div align="center">
-  <img src="./docs/screenshots/MainOmniRoute.png" alt="OmniRoute Dashboard" width="800"/>
+  <img src="./docs/screenshots/MainGateFlow.png" alt="GateFlow Dashboard" width="800"/>
 </div>
 
 ---
@@ -90,7 +90,7 @@ _The most complete open-source AI proxy — **one endpoint**, **160+ providers**
 
 ### 🤖 Free AI Provider for your favorite coding agents
 
-_Connect any AI-powered IDE or CLI tool through OmniRoute — free API gateway for unlimited coding._
+_Connect any AI-powered IDE or CLI tool through GateFlow — free API gateway for unlimited coding._
 
   <table>
     <tr>
@@ -169,11 +169,11 @@ _Connect any AI-powered IDE or CLI tool through OmniRoute — free API gateway f
     </tr>
   </table>
 
-<sub>📡 All agents connect via <code>http://localhost:20128/v1</code> or <code>http://cloud.omniroute.online/v1</code> — one config, unlimited models and quota</sub>
+<sub>📡 All agents connect via <code>http://localhost:20128/v1</code> or <code>http://cloud.GateFlow.online/v1</code> — one config, unlimited models and quota</sub>
 
 ---
 
-## 📺 OmniRoute in Action — Video Guides
+## 📺 GateFlow in Action — Video Guides
 
 <div align="center">
 
@@ -181,35 +181,35 @@ _Connect any AI-powered IDE or CLI tool through OmniRoute — free API gateway f
   <tr>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=Rxdc36yUyOQ">
-        <img src="https://img.youtube.com/vi/Rxdc36yUyOQ/maxresdefault.jpg" alt="OmniRoute — Guia em Português" width="300"/>
+        <img src="https://img.youtube.com/vi/Rxdc36yUyOQ/maxresdefault.jpg" alt="GateFlow — Guia em Português" width="300"/>
       </a><br/>
       <b>🇧🇷 Português</b><br/>
-      <sub>Guia completo do OmniRoute</sub>
+      <sub>Guia completo do GateFlow</sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=CMzyOiUyEVc">
-        <img src="https://img.youtube.com/vi/CMzyOiUyEVc/maxresdefault.jpg" alt="OmniRoute — English Guide" width="300"/>
+        <img src="https://img.youtube.com/vi/CMzyOiUyEVc/maxresdefault.jpg" alt="GateFlow — English Guide" width="300"/>
       </a><br/>
       <b>🇺🇸 English</b><br/>
-      <sub>Complete OmniRoute walkthrough</sub>
+      <sub>Complete GateFlow walkthrough</sub>
     </td>
     <td align="center" width="320">
       <a href="https://www.youtube.com/watch?v=il_5Ii6v4-Y">
-        <img src="https://img.youtube.com/vi/il_5Ii6v4-Y/maxresdefault.jpg" alt="OmniRoute — Руководство на русском" width="300"/>
+        <img src="https://img.youtube.com/vi/il_5Ii6v4-Y/maxresdefault.jpg" alt="GateFlow — Руководство на русском" width="300"/>
       </a><br/>
       <b>🇷🇺 Русский</b><br/>
-      <sub>Полное руководство по OmniRoute</sub>
+      <sub>Полное руководство по GateFlow</sub>
     </td>
   </tr>
 </table>
 
 </div>
 
-> 🎬 **Made a video about OmniRoute?** We'd love to feature it here! Open an [issue](https://github.com/diegosouzapw/OmniRoute/issues/new) or [discussion](https://github.com/diegosouzapw/OmniRoute/discussions) with the link and we'll add it to this showcase.
+> 🎬 **Made a video about GateFlow?** We'd love to feature it here! Open an [issue](https://github.com/diegosouzapw/GateFlow/issues/new) or [discussion](https://github.com/diegosouzapw/GateFlow/discussions) with the link and we'll add it to this showcase.
 
 ---
 
-## 🤔 Why OmniRoute?
+## 🤔 Why GateFlow?
 
 **Stop wasting money, tokens and hitting limits:**
 
@@ -221,7 +221,7 @@ _Connect any AI-powered IDE or CLI tool through OmniRoute — free API gateway f
 ❌ Each provider has a different API format
 ❌ AI providers blocked in your country
 
-**OmniRoute solves all of this:**
+**GateFlow solves all of this:**
 
 ✅ **Prompt Compression** — auto-compress prompts & tool outputs, save 15-95% eligible tokens per request with RTK+Caveman stacked mode
 ✅ **Maximize subscriptions** — track quota, use every bit before reset
@@ -239,9 +239,9 @@ _Connect any AI-powered IDE or CLI tool through OmniRoute — free API gateway f
 
 > 💬 **Join our community!** [WhatsApp Group](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t) — Get help, share tips, and stay updated.
 
-- **Website**: [omniroute.online](https://omniroute.online)
-- **GitHub**: [github.com/diegosouzapw/OmniRoute](https://github.com/diegosouzapw/OmniRoute)
-- **Issues**: [github.com/diegosouzapw/OmniRoute/issues](https://github.com/diegosouzapw/OmniRoute/issues)
+- **Website**: [GateFlow.online](https://GateFlow.online)
+- **GitHub**: [github.com/diegosouzapw/GateFlow](https://github.com/diegosouzapw/GateFlow)
+- **Issues**: [github.com/diegosouzapw/GateFlow/issues](https://github.com/diegosouzapw/GateFlow/issues)
 - **WhatsApp**: [Community Group](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t)
 - **Contributing**: See [CONTRIBUTING.md](CONTRIBUTING.md), open a PR, or pick a `good first issue`
 - **Original Project**: [9router by decolua](https://github.com/decolua/9router)
@@ -254,13 +254,13 @@ When opening an issue, please run the system-info command and attach the generat
 npm run system-info
 ```
 
-This generates a `system-info.txt` with your Node.js version, OmniRoute version, OS details, installed CLI tools (qoder, gemini, claude, codex, antigravity, droid, etc.), Docker/PM2 status, and system packages — everything we need to reproduce your issue quickly. Attach the file directly to your GitHub issue.
+This generates a `system-info.txt` with your Node.js version, GateFlow version, OS details, installed CLI tools (qoder, gemini, claude, codex, antigravity, droid, etc.), Docker/PM2 status, and system packages — everything we need to reproduce your issue quickly. Attach the file directly to your GitHub issue.
 
 ---
 
 ## 🛠️ Supported CLI Tools
 
-OmniRoute works seamlessly with **16+ AI coding tools** — one config, all tools:
+GateFlow works seamlessly with **16+ AI coding tools** — one config, all tools:
 
 <table>
   <tr>
@@ -413,7 +413,7 @@ Alibaba · Amazon Q · AssemblyAI · Baidu Qianfan · Baseten · Black Forest La
        │ http://localhost:20128/v1
        ↓
 ┌──────────────────────────────────────────────────┐
-│              OmniRoute (Smart Router)             │
+│              GateFlow (Smart Router)             │
 │  • 🗜️ Prompt Compression (save 15-95% eligible)  │
 │  • Format translation (OpenAI ↔ Claude ↔ Gemini) │
 │  • Quota tracking + Embeddings + Images          │
@@ -435,7 +435,7 @@ Result: Never stop coding, minimal cost + 15-95% eligible token savings
 
 ## 🗜️ Prompt Compression — Save 15-95% Eligible Tokens Automatically
 
-> **Why use many token when few token do trick?** OmniRoute's built-in compression pipeline reduces token usage before requests reach the provider. It combines ideas from [RTK - Rust Token Killer](https://github.com/rtk-ai/rtk) and [Caveman](https://github.com/JuliusBrussee/caveman) (⭐ 51K+).
+> **Why use many token when few token do trick?** GateFlow's built-in compression pipeline reduces token usage before requests reach the provider. It combines ideas from [RTK - Rust Token Killer](https://github.com/rtk-ai/rtk) and [Caveman](https://github.com/JuliusBrussee/caveman) (⭐ 51K+).
 
 ### How It Works
 
@@ -443,7 +443,7 @@ Every request passes through the compression pipeline **transparently** — no c
 
 ```
 ┌──────────────────┐     ┌─────────────────────────────┐     ┌──────────────┐
-│   Client sends   │────▶│  OmniRoute Compression      │────▶│  Provider    │
+│   Client sends   │────▶│  GateFlow Compression      │────▶│  Provider    │
 │   full prompt    │     │  Pipeline (7 options)        │     │  receives    │
 │   (10,000 tok)   │     │                              │     │  compressed  │
 │                  │     │  🪶 Lite ........... ~15%     │     │  (~1,080 tok)│
@@ -471,12 +471,12 @@ Every request passes through the compression pipeline **transparently** — no c
 
 These numbers are based on the upstream project READMEs under `_references/_outros`:
 
-| Source  | Upstream claim used by OmniRoute docs                                                                               |
+| Source  | Upstream claim used by GateFlow docs                                                                               |
 | ------- | ------------------------------------------------------------------------------------------------------------------- |
 | Caveman | `~75%` fewer output tokens; benchmark average `65%` output savings, range `22-87%`; `~46%` input compression tool   |
 | RTK     | `60-90%` command-output token savings; sample session `~118,000 -> ~23,900` tokens, which is `79.7%` saved (`~80%`) |
 
-For the default stacked compression combo, OmniRoute runs:
+For the default stacked compression combo, GateFlow runs:
 
 ```txt
 RTK -> Caveman
@@ -548,17 +548,17 @@ Auto-trigger: set `autoTriggerTokens` to automatically enable compression when a
 
 Compression combos can also assign a named compression pipeline to routing combos, so a coding combo can use RTK + Caveman while a paid subscription combo stays on lite mode.
 
-> 🪨 **Fun fact:** The standard/caveman mode is inspired by [Caveman](https://github.com/JuliusBrussee/caveman) — the viral project that reports 65% average output-token savings while keeping technical accuracy. OmniRoute takes this further with a **7-option pipeline** and a default `RTK -> Caveman` combo that can reach ~89% average savings on eligible tool/context payloads.
+> 🪨 **Fun fact:** The standard/caveman mode is inspired by [Caveman](https://github.com/JuliusBrussee/caveman) — the viral project that reports 65% average output-token savings while keeping technical accuracy. GateFlow takes this further with a **7-option pipeline** and a default `RTK -> Caveman` combo that can reach ~89% average savings on eligible tool/context payloads.
 
 📖 **Full compression documentation:** [`docs/COMPRESSION_GUIDE.md`](docs/COMPRESSION_GUIDE.md) • [`docs/RTK_COMPRESSION.md`](docs/RTK_COMPRESSION.md) • [`docs/COMPRESSION_ENGINES.md`](docs/COMPRESSION_ENGINES.md) • [`docs/COMPRESSION_RULES_FORMAT.md`](docs/COMPRESSION_RULES_FORMAT.md) • [`docs/COMPRESSION_LANGUAGE_PACKS.md`](docs/COMPRESSION_LANGUAGE_PACKS.md)
 
 ---
 
-## 🎯 What OmniRoute Solves
+## 🎯 What GateFlow Solves
 
-> **Every developer using AI tools faces these problems daily.** OmniRoute solves them all.
+> **Every developer using AI tools faces these problems daily.** GateFlow solves them all.
 
-| #   | Problem                                  | OmniRoute Solution                                                                              |
+| #   | Problem                                  | GateFlow Solution                                                                              |
 | --- | ---------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | 💸  | Subscription quota expires mid-coding    | **Smart 4-Tier Fallback** — auto-routes Subscription → API Key → Cheap → Free                   |
 | 🔌  | Each provider has a different API format | **Format Translation** — unified endpoint translates OpenAI ↔ Claude ↔ Gemini ↔ Responses       |
@@ -572,7 +572,7 @@ Compression combos can also assign a named compression pipeline to routing combo
 | 🐛  | Can't diagnose errors in AI calls        | **Unified Logs** — 4-tab dashboard (request, proxy, audit, console) + p50/p95/p99 telemetry     |
 
 <details>
-<summary><b>📖 See all 31 problems OmniRoute solves</b></summary>
+<summary><b>📖 See all 31 problems GateFlow solves</b></summary>
 
 | #   | Problem                                       | Solution                                                                                           |
 | --- | --------------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -625,8 +625,8 @@ Compression combos can also assign a named compression pipeline to routing combo
 ### 1) Install and run
 
 ```bash
-npm install -g omniroute
-omniroute
+npm install -g GateFlow
+GateFlow
 ```
 
 Dashboard opens at `http://localhost:20128` · API at `http://localhost:20128/v1`.
@@ -653,7 +653,7 @@ Works with Claude Code, Codex CLI, Gemini CLI, Cursor, Cline, OpenClaw, OpenCode
 **Docker:**
 
 ```bash
-docker run -d --name omniroute --restart unless-stopped -p 20128:20128 -v omniroute-data:/app/data diegosouzapw/omniroute:latest
+docker run -d --name GateFlow --restart unless-stopped -p 20128:20128 -v GateFlow-data:/app/data diegosouzapw/GateFlow:latest
 ```
 
 **From source:**
@@ -663,15 +663,15 @@ cp .env.example .env && npm install
 PORT=20128 DASHBOARD_PORT=20129 NEXT_PUBLIC_BASE_URL=http://localhost:20129 npm run dev
 ```
 
-**pnpm:** `pnpm install -g omniroute && pnpm approve-builds -g && omniroute`
+**pnpm:** `pnpm install -g GateFlow && pnpm approve-builds -g && GateFlow`
 
-**Arch Linux (AUR):** `yay -S omniroute-bin && systemctl --user enable --now omniroute.service`
+**Arch Linux (AUR):** `yay -S GateFlow-bin && systemctl --user enable --now GateFlow.service`
 
-**MCP:** `omniroute --mcp` (stdio transport)
+**MCP:** `GateFlow --mcp` (stdio transport)
 
-**CLI options:** `omniroute setup`, `omniroute doctor`, `omniroute providers available`, `omniroute providers list`, `omniroute --port 3000`, `omniroute --no-open`, `omniroute --help`
+**CLI options:** `GateFlow setup`, `GateFlow doctor`, `GateFlow providers available`, `GateFlow providers list`, `GateFlow --port 3000`, `GateFlow --no-open`, `GateFlow --help`
 
-**Split-port mode:** `PORT=20128 DASHBOARD_PORT=20129 omniroute`
+**Split-port mode:** `PORT=20128 DASHBOARD_PORT=20129 GateFlow`
 
 **Uninstall:** `npm run uninstall` (keeps data) or `npm run uninstall:full` (removes everything)
 
@@ -683,18 +683,18 @@ PORT=20128 DASHBOARD_PORT=20129 NEXT_PUBLIC_BASE_URL=http://localhost:20129 npm 
 
 ## 🐳 Docker
 
-OmniRoute is available as a public Docker image on [Docker Hub](https://hub.docker.com/r/diegosouzapw/omniroute).
+GateFlow is available as a public Docker image on [Docker Hub](https://hub.docker.com/r/diegosouzapw/GateFlow).
 
 **Quick run:**
 
 ```bash
 docker run -d \
-  --name omniroute \
+  --name GateFlow \
   --restart unless-stopped \
   --stop-timeout 40 \
   -p 20128:20128 \
-  -v omniroute-data:/app/data \
-  diegosouzapw/omniroute:latest
+  -v GateFlow-data:/app/data \
+  diegosouzapw/GateFlow:latest
 ```
 
 **With environment file:**
@@ -704,13 +704,13 @@ docker run -d \
 cp .env.example .env
 
 docker run -d \
-  --name omniroute \
+  --name GateFlow \
   --restart unless-stopped \
   --stop-timeout 40 \
   --env-file .env \
   -p 20128:20128 \
-  -v omniroute-data:/app/data \
-  diegosouzapw/omniroute:latest
+  -v GateFlow-data:/app/data \
+  diegosouzapw/GateFlow:latest
 ```
 
 **Using Docker Compose:**
@@ -728,26 +728,26 @@ Dashboard support for Docker deployments now includes a one-click **Cloudflare Q
 Notes:
 
 - Quick Tunnel URLs are temporary and change after every restart.
-- Quick Tunnels are not auto-restored after an OmniRoute or container restart. Re-enable them from the dashboard when needed.
+- Quick Tunnels are not auto-restored after an GateFlow or container restart. Re-enable them from the dashboard when needed.
 - Managed install currently supports Linux, macOS, and Windows on `x64` / `arm64`.
 - Managed Quick Tunnels default to HTTP/2 transport to avoid noisy QUIC UDP buffer warnings in constrained container environments. Set `CLOUDFLARED_PROTOCOL=quic` or `auto` if you want a different transport.
 - Docker images bundle system CA roots and pass them to managed `cloudflared`, which avoids TLS trust failures when the tunnel bootstraps inside the container.
-- SQLite runs in WAL mode. `docker stop` should be allowed to finish so OmniRoute can checkpoint the latest changes back into `storage.sqlite`.
+- SQLite runs in WAL mode. `docker stop` should be allowed to finish so GateFlow can checkpoint the latest changes back into `storage.sqlite`.
 - The bundled Compose files already set a 40s stop grace period. If you run the image directly, keep `--stop-timeout 40` (or similar) so manual stops do not cut off shutdown cleanup.
-- Set `CLOUDFLARED_BIN=/absolute/path/to/cloudflared` if you want OmniRoute to use an existing binary instead of downloading one.
+- Set `CLOUDFLARED_BIN=/absolute/path/to/cloudflared` if you want GateFlow to use an existing binary instead of downloading one.
 
 **Using Docker Compose with Caddy (HTTPS Auto-TLS):**
 
-OmniRoute can be securely exposed using Caddy's automatic SSL provisioning. Ensure your domain's DNS A record points to your server's IP.
+GateFlow can be securely exposed using Caddy's automatic SSL provisioning. Ensure your domain's DNS A record points to your server's IP.
 
 ```yaml
 services:
-  omniroute:
-    image: diegosouzapw/omniroute:latest
-    container_name: omniroute
+  GateFlow:
+    image: diegosouzapw/GateFlow:latest
+    container_name: GateFlow
     restart: unless-stopped
     volumes:
-      - omniroute-data:/app/data
+      - GateFlow-data:/app/data
     environment:
       - PORT=20128
       - NEXT_PUBLIC_BASE_URL=https://your-domain.com
@@ -759,16 +759,16 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    command: caddy reverse-proxy --from https://your-domain.com --to http://omniroute:20128
+    command: caddy reverse-proxy --from https://your-domain.com --to http://GateFlow:20128
 
 volumes:
-  omniroute-data:
+  GateFlow-data:
 ```
 
 | Image                    | Tag      | Size   | Description           |
 | ------------------------ | -------- | ------ | --------------------- |
-| `diegosouzapw/omniroute` | `latest` | ~250MB | Latest stable release |
-| `diegosouzapw/omniroute` | `3.7.8`  | ~250MB | Current version       |
+| `diegosouzapw/GateFlow` | `latest` | ~250MB | Latest stable release |
+| `diegosouzapw/GateFlow` | `3.7.8`  | ~250MB | Current version       |
 
 📖 **Full Docker documentation:** [`docs/DOCKER_GUIDE.md`](docs/DOCKER_GUIDE.md) — Compose profiles, Caddy HTTPS, Cloudflare tunnels, and more.
 
@@ -776,12 +776,12 @@ volumes:
 
 ## 📱 Multi-Platform — Run Anywhere
 
-> OmniRoute runs on **Web**, **Desktop (Electron)**, **Android (Termux)**, and as a **Progressive Web App (PWA)**.
+> GateFlow runs on **Web**, **Desktop (Electron)**, **Android (Termux)**, and as a **Progressive Web App (PWA)**.
 
 | Platform       | Install                                      | Highlights                                                                 |
 | -------------- | -------------------------------------------- | -------------------------------------------------------------------------- |
 | 🖥️ **Desktop** | `npm run electron:build`                     | Native window, system tray, auto-start, offline mode — Windows/macOS/Linux |
-| 📱 **Android** | `pkg install nodejs-lts && npx -y omniroute` | ARM native, no root, 24/7 via Termux:Boot — your phone is an AI server     |
+| 📱 **Android** | `pkg install nodejs-lts && npx -y GateFlow` | ARM native, no root, 24/7 via Termux:Boot — your phone is an AI server     |
 | 📲 **PWA**     | "Add to Home Screen" in browser              | Fullscreen, offline page, service worker caching — Android/iOS/Desktop     |
 
 <details>
@@ -799,7 +799,7 @@ volumes:
 
 ```bash
 pkg update && pkg install nodejs-lts python build-essential git
-npx -y omniroute@latest
+npx -y GateFlow@latest
 ```
 
 Access from any device on the same network: `http://PHONE_IP:20128/v1`
@@ -822,7 +822,7 @@ Access from any device on the same network: `http://PHONE_IP:20128/v1`
 
 ## 🌍 Bypass Geographic Blocks — Use AI From Any Country
 
-> 🇷🇺 🇨🇳 🇮🇷 🇨🇺 🇹🇷 **In Russia, China, Iran, or any blocked region?** OmniRoute's 3-level proxy system solves this completely.
+> 🇷🇺 🇨🇳 🇮🇷 🇨🇺 🇹🇷 **In Russia, China, Iran, or any blocked region?** GateFlow's 3-level proxy system solves this completely.
 
 | Level              | Badge | Configure In       | Use Case                        |
 | ------------------ | ----- | ------------------ | ------------------------------- |
@@ -836,7 +836,7 @@ Access from any device on the same network: `http://PHONE_IP:20128/v1`
 
 ### 🆓 1proxy — Free Proxy Marketplace
 
-> Contributed by [@oyi77](https://github.com/oyi77) — [#1847](https://github.com/diegosouzapw/OmniRoute/pull/1847)
+> Contributed by [@oyi77](https://github.com/oyi77) — [#1847](https://github.com/diegosouzapw/GateFlow/pull/1847)
 
 No proxy? Use the built-in **1proxy** integration for **hundreds of free, validated proxies** worldwide:
 
@@ -892,7 +892,7 @@ No proxy? Use the built-in **1proxy** integration for **hundreds of free, valida
 > 💡 **Understanding Dashboard Costs:**
 >
 > The "cost" displayed in the Usage Analytics page is **for tracking and comparison purposes only**.
-> OmniRoute itself **never charges you anything** — it's free, open-source software running on your machine.
+> GateFlow itself **never charges you anything** — it's free, open-source software running on your machine.
 > If your dashboard shows "$290 total cost" while using free models, that's how much you **saved** compared to paid API pricing.
 > Think of it as a **savings tracker**, not a bill.
 
@@ -900,7 +900,7 @@ No proxy? Use the built-in **1proxy** integration for **hundreds of free, valida
 
 ## 🆓 Free Models — 11 Providers, $0 Forever
 
-> Combine all free providers into one unbreakable combo — OmniRoute auto-routes between them when quota runs out.
+> Combine all free providers into one unbreakable combo — GateFlow auto-routes between them when quota runs out.
 
 | Provider          | Prefix      | Free Models                                                   | Quota                |
 | ----------------- | ----------- | ------------------------------------------------------------- | -------------------- |
@@ -936,7 +936,7 @@ ModelScope · Tencent Hunyuan · Volcengine · ChatAnywhere · InternAI · Bigmo
 
 </details>
 
-📖 **Complete free provider directory:** [`docs/FREE_TIERS.md`](docs/FREE_TIERS.md) — 25+ providers, quotas, base URLs, model tables, and OmniRoute combo setup.
+📖 **Complete free provider directory:** [`docs/FREE_TIERS.md`](docs/FREE_TIERS.md) — 25+ providers, quotas, base URLs, model tables, and GateFlow combo setup.
 
 ---
 
@@ -1022,7 +1022,7 @@ Multilingual Intent Detection · Benchmark-Driven Fallbacks · Request Deduplica
 ```txt
 Combo: "my-coding-stack"              Format Translation:
   1. cc/claude-opus-4-7                 CLI → OpenAI format
-  2. nvidia/llama-3.3-70b               OmniRoute → translates
+  2. nvidia/llama-3.3-70b               GateFlow → translates
   3. glm/glm-4.7                        Provider → native format
   4. if/kimi-k2-thinking
 ```
@@ -1053,7 +1053,7 @@ model: "auto/smart"     # Best discovery (10% exploration rate)
 
 1. Add providers in Dashboard → Providers (OAuth or API key)
 2. Use `auto/` prefix in any AI tool — **no combo creation needed**
-3. OmniRoute dynamically builds a virtual combo from your active connections
+3. GateFlow dynamically builds a virtual combo from your active connections
 4. Routes using LKGP (Last Known Good Provider) + 6-factor scoring
 5. Session stickiness ensures consistent provider selection
 
@@ -1142,11 +1142,11 @@ Montly savings: ~$150-300/month in token costs for heavy users
 
 ## 🧪 Evaluations (Evals)
 
-OmniRoute includes a built-in evaluation framework to test LLM response quality against a golden set. Access it via **Analytics → Evals** in the dashboard.
+GateFlow includes a built-in evaluation framework to test LLM response quality against a golden set. Access it via **Analytics → Evals** in the dashboard.
 
 ### Built-in Golden Set
 
-The pre-loaded "OmniRoute Golden Set" contains test cases for:
+The pre-loaded "GateFlow Golden Set" contains test cases for:
 
 - Greetings, math, geography, code generation
 - JSON format compliance, translation, markdown generation
@@ -1167,7 +1167,7 @@ The pre-loaded "OmniRoute Golden Set" contains test cases for:
 
 ### Connect Your Coding Tool
 
-Point any OpenAI-compatible tool to OmniRoute:
+Point any OpenAI-compatible tool to GateFlow:
 
 ```txt
 Base URL: http://localhost:20128/v1
@@ -1176,18 +1176,18 @@ API Key:  [from Dashboard → Endpoints]
 
 | Tool            | Config Location                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------- |
-| **Claude Code** | `claude mcp add-server omniroute --type http --url http://localhost:20128/api/mcp/stream` |
+| **Claude Code** | `claude mcp add-server GateFlow --type http --url http://localhost:20128/api/mcp/stream` |
 | **Codex CLI**   | `OPENAI_BASE_URL=http://localhost:20128/v1 OPENAI_API_KEY=your-key codex`                 |
 | **Cursor**      | Settings → Models → Add Model → Override Base URL                                         |
 | **Cline**       | Extension settings → Custom API Base URL                                                  |
 | **OpenClaw**    | `OPENAI_BASE_URL=http://localhost:20128/v1 openclaw`                                      |
-| **Gemini CLI**  | Uses native OAuth via OmniRoute — connect in Providers                                    |
+| **Gemini CLI**  | Uses native OAuth via GateFlow — connect in Providers                                    |
 
 ### Protocols (MCP + A2A)
 
 ```bash
 # MCP (stdio transport)
-omniroute --mcp
+GateFlow --mcp
 
 # A2A (JSON-RPC 2.0)
 curl http://localhost:20128/.well-known/agent.json
@@ -1200,7 +1200,7 @@ curl http://localhost:20128/.well-known/agent.json
 | `PORT`               | `20128`        | API and dashboard port                    |
 | `DASHBOARD_PORT`     | —              | Separate dashboard port (split-port mode) |
 | `REQUIRE_API_KEY`    | `false`        | Require API key for all requests          |
-| `DATA_DIR`           | `~/.omniroute` | Database and config storage               |
+| `DATA_DIR`           | `~/.GateFlow` | Database and config storage               |
 | `REQUEST_TIMEOUT_MS` | `600000`       | Upstream response timeout                 |
 
 <details>
@@ -1238,17 +1238,17 @@ The cost display is a "savings tracker" to help you understand your usage patter
 </details>
 
 <details>
-<summary><b>💳 Will I be charged by OmniRoute?</b></summary>
+<summary><b>💳 Will I be charged by GateFlow?</b></summary>
 
-**No.** OmniRoute is free, open-source software that runs on your own computer. It never charges you anything.
+**No.** GateFlow is free, open-source software that runs on your own computer. It never charges you anything.
 
 **You only pay:**
 
 - ✅ **Subscription providers** (Claude Code $20/mo, Codex $20-200/mo) → Pay them directly on their websites
-- ✅ **API key providers** (DeepSeek, xAI, etc.) → Pay them directly, OmniRoute just routes your requests
-- ❌ **OmniRoute itself** → **Never charges anything, ever**
+- ✅ **API key providers** (DeepSeek, xAI, etc.) → Pay them directly, GateFlow just routes your requests
+- ❌ **GateFlow itself** → **Never charges anything, ever**
 
-OmniRoute is a local proxy/router. It doesn't have your credit card, can't send invoices, and has no billing system. It's completely free software.
+GateFlow is a local proxy/router. It doesn't have your credit card, can't send invoices, and has no billing system. It's completely free software.
 
 </details>
 
@@ -1263,7 +1263,7 @@ OmniRoute is a local proxy/router. It doesn't have your credit card, can't send 
 - **LongCat Flash-Lite**: 50M tokens/day — largest free quota available
 - **Cloudflare Workers AI**: 10K Neurons/day — 50+ models at the edge
 
-OmniRoute just routes your requests to them — there's no "catch" or future billing.
+GateFlow just routes your requests to them — there's no "catch" or future billing.
 
 </details>
 
@@ -1292,7 +1292,7 @@ OmniRoute just routes your requests to them — there's no "catch" or future bil
 
    **Additional cost: Only pay for what you actually use**
 
-4. **Use subscription providers last** — only if you already have them. OmniRoute helps maximize their value through quota tracking.
+4. **Use subscription providers last** — only if you already have them. GateFlow helps maximize their value through quota tracking.
 
 **Result:** Most users can operate at **$0/month** using only free tiers!
 
@@ -1313,15 +1313,15 @@ Code blocks, URLs, JSON, and structured data are **always protected** from compr
 </details>
 
 <details>
-<summary><b>🌍 Does OmniRoute work in countries where AI is blocked?</b></summary>
+<summary><b>🌍 Does GateFlow work in countries where AI is blocked?</b></summary>
 
-**Yes!** OmniRoute has a 3-level proxy system:
+**Yes!** GateFlow has a 3-level proxy system:
 
 1. **Global proxy** — all requests go through your proxy
 2. **Per-provider proxy** — different proxy per provider
 3. **Per-API-key proxy** — different proxy per key
 
-Plus the **1proxy free marketplace** for community-shared proxies. Users in Russia, China, Iran, and other restricted regions can access all 160+ providers through OmniRoute's proxy infrastructure.
+Plus the **1proxy free marketplace** for community-shared proxies. Users in Russia, China, Iran, and other restricted regions can access all 160+ providers through GateFlow's proxy infrastructure.
 
 See the [Proxy Guide](docs/PROXY_GUIDE.md) for setup instructions.
 
@@ -1335,7 +1335,7 @@ See the [Proxy Guide](docs/PROXY_GUIDE.md) for setup instructions.
 | --------------------------------------------- | ------------------------------------------------------------------------------------ |
 | **"Language model did not provide messages"** | Provider quota exhausted → check quota tracker, use combo fallback                   |
 | **Rate limiting (429)**                       | Add fallback combo: `cc/claude → glm/glm-4.7 → if/kimi-k2-thinking`                  |
-| **OAuth token expired**                       | Auto-refreshed by OmniRoute. If stuck: delete + re-auth in Providers                 |
+| **OAuth token expired**                       | Auto-refreshed by GateFlow. If stuck: delete + re-auth in Providers                 |
 | **`unsupported_country_region_territory`**    | Configure proxy in Settings → Proxy (see [Proxy Guide](docs/PROXY_GUIDE.md))         |
 | **Docker SQLite locks**                       | Use `--stop-timeout 40` for clean WAL checkpoint on shutdown                         |
 | **Node.js runtime errors**                    | Use Node.js `>=20.20.2 <21`, `>=22.22.2 <23`, or `>=24.0.0 <25` (24 LTS recommended) |
@@ -1359,9 +1359,9 @@ See the [Proxy Guide](docs/PROXY_GUIDE.md) for setup instructions.
 - **Testing**: Node.js test runner + Vitest (**4,690+ test cases** across 517 files — unit, integration, E2E, security, ecosystem)
 - **Platforms**: Desktop (Electron), Android (Termux), PWA (any browser)
 - **CI/CD**: GitHub Actions (auto npm publish + Docker Hub on release)
-- **Website**: [omniroute.online](https://omniroute.online)
-- **Package**: [npmjs.com/package/omniroute](https://www.npmjs.com/package/omniroute)
-- **Docker**: [hub.docker.com/r/diegosouzapw/omniroute](https://hub.docker.com/r/diegosouzapw/omniroute)
+- **Website**: [GateFlow.online](https://GateFlow.online)
+- **Package**: [npmjs.com/package/GateFlow](https://www.npmjs.com/package/GateFlow)
+- **Docker**: [hub.docker.com/r/diegosouzapw/GateFlow](https://hub.docker.com/r/diegosouzapw/GateFlow)
 - **Resilience**: Circuit breaker, exponential backoff, anti-thundering herd, TLS spoofing, auto-combo self-healing
 
 </details>
@@ -1386,7 +1386,7 @@ See the [Proxy Guide](docs/PROXY_GUIDE.md) for setup instructions.
 | [Docker Guide](docs/DOCKER_GUIDE.md)                 | Docker run, Compose profiles, Caddy HTTPS, tunnels, image tags |
 | [VM Deployment](docs/VM_DEPLOYMENT_GUIDE.md)         | Complete guide: VM + nginx + Cloudflare setup                  |
 | [Fly.io Deployment](docs/FLY_IO_DEPLOYMENT_GUIDE.md) | Deploy to Fly.io with persistent storage                       |
-| [Termux Guide](docs/TERMUX_GUIDE.md)                 | Run OmniRoute on Android via Termux                            |
+| [Termux Guide](docs/TERMUX_GUIDE.md)                 | Run GateFlow on Android via Termux                            |
 | [PWA Guide](docs/PWA_GUIDE.md)                       | Progressive Web App install, caching, architecture             |
 | [Uninstall Guide](docs/UNINSTALL.md)                 | Clean removal for all install methods                          |
 | [Environment Config](docs/ENVIRONMENT.md)            | Complete `.env` variables and references                       |
@@ -1433,7 +1433,7 @@ See the [Proxy Guide](docs/PROXY_GUIDE.md) for setup instructions.
 
 ## ⭐ Top Contributors
 
-> OmniRoute is shaped by a passionate open-source community. These individuals have made exceptional contributions that directly impact the quality, stability, and reach of the project. **Thank you.**
+> GateFlow is shaped by a passionate open-source community. These individuals have made exceptional contributions that directly impact the quality, stability, and reach of the project. **Thank you.**
 
 <table>
   <tr>
@@ -1480,13 +1480,13 @@ See the [Proxy Guide](docs/PROXY_GUIDE.md) for setup instructions.
   </tr>
 </table>
 
-> 🙏 These contributors' features, bug fixes, and infrastructure improvements are a **core part** of what makes OmniRoute reliable and feature-rich. Every pull request, every test case, and every i18n translation file matters. Open source is built by people like them.
+> 🙏 These contributors' features, bug fixes, and infrastructure improvements are a **core part** of what makes GateFlow reliable and feature-rich. Every pull request, every test case, and every i18n translation file matters. Open source is built by people like them.
 
 ---
 
 ## 👥 Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=diegosouzapw/OmniRoute&max=100&columns=20&anon=1)](https://github.com/diegosouzapw/OmniRoute/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=diegosouzapw/GateFlow&max=100&columns=20&anon=1)](https://github.com/diegosouzapw/GateFlow/graphs/contributors)
 
 ### How to Contribute
 
@@ -1509,33 +1509,33 @@ gh release create v2.0.0 --title "v2.0.0" --generate-notes
 
 ## 📊 Star History
 
-<a href="https://www.star-history.com/?repos=diegosouzapw%2Fomniroute&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=diegosouzapw%2FGateFlow&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=diegosouzapw/omniroute&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=diegosouzapw/omniroute&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=diegosouzapw/omniroute&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=diegosouzapw/GateFlow&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=diegosouzapw/GateFlow&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=diegosouzapw/GateFlow&type=date&legend=top-left" />
  </picture>
 </a>
 
 ## 🌍 StarMapper
 
-<a href="https://starmapper.bruniaux.com/diegosouzapw/omniroute">
+<a href="https://starmapper.bruniaux.com/diegosouzapw/GateFlow">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/omniroute?theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/omniroute?theme=light" />
-    <img alt="StarMapper" src="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/omniroute" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/GateFlow?theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/GateFlow?theme=light" />
+    <img alt="StarMapper" src="https://starmapper.bruniaux.com/api/map-image/diegosouzapw/GateFlow" />
   </picture>
 </a>
 
 ## 🙏 Acknowledgments
 
-Special thanks to **[9router](https://github.com/decolua/9router)** by **[decolua](https://github.com/decolua)** — the original project that inspired this fork. OmniRoute builds upon that incredible foundation with additional features, multi-modal APIs, and a full TypeScript rewrite.
+Special thanks to **[9router](https://github.com/decolua/9router)** by **[decolua](https://github.com/decolua)** — the original project that inspired this fork. GateFlow builds upon that incredible foundation with additional features, multi-modal APIs, and a full TypeScript rewrite.
 
 Special thanks to **[CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)** by **[router-for-me](https://github.com/router-for-me)** — the original Go implementation that inspired this JavaScript port.
 
-Special thanks to **[Caveman](https://github.com/JuliusBrussee/caveman)** by **[JuliusBrussee](https://github.com/JuliusBrussee)** (⭐ 51K+) — the viral "why use many token when few token do trick" project whose caveman-speak compression philosophy inspired OmniRoute's standard compression mode and 30+ filler/condensation regex rules.
+Special thanks to **[Caveman](https://github.com/JuliusBrussee/caveman)** by **[JuliusBrussee](https://github.com/JuliusBrussee)** (⭐ 51K+) — the viral "why use many token when few token do trick" project whose caveman-speak compression philosophy inspired GateFlow's standard compression mode and 30+ filler/condensation regex rules.
 
-Special thanks to **[RTK - Rust Token Killer](https://github.com/rtk-ai/rtk)** by **[RTK AI](https://github.com/rtk-ai)** — the high-performance command-output compression project whose terminal, build, test, git, and tool-output filtering model inspired OmniRoute's RTK engine, JSON filter DSL, raw-output recovery, and stacked RTK → Caveman compression pipeline.
+Special thanks to **[RTK - Rust Token Killer](https://github.com/rtk-ai/rtk)** by **[RTK AI](https://github.com/rtk-ai)** — the high-performance command-output compression project whose terminal, build, test, git, and tool-output filtering model inspired GateFlow's RTK engine, JSON filter DSL, raw-output recovery, and stacked RTK → Caveman compression pipeline.
 
 ---
 
@@ -1547,9 +1547,9 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 <div align="center">
 
-**[⬆ Back to top](#-omniroute)** · Built with ❤️ for the open-source AI community.
+**[⬆ Back to top](#-GateFlow)** · Built with ❤️ for the open-source AI community.
 
-<sub>OmniRoute v3.8.0 · Node ≥22.22.2 · MIT License · <a href="https://omniroute.online">omniroute.online</a></sub>
+<sub>GateFlow v3.8.0 · Node ≥22.22.2 · MIT License · <a href="https://GateFlow.online">GateFlow.online</a></sub>
 
 </div>
 <!-- GitHub Discussions enabled for community Q&A -->

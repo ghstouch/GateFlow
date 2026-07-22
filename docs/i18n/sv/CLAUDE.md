@@ -35,7 +35,7 @@ npm run test:vitest
 
 ## Översikt
 
-**OmniRoute** — unified AI proxy/router. One endpoint, 100+ LLM providers, auto-fallback.
+**GateFlow** — unified AI proxy/router. One endpoint, 100+ LLM providers, auto-fallback.
 
 | Layer           | Location                 | Purpose                                    |
 | --------------- | ------------------------ | ------------------------------------------ |
@@ -58,9 +58,9 @@ npm run test:vitest
 ### Monorepo Layout
 
 ```
-OmniRoute/              # Root package
+GateFlow/              # Root package
 ├── src/                # Next.js 16 app (TypeScript)
-├── open-sse/           # @omniroute/open-sse workspace (streaming engine)
+├── open-sse/           # @GateFlow/open-sse workspace (streaming engine)
 ├── electron/           # Desktop app (Electron)
 ├── tests/              # All test suites
 ├── docs/               # Documentation
@@ -89,7 +89,7 @@ Client → /v1/chat/completions (Next.js route)
 ### Code Style
 
 - **2 spaces**, semicolons, double quotes, 100 char width, es5 trailing commas
-- **Imports**: external → internal (`@/`, `@omniroute/open-sse`) → relative
+- **Imports**: external → internal (`@/`, `@GateFlow/open-sse`) → relative
 - **Naming**: files=camelCase/kebab, components=PascalCase, constants=UPPER_SNAKE
 
 ### Database Access
@@ -213,9 +213,9 @@ refactor(db): consolidate rate limit tables
 
 - **Runtime**: Node.js ≥18 <24, ES Modules
 - **TypeScript**: 5.9, target ES2022, module esnext, resolution bundler
-- **Path aliases**: `@/*` → `src/`, `@omniroute/open-sse` → `open-sse/`
+- **Path aliases**: `@/*` → `src/`, `@GateFlow/open-sse` → `open-sse/`
 - **Default port**: 20128 (API + dashboard on same port)
-- **Data directory**: `DATA_DIR` env var, defaults to `~/.omniroute/`
+- **Data directory**: `DATA_DIR` env var, defaults to `~/.GateFlow/`
 - **Key env vars**: `PORT`, `JWT_SECRET`, `INITIAL_PASSWORD`, `REQUIRE_API_KEY`, `APP_LOG_LEVEL`
 
 ---

@@ -11,8 +11,8 @@ import {
 import { validateBody } from "@/shared/validation/helpers";
 
 const assessor = new Assessor(
-  process.env.OMNIROUTe_API_KEY ?? process.env.API_KEY ?? "",
-  process.env.OMNIROUTe_BASE_URL ?? "http://localhost:20128/v1"
+  process.env.OMNIROUTE_API_KEY ?? process.env.API_KEY ?? "",
+  process.env.OMNIROUTE_BASE_URL ?? "http://localhost:1750/v1"
 );
 
 const categorizer = new Categorizer();
@@ -141,9 +141,9 @@ export async function GET(request: NextRequest) {
 
 async function getAllModels(): Promise<Array<{ providerId: string; modelId: string }>> {
   try {
-    const resp = await fetch("http://localhost:20128/v1/models", {
+    const resp = await fetch("http://localhost:1750/v1/models", {
       headers: {
-        Authorization: `Bearer ${process.env.OMNIROUTe_API_KEY ?? process.env.API_KEY ?? ""}`,
+        Authorization: `Bearer ${process.env.OMNIROUTE_API_KEY ?? process.env.API_KEY ?? ""}`,
       },
     });
     const data = (await resp.json()) as { data?: unknown };

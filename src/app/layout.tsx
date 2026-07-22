@@ -11,6 +11,8 @@ import { PwaRegister } from "@/shared/components/PwaRegister";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
 });
 
 export const viewport: Viewport = {
@@ -20,13 +22,13 @@ export const viewport: Viewport = {
 
 export async function generateMetadata() {
   const settings = await getSettings();
-  const instanceName = settings?.instanceName || "OmniRoute";
+  const instanceName = settings?.instanceName || "GateFlow";
   const customFaviconUrl = settings?.customFaviconUrl || settings?.customFaviconBase64;
 
   return {
     title: `${instanceName} — AI Gateway for Multi-Provider LLMs`,
     description:
-      "OmniRoute is an AI gateway for multi-provider LLMs. One endpoint for all your AI providers.",
+      "GateFlow is an AI gateway for multi-provider LLMs. One endpoint for all your AI providers.",
     manifest: "/manifest.webmanifest",
     applicationName: instanceName,
     appleWebApp: {
@@ -71,11 +73,14 @@ export default async function RootLayout({ children }) {
               try {
                 const stored = localStorage.getItem('theme');
                 const parsed = stored ? JSON.parse(stored) : null;
-                const theme = parsed?.state?.theme || 'system';
+                const theme = parsed?.state?.theme || 'glass-black';
+                document.documentElement.classList.remove('dark', 'glass-gold', 'glass-black');
                 if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                   document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
+                } else if (theme === 'glass-gold') {
+                  document.documentElement.classList.add('dark', 'glass-gold');
+                } else if (theme === 'glass-black') {
+                  document.documentElement.classList.add('dark', 'glass-black');
                 }
               } catch (e) {}
             `,

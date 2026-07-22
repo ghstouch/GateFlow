@@ -13,7 +13,7 @@ import { getRuntimePorts } from "@/lib/runtime/ports";
 
 const { apiPort } = getRuntimePorts();
 
-// Check if a tool has OmniRoute configured by reading its config file directly
+// Check if a tool has GateFlow configured by reading its config file directly
 // This replaces the expensive self-referential HTTP calls to /api/cli-tools/*-settings
 async function checkToolConfigStatus(toolId: string): Promise<string> {
   try {
@@ -25,11 +25,11 @@ async function checkToolConfigStatus(toolId: string): Promise<string> {
     // Codex uses TOML config — parse as raw text, not JSON
     if (toolId === "codex") {
       const lower = content.toLowerCase();
-      const hasOmniRoute =
-        lower.includes("omniroute") ||
+      const hasGateFlow =
+        lower.includes("GateFlow") ||
         lower.includes(`localhost:${apiPort}`) ||
         lower.includes(`127.0.0.1:${apiPort}`);
-      if (!hasOmniRoute) return "not_configured";
+      if (!hasGateFlow) return "not_configured";
 
       // Also verify auth.json has an API key (not masked/empty)
       try {
@@ -49,16 +49,16 @@ async function checkToolConfigStatus(toolId: string): Promise<string> {
 
     const config = JSON.parse(content);
 
-    // Each tool stores OmniRoute config differently
+    // Each tool stores GateFlow config differently
     switch (toolId) {
       case "claude":
         return config?.env?.ANTHROPIC_BASE_URL ? "configured" : "not_configured";
       case "qwen":
-        // Check modelProviders for OmniRoute entries
+        // Check modelProviders for GateFlow entries
         const mp = config?.modelProviders;
         if (!mp) return "not_configured";
         const qwenConfigStr = JSON.stringify(mp).toLowerCase();
-        return qwenConfigStr.includes("omniroute") ||
+        return qwenConfigStr.includes("GateFlow") ||
           qwenConfigStr.includes(`localhost:${apiPort}`) ||
           qwenConfigStr.includes(`127.0.0.1:${apiPort}`)
           ? "configured"
@@ -67,11 +67,11 @@ async function checkToolConfigStatus(toolId: string): Promise<string> {
       case "openclaw":
       case "cline":
       case "kilo":
-        // Generic check: look for OmniRoute-specific markers in the config
+        // Generic check: look for GateFlow-specific markers in the config
         const configStr = JSON.stringify(config).toLowerCase();
         if (
-          configStr.includes("omniroute") ||
-          configStr.includes("sk_omniroute") ||
+          configStr.includes("GateFlow") ||
+          configStr.includes("sk_GateFlow") ||
           configStr.includes(`localhost:${apiPort}`) ||
           configStr.includes(`127.0.0.1:${apiPort}`)
         ) {

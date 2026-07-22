@@ -32,7 +32,7 @@ The `sanitizeErrorMessage` helper in `open-sse/utils/error.ts` strips both class
 Use `buildErrorBody()` — sanitization is built-in:
 
 ```ts
-import { buildErrorBody } from "@omniroute/open-sse/utils/error.ts";
+import { buildErrorBody } from "@GateFlow/open-sse/utils/error.ts";
 
 export async function POST(req: Request) {
   try {
@@ -56,7 +56,7 @@ import {
   unavailableResponse, // adds Retry-After
   providerCircuitOpenResponse,
   modelCooldownResponse,
-} from "@omniroute/open-sse/utils/error.ts";
+} from "@GateFlow/open-sse/utils/error.ts";
 ```
 
 All of these route through `buildErrorBody` and therefore through `sanitizeErrorMessage`. **You never need to call `sanitizeErrorMessage` manually** when using these helpers.
@@ -66,7 +66,7 @@ All of these route through `buildErrorBody` and therefore through `sanitizeError
 When you can't use the helpers above (e.g. the response shape is dictated by an upstream protocol like Connect-RPC), import `sanitizeErrorMessage` directly:
 
 ```ts
-import { sanitizeErrorMessage } from "@omniroute/open-sse/utils/error.ts";
+import { sanitizeErrorMessage } from "@GateFlow/open-sse/utils/error.ts";
 
 const body = JSON.stringify({
   error: {

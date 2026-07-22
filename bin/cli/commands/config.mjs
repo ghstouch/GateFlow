@@ -13,7 +13,7 @@ Usage:
   omniroute config validate <tool>         Validate config format without writing
 
 Options:
-  --base-url <url>     OmniRoute API base URL (default: http://localhost:20128/v1)
+  --base-url <url>     OmniRoute API base URL (default: http://localhost:1750/v1)
   --api-key <key>      API key for the tool
   --model <model>      Model identifier (where applicable)
   --json               Output as JSON
@@ -101,7 +101,7 @@ export async function runConfigCommand(argv) {
     }
 
     const baseUrl =
-      getStringFlag(flags, "base-url", "OMNIROUTE_BASE_URL") || "http://localhost:20128/v1";
+      getStringFlag(flags, "base-url", "OMNIROUTE_BASE_URL") || "http://localhost:1750/v1";
     const apiKey = getStringFlag(flags, "api-key", "OMNIROUTE_API_KEY");
     const model = getStringFlag(flags, "model");
 
@@ -156,7 +156,7 @@ export async function runConfigCommand(argv) {
     }
 
     const baseUrl =
-      getStringFlag(flags, "base-url", "OMNIROUTE_BASE_URL") || "http://localhost:20128/v1";
+      getStringFlag(flags, "base-url", "OMNIROUTE_BASE_URL") || "http://localhost:1750/v1";
     const apiKey = getStringFlag(flags, "api-key", "OMNIROUTE_API_KEY") || "test-key";
     const model = getStringFlag(flags, "model");
 

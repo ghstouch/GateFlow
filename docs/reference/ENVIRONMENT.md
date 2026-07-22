@@ -6,7 +6,7 @@ lastUpdated: 2026-05-13
 
 # Environment Variables Reference
 
-> Complete reference for every environment variable recognized by OmniRoute.
+> Complete reference for every environment variable recognized by GateFlow.
 > For a quick-start template, see [`.env.example`](../../.env.example).
 
 > [!IMPORTANT]
@@ -57,7 +57,7 @@ These **must** be set before the first run. Without them, the application will e
 | `JWT_SECRET`                 | **Yes**              | _(none)_   | `src/lib/auth`                                     | Signs/verifies all dashboard session cookies (JWT). Generate with `openssl rand -base64 48`.                                                                                                                                                                                  |
 | `API_KEY_SECRET`             | **Yes**              | _(none)_   | `src/lib/db/apiKeys.ts`                            | AES encryption key for API key values at rest in SQLite. Generate with `openssl rand -hex 32`.                                                                                                                                                                                |
 | `INITIAL_PASSWORD`           | **Yes**              | `CHANGEME` | Bootstrap script                                   | Sets the initial admin dashboard password (matches `.env.example` default — kept obviously insecure to force a change). **Change before first use.** After login, change via Dashboard → Settings → Security.                                                                 |
-| `OMNIROUTE_WS_BRIDGE_SECRET` | **Yes** (production) | _(unset)_  | `src/app/api/internal/codex-responses-ws/route.ts` | Shared secret for the internal Codex Responses WebSocket bridge. Authenticates bridge requests between the Electron/browser WS relay and OmniRoute. ⚠️ **REQUIRED in production — when unset, all WS bridge requests are rejected.** Generate with `openssl rand -base64 32`. |
+| `GateFlow_WS_BRIDGE_SECRET` | **Yes** (production) | _(unset)_  | `src/app/api/internal/codex-responses-ws/route.ts` | Shared secret for the internal Codex Responses WebSocket bridge. Authenticates bridge requests between the Electron/browser WS relay and GateFlow. ⚠️ **REQUIRED in production — when unset, all WS bridge requests are rejected.** Generate with `openssl rand -base64 32`. |
 
 ### Generation Commands
 
@@ -66,7 +66,7 @@ These **must** be set before the first run. Without them, the application will e
 echo "JWT_SECRET=$(openssl rand -base64 48)"
 echo "API_KEY_SECRET=$(openssl rand -hex 32)"
 echo "INITIAL_PASSWORD=$(openssl rand -base64 16)"
-echo "OMNIROUTE_WS_BRIDGE_SECRET=$(openssl rand -base64 32)"
+echo "GateFlow_WS_BRIDGE_SECRET=$(openssl rand -base64 32)"
 ```
 
 > [!CAUTION]
@@ -76,30 +76,30 @@ echo "OMNIROUTE_WS_BRIDGE_SECRET=$(openssl rand -base64 32)"
 
 ## 2. Storage & Database
 
-OmniRoute uses **SQLite** (via `better-sqlite3`) for all persistence. These variables control data location, encryption, and lifecycle.
+GateFlow uses **SQLite** (via `better-sqlite3`) for all persistence. These variables control data location, encryption, and lifecycle.
 
 | Variable                               | Default              | Source File                                           | Description                                                                                                                      |
 | -------------------------------------- | -------------------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `DATA_DIR`                             | `~/.omniroute/`      | `src/lib/db/core.ts`                                  | Root directory for SQLite DB, backups, and data files. Override for Docker volumes or custom paths.                              |
+| `DATA_DIR`                             | `~/.GateFlow/`      | `src/lib/db/core.ts`                                  | Root directory for SQLite DB, backups, and data files. Override for Docker volumes or custom paths.                              |
 | `STORAGE_ENCRYPTION_KEY`               | _(empty = disabled)_ | `src/lib/db/encryption.ts`                            | AES key for full SQLite database encryption at rest. Generate with `openssl rand -hex 32`.                                       |
 | `STORAGE_ENCRYPTION_KEY_VERSION`       | `v1`                 | `scripts/build/bootstrap-env.mjs`, `electron/main.js` | Version label for the encryption key. Increment when performing key rotation to support decryption of old backups.               |
 | `DISABLE_SQLITE_AUTO_BACKUP`           | `false`              | `src/lib/db/backup.ts`                                | When `true`, skips the automatic database backup that runs before migrations on every startup.                                   |
-| `OMNIROUTE_CRYPT_KEY`                  | _(unset)_            | `src/lib/db/encryption.ts`                            | **Legacy alias** for `STORAGE_ENCRYPTION_KEY`. Accepted as a fallback when the primary variable is absent.                       |
-| `OMNIROUTE_API_KEY_BASE64`             | _(unset)_            | `src/lib/db/encryption.ts`                            | **Legacy alias** (Base64-encoded form) accepted as a fallback. Decoded automatically before use.                                 |
-| `OMNIROUTE_DB_HEALTHCHECK_INTERVAL_MS` | _(unset)_            | `src/lib/db/core.ts`                                  | Override the periodic SQLite healthcheck interval (ms). When unset, defaults are derived from `NODE_ENV`.                        |
-| `OMNIROUTE_FORCE_DB_HEALTHCHECK`       | `0`                  | `src/lib/db/core.ts`                                  | Set to `1` to force the DB healthcheck loop on, even when it would normally be skipped (e.g., short-lived tasks).                |
-| `OMNIROUTE_MIGRATIONS_DIR`             | _(auto-detect)_      | `src/lib/db/migrationRunner.ts`                       | Override the directory that the migration runner scans. Useful when shipping bundled migrations in custom builds.                |
-| `OMNIROUTE_SPEND_FLUSH_INTERVAL_MS`    | _(default in code)_  | `src/lib/spend/batchWriter.ts`                        | Flush interval (ms) for the batched spend/cost writer. Lower values reduce write coalescing; higher values reduce DB contention. |
-| `OMNIROUTE_SPEND_MAX_BUFFER_SIZE`      | _(default in code)_  | `src/lib/spend/batchWriter.ts`                        | Max buffered spend entries before a forced flush. Raise on high-QPS deployments; lower when bounded memory matters more.         |
+| `GateFlow_CRYPT_KEY`                  | _(unset)_            | `src/lib/db/encryption.ts`                            | **Legacy alias** for `STORAGE_ENCRYPTION_KEY`. Accepted as a fallback when the primary variable is absent.                       |
+| `GateFlow_API_KEY_BASE64`             | _(unset)_            | `src/lib/db/encryption.ts`                            | **Legacy alias** (Base64-encoded form) accepted as a fallback. Decoded automatically before use.                                 |
+| `GateFlow_DB_HEALTHCHECK_INTERVAL_MS` | _(unset)_            | `src/lib/db/core.ts`                                  | Override the periodic SQLite healthcheck interval (ms). When unset, defaults are derived from `NODE_ENV`.                        |
+| `GateFlow_FORCE_DB_HEALTHCHECK`       | `0`                  | `src/lib/db/core.ts`                                  | Set to `1` to force the DB healthcheck loop on, even when it would normally be skipped (e.g., short-lived tasks).                |
+| `GateFlow_MIGRATIONS_DIR`             | _(auto-detect)_      | `src/lib/db/migrationRunner.ts`                       | Override the directory that the migration runner scans. Useful when shipping bundled migrations in custom builds.                |
+| `GateFlow_SPEND_FLUSH_INTERVAL_MS`    | _(default in code)_  | `src/lib/spend/batchWriter.ts`                        | Flush interval (ms) for the batched spend/cost writer. Lower values reduce write coalescing; higher values reduce DB contention. |
+| `GateFlow_SPEND_MAX_BUFFER_SIZE`      | _(default in code)_  | `src/lib/spend/batchWriter.ts`                        | Max buffered spend entries before a forced flush. Raise on high-QPS deployments; lower when bounded memory matters more.         |
 
 ### Scenarios
 
 | Scenario              | Configuration                                                                    |
 | --------------------- | -------------------------------------------------------------------------------- |
-| **Local development** | Leave all defaults. DB lives at `~/.omniroute/omniroute.db`.                     |
+| **Local development** | Leave all defaults. DB lives at `~/.GateFlow/GateFlow.db`.                     |
 | **Docker**            | `DATA_DIR=/data` + mount a volume at `/data`.                                    |
 | **Encrypted at rest** | Set `STORAGE_ENCRYPTION_KEY` + keep backups of the key! Losing it = losing data. |
-| **CI/Testing**        | `DATA_DIR=/tmp/omniroute-test` — ephemeral, no encryption needed.                |
+| **CI/Testing**        | `DATA_DIR=/tmp/GateFlow-test` — ephemeral, no encryption needed.                |
 
 ---
 
@@ -113,9 +113,9 @@ OmniRoute uses **SQLite** (via `better-sqlite3`) for all persistence. These vari
 | `DASHBOARD_PORT`          | _(unset)_                       | `src/lib/runtime/ports.ts`        | When set, serves the Dashboard UI on this separate port.                                                                                                    |
 | `PROD_DASHBOARD_PORT`     | `20130`                         | `docker-compose.prod.yml`         | Host-side published port for the Dashboard in Docker production mode.                                                                                       |
 | `PROD_API_PORT`           | `20131`                         | `docker-compose.prod.yml`         | Host-side published port for the API in Docker production mode.                                                                                             |
-| `OMNIROUTE_PORT`          | _(unset)_                       | `src/lib/runtime/ports.ts`        | Takes precedence over `PORT` when running inside Electron or other wrappers.                                                                                |
+| `GateFlow_PORT`          | _(unset)_                       | `src/lib/runtime/ports.ts`        | Takes precedence over `PORT` when running inside Electron or other wrappers.                                                                                |
 | `NODE_ENV`                | `production`                    | Next.js core                      | Controls logging verbosity, caching, error detail exposure, and Next.js optimizations.                                                                      |
-| `OMNIROUTE_USE_TURBOPACK` | `1` (default in `.env.example`) | `package.json` / Next.js 16       | Toggles the Next.js 16 Turbopack bundler in `npm run dev` and `npm run build`. Set to `0` on Windows or when running into native binding incompatibilities. |
+| `GateFlow_USE_TURBOPACK` | `1` (default in `.env.example`) | `package.json` / Next.js 16       | Toggles the Next.js 16 Turbopack bundler in `npm run dev` and `npm run build`. Set to `0` on Windows or when running into native binding incompatibilities. |
 | `HOST`                    | `0.0.0.0`                       | `scripts/run-next.mjs`            | Bind address for the Next.js dev/start server. Overrides the default `0.0.0.0` when set.                                                                    |
 | `HOSTNAME`                | `127.0.0.1`                     | `scripts/run-next-playwright.mjs` | Bind address used by the Playwright runner when launching Next.js. Defaults to `127.0.0.1` for hermetic tests.                                              |
 
@@ -157,7 +157,7 @@ OmniRoute uses **SQLite** (via `better-sqlite3`) for all persistence. These vari
 | `MAX_BODY_SIZE_BYTES`                   | `10485760` (10 MB)    | `src/shared/middleware/bodySizeGuard.ts` | Maximum allowed request body size. Rejects payloads exceeding this limit.                                                                                                                                                                                    |
 | `CORS_ORIGIN`                           | `*`                   | Next.js middleware                       | CORS `Access-Control-Allow-Origin` value. Restrict for production.                                                                                                                                                                                           |
 | `OUTBOUND_SSRF_GUARD_ENABLED`           | `true`                | `src/shared/network/outboundUrlGuard.ts` | Block provider calls targeting private/loopback/link-local IP ranges. Disable only in isolated test envs.                                                                                                                                                    |
-| `OMNIROUTE_ALLOW_PRIVATE_PROVIDER_URLS` | `false`               | `src/shared/network/outboundUrlGuard.ts` | Allow provider URLs pointing to private/local networks (localhost, 192.168.x.x, 10.x.x.x, etc.). **REQUIRED for self-hosted providers** (LM Studio, Ollama, vLLM, Llamafile, Triton, SearXNG). When `false`, the dashboard rejects validation of local URLs. |
+| `GateFlow_ALLOW_PRIVATE_PROVIDER_URLS` | `false`               | `src/shared/network/outboundUrlGuard.ts` | Allow provider URLs pointing to private/local networks (localhost, 192.168.x.x, 10.x.x.x, etc.). **REQUIRED for self-hosted providers** (LM Studio, Ollama, vLLM, Llamafile, Triton, SearXNG). When `false`, the dashboard rejects validation of local URLs. |
 
 ### Hardening Checklist
 
@@ -174,7 +174,7 @@ MAX_BODY_SIZE_BYTES=5242880    # 5 MB limit
 
 ## 5. Input Sanitization & PII Protection
 
-OmniRoute provides a two-layer defense: request-side injection scanning and response-side PII stripping.
+GateFlow provides a two-layer defense: request-side injection scanning and response-side PII stripping.
 
 ### Request-Side: Prompt Injection Guard
 
@@ -207,8 +207,8 @@ OmniRoute provides a two-layer defense: request-side injection scanning and resp
 | Variable                            | Default                      | Source File                         | Description                                                                                                                               |
 | ----------------------------------- | ---------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `TOOL_POLICY_MODE`                  | `disabled`                   | `src/lib/toolPolicy.ts`             | Controls LLM tool/function-calling access. `allowlist` = only listed tools, `denylist` = all except listed, `disabled` = no restrictions. |
-| `OMNIROUTE_PAYLOAD_RULES_PATH`      | `./config/payloadRules.json` | `open-sse/services/payloadRules.ts` | Path to payload manipulation rules JSON file (per-model/protocol upstream tweaks).                                                        |
-| `OMNIROUTE_PAYLOAD_RULES_RELOAD_MS` | `5000`                       | `open-sse/services/payloadRules.ts` | Reload interval (ms) for hot-reloading the payload rules file. Minimum `1000`.                                                            |
+| `GateFlow_PAYLOAD_RULES_PATH`      | `./config/payloadRules.json` | `open-sse/services/payloadRules.ts` | Path to payload manipulation rules JSON file (per-model/protocol upstream tweaks).                                                        |
+| `GateFlow_PAYLOAD_RULES_RELOAD_MS` | `5000`                       | `open-sse/services/payloadRules.ts` | Reload interval (ms) for hot-reloading the payload rules file. Minimum `1000`.                                                            |
 
 ---
 
@@ -222,18 +222,18 @@ OmniRoute provides a two-layer defense: request-side injection scanning and resp
 | `NEXT_PUBLIC_BASE_URL`                  | `http://localhost:20128`                                        | OAuth, Dashboard, sync                      | Public-facing URL for OAuth redirect_uri, Dashboard links. **Must match your public URL behind reverse proxy.**                                                                                                                                                                                   |
 | `NEXT_PUBLIC_CLOUD_URL`                 | _(empty)_                                                       | Client-side                                 | Client-side mirror of `CLOUD_URL`.                                                                                                                                                                                                                                                                |
 | `NEXT_PUBLIC_APP_URL`                   | _(unset)_                                                       | `src/shared/services/cloudSyncScheduler.ts` | Legacy fallback for `NEXT_PUBLIC_BASE_URL`.                                                                                                                                                                                                                                                       |
-| `OMNIROUTE_PUBLIC_BASE_URL`             | _(unset)_                                                       | `open-sse/executors/chatgpt-web.ts`         | Browser-facing OmniRoute origin used for image URLs in API responses (e.g., `/v1/chatgpt-web/image/<id>`). Set this when OpenWebUI or another relay reaches OmniRoute by an internal URL but the user's browser must fetch images from a LAN, tunnel, or public origin. Do **not** include `/v1`. |
-| `OMNIROUTE_CGPT_WEB_IMAGE_TIMEOUT_MS`   | `180000` (3 min)                                                | `open-sse/executors/chatgpt-web.ts`         | Max wait time for an async chatgpt-web image to land via the celsius WebSocket. Increase during upstream queue-deep windows.                                                                                                                                                                      |
-| `OMNIROUTE_CGPT_WEB_IMAGE_CACHE_MAX_MB` | `256`                                                           | `open-sse/services/chatgptImageCache.ts`    | Total in-memory byte budget (MB) for the chatgpt-web image cache serving `/v1/chatgpt-web/image/<id>`. Lower on memory-constrained hosts; raise if image generation is heavy and clients race the 30-minute TTL.                                                                                  |
-| `KIE_CALLBACK_URL`                      | _(unset)_                                                       | `open-sse/utils/kieTask.ts`                 | Public callback URL for asynchronous kie.ai jobs. Highest-priority override before `OMNIROUTE_KIE_CALLBACK_URL` and `OMNIROUTE_PUBLIC_URL`.                                                                                                                                                       |
-| `OMNIROUTE_KIE_CALLBACK_URL`            | _(unset)_                                                       | `open-sse/utils/kieTask.ts`                 | Alternate spelling of `KIE_CALLBACK_URL`. Falls back when the primary variable is unset.                                                                                                                                                                                                          |
-| `OMNIROUTE_PUBLIC_URL`                  | _(unset)_                                                       | `open-sse/utils/kieTask.ts`                 | Public origin used to compose async callback URLs. Lowest-priority fallback for kie.ai callbacks; also used as a generic public URL for other relays.                                                                                                                                             |
-| `OMNIROUTE_CROF_USAGE_URL`              | `https://crof.ai/usage_api/`                                    | `open-sse/services/usage.ts`                | CrofAI quota lookup endpoint used by the Usage page. Override for relays / test fixtures.                                                                                                                                                                                                         |
-| `OMNIROUTE_GEMINI_CLI_USAGE_URL`        | `https://cloudcode-pa.googleapis.com/v1internal:loadCodeAssist` | `open-sse/services/usage.ts`                | Gemini CLI quota lookup endpoint. Override for relays / test fixtures.                                                                                                                                                                                                                            |
-| `OMNIROUTE_CODEWHISPERER_BASE_URL`      | `https://codewhisperer.us-east-1.amazonaws.com`                 | `open-sse/services/usage.ts`                | CodeWhisperer (AWS Kiro) usage limits endpoint. Override for relays / test fixtures.                                                                                                                                                                                                              |
+| `GateFlow_PUBLIC_BASE_URL`             | _(unset)_                                                       | `open-sse/executors/chatgpt-web.ts`         | Browser-facing GateFlow origin used for image URLs in API responses (e.g., `/v1/chatgpt-web/image/<id>`). Set this when OpenWebUI or another relay reaches GateFlow by an internal URL but the user's browser must fetch images from a LAN, tunnel, or public origin. Do **not** include `/v1`. |
+| `GateFlow_CGPT_WEB_IMAGE_TIMEOUT_MS`   | `180000` (3 min)                                                | `open-sse/executors/chatgpt-web.ts`         | Max wait time for an async chatgpt-web image to land via the celsius WebSocket. Increase during upstream queue-deep windows.                                                                                                                                                                      |
+| `GateFlow_CGPT_WEB_IMAGE_CACHE_MAX_MB` | `256`                                                           | `open-sse/services/chatgptImageCache.ts`    | Total in-memory byte budget (MB) for the chatgpt-web image cache serving `/v1/chatgpt-web/image/<id>`. Lower on memory-constrained hosts; raise if image generation is heavy and clients race the 30-minute TTL.                                                                                  |
+| `KIE_CALLBACK_URL`                      | _(unset)_                                                       | `open-sse/utils/kieTask.ts`                 | Public callback URL for asynchronous kie.ai jobs. Highest-priority override before `GateFlow_KIE_CALLBACK_URL` and `GateFlow_PUBLIC_URL`.                                                                                                                                                       |
+| `GateFlow_KIE_CALLBACK_URL`            | _(unset)_                                                       | `open-sse/utils/kieTask.ts`                 | Alternate spelling of `KIE_CALLBACK_URL`. Falls back when the primary variable is unset.                                                                                                                                                                                                          |
+| `GateFlow_PUBLIC_URL`                  | _(unset)_                                                       | `open-sse/utils/kieTask.ts`                 | Public origin used to compose async callback URLs. Lowest-priority fallback for kie.ai callbacks; also used as a generic public URL for other relays.                                                                                                                                             |
+| `GateFlow_CROF_USAGE_URL`              | `https://crof.ai/usage_api/`                                    | `open-sse/services/usage.ts`                | CrofAI quota lookup endpoint used by the Usage page. Override for relays / test fixtures.                                                                                                                                                                                                         |
+| `GateFlow_GEMINI_CLI_USAGE_URL`        | `https://cloudcode-pa.googleapis.com/v1internal:loadCodeAssist` | `open-sse/services/usage.ts`                | Gemini CLI quota lookup endpoint. Override for relays / test fixtures.                                                                                                                                                                                                                            |
+| `GateFlow_CODEWHISPERER_BASE_URL`      | `https://codewhisperer.us-east-1.amazonaws.com`                 | `open-sse/services/usage.ts`                | CodeWhisperer (AWS Kiro) usage limits endpoint. Override for relays / test fixtures.                                                                                                                                                                                                              |
 
 > [!IMPORTANT]
-> When deploying behind a reverse proxy (nginx, Caddy), `NEXT_PUBLIC_BASE_URL` **must** be set to your public URL (e.g., `https://omniroute.example.com`). Without this, OAuth callbacks will fail because the redirect_uri won't match.
+> When deploying behind a reverse proxy (nginx, Caddy), `NEXT_PUBLIC_BASE_URL` **must** be set to your public URL (e.g., `https://GateFlow.example.com`). Without this, OAuth callbacks will fail because the redirect_uri won't match.
 
 ---
 
@@ -263,14 +263,14 @@ Route upstream LLM provider calls through an HTTP or SOCKS5 proxy for egress con
 
 ## 9. CLI Tool Integration
 
-Controls how OmniRoute discovers and launches CLI sidecars (Claude Code, Codex, etc.).
+Controls how GateFlow discovers and launches CLI sidecars (Claude Code, Codex, etc.).
 
 | Variable                  | Default    | Source File                         | Description                                                                        |
 | ------------------------- | ---------- | ----------------------------------- | ---------------------------------------------------------------------------------- |
 | `CLI_MODE`                | `auto`     | `src/shared/services/cliRuntime.ts` | `auto` = search system PATH; `manual` = use explicit paths only.                   |
 | `CLI_EXTRA_PATHS`         | _(unset)_  | `src/shared/services/cliRuntime.ts` | Additional PATH entries for CLI binary discovery (colon-separated).                |
 | `CLI_CONFIG_HOME`         | _(unset)_  | `src/shared/services/cliRuntime.ts` | Override home directory for reading CLI configs (`~/.claude`, `~/.codex`).         |
-| `CLI_ALLOW_CONFIG_WRITES` | `false`    | `src/shared/services/cliRuntime.ts` | Allow OmniRoute to write CLI config files (token refresh, session data).           |
+| `CLI_ALLOW_CONFIG_WRITES` | `false`    | `src/shared/services/cliRuntime.ts` | Allow GateFlow to write CLI config files (token refresh, session data).           |
 | `CLI_CLAUDE_BIN`          | `claude`   | `src/shared/services/cliRuntime.ts` | Custom path to Claude CLI binary.                                                  |
 | `CLI_CODEX_BIN`           | `codex`    | `src/shared/services/cliRuntime.ts` | Custom path to Codex CLI binary.                                                   |
 | `CLI_DROID_BIN`           | `droid`    | `src/shared/services/cliRuntime.ts` | Custom path to Droid CLI binary.                                                   |
@@ -285,7 +285,7 @@ Controls how OmniRoute discovers and launches CLI sidecars (Claude Code, Codex, 
 ### Docker Example
 
 ```bash
-# Mount host binaries into the container and tell OmniRoute where they are:
+# Mount host binaries into the container and tell GateFlow where they are:
 CLI_EXTRA_PATHS=/host-cli/bin
 CLI_CONFIG_HOME=/root
 CLI_ALLOW_CONFIG_WRITES=true
@@ -298,37 +298,37 @@ CLI_CLAUDE_BIN=/host-cli/bin/claude
 
 | Variable                                        | Default     | Source File                                                 | Description                                                                                                                   |
 | ----------------------------------------------- | ----------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `OMNIROUTE_BASE_URL`                            | auto-detect | `open-sse/mcp-server/server.ts`                             | Explicit URL for MCP/A2A tools to reach OmniRoute. Overrides localhost auto-detection.                                        |
-| `OMNIROUTE_API_KEY`                             | _(unset)_   | MCP/A2A modules                                             | API key for internal MCP tool and A2A skill calls.                                                                            |
-| `OMNIROUTE_API_KEY_ID`                          | _(unset)_   | `open-sse/mcp-server/audit.ts`                              | Key ID for MCP audit log attribution.                                                                                         |
-| `ROUTER_API_KEY`                                | _(unset)_   | Legacy                                                      | Legacy alias for `OMNIROUTE_API_KEY`.                                                                                         |
-| `OMNIROUTE_MCP_ENFORCE_SCOPES`                  | `false`     | `open-sse/mcp-server/server.ts`                             | Enforce scope-based access control on MCP tool calls.                                                                         |
-| `OMNIROUTE_MCP_SCOPES`                          | _(all)_     | `open-sse/mcp-server/server.ts`                             | Comma-separated scopes: `admin`, `combos`, `health`, `models`, `routing`, `budget`, `metrics`, `pricing`, `memory`, `skills`. |
-| `OMNIROUTE_MCP_COMPRESS_DESCRIPTIONS`           | enabled     | `open-sse/mcp-server/descriptionCompressor.ts`              | Compress MCP tool descriptions before serializing the manifest. Disable values: `0`, `false`, `off`.                          |
-| `OMNIROUTE_MCP_DESCRIPTION_COMPRESSION`         | `rtk`       | `open-sse/mcp-server/descriptionCompressor.ts`              | Compression algorithm/profile. Disable values: `0`, `false`, `off`.                                                           |
+| `GateFlow_BASE_URL`                            | auto-detect | `open-sse/mcp-server/server.ts`                             | Explicit URL for MCP/A2A tools to reach GateFlow. Overrides localhost auto-detection.                                        |
+| `GateFlow_API_KEY`                             | _(unset)_   | MCP/A2A modules                                             | API key for internal MCP tool and A2A skill calls.                                                                            |
+| `GateFlow_API_KEY_ID`                          | _(unset)_   | `open-sse/mcp-server/audit.ts`                              | Key ID for MCP audit log attribution.                                                                                         |
+| `ROUTER_API_KEY`                                | _(unset)_   | Legacy                                                      | Legacy alias for `GateFlow_API_KEY`.                                                                                         |
+| `GateFlow_MCP_ENFORCE_SCOPES`                  | `false`     | `open-sse/mcp-server/server.ts`                             | Enforce scope-based access control on MCP tool calls.                                                                         |
+| `GateFlow_MCP_SCOPES`                          | _(all)_     | `open-sse/mcp-server/server.ts`                             | Comma-separated scopes: `admin`, `combos`, `health`, `models`, `routing`, `budget`, `metrics`, `pricing`, `memory`, `skills`. |
+| `GateFlow_MCP_COMPRESS_DESCRIPTIONS`           | enabled     | `open-sse/mcp-server/descriptionCompressor.ts`              | Compress MCP tool descriptions before serializing the manifest. Disable values: `0`, `false`, `off`.                          |
+| `GateFlow_MCP_DESCRIPTION_COMPRESSION`         | `rtk`       | `open-sse/mcp-server/descriptionCompressor.ts`              | Compression algorithm/profile. Disable values: `0`, `false`, `off`.                                                           |
 | `MODEL_SYNC_INTERVAL_HOURS`                     | `24`        | `src/shared/services/modelSyncScheduler.ts`                 | Model catalog sync interval in hours.                                                                                         |
 | `PROVIDER_LIMITS_SYNC_INTERVAL_MINUTES`         | `70`        | `src/server-init.ts`                                        | Provider rate-limit and quota polling interval.                                                                               |
-| `OMNIROUTE_DISABLE_BACKGROUND_SERVICES`         | `false`     | `src/instrumentation-node.ts`                               | Disable all background services (sync, pricing, model refresh). Useful for CI/test.                                           |
-| `OMNIROUTE_ENABLE_RUNTIME_BACKGROUND_TASKS`     | _(unset)_   | `src/lib/config/runtimeSettings.ts`                         | Force background tasks on under automated test detection. Set `1` to override the test heuristic.                             |
-| `OMNIROUTE_BUDGET_RESET_JOB_INTERVAL_MS`        | `600000`    | `src/lib/jobs/budgetResetJob.ts`                            | Budget reset check cadence (ms). Floor `10000`.                                                                               |
-| `OMNIROUTE_REASONING_CACHE_CLEANUP_INTERVAL_MS` | `1800000`   | `src/lib/jobs/reasoningCacheCleanupJob.ts`                  | Reasoning cache cleanup cadence (ms). Floor `60000`.                                                                          |
-| `OMNIROUTE_CONFIG_HOT_RELOAD_MS`                | `5000`      | `src/lib/config/hotReload.ts`                               | Polling interval (ms) for config hot-reload. Lower than `1000` is rejected.                                                   |
-| `OMNIROUTE_DISABLE_REDIS_AUTH_CACHE`            | _(enabled)_ | `src/lib/db/apiKeys.ts`                                     | Set `1` to bypass the Redis-backed API-key auth cache (forces DB reads).                                                      |
-| `OMNIROUTE_RTK_TRUST_PROJECT_FILTERS`           | `0`         | `open-sse/services/compression/engines/rtk/filterLoader.ts` | Trust user-managed RTK project filter rules without strict signature checks.                                                  |
-| `OMNIROUTE_BOOTSTRAPPED`                        | `false`     | `src/app/(dashboard)/dashboard/page.tsx`                    | Set `true` by bootstrap script after initial setup. Controls setup wizard visibility.                                         |
-| `OMNIROUTE_ALLOW_BODY_PROJECT_OVERRIDE`         | `0`         | `open-sse/executors/antigravity.ts`                         | Escape hatch: allow request body to override the Antigravity project field.                                                   |
+| `GateFlow_DISABLE_BACKGROUND_SERVICES`         | `false`     | `src/instrumentation-node.ts`                               | Disable all background services (sync, pricing, model refresh). Useful for CI/test.                                           |
+| `GateFlow_ENABLE_RUNTIME_BACKGROUND_TASKS`     | _(unset)_   | `src/lib/config/runtimeSettings.ts`                         | Force background tasks on under automated test detection. Set `1` to override the test heuristic.                             |
+| `GateFlow_BUDGET_RESET_JOB_INTERVAL_MS`        | `600000`    | `src/lib/jobs/budgetResetJob.ts`                            | Budget reset check cadence (ms). Floor `10000`.                                                                               |
+| `GateFlow_REASONING_CACHE_CLEANUP_INTERVAL_MS` | `1800000`   | `src/lib/jobs/reasoningCacheCleanupJob.ts`                  | Reasoning cache cleanup cadence (ms). Floor `60000`.                                                                          |
+| `GateFlow_CONFIG_HOT_RELOAD_MS`                | `5000`      | `src/lib/config/hotReload.ts`                               | Polling interval (ms) for config hot-reload. Lower than `1000` is rejected.                                                   |
+| `GateFlow_DISABLE_REDIS_AUTH_CACHE`            | _(enabled)_ | `src/lib/db/apiKeys.ts`                                     | Set `1` to bypass the Redis-backed API-key auth cache (forces DB reads).                                                      |
+| `GateFlow_RTK_TRUST_PROJECT_FILTERS`           | `0`         | `open-sse/services/compression/engines/rtk/filterLoader.ts` | Trust user-managed RTK project filter rules without strict signature checks.                                                  |
+| `GateFlow_BOOTSTRAPPED`                        | `false`     | `src/app/(dashboard)/dashboard/page.tsx`                    | Set `true` by bootstrap script after initial setup. Controls setup wizard visibility.                                         |
+| `GateFlow_ALLOW_BODY_PROJECT_OVERRIDE`         | `0`         | `open-sse/executors/antigravity.ts`                         | Escape hatch: allow request body to override the Antigravity project field.                                                   |
 | `ANTIGRAVITY_CREDITS`                           | _(unset)_   | `open-sse/services/antigravityCredits.ts`                   | Override Antigravity's advertised remaining credits (testing / forced values).                                                |
 
 ### OAuth CLI Bridge (Internal)
 
 | Variable            | Default     | Source File                     | Description                               |
 | ------------------- | ----------- | ------------------------------- | ----------------------------------------- |
-| `OMNIROUTE_SERVER`  | auto-detect | `src/lib/oauth/config/index.ts` | Server URL for CLI↔OmniRoute auth bridge. |
-| `OMNIROUTE_TOKEN`   | _(unset)_   | `src/lib/oauth/config/index.ts` | Auth token for CLI bridge.                |
-| `OMNIROUTE_USER_ID` | `cli`       | `src/lib/oauth/config/index.ts` | User ID for CLI bridge sessions.          |
-| `SERVER_URL`        | _(unset)_   | `src/lib/oauth/config/index.ts` | Legacy alias for `OMNIROUTE_SERVER`.      |
-| `CLI_TOKEN`         | _(unset)_   | `src/lib/oauth/config/index.ts` | Legacy alias for `OMNIROUTE_TOKEN`.       |
-| `CLI_USER_ID`       | _(unset)_   | `src/lib/oauth/config/index.ts` | Legacy alias for `OMNIROUTE_USER_ID`.     |
+| `GateFlow_SERVER`  | auto-detect | `src/lib/oauth/config/index.ts` | Server URL for CLI↔GateFlow auth bridge. |
+| `GateFlow_TOKEN`   | _(unset)_   | `src/lib/oauth/config/index.ts` | Auth token for CLI bridge.                |
+| `GateFlow_USER_ID` | `cli`       | `src/lib/oauth/config/index.ts` | User ID for CLI bridge sessions.          |
+| `SERVER_URL`        | _(unset)_   | `src/lib/oauth/config/index.ts` | Legacy alias for `GateFlow_SERVER`.      |
+| `CLI_TOKEN`         | _(unset)_   | `src/lib/oauth/config/index.ts` | Legacy alias for `GateFlow_TOKEN`.       |
+| `CLI_USER_ID`       | _(unset)_   | `src/lib/oauth/config/index.ts` | Legacy alias for `GateFlow_USER_ID`.     |
 
 ---
 
@@ -366,7 +366,7 @@ Built-in credentials for **localhost development**. For remote deployments, regi
 | `QODER_OAUTH_CLIENT_ID`           | Qoder                   | —                                                                                                                                                                                                                                               |
 | `QODER_PERSONAL_ACCESS_TOKEN`     | Qoder                   | Direct API key fallback (bypasses OAuth).                                                                                                                                                                                                       |
 | `QODER_CLI_WORKSPACE`             | Qoder                   | Workspace ID for Qoder CLI.                                                                                                                                                                                                                     |
-| `OMNIROUTE_QODER_WORKSPACE`       | Qoder                   | Alias for `QODER_CLI_WORKSPACE`.                                                                                                                                                                                                                |
+| `GateFlow_QODER_WORKSPACE`       | Qoder                   | Alias for `QODER_CLI_WORKSPACE`.                                                                                                                                                                                                                |
 
 > [!WARNING]
 > **Google OAuth** (Antigravity, Gemini CLI) credentials **only work on localhost**. For remote servers:
@@ -408,7 +408,7 @@ process.env[`${PROVIDER_ID}_USER_AGENT`]
 
 ## 13. CLI Fingerprint Compatibility
 
-When enabled, OmniRoute reorders HTTP headers and JSON body fields to match the exact signature of official CLI tools. This reduces the risk of account flagging while preserving your proxy IP.
+When enabled, GateFlow reorders HTTP headers and JSON body fields to match the exact signature of official CLI tools. This reduces the risk of account flagging while preserving your proxy IP.
 
 **Source:** `open-sse/config/cliFingerprints.ts`, `open-sse/executors/base.ts`
 
@@ -503,9 +503,9 @@ REQUEST_TIMEOUT_MS (global override)
 | `API_BRIDGE_SERVER_KEEPALIVE_TIMEOUT_MS` | `5000`               | Bridge keep-alive idle timeout.                                                             |
 | `API_BRIDGE_SERVER_SOCKET_TIMEOUT_MS`    | `0`                  | Raw socket timeout (0 = disabled).                                                          |
 | `SHUTDOWN_TIMEOUT_MS`                    | `30000`              | Grace period on SIGTERM/SIGINT before force-exit.                                           |
-| `OMNIROUTE_DEFAULT_FETCH_TIMEOUT_MS`     | `120000`             | Fallback used by `src/shared/utils/fetchTimeout.ts` when `FETCH_TIMEOUT_MS` is unset.       |
-| `OMNIROUTE_CHATGPT_TLS_TIMEOUT_MS`       | `60000`              | Wire-level timeout for the bogdanfinn/tls-client koffi binding (`chatgptTlsClient.ts`).     |
-| `OMNIROUTE_CHATGPT_TLS_GRACE_MS`         | `10000`              | JS-side grace added on top of the wire timeout when the native binding is wedged.           |
+| `GateFlow_DEFAULT_FETCH_TIMEOUT_MS`     | `120000`             | Fallback used by `src/shared/utils/fetchTimeout.ts` when `FETCH_TIMEOUT_MS` is unset.       |
+| `GateFlow_CHATGPT_TLS_TIMEOUT_MS`       | `60000`              | Wire-level timeout for the bogdanfinn/tls-client koffi binding (`chatgptTlsClient.ts`).     |
+| `GateFlow_CHATGPT_TLS_GRACE_MS`         | `10000`              | JS-side grace added on top of the wire timeout when the native binding is wedged.           |
 
 ### Circuit Breaker Thresholds
 
@@ -513,12 +513,12 @@ Provider-level circuit breaker tuning. Defaults reflect the scaled values used s
 
 | Variable                                      | Default | Source File                    | Description                                                                 |
 | --------------------------------------------- | ------- | ------------------------------ | --------------------------------------------------------------------------- |
-| `OMNIROUTE_CIRCUIT_BREAKER_OAUTH_THRESHOLD`   | `8`     | `open-sse/config/constants.ts` | Consecutive failure threshold for OAuth providers before the breaker trips. |
-| `OMNIROUTE_CIRCUIT_BREAKER_OAUTH_RESET_MS`    | `60000` | `open-sse/config/constants.ts` | Reset window (ms) for OAuth provider breaker.                               |
-| `OMNIROUTE_CIRCUIT_BREAKER_API_KEY_THRESHOLD` | `12`    | `open-sse/config/constants.ts` | Consecutive failure threshold for API-key providers.                        |
-| `OMNIROUTE_CIRCUIT_BREAKER_API_KEY_RESET_MS`  | `30000` | `open-sse/config/constants.ts` | Reset window (ms) for API-key provider breaker.                             |
-| `OMNIROUTE_CIRCUIT_BREAKER_LOCAL_THRESHOLD`   | `2`     | `open-sse/config/constants.ts` | Consecutive failure threshold for local providers (Ollama, LM Studio, ...). |
-| `OMNIROUTE_CIRCUIT_BREAKER_LOCAL_RESET_MS`    | `15000` | `open-sse/config/constants.ts` | Reset window (ms) for local provider breaker.                               |
+| `GateFlow_CIRCUIT_BREAKER_OAUTH_THRESHOLD`   | `8`     | `open-sse/config/constants.ts` | Consecutive failure threshold for OAuth providers before the breaker trips. |
+| `GateFlow_CIRCUIT_BREAKER_OAUTH_RESET_MS`    | `60000` | `open-sse/config/constants.ts` | Reset window (ms) for OAuth provider breaker.                               |
+| `GateFlow_CIRCUIT_BREAKER_API_KEY_THRESHOLD` | `12`    | `open-sse/config/constants.ts` | Consecutive failure threshold for API-key providers.                        |
+| `GateFlow_CIRCUIT_BREAKER_API_KEY_RESET_MS`  | `30000` | `open-sse/config/constants.ts` | Reset window (ms) for API-key provider breaker.                             |
+| `GateFlow_CIRCUIT_BREAKER_LOCAL_THRESHOLD`   | `2`     | `open-sse/config/constants.ts` | Consecutive failure threshold for local providers (Ollama, LM Studio, ...). |
+| `GateFlow_CIRCUIT_BREAKER_LOCAL_RESET_MS`    | `15000` | `open-sse/config/constants.ts` | Reset window (ms) for local provider breaker.                               |
 
 ### Scenarios
 
@@ -562,7 +562,7 @@ The logging system writes to both stdout and rotated log files. All configuratio
 
 | Variable                   | Default                         | Description                                                            |
 | -------------------------- | ------------------------------- | ---------------------------------------------------------------------- |
-| `OMNIROUTE_MEMORY_MB`      | `256` (Docker) / system default | V8 heap limit. Sets `--max-old-space-size`.                            |
+| `GateFlow_MEMORY_MB`      | `256` (Docker) / system default | V8 heap limit. Sets `--max-old-space-size`.                            |
 | `PROMPT_CACHE_MAX_SIZE`    | `50`                            | Max cached system prompt entries.                                      |
 | `PROMPT_CACHE_MAX_BYTES`   | `2097152` (2 MB)                | Max total prompt cache size.                                           |
 | `PROMPT_CACHE_TTL_MS`      | `300000` (5 min)                | Prompt cache entry TTL.                                                |
@@ -577,12 +577,12 @@ The logging system writes to both stdout and rotated log files. All configuratio
 
 | Variable                              | Default | Description                                                                                                   |
 | ------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------- |
-| `OMNIROUTE_RTK_TRUST_PROJECT_FILTERS` | unset   | Trust project `.rtk/filters.json` without a `.rtk/trust.json` hash. Use only in controlled local development. |
+| `GateFlow_RTK_TRUST_PROJECT_FILTERS` | unset   | Trust project `.rtk/filters.json` without a `.rtk/trust.json` hash. Use only in controlled local development. |
 
 ### Low-RAM Docker Example
 
 ```bash
-OMNIROUTE_MEMORY_MB=128
+GateFlow_MEMORY_MB=128
 PROMPT_CACHE_MAX_SIZE=20
 PROMPT_CACHE_MAX_BYTES=524288        # 512 KB
 SEMANTIC_CACHE_MAX_SIZE=25
@@ -632,7 +632,7 @@ Automatic model pricing data synchronization from external sources.
 | `LOCAL_HOSTNAMES`                         | _(empty)_          | `open-sse/config/providerRegistry.ts`                                 | Comma-separated additional hostnames treated as "local" (Docker service names, etc.). |
 
 `ENABLE_CC_COMPATIBLE_PROVIDER` is only for third-party relays that accept Claude Code clients
-exclusively. OmniRoute rewrites requests so those relays accept them. If you only want to use
+exclusively. GateFlow rewrites requests so those relays accept them. If you only want to use
 Claude Code CLI, or you are not sure what these relays are, keep this disabled and add a regular
 Anthropic-compatible provider instead.
 
@@ -665,9 +665,9 @@ Anthropic-compatible provider instead.
 | `CURSOR_STREAM_TIMEOUT_MS`       | `300000`            | `open-sse/executors/cursor.ts`             | Stream idle timeout (ms) for the Cursor executor.                                 |
 | `CURSOR_STATE_DB_PATH`           | _(probed)_          | `open-sse/utils/cursorVersionDetector.ts`  | Override the Cursor state DB lookup used for version detection.                   |
 | `CURSOR_TOKEN`                   | _(unset)_           | `scripts/cursor-tap.cjs`                   | Direct Cursor bearer token used by developer tooling.                             |
-| `OMNIROUTE_LOG_REQUEST_SHAPE`    | enabled (`!== "0"`) | `src/app/api/v1/chat/completions/route.ts` | Log content-type/length markers for large chat payloads. Set `"0"` to silence.    |
+| `GateFlow_LOG_REQUEST_SHAPE`    | enabled (`!== "0"`) | `src/app/api/v1/chat/completions/route.ts` | Log content-type/length markers for large chat payloads. Set `"0"` to silence.    |
 | `DEBUG_RESPONSES_SSE_TO_JSON`    | _(unset)_           | `open-sse/handlers/responseTranslator.ts`  | Set `true` to log Responses API SSE→JSON translation details.                     |
-| `NEXT_PUBLIC_OMNIROUTE_E2E_MODE` | _(unset)_           | E2E test harness                           | Set `true` to enable E2E test mode (relaxed auth, test hooks).                    |
+| `NEXT_PUBLIC_GateFlow_E2E_MODE` | _(unset)_           | E2E test harness                           | Set `true` to enable E2E test mode (relaxed auth, test hooks).                    |
 
 ---
 
@@ -708,9 +708,9 @@ API_PORT=20129
 NODE_ENV=production
 AUTH_COOKIE_SECURE=true
 REQUIRE_API_KEY=true
-NEXT_PUBLIC_BASE_URL=https://omniroute.example.com
+NEXT_PUBLIC_BASE_URL=https://GateFlow.example.com
 BASE_URL=http://localhost:20128
-OMNIROUTE_MEMORY_MB=512
+GateFlow_MEMORY_MB=512
 CORS_ORIGIN=https://your-frontend.example.com
 ```
 
@@ -721,7 +721,7 @@ JWT_SECRET=test-jwt-secret-for-ci
 API_KEY_SECRET=test-api-key-secret-for-ci
 INITIAL_PASSWORD=testpass
 NODE_ENV=production
-OMNIROUTE_DISABLE_BACKGROUND_SERVICES=true
+GateFlow_DISABLE_BACKGROUND_SERVICES=true
 APP_LOG_TO_FILE=false
 ```
 
@@ -734,9 +734,9 @@ STORAGE_ENCRYPTION_KEY=<generated>
 PORT=20128
 AUTH_COOKIE_SECURE=true
 REQUIRE_API_KEY=true
-NEXT_PUBLIC_BASE_URL=https://omniroute.example.com
+NEXT_PUBLIC_BASE_URL=https://GateFlow.example.com
 BASE_URL=http://127.0.0.1:20128
-CORS_ORIGIN=https://omniroute.example.com
+CORS_ORIGIN=https://GateFlow.example.com
 ENABLE_TLS_FINGERPRINT=true
 CLI_COMPAT_ALL=1
 ```
@@ -786,7 +786,7 @@ Provider quota endpoints, network tunnels (Tailscale, Ngrok, MITM debug proxy), 
 | `NGROK_AUTHTOKEN`                | _(unset)_                             | `src/lib/ngrokTunnel.ts`                            | Authenticates outbound ngrok tunnels.                                       |
 | `DB_BACKUP_MAX_FILES`            | `20`                                  | `src/lib/db/backup.ts`                              | Maximum SQLite backup files retained on disk.                               |
 | `DB_BACKUP_RETENTION_DAYS`       | `0`                                   | `src/lib/db/backup.ts`                              | Maximum age (days) of retained backups. `0` disables age-based pruning.     |
-| `OMNIROUTE_TLS_PROXY_URL`        | _(unset)_                             | `open-sse/services/chatgptTlsClient.ts`             | Override the TLS sidecar URL for tests. Production should leave unset.      |
+| `GateFlow_TLS_PROXY_URL`        | _(unset)_                             | `open-sse/services/chatgptTlsClient.ts`             | Override the TLS sidecar URL for tests. Production should leave unset.      |
 
 ---
 
@@ -798,13 +798,13 @@ value below unset in production deployments.
 
 | Variable                              | Default                          | Source File                           | Description                                                                              |
 | ------------------------------------- | -------------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `OMNIROUTE_E2E_BOOTSTRAP_MODE`        | `auth`                           | `scripts/run-next-playwright.mjs`     | E2E bootstrap mode (`auth`, `fresh`, `reuse`) for the Playwright runner.                 |
-| `OMNIROUTE_E2E_PASSWORD`              | falls back to `INITIAL_PASSWORD` | `scripts/run-next-playwright.mjs`     | Admin password injected into the Playwright environment.                                 |
-| `OMNIROUTE_DISABLE_LOCAL_HEALTHCHECK` | `true`                           | `scripts/run-next-playwright.mjs`     | Disable the local healthcheck poll during Playwright runs.                               |
-| `OMNIROUTE_DISABLE_TOKEN_HEALTHCHECK` | `true`                           | `scripts/run-next-playwright.mjs`     | Disable the OAuth token healthcheck loop during tests.                                   |
-| `OMNIROUTE_HIDE_HEALTHCHECK_LOGS`     | `true`                           | `scripts/run-next-playwright.mjs`     | Silence healthcheck noise in Playwright stdout.                                          |
-| `OMNIROUTE_PLAYWRIGHT_SKIP_BUILD`     | `0`                              | `scripts/run-next-playwright.mjs`     | Skip the Next.js production build before Playwright starts (CI optimization).            |
-| `OMNIROUTE_SKIP_UNINSTALL_HOOK`       | `0`                              | `scripts/uninstall.mjs`               | Skip the OmniRoute uninstall hook (used by CI to keep `node_modules` intact).            |
+| `GateFlow_E2E_BOOTSTRAP_MODE`        | `auth`                           | `scripts/run-next-playwright.mjs`     | E2E bootstrap mode (`auth`, `fresh`, `reuse`) for the Playwright runner.                 |
+| `GateFlow_E2E_PASSWORD`              | falls back to `INITIAL_PASSWORD` | `scripts/run-next-playwright.mjs`     | Admin password injected into the Playwright environment.                                 |
+| `GateFlow_DISABLE_LOCAL_HEALTHCHECK` | `true`                           | `scripts/run-next-playwright.mjs`     | Disable the local healthcheck poll during Playwright runs.                               |
+| `GateFlow_DISABLE_TOKEN_HEALTHCHECK` | `true`                           | `scripts/run-next-playwright.mjs`     | Disable the OAuth token healthcheck loop during tests.                                   |
+| `GateFlow_HIDE_HEALTHCHECK_LOGS`     | `true`                           | `scripts/run-next-playwright.mjs`     | Silence healthcheck noise in Playwright stdout.                                          |
+| `GateFlow_PLAYWRIGHT_SKIP_BUILD`     | `0`                              | `scripts/run-next-playwright.mjs`     | Skip the Next.js production build before Playwright starts (CI optimization).            |
+| `GateFlow_SKIP_UNINSTALL_HOOK`       | `0`                              | `scripts/uninstall.mjs`               | Skip the GateFlow uninstall hook (used by CI to keep `node_modules` intact).            |
 | `ECOSYSTEM_SERVER_WAIT_MS`            | `180000`                         | `scripts/run-ecosystem-tests.mjs`     | Wait time (ms) for the server to become healthy before running ecosystem/protocol tests. |
 | `ELECTRON_SMOKE_URL`                  | `http://127.0.0.1:20128/login`   | `scripts/smoke-electron-packaged.mjs` | URL the Electron smoke harness expects the packaged app to serve.                        |
 | `ELECTRON_SMOKE_TIMEOUT_MS`           | `45000`                          | `scripts/smoke-electron-packaged.mjs` | Total timeout (ms) before the smoke harness gives up.                                    |
@@ -823,11 +823,11 @@ that should be able to run the docs translator.
 
 | Variable                            | Default   | Source File                        | Description                                                               |
 | ----------------------------------- | --------- | ---------------------------------- | ------------------------------------------------------------------------- |
-| `OMNIROUTE_TRANSLATION_API_URL`     | _(unset)_ | `scripts/i18n/run-translation.mjs` | OpenAI-compatible base URL for the translation backend.                   |
-| `OMNIROUTE_TRANSLATION_API_KEY`     | _(unset)_ | `scripts/i18n/run-translation.mjs` | Bearer token for the translation backend (never logged).                  |
-| `OMNIROUTE_TRANSLATION_MODEL`       | _(unset)_ | `scripts/i18n/run-translation.mjs` | Model id, e.g. `gpt-4o-mini` or `cx/gpt-5.4-mini`.                        |
-| `OMNIROUTE_TRANSLATION_TIMEOUT_MS`  | `60000`   | `scripts/i18n/run-translation.mjs` | Per-request timeout in milliseconds.                                      |
-| `OMNIROUTE_TRANSLATION_CONCURRENCY` | `4`       | `scripts/i18n/run-translation.mjs` | Parallel translation requests when running over multiple files / locales. |
+| `GateFlow_TRANSLATION_API_URL`     | _(unset)_ | `scripts/i18n/run-translation.mjs` | OpenAI-compatible base URL for the translation backend.                   |
+| `GateFlow_TRANSLATION_API_KEY`     | _(unset)_ | `scripts/i18n/run-translation.mjs` | Bearer token for the translation backend (never logged).                  |
+| `GateFlow_TRANSLATION_MODEL`       | _(unset)_ | `scripts/i18n/run-translation.mjs` | Model id, e.g. `gpt-4o-mini` or `cx/gpt-5.4-mini`.                        |
+| `GateFlow_TRANSLATION_TIMEOUT_MS`  | `60000`   | `scripts/i18n/run-translation.mjs` | Per-request timeout in milliseconds.                                      |
+| `GateFlow_TRANSLATION_CONCURRENCY` | `4`       | `scripts/i18n/run-translation.mjs` | Parallel translation requests when running over multiple files / locales. |
 
 ---
 
@@ -838,7 +838,7 @@ The following variables appeared in previous versions of `.env.example` but have
 | Variable                                                                                                                                                                        | Reason                                                                                                                                             |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `STORAGE_DRIVER=sqlite`                                                                                                                                                         | Never read by any source file. SQLite is the only supported driver — no selection needed.                                                          |
-| `INSTANCE_NAME=omniroute`                                                                                                                                                       | Present in old docs/env templates but unused at runtime. May return in a future multi-instance feature.                                            |
+| `INSTANCE_NAME=GateFlow`                                                                                                                                                       | Present in old docs/env templates but unused at runtime. May return in a future multi-instance feature.                                            |
 | `SQLITE_MAX_SIZE_MB=2048`                                                                                                                                                       | Not referenced in source code. Database size is not artificially limited.                                                                          |
 | `SQLITE_CLEAN_LEGACY_FILES=true`                                                                                                                                                | Not referenced in source code. Legacy cleanup was likely removed.                                                                                  |
 | `CLI_ROO_BIN`                                                                                                                                                                   | Not registered in `src/shared/services/cliRuntime.ts`.                                                                                             |

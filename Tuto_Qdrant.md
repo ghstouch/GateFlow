@@ -1,4 +1,4 @@
-﻿# Tutorial Qdrant no OmniRoute (Guia para vídeo)
+# Tutorial Qdrant no GateFlow (Guia para vídeo)
 
 > ⚠️ **Status (v3.8.0):** Integração Qdrant está **dormente** no pipeline. As funções de upsert/search/delete existem em `src/lib/memory/qdrant.ts` e a UI de configuração está pronta (`MemorySkillsTab.tsx` + endpoint `/api/settings/qdrant/embedding-models`), mas:
 >
@@ -8,11 +8,11 @@
 >
 > Este documento descreve a UX/configuração planejada. Para o sistema de memória ativo hoje, consulte [`docs/frameworks/MEMORY.md`](docs/frameworks/MEMORY.md). Acompanhe o status da ativação em issues marcadas com `area:qdrant`.
 
-## 1) O que é o Qdrant no OmniRoute
+## 1) O que é o Qdrant no GateFlow
 
 O Qdrant é o banco vetorial usado para memória semântica.
 
-No OmniRoute, ele ajuda a:
+No GateFlow, ele ajuda a:
 
 - Encontrar contexto por significado (não só palavra exata).
 - Reaproveitar memórias antigas com mais precisão.
@@ -21,7 +21,7 @@ No OmniRoute, ele ajuda a:
 
 ---
 
-## 2) Quando o OmniRoute envia dados para o Qdrant
+## 2) Quando o GateFlow envia dados para o Qdrant
 
 Com Qdrant habilitado e modelo de embedding configurado, o sistema envia vetores quando:
 
@@ -41,9 +41,9 @@ Resumo prático:
 Você precisa de:
 
 - Instância Qdrant acessível (porta 6333).
-- Coleção criada (ex.: `omniroute_memory`).
+- Coleção criada (ex.: `GateFlow_memory`).
 - Modelo de embedding válido (ex.: OpenRouter).
-- Credencial do provider do embedding configurada no OmniRoute.
+- Credencial do provider do embedding configurada no GateFlow.
 
 Exemplo de modelo OpenRouter:
 
@@ -56,7 +56,7 @@ Importante:
 
 ---
 
-## 4) Como configurar no painel do OmniRoute
+## 4) Como configurar no painel do GateFlow
 
 No menu:
 
@@ -67,7 +67,7 @@ Preencha:
 - `Ativar Qdrant`: ligado.
 - `Host`: IP ou URL do servidor Qdrant (sem porta no campo Host).
 - `Porta`: `6333`.
-- `Collection`: `omniroute_memory` (ou nome que você criou).
+- `Collection`: `GateFlow_memory` (ou nome que você criou).
 - `Modelo de embedding`: selecione da lista ou digite manualmente.
 - `API Key`: opcional (preencha se seu Qdrant exigir).
 
@@ -87,10 +87,10 @@ No Qdrant Dashboard:
 2. Escolha `Global search`.
 3. Em tipo de busca, use `Custom`.
 4. Configure vetor:
-   - Vector name: `omniao` (padrão esperado pelo OmniRoute atualmente).
+   - Vector name: `omniao` (padrão esperado pelo GateFlow atualmente).
    - Size: dimensão do seu modelo de embedding (ex.: 2048 em alguns modelos NVIDIA).
    - Distance: `Cosine`.
-5. Salve a coleção com nome `omniroute_memory`.
+5. Salve a coleção com nome `GateFlow_memory`.
 
 Se já tinha coleção com dimensão errada:
 
@@ -102,7 +102,7 @@ Se já tinha coleção com dimensão errada:
 
 Checklist rápido:
 
-1. `Testar conexão` no OmniRoute retorna OK.
+1. `Testar conexão` no GateFlow retorna OK.
 2. Busca no painel retorna resultados (não “Sem resultados”).
 3. No Qdrant Dashboard, aparecem pontos na coleção (payload + vector).
 4. Resultados de chat passam a recuperar contexto mais relevante.
@@ -122,7 +122,7 @@ Causas comuns:
 
 ## 7) O que melhorou com esta atualização
 
-Nesta melhoria do OmniRoute:
+Nesta melhoria do GateFlow:
 
 - Suporte a embeddings de qualquer provider compatível (não só OpenAI fixo).
 - Endpoint para carregar modelos de embedding na tela de configurações.
@@ -145,7 +145,7 @@ Sugestão de demo (3-5 minutos):
 
 Mensagem final para a galera:
 
-- "Qdrant no OmniRoute transforma memória de palavra-chave em memória por significado."
+- "Qdrant no GateFlow transforma memória de palavra-chave em memória por significado."
 
 ---
 

@@ -9,7 +9,7 @@ lastUpdated: 2026-05-13
 > **Source of truth:** `src/lib/memory/` and `src/app/api/memory/`
 > **Last updated:** 2026-05-13 — v3.8.0
 
-OmniRoute provides persistent conversational memory keyed by API key (and
+GateFlow provides persistent conversational memory keyed by API key (and
 optionally session id). Memories are extracted automatically from LLM responses
 via lightweight regex pattern matching and injected back into subsequent
 requests as a leading system message (or first user message for providers that
@@ -88,7 +88,7 @@ semantic memory:
   vectors on first use), and upsert a point with payload `{memoryId,
 apiKeyId, sessionId, key, content, metadata, createdAtUnix, expiresAtUnix}`.
 - `searchSemanticMemory(query, topK, scope)` — embed the query, search the
-  collection filtered by `kind = "omniroute_memory"` and optionally by
+  collection filtered by `kind = "GateFlow_memory"` and optionally by
   `apiKeyId` / `sessionId`. Caps `topK` to `[1, 20]`.
 - `deleteSemanticMemoryPoint(id)` — single point delete.
 - `cleanupSemanticMemoryPoints({retentionDays})` — bulk delete points whose
@@ -174,7 +174,7 @@ facts without storing them.
    returns at least one entry when any matched.
 
 `estimateTokens` is exported and used by retrieval, summarisation, and the MCP
-`omniroute_memory_search` tool.
+`GateFlow_memory_search` tool.
 
 ## Injection (`injection.ts`)
 
@@ -214,12 +214,12 @@ Note: the UI strategy `"recent"` maps to the internal `"exact"` retrieval
 strategy via `toMemoryRetrievalConfig()` (chronological order).
 
 Qdrant-related DB keys (`qdrantEnabled`, `qdrantHost`, `qdrantPort`,
-`qdrantApiKey`, `qdrantCollection` default `"omniroute_memory"`,
+`qdrantApiKey`, `qdrantCollection` default `"GateFlow_memory"`,
 `qdrantEmbeddingModel` default `"openai/text-embedding-3-small"`) are read by
 `normalizeQdrantConfig()` in `qdrant.ts`.
 
 No `MEMORY_*` or `QDRANT_*` env vars exist today — everything is per-instance
-DB settings. `OMNIROUTE_MEMORY_MB` (commented out in `.env.example`) is
+DB settings. `GateFlow_MEMORY_MB` (commented out in `.env.example`) is
 unrelated and refers to Node heap sizing.
 
 ## Summarisation (`summarization.ts`)
@@ -258,12 +258,12 @@ takes precedence and a derived `page` is computed for the response shape.
 
 When the MCP server is enabled, three memory tools are registered:
 
-- `omniroute_memory_search` — `{apiKeyId, query?, type?, maxTokens?, limit?}`
+- `GateFlow_memory_search` — `{apiKeyId, query?, type?, maxTokens?, limit?}`
   → wraps `retrieveMemories()` with `retrievalStrategy: "exact"`, optionally
   filters by `type`, and reports `totalTokens`.
-- `omniroute_memory_add` — `{apiKeyId, sessionId?, type, key, content,
+- `GateFlow_memory_add` — `{apiKeyId, sessionId?, type, key, content,
 metadata?}` → wraps `createMemory()`.
-- `omniroute_memory_clear` — `{apiKeyId, type?, olderThan?}` → lists matching
+- `GateFlow_memory_clear` — `{apiKeyId, type?, olderThan?}` → lists matching
   entries, optionally filters by created-before timestamp, then deletes each
   via `deleteMemory()`.
 
@@ -302,7 +302,7 @@ default TTL 5 min).
 - Entries with a future `expires_at` are filtered out of retrieval; old
   entries beyond `retentionDays` are excluded by the
   `created_at >= cutoff` clause in `retrieveMemories`.
-- For hard deletion, use `DELETE /api/memory/[id]` or `omniroute_memory_clear`.
+- For hard deletion, use `DELETE /api/memory/[id]` or `GateFlow_memory_clear`.
 - Extraction is fire-and-forget via `setImmediate`; failures are logged under
   `memory.extraction.background.failed` and never surface to the caller.
 - Verification round-trips (`verifyExtractionPipeline`) clean up their own

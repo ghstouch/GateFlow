@@ -1,17 +1,17 @@
 {
-  "name": "omniroute",
+  "name": "gateflow",
   "version": "3.8.0",
-  "description": "Unified AI router with 160+ providers, RTK+Caveman compression, auto fallback, MCP/A2A, desktop, PWA, and OpenAI-compatible APIs.",
+  "description": "Unified AI gateway with 160+ providers, auto fallback, MCP/A2A, desktop, PWA, and OpenAI-compatible APIs.",
   "type": "module",
   "bin": {
-    "omniroute": "bin/omniroute.mjs",
-    "omniroute-reset-password": "bin/reset-password.mjs"
+    "gateflow": "bin/GateFlow.mjs",
+    "gateflow-reset-password": "bin/reset-password.mjs"
   },
   "files": [
     "bin/",
     "app/",
     "src/lib/cli-helper/",
-    "@omniroute/",
+    "@GateFlow/",
     "open-sse/mcp-server/index.ts",
     "open-sse/mcp-server/server.ts",
     "open-sse/mcp-server/httpTransport.ts",
@@ -59,9 +59,9 @@
   "author": "diegosouzapw",
   "repository": {
     "type": "git",
-    "url": "https://github.com/diegosouzapw/OmniRoute"
+    "url": "https://github.com/diegosouzapw/GateFlow"
   },
-  "homepage": "https://omniroute.online",
+  "homepage": "https://GateFlow.online",
   "scripts": {
     "dev": "node scripts/dev/run-next.mjs dev",
     "prebuild:docs": "node scripts/docs/generate-docs-index.mjs && node scripts/docs/gen-openapi-module.mjs",
@@ -70,7 +70,7 @@
     "build:cli": "node --import tsx/esm scripts/build/prepublish.ts",
     "start": "node scripts/dev/run-next.mjs start",
     "lint": "eslint .",
-    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:20128 && cd electron && npm run dev\"",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:1750 && cd electron && npm run dev\"",
     "electron:build": "npm run build && cd electron && npm run build",
     "electron:build:win": "npm run build && cd electron && npm run build:win",
     "electron:build:mac": "npm run build && cd electron && npm run build:mac",
@@ -173,7 +173,8 @@
     "xxhash-wasm": "^1.1.0",
     "yazl": "^3.3.1",
     "zod": "^4.4.3",
-    "zustand": "^5.0.13"
+    "zustand": "^5.0.13",
+    "@xyflow/react": "^12.11.1"
   },
   "optionalDependencies": {
     "keytar": "^7.9.0"
@@ -223,7 +224,7 @@
       "@swc/core",
       "better-sqlite3",
       "esbuild",
-      "omniroute",
+      "GateFlow",
       "sharp"
     ]
   },

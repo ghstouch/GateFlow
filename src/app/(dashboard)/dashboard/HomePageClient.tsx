@@ -188,7 +188,7 @@ export default function HomePageClient({ machineId }: HomePageClientProps) {
     { label: ts("cliTools"), href: "/dashboard/cli-tools", icon: "terminal" },
     {
       label: t("reportIssue"),
-      href: "https://github.com/diegosouzapw/OmniRoute/issues",
+      href: "https://github.com/ghstouch/gateflow/issues",
       external: true,
       icon: "bug_report",
     },
@@ -211,17 +211,7 @@ export default function HomePageClient({ machineId }: HomePageClientProps) {
               {
                 step: "install",
                 status: "done",
-                message: message || `Queued update to v${targetVersion}.`,
-              },
-              {
-                step: "rebuild",
-                status: "running",
-                message: "Docker image is rebuilding in the background.",
-              },
-              {
-                step: "restart",
-                status: "pending",
-                message: "Waiting for OmniRoute to restart with the new version.",
+                message: "Waiting for GateFlow to restart with the new version.",
               },
             ]
           : [
@@ -233,7 +223,7 @@ export default function HomePageClient({ machineId }: HomePageClientProps) {
               {
                 step: "restart",
                 status: "pending",
-                message: "Waiting for OmniRoute to restart with the new version.",
+                message: "Waiting for gateflow to restart with the new version.",
               },
             ];
 
@@ -265,14 +255,14 @@ export default function HomePageClient({ machineId }: HomePageClientProps) {
               next = mergeUpdateStep(next, {
                 step: "complete",
                 status: "done",
-                message: `OmniRoute is now running v${targetVersion}.`,
+                message: `GateFlow is now running v${targetVersion}.`,
               });
 
               return next;
             });
             setUpdating(false);
             setUpdatePhase("done");
-            notify.success(`OmniRoute updated to v${targetVersion}.`);
+            notify.success(`GateFlow updated to v${targetVersion}.`);
             await fetchData();
             return;
           }
@@ -296,7 +286,7 @@ export default function HomePageClient({ machineId }: HomePageClientProps) {
             next = mergeUpdateStep(next, {
               step: "restart",
               status: "pending",
-              message: `Waiting for OmniRoute to come back on v${targetVersion}.`,
+              message: `Waiting for GateFlow to come back on v${targetVersion}.`,
             });
 
             return next;
@@ -321,7 +311,7 @@ export default function HomePageClient({ machineId }: HomePageClientProps) {
             next = mergeUpdateStep(next, {
               step: "restart",
               status: "running",
-              message: "Service restart in progress. Waiting for OmniRoute to come back online...",
+              message: "Service restart in progress. Waiting for GateFlow to come back online...",
             });
 
             return next;
@@ -481,7 +471,7 @@ export default function HomePageClient({ machineId }: HomePageClientProps) {
                     ? "Update Complete!"
                     : updatePhase === "failed"
                       ? "Update Failed"
-                      : "Updating OmniRoute..."}
+                      : "Updating GateFlow..."}
                 </h3>
                 <p className="text-xs text-text-muted mt-0.5">
                   {updatePhase === "done"

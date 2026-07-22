@@ -42,7 +42,7 @@ function isConfigured(content: string, baseUrl: string): boolean {
   const normalized = baseUrl.replace(/\/+$/, "");
   return (
     content.includes(normalized) ||
-    content.includes("localhost:20128") ||
+    content.includes("localhost:1750") ||
     content.includes("OMNIROUTE_BASE_URL")
   );
 }
@@ -83,7 +83,7 @@ export async function detectTool(id: string): Promise<DetectedTool | null> {
   const { installed, version } = await detectBinary(tool.id);
   const configPath = expandHome(tool.configPath);
   const configContents = await readConfigFile(tool.configPath);
-  const configured = !!configContents && isConfigured(configContents, "http://localhost:20128");
+  const configured = !!configContents && isConfigured(configContents, "http://localhost:1750");
 
   return {
     id: tool.id,

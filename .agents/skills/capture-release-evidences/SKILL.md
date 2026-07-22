@@ -11,7 +11,7 @@ Use this workflow to automatically drive a browser-automation agent to explore t
 
 ## Prerequisites
 
-- OmniRoute must be actively running and accessible (e.g. locally at `http://localhost:20128` or on the Local VPS at `http://192.168.0.15:20128`).
+- GateFlow must be actively running and accessible (e.g. locally at `http://localhost:20128` or on the Local VPS at `http://192.168.0.15:20128`).
 - The user must provide the target URL to be tested, or default to `http://192.168.0.15:20128`.
 
 ## Workflow Steps

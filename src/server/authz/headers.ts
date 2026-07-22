@@ -14,12 +14,12 @@
 
 export const AUTHZ_HEADER_REQUEST_ID = "x-request-id";
 
-export const AUTHZ_HEADER_ROUTE_CLASS = "x-omniroute-route-class";
+export const AUTHZ_HEADER_ROUTE_CLASS = "x-GateFlow-route-class";
 
-export const AUTHZ_HEADER_AUTH_KIND = "x-omniroute-auth-kind";
-export const AUTHZ_HEADER_AUTH_ID = "x-omniroute-auth-id";
-export const AUTHZ_HEADER_AUTH_LABEL = "x-omniroute-auth-label";
-export const AUTHZ_HEADER_AUTH_SCOPES = "x-omniroute-auth-scopes";
+export const AUTHZ_HEADER_AUTH_KIND = "x-GateFlow-auth-kind";
+export const AUTHZ_HEADER_AUTH_ID = "x-GateFlow-auth-id";
+export const AUTHZ_HEADER_AUTH_LABEL = "x-GateFlow-auth-label";
+export const AUTHZ_HEADER_AUTH_SCOPES = "x-GateFlow-auth-scopes";
 
 /**
  * Headers the pipeline must NEVER trust on incoming requests. They are

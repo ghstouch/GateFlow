@@ -67,7 +67,7 @@
     "build:cli": "node --import tsx/esm scripts/prepublish.ts",
     "start": "node scripts/run-next.mjs start",
     "lint": "eslint .",
-    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:20128 && cd electron && npm run dev\"",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:1750 && cd electron && npm run dev\"",
     "electron:build": "npm run build && cd electron && npm run build",
     "electron:build:win": "npm run build && cd electron && npm run build:win",
     "electron:build:mac": "npm run build && cd electron && npm run build:mac",

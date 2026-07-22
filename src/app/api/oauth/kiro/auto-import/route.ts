@@ -195,7 +195,7 @@ async function tryAwsSsoCache(targetProvider: string): Promise<{
   return { found: false, triedPath: cachePath };
 }
 
-// ── Save to OmniRoute DB ──────────────────────────────────────────────────────
+// ── Save to GateFlow DB ──────────────────────────────────────────────────────
 
 async function saveAndRespond(
   result: Awaited<ReturnType<typeof tryKiroCliSqlite>>,

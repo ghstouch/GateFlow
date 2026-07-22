@@ -356,7 +356,7 @@ The feature already exists in the system. Explain WHERE it is and HOW to use it.
 ```markdown
 Hi @<author>! Thanks for the suggestion! 🙏
 
-Great news — this functionality **already exists** in OmniRoute:
+Great news — this functionality **already exists** in GateFlow:
 
 **📍 Where to find it:** <exact dashboard path or settings location>
 
@@ -396,7 +396,7 @@ Due to the **significant architectural impact** of this feature, we'll need to c
 - We'll conduct architecture studies when this area is prioritized
 - We'll notify you here when development begins
 
-Thank you for contributing to OmniRoute's roadmap! Your input helps shape the product. 🚀
+Thank you for contributing to GateFlow's roadmap! Your input helps shape the product. 🚀
 ```
 
 ```bash
@@ -414,13 +414,13 @@ Politely explain why the feature doesn't fit the project scope.
 ```markdown
 Hi @<author>! Thanks for the suggestion! 🙏
 
-After careful analysis, we've determined that this feature **falls outside OmniRoute's core scope** as a proxy/router.
+After careful analysis, we've determined that this feature **falls outside GateFlow's core scope** as a proxy/router.
 
-**Reason:** <explain why — e.g., "Telegram integration belongs in the application/orchestrator layer that consumes OmniRoute's API, not inside the router itself.">
+**Reason:** <explain why — e.g., "Telegram integration belongs in the application/orchestrator layer that consumes GateFlow's API, not inside the router itself.">
 
 **Alternative:** <suggest an alternative approach if possible>
 
-We appreciate you thinking of ways to improve OmniRoute! If you'd like to discuss this further, feel free to open a Discussion. 🙏
+We appreciate you thinking of ways to improve GateFlow! If you'd like to discuss this further, feel free to open a Discussion. 🙏
 ```
 
 ```bash
@@ -460,13 +460,13 @@ Thank the user, confirm we've cataloged their idea, and explain it may be implem
 ```markdown
 Hi @<author>! Thanks for the great feature suggestion! 🙏
 
-We've analyzed your request and it aligns well with OmniRoute's roadmap. We've **cataloged this feature** and it's in our implementation backlog.
+We've analyzed your request and it aligns well with GateFlow's roadmap. We've **cataloged this feature** and it's in our implementation backlog.
 
 **Status:** 📋 Cataloged for future implementation
 
 This feature may be included in upcoming releases. We'll **respond to this issue and tag you** as soon as implementation begins so you can test it.
 
-Thank you for helping improve OmniRoute! 🚀
+Thank you for helping improve GateFlow! 🚀
 ```
 
 **⚠️ Do NOT close viable issues — they remain OPEN for tracking.**

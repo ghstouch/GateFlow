@@ -136,16 +136,14 @@ test("intelligent combo selection defaults only inside the intelligent filter", 
 
 test("sidebar visibility excludes the removed auto-combo item", async () => {
   const sidebarVisibility = await import("../../src/shared/constants/sidebarVisibility.ts");
-  const primarySection = sidebarVisibility.SIDEBAR_SECTIONS.find(
-    (section) => section.id === "primary"
-  );
 
   assert.equal(sidebarVisibility.HIDEABLE_SIDEBAR_ITEM_IDS.includes("auto-combo"), false);
-  assert.ok(primarySection);
-  assert.equal(
-    primarySection.items.some((item) => item.id === "auto-combo"),
-    false
+  const allSidebarItemIds = sidebarVisibility.SIDEBAR_SECTIONS.flatMap((section) =>
+    section.children.flatMap((child) =>
+      "type" in child && child.type === "group" ? child.items.map((item) => item.id) : [child.id]
+    )
   );
+  assert.equal(allSidebarItemIds.includes("auto-combo"), false);
   assert.deepEqual(sidebarVisibility.normalizeHiddenSidebarItems(["auto-combo", "home"]), ["home"]);
 });
 

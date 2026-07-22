@@ -19,8 +19,8 @@ import useEmailPrivacyStore from "@/store/emailPrivacyStore";
 import EmailPrivacyToggle from "@/shared/components/EmailPrivacyToggle";
 import ProviderIcon from "@/shared/components/ProviderIcon";
 
-const LS_GROUP_BY = "omniroute:limits:groupBy";
-const LS_EXPANDED_GROUPS = "omniroute:limits:expandedGroups";
+const LS_GROUP_BY = "gateflow:limits:groupBy";
+const LS_EXPANDED_GROUPS = "gateflow:limits:expandedGroups";
 
 const MIN_FETCH_INTERVAL_MS = 30000; // Debounce per-connection fetches
 const QUOTA_BAR_GREEN_THRESHOLD = 50;

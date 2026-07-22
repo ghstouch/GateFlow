@@ -22,10 +22,10 @@ RUN mkdir -p /app/data && npm run build -- --webpack
 FROM node:26.1.0-trixie-slim AS runner-base
 WORKDIR /app
 
-LABEL org.opencontainers.image.title="omniroute" \
+LABEL org.opencontainers.image.title="GateFlow" \
   org.opencontainers.image.description="Unified AI proxy — route any LLM through one endpoint" \
-  org.opencontainers.image.url="https://omniroute.online" \
-  org.opencontainers.image.source="https://github.com/diegosouzapw/OmniRoute" \
+  org.opencontainers.image.url="https://GateFlow.online" \
+  org.opencontainers.image.source="https://github.com/diegosouzapw/GateFlow" \
   org.opencontainers.image.licenses="MIT"
 
 ENV NODE_ENV=production
@@ -53,7 +53,7 @@ COPY --from=builder /app/node_modules/split2 ./node_modules/split2
 # Migration SQL files are read via fs.readFileSync at runtime and are NOT
 # traced by Next.js standalone output — copy them explicitly.
 COPY --from=builder /app/src/lib/db/migrations ./migrations
-ENV OMNIROUTE_MIGRATIONS_DIR=/app/migrations
+ENV GateFlow_MIGRATIONS_DIR=/app/migrations
 # MITM server.cjs is spawned at runtime via child_process — not traced by nft
 COPY --from=builder /app/src/mitm/server.cjs ./src/mitm/server.cjs
 # Documentation files and OpenAPI spec are read from disk at runtime.

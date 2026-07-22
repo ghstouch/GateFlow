@@ -110,7 +110,7 @@ function createNativeSqliteLoadError(error: unknown): Error {
   const detail =
     `better-sqlite3 native binding failed to load for Node.js ${process.version}. ` +
     "This usually happens after switching Node.js versions without rebuilding native modules. " +
-    "Run `npm rebuild better-sqlite3` in the OmniRoute project and start again. " +
+    "Run `npm rebuild better-sqlite3` in the GateFlow project and start again. " +
     `Original error: ${message}`;
   const wrapped = new Error(detail) as Error & { cause?: unknown; code?: string };
   wrapped.name = "NativeSqliteLoadError";
@@ -142,7 +142,7 @@ if (!isCloud && !fs.existsSync(DATA_DIR)) {
     console.warn(
       `[DB] Cannot create data directory '${DATA_DIR}': ${msg}\n` +
         `[DB] Set the DATA_DIR environment variable to a writable path, e.g.:\n` +
-        `[DB]   DATA_DIR=/path/to/writable/dir omniroute`
+        `[DB]   DATA_DIR=/path/to/writable/dir GateFlow`
     );
   }
 }
@@ -465,18 +465,18 @@ export function cleanNulls(obj: unknown): JsonRecord {
 // Module-level `let` resets on every webpack recompile, causing connection leaks.
 
 declare global {
-  var __omnirouteDb: import("better-sqlite3").Database | undefined;
+  var __GateFlowDb: import("better-sqlite3").Database | undefined;
 }
 
 function getDb(): SqliteDatabase | null {
-  return globalThis.__omnirouteDb ?? null;
+  return globalThis.__GateFlowDb ?? null;
 }
 
 function setDb(db: SqliteDatabase | null): void {
   if (db) {
-    globalThis.__omnirouteDb = db;
+    globalThis.__GateFlowDb = db;
   } else {
-    delete globalThis.__omnirouteDb;
+    delete globalThis.__GateFlowDb;
   }
 }
 
@@ -1292,12 +1292,12 @@ export function getDbInstance(): SqliteDatabase {
   // Auto-seed 001 as applied (the inline SCHEMA_SQL already created these tables)
   // then run any new migrations (002+)
   db.exec(`
-    CREATE TABLE IF NOT EXISTS _omniroute_migrations (
+    CREATE TABLE IF NOT EXISTS _OMNIROUTE_migrations (
       version TEXT PRIMARY KEY,
       name TEXT NOT NULL,
       applied_at TEXT NOT NULL DEFAULT (datetime('now'))
     );
-    INSERT OR IGNORE INTO _omniroute_migrations (version, name)
+    INSERT OR IGNORE INTO _OMNIROUTE_migrations (version, name)
     VALUES ('001', 'initial_schema');
   `);
 

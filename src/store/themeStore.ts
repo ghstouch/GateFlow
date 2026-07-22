@@ -18,8 +18,8 @@ interface ThemeState {
 const useThemeStore = create<ThemeState>()(
   persist(
     (set, get) => ({
-      theme: THEME_CONFIG.defaultTheme,
-      colorTheme: "coral",
+      theme: "glass-black",
+      colorTheme: "orange",
       customColor: "#3b82f6",
 
       setTheme: (theme) => {
@@ -40,7 +40,10 @@ const useThemeStore = create<ThemeState>()(
 
       toggleTheme: () => {
         const currentTheme = get().theme;
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        const themes = ["light", "dark", "glass-gold", "glass-black"];
+        const currentIndex = themes.indexOf(currentTheme);
+        const nextIndex = (currentIndex + 1) % themes.length;
+        const newTheme = themes[nextIndex];
         set({ theme: newTheme });
         applyTheme(newTheme);
       },
@@ -65,6 +68,8 @@ export const COLOR_THEMES: Record<string, string> = {
   violet: "#8b5cf6",
   orange: "#f97316",
   cyan: "#06b6d4",
+  gold: "#d4a843",
+  black: "#1a1a1a",
 };
 
 // Apply light/dark theme to document
@@ -75,11 +80,17 @@ function applyTheme(theme: string) {
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   const effectiveTheme = theme === "system" ? systemTheme : theme;
 
+  // Remove all theme classes
+  root.classList.remove("dark", "glass-gold", "glass-black");
+
   if (effectiveTheme === "dark") {
     root.classList.add("dark");
-  } else {
-    root.classList.remove("dark");
+  } else if (effectiveTheme === "glass-gold") {
+    root.classList.add("dark", "glass-gold");
+  } else if (effectiveTheme === "glass-black") {
+    root.classList.add("dark", "glass-black");
   }
+  // light theme = no classes added
 }
 
 function applyColorTheme(colorTheme: string, customColor: string) {

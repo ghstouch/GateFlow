@@ -39,7 +39,7 @@ Para a matriz completa de testes, veja `CONTRIBUTING.md` → "Executando Testes"
 
 ## Projeto em Resumo
 
-**OmniRoute** — proxy/router de IA unificado. Um endpoint, 160+ provedores de LLM, fallback automático.
+**GateFlow** — proxy/router de IA unificado. Um endpoint, 160+ provedores de LLM, fallback automático.
 
 | Camada           | Localização             | Propósito                                                                        |
 | ---------------- | ----------------------- | -------------------------------------------------------------------------------- |
@@ -82,7 +82,7 @@ As rotas da API seguem um padrão consistente: `Rota → pré-vôo CORS → vali
 
 ## Estado de Execução de Resiliência
 
-OmniRoute possui três mecanismos de falha temporária relacionados, mas distintos. Mantenha seu
+GateFlow possui três mecanismos de falha temporária relacionados, mas distintos. Mantenha seu
 escopo separado ao depurar o comportamento de roteamento. Veja o
 [diagrama de resiliência de 3 camadas](./docs/diagrams/exported/resilience-3layers.svg)
 (fonte: [docs/diagrams/resilience-3layers.mmd](./docs/diagrams/resilience-3layers.mmd))
@@ -218,7 +218,7 @@ conexão continue atendendo outros modelos.
 ### Estilo de Código
 
 - **2 espaços**, ponto e vírgula, aspas duplas, largura de 100 caracteres, vírgulas finais ES5 (aplicadas pelo lint-staged via Prettier)
-- **Imports**: externo → interno (`@/`, `@omniroute/open-sse`) → relativo
+- **Imports**: externo → interno (`@/`, `@GateFlow/open-sse`) → relativo
 - **Nomeação**: arquivos=camelCase/kebab, componentes=PascalCase, constantes=UPPER_SNAKE
 - **ESLint**: `no-eval`, `no-implied-eval`, `no-new-func` = erro em todo lugar; `no-explicit-any` = aviso em `open-sse/` e `tests/`
 - **TypeScript**: `strict: false`, alvo ES2022, módulo esnext, resolução bundler. Preferir tipos explícitos.
@@ -379,9 +379,9 @@ git push -u origin feat/sua-funcionalidade
 
 - **Tempo de Execução**: Node.js ≥20.20.2 <21 || ≥22.22.2 <23 || ≥24 <25, Módulos ES
 - **TypeScript**: 5.9+, alvo ES2022, módulo esnext, resolução bundler
-- **Aliases de caminho**: `@/*` → `src/`, `@omniroute/open-sse` → `open-sse/`, `@omniroute/open-sse/*` → `open-sse/*`
+- **Aliases de caminho**: `@/*` → `src/`, `@GateFlow/open-sse` → `open-sse/`, `@GateFlow/open-sse/*` → `open-sse/*`
 - **Porta padrão**: 20128 (API + dashboard na mesma porta)
-- **Diretório de dados**: variável de ambiente `DATA_DIR`, padrão para `~/.omniroute/`
+- **Diretório de dados**: variável de ambiente `DATA_DIR`, padrão para `~/.GateFlow/`
 - **Principais variáveis de ambiente**: `PORT`, `JWT_SECRET`, `API_KEY_SECRET`, `INITIAL_PASSWORD`, `REQUIRE_API_KEY`, `APP_LOG_LEVEL`
 - Configuração: `cp .env.example .env` e então gere `JWT_SECRET` (`openssl rand -base64 48`) e `API_KEY_SECRET` (`openssl rand -hex 32`)
 

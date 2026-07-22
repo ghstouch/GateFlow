@@ -298,7 +298,7 @@ function checkPort(port, label) {
 }
 
 async function checkPorts() {
-  const port = parsePort(process.env.PORT || "20128", 20128);
+  const port = parsePort(process.env.PORT || "1750", 1750);
   const apiPort = parsePort(process.env.API_PORT || String(port), port);
   const dashboardPort = parsePort(process.env.DASHBOARD_PORT || String(port), port);
   const checks = await Promise.all([
@@ -422,7 +422,7 @@ function resolveLivenessUrl(options = {}) {
   const explicitUrl = options.livenessUrl || process.env.OMNIROUTE_DOCTOR_LIVENESS_URL;
   if (explicitUrl) return explicitUrl;
 
-  const port = parsePort(process.env.PORT || "20128", 20128);
+  const port = parsePort(process.env.PORT || "1750", 1750);
   const dashboardPort = parsePort(process.env.DASHBOARD_PORT || String(port), port);
   const host = String(options.livenessHost || process.env.OMNIROUTE_DOCTOR_HOST || "127.0.0.1")
     .trim()

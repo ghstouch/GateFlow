@@ -12,7 +12,7 @@ import { enforceApiKeyPolicy } from "@/shared/utils/apiKeyPolicy";
  *
  * Open WebUI's "Image Edit" toggle (images.edit.engine = "openai") posts here
  * with `prompt` + `image` (file). For chatgpt-web, an "edit" only makes sense
- * if the uploaded image was originally generated through OmniRoute — we then
+ * if the uploaded image was originally generated through GateFlow — we then
  * have its `{conversationId, parentMessageId}` cached and can continue the
  * saved chatgpt.com conversation node, which is the only way to actually edit
  * the image instead of generating an unrelated one from scratch.

@@ -7,9 +7,9 @@
 import { NextResponse } from "next/server";
 import { requireCliToolsAuth } from "@/lib/api/requireCliToolsAuth";
 import { getComboModelProvider } from "@/lib/combos/steps";
-import { resolveOmniRouteBaseUrl } from "@/shared/utils/resolveOmniRouteBaseUrl";
+import { resolveGateFlowBaseUrl } from "@/shared/utils/resolveGateFlowBaseUrl";
 
-const OMNIROUTE_BASE_URL = resolveOmniRouteBaseUrl();
+const OMNIROUTE_BASE_URL = resolveGateFlowBaseUrl();
 
 export async function GET(request: Request) {
   const authError = await requireCliToolsAuth(request);
@@ -65,7 +65,7 @@ export async function GET(request: Request) {
         allow_fallbacks: true,
       },
       generated_at: new Date().toISOString(),
-      source: "omniroute-auto-combo",
+      source: "GateFlow-auto-combo",
     });
   } catch {
     return NextResponse.json({
@@ -74,7 +74,7 @@ export async function GET(request: Request) {
         allow_fallbacks: true,
       },
       generated_at: new Date().toISOString(),
-      source: "omniroute-fallback",
+      source: "GateFlow-fallback",
     });
   }
 }

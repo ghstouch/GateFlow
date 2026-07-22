@@ -159,7 +159,7 @@ function getSchemaVersion(): number {
 
   try {
     const row = db
-      .prepare("SELECT MAX(CAST(version AS INTEGER)) AS version FROM _omniroute_migrations")
+      .prepare("SELECT MAX(CAST(version AS INTEGER)) AS version FROM _OMNIROUTE_migrations")
       .get() as { version: number | null } | undefined;
     return row?.version ?? 0;
   } catch {

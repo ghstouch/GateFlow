@@ -63,7 +63,7 @@ const nextConfig = {
     },
   },
   output: "standalone",
-  // OmniRoute is a proxy for AI APIs — request bodies routinely include
+  // GateFlow is a proxy for AI APIs — request bodies routinely include
   // multi-MB payloads (vision models, image edits, base64-encoded files,
   // long chat histories with embedded images). Next.js's Server Action
   // handler intercepts POSTs with multipart/form-data or
@@ -74,7 +74,7 @@ const nextConfig = {
   // more.
   experimental: {
     serverActions: {
-      bodySizeLimit: process.env.OMNIROUTE_SERVER_ACTIONS_BODY_LIMIT || "50mb",
+      bodySizeLimit: process.env.GateFlow_SERVER_ACTIONS_BODY_LIMIT || "50mb",
     },
   },
   outputFileTracingRoot: projectRoot,

@@ -129,6 +129,49 @@ export default function ProvidersPage() {
   const ccCompatibleLabel = t("ccCompatibleLabel");
   const addCcCompatibleLabel = t("addCcCompatible");
 
+  // ── Scroll position restoration ────────────────────────────────────────
+  // The main content area uses a nested scrollable div (not the window),
+  // so the browser's native scroll restoration doesn't work. We save and
+  // restore manually via sessionStorage.
+  const SCROLL_KEY = "providers-scroll-y";
+
+  useEffect(() => {
+    const container = document.querySelector<HTMLElement>(
+      "#main-content > div.flex-1.overflow-y-auto"
+    );
+    if (!container) return;
+
+    const saved = sessionStorage.getItem(SCROLL_KEY);
+    if (saved) {
+      // Defer to after paint so the DOM is fully laid out
+      requestAnimationFrame(() => {
+        container.scrollTop = Number(saved);
+        sessionStorage.removeItem(SCROLL_KEY);
+      });
+    }
+
+    const saveScroll = () => {
+      sessionStorage.setItem(SCROLL_KEY, String(container.scrollTop));
+    };
+
+    // Save on any in-page link click (provider card navigation)
+    const handleClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement).closest("a[href]");
+      if (anchor?.getAttribute("href")?.startsWith("/dashboard/providers/")) {
+        saveScroll();
+      }
+    };
+    document.addEventListener("click", handleClick, true);
+
+    // Also save on popstate (back/forward button)
+    window.addEventListener("popstate", saveScroll);
+
+    return () => {
+      document.removeEventListener("click", handleClick, true);
+      window.removeEventListener("popstate", saveScroll);
+    };
+  }, []);
+
   useEffect(() => {
     setShowConfiguredOnly(readConfiguredOnlyPreference());
     setConfiguredOnlyPreferenceReady(true);
@@ -468,13 +511,6 @@ export default function ProvidersPage() {
     searchQuery
   );
 
-  const localProviderEntriesAll = buildStaticProviderEntries("local", getProviderStats);
-  const localProviderEntries = filterConfiguredProviderEntries(
-    localProviderEntriesAll,
-    showConfiguredOnly,
-    searchQuery
-  );
-
   const searchProviderEntriesAll = buildStaticProviderEntries("search", getProviderStats);
   const searchProviderEntries = filterConfiguredProviderEntries(
     searchProviderEntriesAll,
@@ -603,6 +639,108 @@ export default function ProvidersPage() {
             </div>
           </div>
         )}
+
+      {/* API Key Compatible Providers — dynamic (OpenAI/Anthropic compatible) */}
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-wrap items-center gap-2">
+          <h2 className="text-xl font-semibold flex items-center gap-2 flex-1 min-w-0">
+            {t("compatibleProviders")}{" "}
+            <span className="size-2.5 rounded-full bg-orange-500" title={t("compatibleLabel")} />
+            <ProviderCountBadge {...countConfigured(compatibleProviderEntriesAll)} />
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {(compatibleProviders.length > 0 ||
+              anthropicCompatibleProviders.length > 0 ||
+              ccCompatibleProviders.length > 0) && (
+              <button
+                onClick={() => handleBatchTest("compatible")}
+                disabled={!!testingMode}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
+                  testingMode === "compatible"
+                    ? "bg-primary/20 border-primary/40 text-primary animate-pulse"
+                    : "bg-bg-subtle border-border text-text-muted hover:text-text-primary hover:border-primary/40"
+                }`}
+                title={t("testAllCompatible")}
+              >
+                <span className="material-symbols-outlined text-[14px]">
+                  {testingMode === "compatible" ? "sync" : "play_arrow"}
+                </span>
+                {testingMode === "compatible" ? t("testing") : t("testAll")}
+              </button>
+            )}
+            {ccCompatibleProviderEnabled && (
+              <Button size="sm" icon="add" onClick={() => setShowAddCcCompatibleModal(true)}>
+                {addCcCompatibleLabel}
+              </Button>
+            )}
+            <Button size="sm" icon="add" onClick={() => setShowAddAnthropicCompatibleModal(true)}>
+              {t("addAnthropicCompatible")}
+            </Button>
+            <Button size="sm" icon="add" onClick={() => setShowAddCompatibleModal(true)}>
+              {t("addOpenAICompatible")}
+            </Button>
+          </div>
+        </div>
+        {compatibleProviders.length === 0 &&
+        anthropicCompatibleProviders.length === 0 &&
+        ccCompatibleProviders.length === 0 ? (
+          <div className="text-center py-8 border border-dashed border-border rounded-xl">
+            <span className="material-symbols-outlined text-[32px] text-text-muted mb-2">
+              extension
+            </span>
+            <p className="text-text-muted text-sm">{t("noCompatibleYet")}</p>
+            <p className="text-text-muted text-xs mt-1">{t("compatibleHint")}</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {compatibleProviderEntries.map(
+              ({ providerId, provider, stats, displayAuthType, toggleAuthType }) => (
+                <ProviderCard
+                  key={providerId}
+                  providerId={providerId}
+                  provider={provider}
+                  stats={stats}
+                  authType={displayAuthType}
+                  onToggle={(active) => handleToggleProvider(providerId, toggleAuthType, active)}
+                />
+              )
+            )}
+          </div>
+        )}
+      </div>
+      <AddCompatibleProviderModal
+        isOpen={showAddCompatibleModal}
+        mode="openai"
+        onClose={() => setShowAddCompatibleModal(false)}
+        onCreated={(node) => {
+          setProviderNodes((prev) => [...prev, node]);
+          setShowAddCompatibleModal(false);
+          router.push(`/dashboard/providers/${node.id}`);
+        }}
+      />
+      <AddCompatibleProviderModal
+        isOpen={showAddAnthropicCompatibleModal}
+        mode="anthropic"
+        onClose={() => setShowAddAnthropicCompatibleModal(false)}
+        onCreated={(node) => {
+          setProviderNodes((prev) => [...prev, node]);
+          setShowAddAnthropicCompatibleModal(false);
+          router.push(`/dashboard/providers/${node.id}`);
+        }}
+      />
+      {ccCompatibleProviderEnabled && (
+        <AddCompatibleProviderModal
+          isOpen={showAddCcCompatibleModal}
+          mode="cc"
+          title={addCcCompatibleLabel}
+          onClose={() => setShowAddCcCompatibleModal(false)}
+          onCreated={(node) => {
+            setProviderNodes((prev) => [...prev, node]);
+            setShowAddCcCompatibleModal(false);
+            router.push(`/dashboard/providers/${node.id}`);
+          }}
+        />
+      )}
 
       {/* OAuth Providers (including providers that expose free tiers via OAuth) */}
       <div className="flex flex-col gap-4">
@@ -1023,48 +1161,6 @@ export default function ProvidersPage() {
         </div>
       )}
 
-      {/* Local / Self-Hosted Providers */}
-      {localProviderEntries.length > 0 && (
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-wrap items-center gap-2">
-            <h2 className="text-xl font-semibold flex items-center gap-2 flex-1 min-w-0">
-              {t("localProviders")}{" "}
-              <span className="size-2.5 rounded-full bg-emerald-500" title={t("localProviders")} />
-              <ProviderCountBadge {...countConfigured(localProviderEntriesAll)} />
-            </h2>
-            <button
-              onClick={() => handleBatchTest("local")}
-              disabled={!!testingMode}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
-                testingMode === "local"
-                  ? "bg-primary/20 border-primary/40 text-primary animate-pulse"
-                  : "bg-bg-subtle border-border text-text-muted hover:text-text-primary hover:border-primary/40"
-              }`}
-              title={t("testAll")}
-            >
-              <span className="material-symbols-outlined text-[14px]">
-                {testingMode === "local" ? "sync" : "play_arrow"}
-              </span>
-              {testingMode === "local" ? t("testing") : t("testAll")}
-            </button>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {localProviderEntries.map(
-              ({ providerId, provider, stats, displayAuthType, toggleAuthType }) => (
-                <ProviderCard
-                  key={providerId}
-                  providerId={providerId}
-                  provider={provider}
-                  stats={stats}
-                  authType={displayAuthType}
-                  onToggle={(active) => handleToggleProvider(providerId, toggleAuthType, active)}
-                />
-              )
-            )}
-          </div>
-        </div>
-      )}
-
       {/* Upstream Proxy Providers */}
       {upstreamProxyEntries.length > 0 && (
         <div className="flex flex-col gap-4">
@@ -1110,107 +1206,7 @@ export default function ProvidersPage() {
         </div>
       )}
 
-      {/* API Key Compatible Providers — dynamic (OpenAI/Anthropic compatible) */}
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-wrap items-center gap-2">
-          <h2 className="text-xl font-semibold flex items-center gap-2 flex-1 min-w-0">
-            {t("compatibleProviders")}{" "}
-            <span className="size-2.5 rounded-full bg-orange-500" title={t("compatibleLabel")} />
-            <ProviderCountBadge {...countConfigured(compatibleProviderEntriesAll)} />
-          </h2>
-          <div className="flex flex-wrap gap-2">
-            {(compatibleProviders.length > 0 ||
-              anthropicCompatibleProviders.length > 0 ||
-              ccCompatibleProviders.length > 0) && (
-              <button
-                onClick={() => handleBatchTest("compatible")}
-                disabled={!!testingMode}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
-                  testingMode === "compatible"
-                    ? "bg-primary/20 border-primary/40 text-primary animate-pulse"
-                    : "bg-bg-subtle border-border text-text-muted hover:text-text-primary hover:border-primary/40"
-                }`}
-                title={t("testAllCompatible")}
-              >
-                <span className="material-symbols-outlined text-[14px]">
-                  {testingMode === "compatible" ? "sync" : "play_arrow"}
-                </span>
-                {testingMode === "compatible" ? t("testing") : t("testAll")}
-              </button>
-            )}
-            {ccCompatibleProviderEnabled && (
-              <Button size="sm" icon="add" onClick={() => setShowAddCcCompatibleModal(true)}>
-                {addCcCompatibleLabel}
-              </Button>
-            )}
-            <Button size="sm" icon="add" onClick={() => setShowAddAnthropicCompatibleModal(true)}>
-              {t("addAnthropicCompatible")}
-            </Button>
-            <Button size="sm" icon="add" onClick={() => setShowAddCompatibleModal(true)}>
-              {t("addOpenAICompatible")}
-            </Button>
-          </div>
-        </div>
-        {compatibleProviders.length === 0 &&
-        anthropicCompatibleProviders.length === 0 &&
-        ccCompatibleProviders.length === 0 ? (
-          <div className="text-center py-8 border border-dashed border-border rounded-xl">
-            <span className="material-symbols-outlined text-[32px] text-text-muted mb-2">
-              extension
-            </span>
-            <p className="text-text-muted text-sm">{t("noCompatibleYet")}</p>
-            <p className="text-text-muted text-xs mt-1">{t("compatibleHint")}</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {compatibleProviderEntries.map(
-              ({ providerId, provider, stats, displayAuthType, toggleAuthType }) => (
-                <ProviderCard
-                  key={providerId}
-                  providerId={providerId}
-                  provider={provider}
-                  stats={stats}
-                  authType={displayAuthType}
-                  onToggle={(active) => handleToggleProvider(providerId, toggleAuthType, active)}
-                />
-              )
-            )}
-          </div>
-        )}
-      </div>
-      <AddCompatibleProviderModal
-        isOpen={showAddCompatibleModal}
-        mode="openai"
-        onClose={() => setShowAddCompatibleModal(false)}
-        onCreated={(node) => {
-          setProviderNodes((prev) => [...prev, node]);
-          setShowAddCompatibleModal(false);
-          router.push(`/dashboard/providers/${node.id}`);
-        }}
-      />
-      <AddCompatibleProviderModal
-        isOpen={showAddAnthropicCompatibleModal}
-        mode="anthropic"
-        onClose={() => setShowAddAnthropicCompatibleModal(false)}
-        onCreated={(node) => {
-          setProviderNodes((prev) => [...prev, node]);
-          setShowAddAnthropicCompatibleModal(false);
-          router.push(`/dashboard/providers/${node.id}`);
-        }}
-      />
-      {ccCompatibleProviderEnabled && (
-        <AddCompatibleProviderModal
-          isOpen={showAddCcCompatibleModal}
-          mode="cc"
-          title={addCcCompatibleLabel}
-          onClose={() => setShowAddCcCompatibleModal(false)}
-          onCreated={(node) => {
-            setProviderNodes((prev) => [...prev, node]);
-            setShowAddCcCompatibleModal(false);
-            router.push(`/dashboard/providers/${node.id}`);
-          }}
-        />
-      )}
+
       {/* Test Results Modal */}
       {testResults && (
         <div

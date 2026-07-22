@@ -54,7 +54,7 @@ function getFiltersDir(): string {
 }
 
 function getDataDir(): string {
-  return process.env.DATA_DIR || path.join(os.homedir(), ".omniroute");
+  return process.env.DATA_DIR || path.join(os.homedir(), ".GateFlow");
 }
 
 function sha256(value: string): string {

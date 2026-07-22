@@ -11,7 +11,7 @@ export function generateOpencodeConfig(options: {
   const base = options.baseUrl.replace(/\/+$/, "").replace(/\/v1$/, "");
 
   const config = {
-    provider: "omniroute",
+    provider: "GateFlow",
     baseURL: `${base}/v1`,
     apiKey: options.apiKey,
     model: options.model || "opencode",

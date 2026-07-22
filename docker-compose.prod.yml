@@ -1,5 +1,5 @@
 # ──────────────────────────────────────────────────────────────────────
-#  OmniRoute — Docker Compose (Production Snapshot)
+#  GateFlow — Docker Compose (Production Snapshot)
 # ──────────────────────────────────────────────────────────────────────
 #
 #  Isolated production instance running on port 20130.
@@ -15,7 +15,7 @@ services:
   # ── Redis (Rate Limiter Backend) ──────────────────────────────────
   redis:
     image: redis:8.6.2
-    container_name: omniroute-redis-prod
+    container_name: GateFlow-redis-prod
     restart: unless-stopped
     volumes:
       - redis-prod-data:/data
@@ -26,31 +26,31 @@ services:
       timeout: 5s
       retries: 3
 
-  omniroute-prod:
-    container_name: omniroute-prod
+  GateFlow-prod:
+    container_name: GateFlow-prod
     depends_on:
       redis:
         condition: service_healthy
     build:
       context: .
       target: runner-cli
-    image: omniroute:prod
+    image: GateFlow:prod
     restart: unless-stopped
     stop_grace_period: 40s
     env_file: .env
     environment:
       - NODE_ENV=production
-      - PORT=${PORT:-20128}
-      - DASHBOARD_PORT=${DASHBOARD_PORT:-${PORT:-20128}}
+      - PORT=${PORT:-1750}
+      - DASHBOARD_PORT=${DASHBOARD_PORT:-${PORT:-1750}}
       - API_PORT=${API_PORT:-20129}
       - API_HOST=${API_HOST:-0.0.0.0}
       - HOSTNAME=0.0.0.0
       - DATA_DIR=/app/data
     ports:
-      - "${PROD_DASHBOARD_PORT:-20130}:${DASHBOARD_PORT:-${PORT:-20128}}"
+      - "${PROD_DASHBOARD_PORT:-20130}:${DASHBOARD_PORT:-${PORT:-1750}}"
       - "${PROD_API_PORT:-20131}:${API_PORT:-20129}"
     volumes:
-      - omniroute-prod-data:/app/data
+      - GateFlow-prod-data:/app/data
     healthcheck:
       test: ["CMD", "node", "healthcheck.mjs"]
       interval: 30s
@@ -59,7 +59,7 @@ services:
       start_period: 15s
 
 volumes:
-  omniroute-prod-data:
-    name: omniroute-prod-data
+  GateFlow-prod-data:
+    name: GateFlow-prod-data
   redis-prod-data:
     name: redis-prod-data

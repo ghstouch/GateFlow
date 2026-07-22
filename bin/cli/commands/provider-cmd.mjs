@@ -58,7 +58,7 @@ export async function runProviderCommand(argv) {
       const { generateConfig } =
         await import("../../../src/lib/cli-helper/config-generator/index.js");
       const result = await generateConfig("opencode", {
-        baseUrl: baseUrl || "http://localhost:20128/v1",
+        baseUrl: baseUrl || "http://localhost:1750/v1",
         apiKey: apiKey || "",
       });
 

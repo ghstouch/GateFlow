@@ -113,7 +113,7 @@ Breaking changes: add `BREAKING CHANGE:` footer or `!` after the scope (e.g. `fe
 - [ ] `npm run i18n:check` exits 0 — translation state (`.i18n-state.json`) in sync with source docs (no drifted sources in strict mode; warn-mode advisory is acceptable for last-minute doc touch-ups, but should be 0 before tagging)
 - [ ] `npm run i18n:check-ui-coverage` exits 0 — every UI locale at or above the 80% coverage floor
 - [ ] `npm run i18n:sync-ui:dry` reports 0 missing keys across all 40 locales
-- [ ] If source English docs changed, run `npm run i18n:run` (requires `OMNIROUTE_TRANSLATION_API_KEY` in `.env`) before tagging
+- [ ] If source English docs changed, run `npm run i18n:run` (requires `GateFlow_TRANSLATION_API_KEY` in `.env`) before tagging
 - [ ] Translation contributions can be deferred to next release if minor (track in CHANGELOG)
 
 ### Database Migrations
@@ -122,7 +122,7 @@ Breaking changes: add `BREAKING CHANGE:` footer or `!` after the scope (e.g. `fe
   - [ ] Each migration is idempotent (`CREATE TABLE IF NOT EXISTS`, etc.)
   - [ ] Migrations wrapped in transactions
   - [ ] Numbered correctly (no gaps in sequence)
-- [ ] Test on fresh install: delete `~/.omniroute/omniroute.db` and run `npm run dev`
+- [ ] Test on fresh install: delete `~/.GateFlow/GateFlow.db` and run `npm run dev`
 - [ ] Test on existing install: backup DB, run migration, verify schema
 - [ ] WAL files (`-wal`, `-shm`) handled correctly if migration rewrites tables
 

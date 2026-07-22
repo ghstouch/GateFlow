@@ -336,7 +336,7 @@ export default function CloudAgentsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               label="Repository name"
-              placeholder="omniroute"
+              placeholder="gateflow"
               value={newTask.repoName}
               onChange={(e) => setNewTask({ ...newTask, repoName: e.target.value })}
               required

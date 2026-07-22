@@ -11,7 +11,7 @@ Options:
   --filter <level>      Filter by level (error, warn, info) — comma-separated
   --lines <n>           Number of lines to fetch (default: 100)
   --timeout <ms>        Connection timeout in ms (default: 30000)
-  --base-url <url>      OmniRoute API base URL (default: http://localhost:20128)
+  --base-url <url>      OmniRoute API base URL (default: http://localhost:1750)
   --json                Output as JSON
   --help                Show this help
 `);
@@ -25,7 +25,7 @@ export async function runLogsCommand(argv) {
     return 0;
   }
 
-  const baseUrl = getStringFlag(flags, "base-url") || "http://localhost:20128";
+  const baseUrl = getStringFlag(flags, "base-url") || "http://localhost:1750";
   const follow = hasFlag(flags, "follow");
   const filter = getStringFlag(flags, "filter");
   const lines = getStringFlag(flags, "lines") || "100";

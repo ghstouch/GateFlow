@@ -142,11 +142,11 @@ const parsedInterval = parseInt(process.env.MODELS_DEV_SYNC_INTERVAL || "86400",
 const SYNC_INTERVAL_MS =
   Number.isFinite(parsedInterval) && parsedInterval > 0 ? parsedInterval * 1000 : 86400 * 1000;
 
-// ─── Provider mapping: models.dev provider ID → OmniRoute provider IDs/aliases ──
+// ─── Provider mapping: models.dev provider ID → GateFlow provider IDs/aliases ──
 //
 // models.dev uses canonical provider IDs (e.g. "openai", "anthropic", "google").
-// OmniRoute uses both full IDs and short aliases (e.g. "cc" for claude, "cx" for codex).
-// We map each models.dev provider to ALL OmniRoute identifiers that should receive
+// GateFlow uses both full IDs and short aliases (e.g. "cc" for claude, "cx" for codex).
+// We map each models.dev provider to ALL GateFlow identifiers that should receive
 // its pricing/capability data.
 
 const MODELS_DEV_PROVIDER_MAP: Record<string, string[]> = {
@@ -183,7 +183,7 @@ const MODELS_DEV_PROVIDER_MAP: Record<string, string[]> = {
   "kimi-for-coding": ["kimi-coding", "kmc", "kimi-coding-apikey", "kmca"],
   opencode: ["opencode-zen"],
   "opencode-go": ["opencode-go"],
-  // Additional providers that may overlap with OmniRoute
+  // Additional providers that may overlap with GateFlow
   alibaba: ["ali", "alibaba", "bcp", "alicode", "alicode-intl"],
   "alibaba-cn": ["ali", "alibaba", "bcp"],
   "alibaba-coding-plan": ["alicode", "alicode-intl"],
@@ -209,7 +209,7 @@ const MODELS_DEV_PROVIDER_MAP: Record<string, string[]> = {
 };
 
 /**
- * Map a models.dev provider ID to OmniRoute provider IDs.
+ * Map a models.dev provider ID to GateFlow provider IDs.
  * Returns array of provider identifiers (may include aliases).
  */
 export function mapProviderId(modelsDevProviderId: string): string[] {
@@ -306,16 +306,16 @@ export async function fetchModelsDev(signal?: AbortSignal): Promise<ModelsDevDat
 // ─── Transform: Pricing ──────────────────────────────────
 
 /**
- * Transform models.dev raw data → OmniRoute PricingByProvider format.
+ * Transform models.dev raw data → GateFlow PricingByProvider format.
  *
- * models.dev costs are already in $/1M tokens (same as OmniRoute format).
+ * models.dev costs are already in $/1M tokens (same as GateFlow format).
  * Maps: cache_read → cached, cache_write → cache_creation.
  */
 export function transformModelsDevToPricing(raw: ModelsDevData): PricingByProvider {
   const result: PricingByProvider = {};
 
   for (const [providerId, providerData] of Object.entries(raw)) {
-    const omniRouteProviders = mapProviderId(providerId);
+    const GateFlowProviders = mapProviderId(providerId);
 
     for (const [modelId, model] of Object.entries(providerData.models || {})) {
       if (!model.cost) continue;
@@ -338,8 +338,8 @@ export function transformModelsDevToPricing(raw: ModelsDevData): PricingByProvid
         entry.reasoning = model.cost.reasoning;
       }
 
-      // Write to ALL mapped OmniRoute providers
-      for (const omniProvider of omniRouteProviders) {
+      // Write to ALL mapped GateFlow providers
+      for (const omniProvider of GateFlowProviders) {
         if (!result[omniProvider]) result[omniProvider] = {};
         result[omniProvider][modelId] = entry;
       }
@@ -358,7 +358,7 @@ export function transformModelsDevToCapabilities(raw: ModelsDevData): Capabiliti
   const result: CapabilitiesByProvider = {};
 
   for (const [providerId, providerData] of Object.entries(raw)) {
-    const omniRouteProviders = mapProviderId(providerId);
+    const GateFlowProviders = mapProviderId(providerId);
 
     for (const [modelId, model] of Object.entries(providerData.models || {})) {
       const cap: ModelCapabilityEntry = {
@@ -386,7 +386,7 @@ export function transformModelsDevToCapabilities(raw: ModelsDevData): Capabiliti
               : null,
       };
 
-      for (const omniProvider of omniRouteProviders) {
+      for (const omniProvider of GateFlowProviders) {
         if (!result[omniProvider]) result[omniProvider] = {};
         result[omniProvider][modelId] = cap;
       }

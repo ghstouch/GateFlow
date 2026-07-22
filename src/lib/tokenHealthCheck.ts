@@ -181,16 +181,16 @@ export function clearHealthCheckLogCache() {
 // ── Singleton guard (globalThis survives HMR re-evaluation) ─────────────────
 
 declare global {
-  var __omnirouteTokenHC:
+  var __GateFlowTokenHC:
     | { initialized: boolean; interval: ReturnType<typeof setInterval> | null }
     | undefined;
 }
 
 function getHCState() {
-  if (!globalThis.__omnirouteTokenHC) {
-    globalThis.__omnirouteTokenHC = { initialized: false, interval: null };
+  if (!globalThis.__GateFlowTokenHC) {
+    globalThis.__GateFlowTokenHC = { initialized: false, interval: null };
   }
-  return globalThis.__omnirouteTokenHC;
+  return globalThis.__GateFlowTokenHC;
 }
 
 /**

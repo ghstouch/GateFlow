@@ -16,14 +16,14 @@
   --desktop-safe-bottom: 0px;
   color-scheme: light;
 
-  /* Primary - Coral Red (OpenClaw) */
-  --color-primary: #e54d5e;
-  --color-primary-hover: #c93d4e;
+  /* Primary - Amber Orange */
+  --color-primary: #f59e0b;
+  --color-primary-hover: #fbbf24;
 
-  /* Accent - Indigo/Violet (buttons, links, gradients) */
-  --color-accent: #6366f1;
-  --color-accent-hover: #8b5cf6;
-  --color-accent-light: #a855f7;
+  /* Accent - Amber Orange */
+  --color-accent: #f59e0b;
+  --color-accent-hover: #fbbf24;
+  --color-accent-light: #fcd34d;
 
   /* Semantic */
   --color-error: #ef4444;
@@ -75,6 +75,75 @@
   --shadow-elevated: 0 12px 28px -4px rgba(0, 0, 0, 0.3);
 }
 
+/* Glass Gold theme */
+.glass-gold {
+  color-scheme: dark;
+  --color-bg: #1a1510;
+  --color-bg-alt: #231e15;
+  --color-bg-primary: #1a1510;
+  --color-bg-subtle: #231e15;
+  --color-surface: #2a2318;
+  --color-card: #2a2318;
+  --color-sidebar: #1e1912;
+  --color-border: rgba(245, 158, 11, 0.15);
+  --color-text-main: #f5e6d0;
+  --color-text-primary: #f5e6d0;
+  --color-text-muted: #b8a88a;
+  --color-primary: #f59e0b;
+  --color-primary-hover: #fbbf24;
+
+  --shadow-soft: 0 1px 3px rgba(245, 158, 11, 0.08), 0 4px 12px rgba(245, 158, 11, 0.05);
+  --shadow-warm: 0 2px 12px -2px rgba(245, 158, 11, 0.2);
+  --shadow-elevated: 0 12px 28px -4px rgba(245, 158, 11, 0.12);
+
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+}
+
+.glass-gold::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 0%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 100%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Glass Black theme */
+.glass-black {
+  color-scheme: dark;
+  --color-bg: #0a0a0a;
+  --color-bg-alt: #111111;
+  --color-bg-primary: #0a0a0a;
+  --color-bg-subtle: #111111;
+  --color-surface: #1a1a1a;
+  --color-card: #1a1a1a;
+  --color-sidebar: #0f0f0f;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-text-main: #e0e0e0;
+  --color-text-primary: #e0e0e0;
+  --color-text-muted: #707070;
+  --color-primary: #f59e0b;
+  --color-primary-hover: #fbbf24;
+
+  --shadow-soft: 0 1px 3px rgba(245, 158, 11, 0.1), 0 4px 12px rgba(245, 158, 11, 0.05);
+  --shadow-warm: 0 2px 12px -2px rgba(245, 158, 11, 0.2);
+  --shadow-elevated: 0 12px 28px -4px rgba(245, 158, 11, 0.1);
+
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+}
+
+.glass-black::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 @theme inline {
   /* Primary */
   --color-primary: var(--color-primary);
@@ -121,9 +190,9 @@
   --shadow-warm: var(--shadow-warm);
   --shadow-elevated: var(--shadow-elevated);
 
-  /* Font - macOS system fonts */
+  /* Font - system fonts with Inter variable fallback */
   --font-sans:
-    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+    var(--font-inter, -apple-system), BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
 }
 
 /* ── Focus Indicators (U-3) ── */

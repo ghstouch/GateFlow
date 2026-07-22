@@ -1,21 +1,21 @@
-# @omniroute/opencode-provider
+# @GateFlow/opencode-provider
 
-Provider plugin for connecting [OpenCode](https://github.com/anomalyco/opencode) to [OmniRoute](https://github.com/diegosouzapw/OmniRoute).
+Provider plugin for connecting [OpenCode](https://github.com/anomalyco/opencode) to [GateFlow](https://github.com/diegosouzapw/GateFlow).
 
 ## Installation
 
 ```bash
-npm install @omniroute/opencode-provider
+npm install @GateFlow/opencode-provider
 ```
 
 ## Usage
 
 ```javascript
-import { createOmniRouteProvider } from "@omniroute/opencode-provider";
+import { createGateFlowProvider } from "@GateFlow/opencode-provider";
 
-const provider = createOmniRouteProvider({
+const provider = createGateFlowProvider({
   baseURL: "http://localhost:20128/v1",
-  apiKey: "your-omniroute-api-key",
+  apiKey: "your-GateFlow-api-key",
 });
 ```
 
@@ -30,16 +30,16 @@ Then configure OpenCode to use the provider:
 
 ## API
 
-### `createOmniRouteProvider(options)`
+### `createGateFlowProvider(options)`
 
-Creates an OpenCode-compatible provider object that routes requests through OmniRoute.
+Creates an OpenCode-compatible provider object that routes requests through GateFlow.
 
 **Options:**
 
 | Option    | Type     | Required | Description                                                |
 | --------- | -------- | -------- | ---------------------------------------------------------- |
-| `baseURL` | `string` | Yes      | OmniRoute API base URL (e.g., `http://localhost:20128/v1`) |
-| `apiKey`  | `string` | Yes      | OmniRoute API key                                          |
+| `baseURL` | `string` | Yes      | GateFlow API base URL (e.g., `http://localhost:20128/v1`) |
+| `apiKey`  | `string` | Yes      | GateFlow API key                                          |
 | `model`   | `string` | No       | Model identifier (default: `"opencode"`)                   |
 
 **Returns:** An OpenCode-compatible provider object with `id`, `name`, `npm`, `options`, and `auth` fields.

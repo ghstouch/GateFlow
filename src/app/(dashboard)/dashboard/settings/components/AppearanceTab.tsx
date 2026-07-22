@@ -15,6 +15,7 @@ import {
   HIDDEN_SIDEBAR_ITEMS_SETTING_KEY,
   SIDEBAR_SECTIONS,
   SIDEBAR_SETTINGS_UPDATED_EVENT,
+  getSectionItems,
   normalizeHiddenSidebarItems,
   type HideableSidebarItemId,
 } from "@/shared/constants/sidebarVisibility";
@@ -58,6 +59,8 @@ export default function AppearanceTab() {
     light: t("themeLight"),
     dark: t("themeDark"),
     system: t("themeSystem"),
+    "glass-gold": "Glass Gold",
+    "glass-black": "Glass Black",
   };
 
   useEffect(() => {
@@ -114,6 +117,8 @@ export default function AppearanceTab() {
     { id: "violet", color: COLOR_THEMES.violet, label: t("themeViolet") },
     { id: "orange", color: COLOR_THEMES.orange, label: t("themeOrange") },
     { id: "cyan", color: COLOR_THEMES.cyan, label: t("themeCyan") },
+    { id: "gold", color: COLOR_THEMES.gold, label: "Gold" },
+    { id: "black", color: COLOR_THEMES.black, label: "Black" },
   ];
 
   const comboConfigModeOptions: Array<{
@@ -148,7 +153,7 @@ export default function AppearanceTab() {
   ).map((section) => ({
     ...section,
     title: getSidebarLabel(section.titleKey, section.titleFallback),
-    items: section.items.map((item) => ({ ...item, label: tSidebar(item.i18nKey) })),
+    items: getSectionItems(section).map((item) => ({ ...item, label: tSidebar(item.i18nKey) })),
   }));
 
   const toggleSidebarItem = (itemId: HideableSidebarItemId) => {
@@ -184,7 +189,7 @@ export default function AppearanceTab() {
             aria-label={t("themeSelectionAria")}
             className="inline-flex p-1 rounded-lg bg-black/5 dark:bg-white/5"
           >
-            {["light", "dark", "system"].map((option) => (
+            {["light", "dark", "system", "glass-gold", "glass-black"].map((option) => (
               <button
                 key={option}
                 role="tab"
@@ -198,7 +203,7 @@ export default function AppearanceTab() {
                 )}
               >
                 <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
-                  {option === "light" ? "light_mode" : option === "dark" ? "dark_mode" : "contrast"}
+                  {option === "light" ? "light_mode" : option === "dark" ? "dark_mode" : option === "glass-gold" ? "gradient" : option === "glass-black" ? "contrast" : "contrast"}
                 </span>
                 <span>{themeOptionLabels[option] || option}</span>
               </button>
@@ -405,7 +410,7 @@ export default function AppearanceTab() {
                 </div>
 
                 <div className="divide-y divide-border/70">
-                  {section.items.map((item) => (
+                  {getSectionItems(section).map((item) => (
                     <div
                       key={item.id}
                       className="flex items-center justify-between gap-4 px-4 py-3"
@@ -466,9 +471,9 @@ export default function AppearanceTab() {
               </div>
               <input
                 type="text"
-                value={settings.instanceName || "OmniRoute"}
+                value={settings.instanceName || "gateflow"}
                 onChange={(e) => updateSetting("instanceName", e.target.value)}
-                placeholder="OmniRoute"
+                placeholder="gateflow"
                 maxLength={100}
                 className="h-10 px-3 rounded-lg bg-surface border border-border text-sm text-text-main focus:outline-none focus:border-primary w-48"
               />

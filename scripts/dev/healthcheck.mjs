@@ -5,7 +5,7 @@
  * Checks the /api/monitoring/health endpoint on the dashboard port.
  * Used by Dockerfile and docker-compose files.
  */
-const port = process.env.DASHBOARD_PORT || process.env.PORT || "20128";
+const port = process.env.DASHBOARD_PORT || process.env.PORT || "1750";
 
 fetch(`http://127.0.0.1:${port}/api/monitoring/health`)
   .then((r) => {

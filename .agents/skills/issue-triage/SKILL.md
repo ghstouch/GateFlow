@@ -20,7 +20,7 @@ gh issue list --state open --limit 20
 Check if the issue has:
 
 - Clear reproduction steps
-- Environment details (OS, Node.js version, OmniRoute version)
+- Environment details (OS, Node.js version, GateFlow version)
 - Error logs/screenshots
 - Expected vs actual behavior
 
@@ -31,7 +31,7 @@ For issues missing information:
 ```markdown
 Thank you for reporting this issue! To help us investigate, please provide:
 
-1. **OmniRoute version**: (`omniroute --version`)
+1. **GateFlow version**: (`GateFlow --version`)
 2. **Node.js version**: (`node --version`)
 3. **Operating system**: (e.g., Ubuntu 24.04, macOS 15, Windows 11)
 4. **Installation method**: (npm, Docker, source)

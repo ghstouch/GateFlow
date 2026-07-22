@@ -198,7 +198,7 @@ echo "" >> /tmp/changelog_body.txt
 echo "### ⚠️ After merging: run Phase 2 steps to tag, publish, and deploy." >> /tmp/changelog_body.txt
 
 gh pr create \
-  --repo diegosouzapw/OmniRoute \
+  --repo diegosouzapw/GateFlow \
   --base main \
   --head release/v$VERSION \
   --title "Release v$VERSION" \
@@ -233,11 +233,11 @@ git checkout main
 git pull origin main
 
 # Build and pack locally
-cd /home/diegosouzapw/dev/proxys/OmniRoute && rm -f omniroute-*.tgz && rm -rf .next/cache app/.next/cache && npm run build:cli && rm -rf app/logs app/coverage app/.git app/.app-build-backup* && npm pack --ignore-scripts
+cd /home/diegosouzapw/dev/proxys/GateFlow && rm -f GateFlow-*.tgz && rm -rf .next/cache app/.next/cache && npm run build:cli && rm -rf app/logs app/coverage app/.git app/.app-build-backup* && npm pack --ignore-scripts
 
 # Deploy to LOCAL VPS (192.168.0.15)
-scp omniroute-*.tgz root@192.168.0.15:/tmp/
-ssh root@192.168.0.15 "npm install -g /tmp/omniroute-*.tgz --ignore-scripts && cd /usr/lib/node_modules/omniroute/app && npm rebuild better-sqlite3 && pm2 delete omniroute 2>/dev/null; pm2 start /root/.omniroute/ecosystem.config.cjs --update-env && pm2 save && echo '✅ Local done'"
+scp GateFlow-*.tgz root@192.168.0.15:/tmp/
+ssh root@192.168.0.15 "npm install -g /tmp/GateFlow-*.tgz --ignore-scripts && cd /usr/lib/node_modules/GateFlow/app && npm rebuild better-sqlite3 && pm2 delete GateFlow 2>/dev/null; pm2 start /root/.GateFlow/ecosystem.config.cjs --update-env && pm2 save && echo '✅ Local done'"
 
 # Verify
 curl -s -o /dev/null -w "LOCAL:  HTTP %{http_code}\n" http://192.168.0.15:20128/
@@ -267,11 +267,11 @@ VERSION=$(node -p "require('./package.json').version")
 
 # Extracts the changelog section for this version
 NOTES=$(awk "/^## \\[$VERSION\\]/{flag=1; next} /^---/{if(flag) {flag=0; exit}} flag" CHANGELOG.md | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-if [ -z "$NOTES" ]; then NOTES="OmniRoute v$VERSION Release"; fi
+if [ -z "$NOTES" ]; then NOTES="GateFlow v$VERSION Release"; fi
 
 git tag -a "v$VERSION" -m "Release v$VERSION"
 git push origin "v$VERSION"
-gh release create "v$VERSION" --repo diegosouzapw/OmniRoute --title "v$VERSION" --notes "$NOTES" --target main || gh release edit "v$VERSION" --repo diegosouzapw/OmniRoute --title "v$VERSION" --notes "$NOTES"
+gh release create "v$VERSION" --repo diegosouzapw/GateFlow --title "v$VERSION" --notes "$NOTES" --target main || gh release edit "v$VERSION" --repo diegosouzapw/GateFlow --title "v$VERSION" --notes "$NOTES"
 ```
 
 ### 14. 🐳 Trigger Docker Hub build (MANDATORY — keep npm and Docker in sync)
@@ -282,10 +282,10 @@ gh release create "v$VERSION" --repo diegosouzapw/OmniRoute --title "v$VERSION" 
 
 ```bash
 # Verify the Docker workflow triggered
-gh run list --repo diegosouzapw/OmniRoute --workflow docker-publish.yml --limit 3
+gh run list --repo diegosouzapw/GateFlow --workflow docker-publish.yml --limit 3
 
 # Wait for the Docker build to complete (usually 5–10 min)
-gh run watch --repo diegosouzapw/OmniRoute
+gh run watch --repo diegosouzapw/GateFlow
 ```
 
 ### 15. Publish to NPM (Optional/Automated)
@@ -302,8 +302,8 @@ Now that the release is officially cut, deploy it to the Akamai VPS.
 
 ```bash
 # Deploy to AKAMAI VPS (69.164.221.35)
-scp omniroute-*.tgz root@69.164.221.35:/tmp/
-ssh root@69.164.221.35 "npm install -g /tmp/omniroute-*.tgz --ignore-scripts && cd /usr/lib/node_modules/omniroute/app && npm rebuild better-sqlite3 && pm2 delete omniroute 2>/dev/null; pm2 start /root/.omniroute/ecosystem.config.cjs --update-env && pm2 save && echo '✅ Akamai done'"
+scp GateFlow-*.tgz root@69.164.221.35:/tmp/
+ssh root@69.164.221.35 "npm install -g /tmp/GateFlow-*.tgz --ignore-scripts && cd /usr/lib/node_modules/GateFlow/app && npm rebuild better-sqlite3 && pm2 delete GateFlow 2>/dev/null; pm2 start /root/.GateFlow/ecosystem.config.cjs --update-env && pm2 save && echo '✅ Akamai done'"
 
 # Verify
 curl -s -o /dev/null -w "AKAMAI: HTTP %{http_code}\n" http://69.164.221.35:20128/
@@ -319,19 +319,19 @@ Wait for and verify the successful completion of the following automated jobs:
 
 1. **Docker Hub Publish**
 2. **Electron Build**
-3. **NPM Registry Publish** (Check with `npm info omniroute version`)
+3. **NPM Registry Publish** (Check with `npm info GateFlow version`)
 
 ```bash
 # Monitor Docker Hub workflow
-gh run list --repo diegosouzapw/OmniRoute --workflow docker-publish.yml --limit 1
+gh run list --repo diegosouzapw/GateFlow --workflow docker-publish.yml --limit 1
 gh run watch <RUN_ID>
 
 # Monitor Electron build
-gh run list --repo diegosouzapw/OmniRoute --workflow electron-release.yml --limit 1
+gh run list --repo diegosouzapw/GateFlow --workflow electron-release.yml --limit 1
 gh run watch <RUN_ID>
 
 # Verify NPM version
-npm info omniroute version
+npm info GateFlow version
 ```
 
 ### 19. Handle Failures (If Any)
@@ -340,7 +340,7 @@ If a workflow fails:
 
 - Use `gh run view <RUN_ID> --log-failed` to identify the error.
 - Apply the fix on the `main` branch.
-- If necessary, re-trigger the workflow using `gh workflow run <workflow_name.yml> --repo diegosouzapw/OmniRoute --ref v3.x.y`
+- If necessary, re-trigger the workflow using `gh workflow run <workflow_name.yml> --repo diegosouzapw/GateFlow --ref v3.x.y`
 
 ### 20. Preserve release branch
 
@@ -354,7 +354,7 @@ If a workflow fails:
 
 - Ensure CHANGELOG, README and `docs/*` are current BEFORE this workflow — run `npm run check:docs-all` and `/version-bump` first (there is no `/update-docs` workflow anymore)
 - The `prepublishOnly` script runs `npm run build:cli` automatically during `npm publish`
-- After npm publish, verify with `npm info omniroute version`
+- After npm publish, verify with `npm info GateFlow version`
 - Lock file sync errors are caused by skipping `npm install` after version bump
 - Use `gh auth switch -u diegosouzapw` if git push fails with wrong account
 

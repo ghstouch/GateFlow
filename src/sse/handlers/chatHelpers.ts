@@ -530,7 +530,7 @@ export function withSessionHeader(response: Response, sessionId: string | null):
   if (!response || !sessionId) return response;
 
   try {
-    response.headers.set("X-OmniRoute-Session-Id", sessionId);
+    response.headers.set("X-GateFlow-Session-Id", sessionId);
     return response;
   } catch {
     const cloned = new Response(response.body, {
@@ -538,7 +538,7 @@ export function withSessionHeader(response: Response, sessionId: string | null):
       statusText: response.statusText,
       headers: response.headers,
     });
-    cloned.headers.set("X-OmniRoute-Session-Id", sessionId);
+    cloned.headers.set("X-GateFlow-Session-Id", sessionId);
     return cloned;
   }
 }

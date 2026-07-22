@@ -23,276 +23,285 @@ export interface AutoGenSearchItem {
 
 export const autoNavSections: AutoGenNavSection[] = [
   {
-    title: "Architecture",
-    items: [
+    "title": "Architecture",
+    "items": [
       {
-        slug: "architecture",
-        title: "OmniRoute Architecture",
-        fileName: "architecture/ARCHITECTURE.md",
+        "slug": "architecture",
+        "title": "GateFlow Architecture",
+        "fileName": "architecture/ARCHITECTURE.md"
       },
       {
-        slug: "authz-guide",
-        title: "Authorization Guide",
-        fileName: "architecture/AUTHZ_GUIDE.md",
+        "slug": "authz-guide",
+        "title": "Authorization Guide",
+        "fileName": "architecture/AUTHZ_GUIDE.md"
       },
       {
-        slug: "codebase-documentation",
-        title: "OmniRoute Codebase Documentation",
-        fileName: "architecture/CODEBASE_DOCUMENTATION.md",
+        "slug": "codebase-documentation",
+        "title": "GateFlow Codebase Documentation",
+        "fileName": "architecture/CODEBASE_DOCUMENTATION.md"
       },
       {
-        slug: "repository-map",
-        title: "Repository Map",
-        fileName: "architecture/REPOSITORY_MAP.md",
+        "slug": "repository-map",
+        "title": "Repository Map",
+        "fileName": "architecture/REPOSITORY_MAP.md"
       },
       {
-        slug: "resilience-guide",
-        title: "Resilience Guide",
-        fileName: "architecture/RESILIENCE_GUIDE.md",
-      },
-    ],
+        "slug": "resilience-guide",
+        "title": "Resilience Guide",
+        "fileName": "architecture/RESILIENCE_GUIDE.md"
+      }
+    ]
   },
   {
-    title: "Guides",
-    items: [
+    "title": "Guides",
+    "items": [
       {
-        slug: "docker-guide",
-        title: "🐳 Docker Guide — OmniRoute",
-        fileName: "guides/DOCKER_GUIDE.md",
+        "slug": "docker-guide",
+        "title": "🐳 Docker Guide — GateFlow",
+        "fileName": "guides/DOCKER_GUIDE.md"
       },
       {
-        slug: "electron-guide",
-        title: "Electron Desktop Guide",
-        fileName: "guides/ELECTRON_GUIDE.md",
+        "slug": "electron-guide",
+        "title": "Electron Desktop Guide",
+        "fileName": "guides/ELECTRON_GUIDE.md"
       },
       {
-        slug: "features",
-        title: "OmniRoute — Dashboard Features Gallery",
-        fileName: "guides/FEATURES.md",
+        "slug": "features",
+        "title": "GateFlow — Dashboard Features Gallery",
+        "fileName": "guides/FEATURES.md"
       },
       {
-        slug: "i18n",
-        title: "i18n — Internationalization Guide",
-        fileName: "guides/I18N.md",
+        "slug": "i18n",
+        "title": "i18n — Internationalization Guide",
+        "fileName": "guides/I18N.md"
       },
       {
-        slug: "pwa-guide",
-        title: "Progressive Web App (PWA) Guide",
-        fileName: "guides/PWA_GUIDE.md",
+        "slug": "pwa-guide",
+        "title": "Progressive Web App (PWA) Guide",
+        "fileName": "guides/PWA_GUIDE.md"
       },
       {
-        slug: "setup-guide",
-        title: "📖 Setup Guide — OmniRoute",
-        fileName: "guides/SETUP_GUIDE.md",
+        "slug": "setup-guide",
+        "title": "📖 Setup Guide — GateFlow",
+        "fileName": "guides/SETUP_GUIDE.md"
       },
       {
-        slug: "termux-guide",
-        title: "Termux Headless Setup",
-        fileName: "guides/TERMUX_GUIDE.md",
+        "slug": "termux-guide",
+        "title": "Termux Headless Setup",
+        "fileName": "guides/TERMUX_GUIDE.md"
       },
       {
-        slug: "troubleshooting",
-        title: "Troubleshooting",
-        fileName: "guides/TROUBLESHOOTING.md",
+        "slug": "troubleshooting",
+        "title": "Troubleshooting",
+        "fileName": "guides/TROUBLESHOOTING.md"
       },
       {
-        slug: "uninstall",
-        title: "OmniRoute — Uninstall Guide",
-        fileName: "guides/UNINSTALL.md",
+        "slug": "uninstall",
+        "title": "GateFlow — Uninstall Guide",
+        "fileName": "guides/UNINSTALL.md"
       },
       {
-        slug: "user-guide",
-        title: "User Guide",
-        fileName: "guides/USER_GUIDE.md",
-      },
-    ],
+        "slug": "user-guide",
+        "title": "User Guide",
+        "fileName": "guides/USER_GUIDE.md"
+      }
+    ]
   },
   {
-    title: "Reference",
-    items: [
+    "title": "Reference",
+    "items": [
       {
-        slug: "api-reference",
-        title: "API Reference",
-        fileName: "reference/API_REFERENCE.md",
+        "slug": "api-reference",
+        "title": "API Reference",
+        "fileName": "reference/API_REFERENCE.md"
       },
       {
-        slug: "cli-tools",
-        title: "CLI Tools — OmniRoute v3.8.0",
-        fileName: "reference/CLI-TOOLS.md",
+        "slug": "cli-tools",
+        "title": "CLI Tools — GateFlow v3.8.0",
+        "fileName": "reference/CLI-TOOLS.md"
       },
       {
-        slug: "environment",
-        title: "Environment Variables Reference",
-        fileName: "reference/ENVIRONMENT.md",
+        "slug": "environment",
+        "title": "Environment Variables Reference",
+        "fileName": "reference/ENVIRONMENT.md"
       },
       {
-        slug: "free-tiers",
-        title: "Free Tiers",
-        fileName: "reference/FREE_TIERS.md",
+        "slug": "free-tiers",
+        "title": "Free Tiers",
+        "fileName": "reference/FREE_TIERS.md"
       },
       {
-        slug: "provider-reference",
-        title: "Provider Reference",
-        fileName: "reference/PROVIDER_REFERENCE.md",
-      },
-    ],
+        "slug": "provider-reference",
+        "title": "Provider Reference",
+        "fileName": "reference/PROVIDER_REFERENCE.md"
+      }
+    ]
   },
   {
-    title: "Frameworks",
-    items: [
+    "title": "Frameworks",
+    "items": [
       {
-        slug: "a2a-server",
-        title: "OmniRoute A2A Server Documentation",
-        fileName: "frameworks/A2A-SERVER.md",
+        "slug": "a2a-server",
+        "title": "GateFlow A2A Server Documentation",
+        "fileName": "frameworks/A2A-SERVER.md"
       },
       {
-        slug: "agent-protocols-guide",
-        title: "Agent Protocols Guide",
-        fileName: "frameworks/AGENT_PROTOCOLS_GUIDE.md",
+        "slug": "agent-protocols-guide",
+        "title": "Agent Protocols Guide",
+        "fileName": "frameworks/AGENT_PROTOCOLS_GUIDE.md"
       },
       {
-        slug: "cloud-agent",
-        title: "Cloud Agents",
-        fileName: "frameworks/CLOUD_AGENT.md",
+        "slug": "cloud-agent",
+        "title": "Cloud Agents",
+        "fileName": "frameworks/CLOUD_AGENT.md"
       },
       {
-        slug: "evals",
-        title: "Evaluations (Evals)",
-        fileName: "frameworks/EVALS.md",
+        "slug": "evals",
+        "title": "Evaluations (Evals)",
+        "fileName": "frameworks/EVALS.md"
       },
       {
-        slug: "mcp-server",
-        title: "OmniRoute MCP Server Documentation",
-        fileName: "frameworks/MCP-SERVER.md",
+        "slug": "mcp-server",
+        "title": "GateFlow MCP Server Documentation",
+        "fileName": "frameworks/MCP-SERVER.md"
       },
       {
-        slug: "memory",
-        title: "Memory System",
-        fileName: "frameworks/MEMORY.md",
+        "slug": "memory",
+        "title": "Memory System",
+        "fileName": "frameworks/MEMORY.md"
       },
       {
-        slug: "skills",
-        title: "Skills Framework",
-        fileName: "frameworks/SKILLS.md",
+        "slug": "skills",
+        "title": "Skills Framework",
+        "fileName": "frameworks/SKILLS.md"
       },
       {
-        slug: "webhooks",
-        title: "Webhooks",
-        fileName: "frameworks/WEBHOOKS.md",
-      },
-    ],
+        "slug": "webhooks",
+        "title": "Webhooks",
+        "fileName": "frameworks/WEBHOOKS.md"
+      }
+    ]
   },
   {
-    title: "Routing",
-    items: [
+    "title": "Routing",
+    "items": [
       {
-        slug: "auto-combo",
-        title: "OmniRoute Auto-Combo Engine",
-        fileName: "routing/AUTO-COMBO.md",
+        "slug": "auto-combo",
+        "title": "GateFlow Auto-Combo Engine",
+        "fileName": "routing/AUTO-COMBO.md"
       },
       {
-        slug: "reasoning-replay",
-        title: "Reasoning Replay Cache",
-        fileName: "routing/REASONING_REPLAY.md",
-      },
-    ],
+        "slug": "reasoning-replay",
+        "title": "Reasoning Replay Cache",
+        "fileName": "routing/REASONING_REPLAY.md"
+      }
+    ]
   },
   {
-    title: "Security",
-    items: [
+    "title": "Security",
+    "items": [
       {
-        slug: "compliance",
-        title: "Compliance & Audit",
-        fileName: "security/COMPLIANCE.md",
+        "slug": "compliance",
+        "title": "Compliance & Audit",
+        "fileName": "security/COMPLIANCE.md"
       },
       {
-        slug: "guardrails",
-        title: "Guardrails",
-        fileName: "security/GUARDRAILS.md",
+        "slug": "error-sanitization",
+        "title": "Error Message Sanitization",
+        "fileName": "security/ERROR_SANITIZATION.md"
       },
       {
-        slug: "stealth-guide",
-        title: "Stealth Guide",
-        fileName: "security/STEALTH_GUIDE.md",
+        "slug": "guardrails",
+        "title": "Guardrails",
+        "fileName": "security/GUARDRAILS.md"
       },
-    ],
+      {
+        "slug": "public-creds",
+        "title": "Public Credentials Handling",
+        "fileName": "security/PUBLIC_CREDS.md"
+      },
+      {
+        "slug": "stealth-guide",
+        "title": "Stealth Guide",
+        "fileName": "security/STEALTH_GUIDE.md"
+      }
+    ]
   },
   {
-    title: "Compression",
-    items: [
+    "title": "Compression",
+    "items": [
       {
-        slug: "compression-engines",
-        title: "Compression Engines",
-        fileName: "compression/COMPRESSION_ENGINES.md",
+        "slug": "compression-engines",
+        "title": "Compression Engines",
+        "fileName": "compression/COMPRESSION_ENGINES.md"
       },
       {
-        slug: "compression-guide",
-        title: "🗜️ Prompt Compression Guide — OmniRoute",
-        fileName: "compression/COMPRESSION_GUIDE.md",
+        "slug": "compression-guide",
+        "title": "🗜️ Prompt Compression Guide — GateFlow",
+        "fileName": "compression/COMPRESSION_GUIDE.md"
       },
       {
-        slug: "compression-language-packs",
-        title: "Compression Language Packs",
-        fileName: "compression/COMPRESSION_LANGUAGE_PACKS.md",
+        "slug": "compression-language-packs",
+        "title": "Compression Language Packs",
+        "fileName": "compression/COMPRESSION_LANGUAGE_PACKS.md"
       },
       {
-        slug: "compression-rules-format",
-        title: "Compression Rules Format",
-        fileName: "compression/COMPRESSION_RULES_FORMAT.md",
+        "slug": "compression-rules-format",
+        "title": "Compression Rules Format",
+        "fileName": "compression/COMPRESSION_RULES_FORMAT.md"
       },
       {
-        slug: "rtk-compression",
-        title: "RTK Compression",
-        fileName: "compression/RTK_COMPRESSION.md",
-      },
-    ],
+        "slug": "rtk-compression",
+        "title": "RTK Compression",
+        "fileName": "compression/RTK_COMPRESSION.md"
+      }
+    ]
   },
   {
-    title: "Ops",
-    items: [
+    "title": "Ops",
+    "items": [
       {
-        slug: "coverage-plan",
-        title: "Test Coverage Plan",
-        fileName: "ops/COVERAGE_PLAN.md",
+        "slug": "coverage-plan",
+        "title": "Test Coverage Plan",
+        "fileName": "ops/COVERAGE_PLAN.md"
       },
       {
-        slug: "fly-io-deployment-guide",
-        title: "OmniRoute Fly.io 部署指南",
-        fileName: "ops/FLY_IO_DEPLOYMENT_GUIDE.md",
+        "slug": "fly-io-deployment-guide",
+        "title": "GateFlow Fly.io 部署指南",
+        "fileName": "ops/FLY_IO_DEPLOYMENT_GUIDE.md"
       },
       {
-        slug: "proxy-guide",
-        title: "🌐 OmniRoute Proxy Guide",
-        fileName: "ops/PROXY_GUIDE.md",
+        "slug": "proxy-guide",
+        "title": "🌐 GateFlow Proxy Guide",
+        "fileName": "ops/PROXY_GUIDE.md"
       },
       {
-        slug: "release-checklist",
-        title: "Release Checklist",
-        fileName: "ops/RELEASE_CHECKLIST.md",
+        "slug": "release-checklist",
+        "title": "Release Checklist",
+        "fileName": "ops/RELEASE_CHECKLIST.md"
       },
       {
-        slug: "tunnels-guide",
-        title: "Tunnels Guide",
-        fileName: "ops/TUNNELS_GUIDE.md",
+        "slug": "tunnels-guide",
+        "title": "Tunnels Guide",
+        "fileName": "ops/TUNNELS_GUIDE.md"
       },
       {
-        slug: "vm-deployment-guide",
-        title: "OmniRoute — Deployment Guide on VM with Cloudflare",
-        fileName: "ops/VM_DEPLOYMENT_GUIDE.md",
-      },
-    ],
-  },
+        "slug": "vm-deployment-guide",
+        "title": "GateFlow — Deployment Guide on VM with Cloudflare",
+        "fileName": "ops/VM_DEPLOYMENT_GUIDE.md"
+      }
+    ]
+  }
 ];
 
 export const autoSearchIndex: AutoGenSearchItem[] = [
   {
-    slug: "architecture",
-    title: "OmniRoute Architecture",
-    fileName: "architecture/ARCHITECTURE.md",
-    section: "Architecture",
-    content:
-      "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
-    headings: [
+    "slug": "architecture",
+    "title": "GateFlow Architecture",
+    "fileName": "architecture/ARCHITECTURE.md",
+    "section": "Architecture",
+    "content": "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
+    "headings": [
       "Executive Summary",
       "Reference Diagrams",
       "Scope and Boundaries",
@@ -302,17 +311,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "High-Level System Context",
       "Core Runtime Components",
       "1) API and Routing Layer (Next.js App Routes)",
-      "2) SSE + Translation Core",
-    ],
+      "2) SSE + Translation Core"
+    ]
   },
   {
-    slug: "authz-guide",
-    title: "Authorization Guide",
-    fileName: "architecture/AUTHZ_GUIDE.md",
-    section: "Architecture",
-    content:
-      "Source of truth: src/server/authz/, src/shared/constants/publicApiRoutes.ts, src/lib/api/requireManagementAuth.ts, src/shared/utils/apiAuth.ts Last updated: 2026-05-13 — v3.8.0 OmniRoute has a route-aware authorization pipeline that gates every API request. Classification is deterministic and fail-c",
-    headings: [
+    "slug": "authz-guide",
+    "title": "Authorization Guide",
+    "fileName": "architecture/AUTHZ_GUIDE.md",
+    "section": "Architecture",
+    "content": "Source of truth: src/server/authz/, src/shared/constants/publicApiRoutes.ts, src/lib/api/requireManagementAuth.ts, src/shared/utils/apiAuth.ts Last updated: 2026-05-13 — v3.8.0 GateFlow has a route-aware authorization pipeline that gates every API request. Classification is deterministic and fail-cl",
+    "headings": [
       "Two Auth Modes",
       "1. API Key (Bearer)",
       "2. Dashboard Session (auth_token cookie)",
@@ -322,17 +330,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Public Routes List",
       "Adding a New Route",
       "Pattern 1 — Public client API endpoint (Bearer-auth)",
-      "Pattern 2 — Management endpoint (session or Bearer + manage)",
-    ],
+      "Pattern 2 — Management endpoint (session or Bearer + manage)"
+    ]
   },
   {
-    slug: "codebase-documentation",
-    title: "OmniRoute Codebase Documentation",
-    fileName: "architecture/CODEBASE_DOCUMENTATION.md",
-    section: "Architecture",
-    content:
-      "Version: v3.8.0 Last updated: 2026-05-13 Audience: Engineers contributing to OmniRoute or building integrations on top of it. For high-level architecture diagrams and the reasoning behind each subsystem, read ARCHITECTURE.md. For deep dives on individual subsystems (Auto Combo, MCP server, A2A serve",
-    headings: [
+    "slug": "codebase-documentation",
+    "title": "GateFlow Codebase Documentation",
+    "fileName": "architecture/CODEBASE_DOCUMENTATION.md",
+    "section": "Architecture",
+    "content": "Version: v3.8.0 Last updated: 2026-05-13 Audience: Engineers contributing to GateFlow or building integrations on top of it. For high-level architecture diagrams and the reasoning behind each subsystem, read ARCHITECTURE.md. For deep dives on individual subsystems (Auto Combo, MCP server, A2A server",
+    "headings": [
       "1. Tech Stack",
       "2. Repository Layout",
       "3. src/ — Next.js Application",
@@ -342,17 +349,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "3.1.3 src/app/api/v1/ — OpenAI-compatible public API",
       "3.2 src/lib/ — Core libraries",
       "3.2.1 src/lib/db/",
-      "3.3 src/domain/ — Domain layer",
-    ],
+      "3.3 src/domain/ — Domain layer"
+    ]
   },
   {
-    slug: "repository-map",
-    title: "Repository Map",
-    fileName: "architecture/REPOSITORY_MAP.md",
-    section: "Architecture",
-    content:
-      "One-line description for every directory and root file. Last updated: 2026-05-13 — OmniRoute v3.8.0 Use this map to navigate the codebase quickly. For deep dives, follow links to dedicated docs. ---------------------------------------- ----------------------------------------------------------------",
-    headings: [
+    "slug": "repository-map",
+    "title": "Repository Map",
+    "fileName": "architecture/REPOSITORY_MAP.md",
+    "section": "Architecture",
+    "content": "One-line description for every directory and root file. Last updated: 2026-05-13 — GateFlow v3.8.0 Use this map to navigate the codebase quickly. For deep dives, follow links to dedicated docs. ---------------------------------------- -----------------------------------------------------------------",
+    "headings": [
       "Top-level tree",
       "Root files",
       "src/ — Next.js application",
@@ -362,17 +368,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "src/domain/",
       "src/server/",
       "src/shared/",
-      "open-sse/ — Streaming Engine Workspace",
-    ],
+      "open-sse/ — Streaming Engine Workspace"
+    ]
   },
   {
-    slug: "resilience-guide",
-    title: "Resilience Guide",
-    fileName: "architecture/RESILIENCE_GUIDE.md",
-    section: "Architecture",
-    content:
-      "OmniRoute has three distinct but related resilience mechanisms. Each has a different scope and purpose. Keep them separate when debugging routing behavior. Source: diagrams/resilience-3layers.mmd Scope: entire provider (e.g., glm, openai, anthropic). Purpose: stop sending traffic to a provider that ",
-    headings: [
+    "slug": "resilience-guide",
+    "title": "Resilience Guide",
+    "fileName": "architecture/RESILIENCE_GUIDE.md",
+    "section": "Architecture",
+    "content": "GateFlow has three distinct but related resilience mechanisms. Each has a different scope and purpose. Keep them separate when debugging routing behavior. Source: diagrams/resilience-3layers.mmd Scope: entire provider (e.g., glm, openai, anthropic). Purpose: stop sending traffic to a provider that i",
+    "headings": [
       "1. Provider Circuit Breaker",
       "2. Connection Cooldown",
       "3. Model Lockout",
@@ -380,17 +385,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Other Resilience Features",
       "Debugging",
       "TLS Fingerprinting & Stealth",
-      "See Also",
-    ],
+      "See Also"
+    ]
   },
   {
-    slug: "docker-guide",
-    title: "🐳 Docker Guide — OmniRoute",
-    fileName: "guides/DOCKER_GUIDE.md",
-    section: "Guides",
-    content:
-      "Complete Docker deployment reference. For a quick start, see the README Docker section. - Quick Run - With Environment File - Docker Compose - Available Profiles - Redis Sidecar - Production Compose - Dockerfile Stages - Critical Environment Variables - Docker Compose with Caddy (HTTPS) - Cloudflare",
-    headings: [
+    "slug": "docker-guide",
+    "title": "🐳 Docker Guide — GateFlow",
+    "fileName": "guides/DOCKER_GUIDE.md",
+    "section": "Guides",
+    "content": "Complete Docker deployment reference. For a quick start, see the README Docker section. - Quick Run - With Environment File - Docker Compose - Available Profiles - Redis Sidecar - Production Compose - Dockerfile Stages - Critical Environment Variables - Docker Compose with Caddy (HTTPS) - Cloudflare",
+    "headings": [
       "Table of Contents",
       "Quick Run",
       "With Environment File",
@@ -400,17 +404,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Production Compose",
       "Dockerfile Stages",
       "Critical Environment Variables",
-      "Docker Compose with Caddy (HTTPS Auto-TLS)",
-    ],
+      "Docker Compose with Caddy (HTTPS Auto-TLS)"
+    ]
   },
   {
-    slug: "electron-guide",
-    title: "Electron Desktop Guide",
-    fileName: "guides/ELECTRON_GUIDE.md",
-    section: "Guides",
-    content:
-      "Source of truth: electron/ workspace Last updated: 2026-05-13 — v3.8.0 OmniRoute ships a cross-platform desktop app (Windows / macOS / Linux) built on Electron 41 + electron-builder 26.10. The desktop app spawns the Next.js standalone server as a child process, points a BrowserWindow at it, and adds",
-    headings: [
+    "slug": "electron-guide",
+    "title": "Electron Desktop Guide",
+    "fileName": "guides/ELECTRON_GUIDE.md",
+    "section": "Guides",
+    "content": "Source of truth: electron/ workspace Last updated: 2026-05-13 — v3.8.0 GateFlow ships a cross-platform desktop app (Windows / macOS / Linux) built on Electron 41 + electron-builder 26.10. The desktop app spawns the Next.js standalone server as a child process, points a BrowserWindow at it, and adds ",
+    "headings": [
       "Architecture",
       "Versions",
       "Scripts (root package.json)",
@@ -420,17 +423,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Zero-config Secret Bootstrap",
       "Window & Tray",
       "Content Security Policy",
-      "Auto-update",
-    ],
+      "Auto-update"
+    ]
   },
   {
-    slug: "features",
-    title: "OmniRoute — Dashboard Features Gallery",
-    fileName: "guides/FEATURES.md",
-    section: "Guides",
-    content:
-      "🌐 Main README translations: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indones",
-    headings: [
+    "slug": "features",
+    "title": "GateFlow — Dashboard Features Gallery",
+    "fileName": "guides/FEATURES.md",
+    "section": "Guides",
+    "content": "🌐 Main README translations: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indones",
+    "headings": [
       "✨ v3.8.0 Highlights",
       "🔌 Providers",
       "🎨 Combos",
@@ -440,17 +442,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "🎮 Model Playground _(v2.0.9+)_",
       "🎨 Themes _(v2.0.5+)_",
       "⚙️ Settings",
-      "🔧 CLI Tools",
-    ],
+      "🔧 CLI Tools"
+    ]
   },
   {
-    slug: "i18n",
-    title: "i18n — Internationalization Guide",
-    fileName: "guides/I18N.md",
-    section: "Guides",
-    content:
-      "OmniRoute supports 30 languages with full dashboard UI translation, translated documentation, and RTL support for Arabic and Hebrew. 🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇩🇪 Deutsch 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇯🇵 日本語 🇰🇷 한국어 🇸🇦 العربية 🇮🇳 ",
-    headings: [
+    "slug": "i18n",
+    "title": "i18n — Internationalization Guide",
+    "fileName": "guides/I18N.md",
+    "section": "Guides",
+    "content": "GateFlow supports 30 languages with full dashboard UI translation, translated documentation, and RTL support for Arabic and Hebrew. 🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇩🇪 Deutsch 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇯🇵 日本語 🇰🇷 한국어 🇸🇦 العربية 🇮🇳 ह",
+    "headings": [
       "Translation pipeline (recommended — v3.8.0)",
       "Legacy scripts (deprecated)",
       "Quick Reference",
@@ -460,17 +461,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Supported Locales",
       "Adding a New Language",
       "1. Register the Locale",
-      "2. Add to Generator",
-    ],
+      "2. Add to Generator"
+    ]
   },
   {
-    slug: "pwa-guide",
-    title: "Progressive Web App (PWA) Guide",
-    fileName: "guides/PWA_GUIDE.md",
-    section: "Guides",
-    content:
-      'OmniRoute ships as a fully installable Progressive Web App. When you access the dashboard from any mobile browser — Android (Chrome) or iOS (Safari) — you can "Add to Home Screen" and get a native app-like experience with no app store required. A Progressive Web App turns the OmniRoute web dashboard',
-    headings: [
+    "slug": "pwa-guide",
+    "title": "Progressive Web App (PWA) Guide",
+    "fileName": "guides/PWA_GUIDE.md",
+    "section": "Guides",
+    "content": "GateFlow ships as a fully installable Progressive Web App. When you access the dashboard from any mobile browser — Android (Chrome) or iOS (Safari) — you can \"Add to Home Screen\" and get a native app-like experience with no app store required. A Progressive Web App turns the GateFlow web dashboard i",
+    "headings": [
       "What Is a PWA?",
       "Installation",
       "Android (Chrome)",
@@ -480,17 +480,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Fullscreen Experience",
       "Offline Support",
       "Offline Page",
-      "App Icons",
-    ],
+      "App Icons"
+    ]
   },
   {
-    slug: "setup-guide",
-    title: "📖 Setup Guide — OmniRoute",
-    fileName: "guides/SETUP_GUIDE.md",
-    section: "Guides",
-    content:
-      "Complete setup reference for OmniRoute. For the quick version, see the Quick Start in README. - Install Methods - CLI Tool Configuration - Protocol Setup (MCP + A2A) - Timeout Configuration - Split-Port Mode - Void Linux (xbps-src) - Uninstalling -------------------- --------------------------------",
-    headings: [
+    "slug": "setup-guide",
+    "title": "📖 Setup Guide — GateFlow",
+    "fileName": "guides/SETUP_GUIDE.md",
+    "section": "Guides",
+    "content": "Complete setup reference for GateFlow. For the quick version, see the Quick Start in README. - Install Methods - CLI Tool Configuration - Protocol Setup (MCP + A2A) - Timeout Configuration - Split-Port Mode - Void Linux (xbps-src) - Uninstalling -------------------- ---------------------------------",
+    "headings": [
       "Table of Contents",
       "Install Methods",
       "npm (recommended)",
@@ -500,17 +499,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Docker",
       "Desktop App (Electron)",
       "Headless server (CI/automation)",
-      "CLI Options",
-    ],
+      "CLI Options"
+    ]
   },
   {
-    slug: "termux-guide",
-    title: "Termux Headless Setup",
-    fileName: "guides/TERMUX_GUIDE.md",
-    section: "Guides",
-    content:
-      "OmniRoute can run as a headless server on Android through Termux. The Electron desktop app is not supported in Termux, but the web dashboard and OpenAI-compatible API work from the local browser or from other devices on the same network. Install Termux from F-Droid or GitHub releases, then update pa",
-    headings: [
+    "slug": "termux-guide",
+    "title": "Termux Headless Setup",
+    "fileName": "guides/TERMUX_GUIDE.md",
+    "section": "Guides",
+    "content": "GateFlow can run as a headless server on Android through Termux. The Electron desktop app is not supported in Termux, but the web dashboard and OpenAI-compatible API work from the local browser or from other devices on the same network. Install Termux from F-Droid or GitHub releases, then update pac",
+    "headings": [
       "Prerequisites",
       "Install",
       "Run",
@@ -520,37 +518,35 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Limitations",
       "Troubleshooting",
       "better-sqlite3 Build Errors",
-      "Port Already In Use",
-    ],
+      "Port Already In Use"
+    ]
   },
   {
-    slug: "troubleshooting",
-    title: "Troubleshooting",
-    fileName: "guides/TROUBLESHOOTING.md",
-    section: "Guides",
-    content:
-      "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
-    headings: [
+    "slug": "troubleshooting",
+    "title": "Troubleshooting",
+    "fileName": "guides/TROUBLESHOOTING.md",
+    "section": "Guides",
+    "content": "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
+    "headings": [
       "Quick Fixes",
       "Node.js Compatibility",
-      'Login page crashes or shows "Module self-registration" error',
-      'macOS: dlopen / "slice is not valid mach-o file"',
+      "Login page crashes or shows \"Module self-registration\" error",
+      "macOS: dlopen / \"slice is not valid mach-o file\"",
       "Proxy Issues",
-      'Provider validation shows "fetch failed"',
-      'Token health check fails with "fetch failed"',
-      'SOCKS5 proxy returns "invalid onRequestStart method"',
+      "Provider validation shows \"fetch failed\"",
+      "Token health check fails with \"fetch failed\"",
+      "SOCKS5 proxy returns \"invalid onRequestStart method\"",
       "Provider Issues",
-      '"Language model did not provide messages"',
-    ],
+      "\"Language model did not provide messages\""
+    ]
   },
   {
-    slug: "uninstall",
-    title: "OmniRoute — Uninstall Guide",
-    fileName: "guides/UNINSTALL.md",
-    section: "Guides",
-    content:
-      "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
-    headings: [
+    "slug": "uninstall",
+    "title": "GateFlow — Uninstall Guide",
+    "fileName": "guides/UNINSTALL.md",
+    "section": "Guides",
+    "content": "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
+    "headings": [
       "Quick Uninstall (v3.6.2+)",
       "Keep Your Data",
       "Full Removal",
@@ -560,37 +556,35 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Docker",
       "Docker Compose",
       "Electron Desktop App",
-      "Source Install (git clone)",
-    ],
+      "Source Install (git clone)"
+    ]
   },
   {
-    slug: "user-guide",
-    title: "User Guide",
-    fileName: "guides/USER_GUIDE.md",
-    section: "Guides",
-    content:
-      "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
-    headings: [
+    "slug": "user-guide",
+    "title": "User Guide",
+    "fileName": "guides/USER_GUIDE.md",
+    "section": "Guides",
+    "content": "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
+    "headings": [
       "Table of Contents",
       "💰 Pricing at a Glance",
       "🎯 Use Cases",
-      'Case 1: "I have Claude Pro subscription"',
-      'Case 2: "I want zero cost"',
-      'Case 3: "I need 24/7 coding, no interruptions"',
-      'Case 4: "I want FREE AI in OpenClaw"',
+      "Case 1: \"I have Claude Pro subscription\"",
+      "Case 2: \"I want zero cost\"",
+      "Case 3: \"I need 24/7 coding, no interruptions\"",
+      "Case 4: \"I want FREE AI in OpenClaw\"",
       "📖 Provider Setup",
       "🔐 Subscription Providers",
-      "Claude Code (Pro/Max)",
-    ],
+      "Claude Code (Pro/Max)"
+    ]
   },
   {
-    slug: "api-reference",
-    title: "API Reference",
-    fileName: "reference/API_REFERENCE.md",
-    section: "Reference",
-    content:
-      "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
-    headings: [
+    "slug": "api-reference",
+    "title": "API Reference",
+    "fileName": "reference/API_REFERENCE.md",
+    "section": "Reference",
+    "content": "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
+    "headings": [
       "Table of Contents",
       "Chat Completions",
       "Custom Headers",
@@ -600,37 +594,35 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Compatibility Endpoints",
       "Dedicated Provider Routes",
       "Files API",
-      "Batches API",
-    ],
+      "Batches API"
+    ]
   },
   {
-    slug: "cli-tools",
-    title: "CLI Tools — OmniRoute v3.8.0",
-    fileName: "reference/CLI-TOOLS.md",
-    section: "Reference",
-    content:
-      "Last updated: 2026-05-13 OmniRoute integrates with two categories of CLI tools: 1. External CLI integrations — third-party CLIs (Cursor, Cline, Codex, Claude Code, Qwen Code, Windsurf, Hermes, Amp, etc.) that you point at OmniRoute's local OpenAI-compatible endpoint. 2. Internal OmniRoute CLI — comm",
-    headings: [
+    "slug": "cli-tools",
+    "title": "CLI Tools — GateFlow v3.8.0",
+    "fileName": "reference/CLI-TOOLS.md",
+    "section": "Reference",
+    "content": "Last updated: 2026-05-13 GateFlow integrates with two categories of CLI tools: 1. External CLI integrations — third-party CLIs (Cursor, Cline, Codex, Claude Code, Qwen Code, Windsurf, Hermes, Amp, etc.) that you point at GateFlow's local OpenAI-compatible endpoint. 2. Internal GateFlow CLI — command",
+    "headings": [
       "How It Works",
       "1. External CLI Integrations",
       "Source of Truth",
       "Current Catalog (v3.8.0)",
       "CLI fingerprint sync (Agents + Settings)",
-      "Step 1 — Get an OmniRoute API Key",
+      "Step 1 — Get an GateFlow API Key",
       "Step 2 — Install CLI Tools",
       "Step 3 — Set Global Environment Variables",
       "Step 4 — Configure Each Tool",
-      "Claude Code",
-    ],
+      "Claude Code"
+    ]
   },
   {
-    slug: "environment",
-    title: "Environment Variables Reference",
-    fileName: "reference/ENVIRONMENT.md",
-    section: "Reference",
-    content:
-      "Complete reference for every environment variable recognized by OmniRoute. For a quick-start template, see .env.example. [!IMPORTANT] Every variable documented here must also appear in .env.example, and every variable in .env.example must appear here. npm run check:env-doc-sync enforces this on comm",
-    headings: [
+    "slug": "environment",
+    "title": "Environment Variables Reference",
+    "fileName": "reference/ENVIRONMENT.md",
+    "section": "Reference",
+    "content": "Complete reference for every environment variable recognized by GateFlow. For a quick-start template, see .env.example. [!IMPORTANT] Every variable documented here must also appear in .env.example, and every variable in .env.example must appear here. npm run check:env-doc-sync enforces this on commi",
+    "headings": [
       "Table of Contents",
       "1. Required Secrets",
       "Generation Commands",
@@ -640,17 +632,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Port Modes",
       "4. Security & Authentication",
       "Hardening Checklist",
-      "5. Input Sanitization & PII Protection",
-    ],
+      "5. Input Sanitization & PII Protection"
+    ]
   },
   {
-    slug: "free-tiers",
-    title: "Free Tiers",
-    fileName: "reference/FREE_TIERS.md",
-    section: "Reference",
-    content:
-      "Last consolidated: 2026-05-13 — OmniRoute v3.8.0 Source of truth: src/shared/constants/providers.ts (FREEPROVIDERS, OAUTHPROVIDERS, and APIKEYPROVIDERS entries flagged with hasFree: true + freeNote) This page lists providers with usable free tiers shipped in OmniRoute v3.8.0. The data is derived fro",
-    headings: [
+    "slug": "free-tiers",
+    "title": "Free Tiers",
+    "fileName": "reference/FREE_TIERS.md",
+    "section": "Reference",
+    "content": "Last consolidated: 2026-05-13 — GateFlow v3.8.0 Source of truth: src/shared/constants/providers.ts (FREEPROVIDERS, OAUTHPROVIDERS, and APIKEYPROVIDERS entries flagged with hasFree: true + freeNote) This page lists providers with usable free tiers shipped in GateFlow v3.8.0. The data is derived from ",
+    "headings": [
       "How free providers are wired",
       "Quick reference (API key providers with hasFree: true)",
       "OAuth-based free tiers",
@@ -660,17 +651,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Qwen Code (qwen)",
       "Command Code",
       "Environment variables",
-      "How to use",
-    ],
+      "How to use"
+    ]
   },
   {
-    slug: "provider-reference",
-    title: "Provider Reference",
-    fileName: "reference/PROVIDER_REFERENCE.md",
-    section: "Reference",
-    content:
-      "Auto-generated from src/shared/constants/providers.ts — do not edit by hand. Regenerate with: npm run gen:provider-reference Last generated: 2026-05-13 Total providers: 177. See category breakdown below. - Free — free tier with API key (configured via dashboard) - OAuth — sign-in flow handled by Omn",
-    headings: [
+    "slug": "provider-reference",
+    "title": "Provider Reference",
+    "fileName": "reference/PROVIDER_REFERENCE.md",
+    "section": "Reference",
+    "content": "Auto-generated from src/shared/constants/providers.ts — do not edit by hand. Regenerate with: npm run gen:provider-reference Last generated: 2026-05-13 Total providers: 177. See category breakdown below. - Free — free tier with API key (configured via dashboard) - OAuth — sign-in flow handled by Gat",
+    "headings": [
       "Categories",
       "Free Tier (OAuth-first or no-key) (5)",
       "OAuth Providers (11)",
@@ -680,17 +670,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Search Providers (11)",
       "Audio-only Providers (7)",
       "Upstream Proxy Providers (1)",
-      "Cloud Agent Providers (3)",
-    ],
+      "Cloud Agent Providers (3)"
+    ]
   },
   {
-    slug: "a2a-server",
-    title: "OmniRoute A2A Server Documentation",
-    fileName: "frameworks/A2A-SERVER.md",
-    section: "Frameworks",
-    content:
-      "Agent-to-Agent Protocol v0.3 — OmniRoute as an intelligent routing agent The A2A surface has two faces: - JSON-RPC 2.0 at POST /a2a (canonical entry point, defined in src/app/a2a/route.ts). - REST under /api/a2a/ for dashboards and tooling (status, task list, cancel). Tasks are tracked by A2ATaskMan",
-    headings: [
+    "slug": "a2a-server",
+    "title": "GateFlow A2A Server Documentation",
+    "fileName": "frameworks/A2A-SERVER.md",
+    "section": "Frameworks",
+    "content": "Agent-to-Agent Protocol v0.3 — GateFlow as an intelligent routing agent The A2A surface has two faces: - JSON-RPC 2.0 at POST /a2a (canonical entry point, defined in src/app/a2a/route.ts). - REST under /api/a2a/ for dashboards and tooling (status, task list, cancel). Tasks are tracked by A2ATaskMana",
+    "headings": [
       "Agent Discovery",
       "Authentication",
       "Enablement",
@@ -700,17 +689,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "tasks/get — Query Task Status",
       "tasks/cancel — Cancel a Task",
       "Available Skills",
-      "REST API (auxiliary)",
-    ],
+      "REST API (auxiliary)"
+    ]
   },
   {
-    slug: "agent-protocols-guide",
-    title: "Agent Protocols Guide",
-    fileName: "frameworks/AGENT_PROTOCOLS_GUIDE.md",
-    section: "Frameworks",
-    content:
-      "Source: src/lib/{a2a,acp,cloudAgent}/, src/app/api/{a2a,acp,cloud}/, src/app/api/v1/agents/ Last updated: 2026-05-13 — v3.8.0 OmniRoute exposes three different agent-related surfaces. They look similar at first glance but solve different problems. Use this page to pick the right one. Surface Best fo",
-    headings: [
+    "slug": "agent-protocols-guide",
+    "title": "Agent Protocols Guide",
+    "fileName": "frameworks/AGENT_PROTOCOLS_GUIDE.md",
+    "section": "Frameworks",
+    "content": "Source: src/lib/{a2a,acp,cloudAgent}/, src/app/api/{a2a,acp,cloud}/, src/app/api/v1/agents/ Last updated: 2026-05-13 — v3.8.0 GateFlow exposes three different agent-related surfaces. They look similar at first glance but solve different problems. Use this page to pick the right one. Surface Best for",
+    "headings": [
       "TL;DR",
       "Decision Tree",
       "1. A2A — Agent-to-Agent",
@@ -720,17 +708,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Deep dive",
       "2. ACP — CLI Agents Registry",
       "What it is",
-      "What it does",
-    ],
+      "What it does"
+    ]
   },
   {
-    slug: "cloud-agent",
-    title: "Cloud Agents",
-    fileName: "frameworks/CLOUD_AGENT.md",
-    section: "Frameworks",
-    content:
-      "Source of truth: src/lib/cloudAgent/ and src/app/api/v1/agents/tasks/ Last updated: 2026-05-13 — v3.8.0 OmniRoute orchestrates third-party cloud-hosted coding agents (Codex Cloud, Devin, Jules) as long-running tasks. Each agent is wrapped behind a uniform interface so clients can submit a prompt + r",
-    headings: [
+    "slug": "cloud-agent",
+    "title": "Cloud Agents",
+    "fileName": "frameworks/CLOUD_AGENT.md",
+    "section": "Frameworks",
+    "content": "Source of truth: src/lib/cloudAgent/ and src/app/api/v1/agents/tasks/ Last updated: 2026-05-13 — v3.8.0 GateFlow orchestrates third-party cloud-hosted coding agents (Codex Cloud, Devin, Jules) as long-running tasks. Each agent is wrapped behind a uniform interface so clients can submit a prompt + re",
+    "headings": [
       "Supported Agents",
       "Architecture",
       "CloudAgentBase Interface",
@@ -740,17 +727,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Create task",
       "Approve a plan",
       "Send a follow-up message",
-      "Cancel (local status only)",
-    ],
+      "Cancel (local status only)"
+    ]
   },
   {
-    slug: "evals",
-    title: "Evaluations (Evals)",
-    fileName: "frameworks/EVALS.md",
-    section: "Frameworks",
-    content:
-      'Source of truth: src/lib/evals/, src/lib/db/evals.ts, src/app/api/evals/ Last updated: 2026-05-13 — v3.8.0 OmniRoute ships a generic evaluation framework you can use to benchmark routing configurations, single providers/models, or the bundled "golden set" suites. Use it to verify routing changes, va',
-    headings: [
+    "slug": "evals",
+    "title": "Evaluations (Evals)",
+    "fileName": "frameworks/EVALS.md",
+    "section": "Frameworks",
+    "content": "Source of truth: src/lib/evals/, src/lib/db/evals.ts, src/app/api/evals/ Last updated: 2026-05-13 — v3.8.0 GateFlow ships a generic evaluation framework you can use to benchmark routing configurations, single providers/models, or the bundled \"golden set\" suites. Use it to verify routing changes, val",
+    "headings": [
       "Concepts",
       "Suite",
       "Case",
@@ -760,17 +746,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "REST API",
       "Running a suite",
       "Creating a custom suite",
-      "Dispatch Pipeline",
-    ],
+      "Dispatch Pipeline"
+    ]
   },
   {
-    slug: "mcp-server",
-    title: "OmniRoute MCP Server Documentation",
-    fileName: "frameworks/MCP-SERVER.md",
-    section: "Frameworks",
-    content:
-      "Model Context Protocol server with 37 tools across routing, cache, compression, memory, skills, and proxy operations. Source of truth: open-sse/mcp-server/schemas/tools.ts (30 tools) + open-sse/mcp-server/tools/memoryTools.ts (3 tools) + open-sse/mcp-server/tools/skillTools.ts (4 tools). Tool regist",
-    headings: [
+    "slug": "mcp-server",
+    "title": "GateFlow MCP Server Documentation",
+    "fileName": "frameworks/MCP-SERVER.md",
+    "section": "Frameworks",
+    "content": "Model Context Protocol server with 37 tools across routing, cache, compression, memory, skills, and proxy operations. Source of truth: open-sse/mcp-server/schemas/tools.ts (30 tools) + open-sse/mcp-server/tools/memoryTools.ts (3 tools) + open-sse/mcp-server/tools/skillTools.ts (4 tools). Tool regist",
+    "headings": [
       "Installation",
       "Transports",
       "IDE Configuration",
@@ -780,17 +765,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Cache Tools (2)",
       "Compression Tools (5)",
       "1Proxy Tools (3)",
-      "Memory Tools (3)",
-    ],
+      "Memory Tools (3)"
+    ]
   },
   {
-    slug: "memory",
-    title: "Memory System",
-    fileName: "frameworks/MEMORY.md",
-    section: "Frameworks",
-    content:
-      "Source of truth: src/lib/memory/ and src/app/api/memory/ Last updated: 2026-05-13 — v3.8.0 OmniRoute provides persistent conversational memory keyed by API key (and optionally session id). Memories are extracted automatically from LLM responses via lightweight regex pattern matching and injected bac",
-    headings: [
+    "slug": "memory",
+    "title": "Memory System",
+    "fileName": "frameworks/MEMORY.md",
+    "section": "Frameworks",
+    "content": "Source of truth: src/lib/memory/ and src/app/api/memory/ Last updated: 2026-05-13 — v3.8.0 GateFlow provides persistent conversational memory keyed by API key (and optionally session id). Memories are extracted automatically from LLM responses via lightweight regex pattern matching and injected back",
+    "headings": [
       "Architecture",
       "Storage Layers",
       "Primary: SQLite (memories table)",
@@ -800,17 +784,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Fact Extraction (extraction.ts)",
       "Retrieval (retrieval.ts)",
       "Injection (injection.ts)",
-      "Settings (settings.ts)",
-    ],
+      "Settings (settings.ts)"
+    ]
   },
   {
-    slug: "skills",
-    title: "Skills Framework",
-    fileName: "frameworks/SKILLS.md",
-    section: "Frameworks",
-    content:
-      "Source of truth: src/lib/skills/ and src/app/api/skills/ Last updated: 2026-05-13 — v3.8.0 OmniRoute exposes an extensible Skills framework that lets language models (and operators) compose reusable capabilities — from filesystem reads and HTTP requests to sandboxed code execution and curated market",
-    headings: [
+    "slug": "skills",
+    "title": "Skills Framework",
+    "fileName": "frameworks/SKILLS.md",
+    "section": "Frameworks",
+    "content": "Source of truth: src/lib/skills/ and src/app/api/skills/ Last updated: 2026-05-13 — v3.8.0 GateFlow exposes an extensible Skills framework that lets language models (and operators) compose reusable capabilities — from filesystem reads and HTTP requests to sandboxed code execution and curated marketp",
+    "headings": [
       "Concepts",
       "Skill Sources",
       "Skill Identity",
@@ -820,17 +803,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Provider-Aware Injection",
       "AUTO Scoring",
       "Tool Call Interception",
-      "Docker Sandbox",
-    ],
+      "Docker Sandbox"
+    ]
   },
   {
-    slug: "webhooks",
-    title: "Webhooks",
-    fileName: "frameworks/WEBHOOKS.md",
-    section: "Frameworks",
-    content:
-      "Source of truth: src/lib/webhookDispatcher.ts, src/lib/db/webhooks.ts, src/app/api/webhooks/ Last updated: 2026-05-13 — v3.8.0 OmniRoute can fire HTTP webhooks on platform events. Use them to integrate with Slack, PagerDuty, Datadog, internal alerting services, or any HTTP receiver. The dispatcher s",
-    headings: [
+    "slug": "webhooks",
+    "title": "Webhooks",
+    "fileName": "frameworks/WEBHOOKS.md",
+    "section": "Frameworks",
+    "content": "Source of truth: src/lib/webhookDispatcher.ts, src/lib/db/webhooks.ts, src/app/api/webhooks/ Last updated: 2026-05-13 — v3.8.0 GateFlow can fire HTTP webhooks on platform events. Use them to integrate with Slack, PagerDuty, Datadog, internal alerting services, or any HTTP receiver. The dispatcher si",
+    "headings": [
       "Supported Events",
       "Architecture",
       "HMAC Signing",
@@ -840,17 +822,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "REST API",
       "Create webhook",
       "Test webhook",
-      "Dashboard",
-    ],
+      "Dashboard"
+    ]
   },
   {
-    slug: "auto-combo",
-    title: "OmniRoute Auto-Combo Engine",
-    fileName: "routing/AUTO-COMBO.md",
-    section: "Routing",
-    content:
-      "Self-managing model chains with adaptive scoring + zero-config auto-routing NEW: No combo creation required. Use auto/ prefix directly in any client. Model ID Variant Behavior -------------- ------- ------------------------------------------------------------------------ auto default All connected p",
-    headings: [
+    "slug": "auto-combo",
+    "title": "GateFlow Auto-Combo Engine",
+    "fileName": "routing/AUTO-COMBO.md",
+    "section": "Routing",
+    "content": "Self-managing model chains with adaptive scoring + zero-config auto-routing NEW: No combo creation required. Use auto/ prefix directly in any client. Model ID Variant Behavior -------------- ------- ------------------------------------------------------------------------ auto default All connected p",
+    "headings": [
       "Zero-Config Auto-Routing (auto/ prefix)",
       "Quick Examples",
       "How It Works (Persisted Auto-Combos)",
@@ -860,17 +841,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Self-Healing",
       "Bandit Exploration",
       "API",
-      "Task Fitness",
-    ],
+      "Task Fitness"
+    ]
   },
   {
-    slug: "reasoning-replay",
-    title: "Reasoning Replay Cache",
-    fileName: "routing/REASONING_REPLAY.md",
-    section: "Routing",
-    content:
-      "Source of truth: src/lib/db/reasoningCache.ts, open-sse/services/reasoningCache.ts Last updated: 2026-05-13 — v3.8.0 OmniRoute captures assistant reasoningcontent produced by thinking-mode models and replays it transparently on multi-turn requests when the upstream provider requires it. This elimina",
-    headings: [
+    "slug": "reasoning-replay",
+    "title": "Reasoning Replay Cache",
+    "fileName": "routing/REASONING_REPLAY.md",
+    "section": "Routing",
+    "content": "Source of truth: src/lib/db/reasoningCache.ts, open-sse/services/reasoningCache.ts Last updated: 2026-05-13 — v3.8.0 GateFlow captures assistant reasoningcontent produced by thinking-mode models and replays it transparently on multi-turn requests when the upstream provider requires it. This eliminat",
+    "headings": [
       "Why This Exists",
       "Architecture",
       "Storage — Hybrid Memory + SQLite",
@@ -878,17 +858,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Provider / Model Detection",
       "REST API",
       "Operational Notes",
-      "See Also",
-    ],
+      "See Also"
+    ]
   },
   {
-    slug: "compliance",
-    title: "Compliance & Audit",
-    fileName: "security/COMPLIANCE.md",
-    section: "Security",
-    content:
-      "Source of truth: src/lib/compliance/, src/app/api/compliance/ Last updated: 2026-05-13 — v3.8.0 OmniRoute records administrative actions, authentication events, provider credential lifecycle changes, and MCP tool invocations to SQLite-backed audit tables. This page covers what gets logged, where it ",
-    headings: [
+    "slug": "compliance",
+    "title": "Compliance & Audit",
+    "fileName": "security/COMPLIANCE.md",
+    "section": "Security",
+    "content": "Source of truth: src/lib/compliance/, src/app/api/compliance/ Last updated: 2026-05-13 — v3.8.0 GateFlow records administrative actions, authentication events, provider credential lifecycle changes, and MCP tool invocations to SQLite-backed audit tables. This page covers what gets logged, where it l",
+    "headings": [
       "What Gets Logged",
       "Administrative audit events (audit_log)",
       "MCP tool calls (mcp_tool_audit)",
@@ -898,17 +877,35 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "noLog Opt-Out (per API key)",
       "REST API",
       "Querying /api/compliance/audit-log",
-      "Dashboard",
-    ],
+      "Dashboard"
+    ]
   },
   {
-    slug: "guardrails",
-    title: "Guardrails",
-    fileName: "security/GUARDRAILS.md",
-    section: "Security",
-    content:
-      "Source of truth: src/lib/guardrails/ Last updated: 2026-05-13 — v3.8.0 Guardrails enforce safety, policy, and content transformations at the boundary between OmniRoute and upstream providers. Each guardrail can inspect (and optionally reject, transform, or annotate) request payloads (preCall) and up",
-    headings: [
+    "slug": "error-sanitization",
+    "title": "Error Message Sanitization",
+    "fileName": "security/ERROR_SANITIZATION.md",
+    "section": "Security",
+    "content": "Source of truth: open-sse/utils/error.ts — sanitizeErrorMessage, buildErrorBody, createErrorResult Tests: tests/unit/error-message-sanitization.test.ts Last updated: 2026-05-14 — v3.8.0 Audience: Any engineer touching error responses (HTTP routes, SSE streams, executors, MCP handlers). Status: MANDA",
+    "headings": [
+      "Why this exists",
+      "The mandatory pattern",
+      "1. Building an error response (HTTP / API routes)",
+      "2. Custom error envelopes (rare)",
+      "3. Logging vs. responding",
+      "4. Forbidden patterns",
+      "Coverage in CI",
+      "Related controls",
+      "Known CodeQL limitation: custom sanitizers not recognized",
+      "References"
+    ]
+  },
+  {
+    "slug": "guardrails",
+    "title": "Guardrails",
+    "fileName": "security/GUARDRAILS.md",
+    "section": "Security",
+    "content": "Source of truth: src/lib/guardrails/ Last updated: 2026-05-13 — v3.8.0 Guardrails enforce safety, policy, and content transformations at the boundary between GateFlow and upstream providers. Each guardrail can inspect (and optionally reject, transform, or annotate) request payloads (preCall) and ups",
+    "headings": [
       "Built-in Guardrails",
       "Vision Bridge (visionBridge.ts)",
       "PII Masker (piiMasker.ts)",
@@ -918,17 +915,33 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Disabling Guardrails Per-Request",
       "Execution Order",
       "Configuration",
-      "Custom Guardrails",
-    ],
+      "Custom Guardrails"
+    ]
   },
   {
-    slug: "stealth-guide",
-    title: "Stealth Guide",
-    fileName: "security/STEALTH_GUIDE.md",
-    section: "Security",
-    content:
-      "Source of truth: open-sse/utils/tlsClient.ts, open-sse/services/{chatgptTlsClient,claudeCodeCCH,claudeCodeFingerprint,claudeCodeObfuscation,claudeCodeCompatible,antigravityObfuscation}.ts, open-sse/config/cliFingerprints.ts, src/mitm/ Last updated: 2026-05-13 — v3.8.0 Audience: Engineers maintaining",
-    headings: [
+    "slug": "public-creds",
+    "title": "Public Credentials Handling",
+    "fileName": "security/PUBLIC_CREDS.md",
+    "section": "Security",
+    "content": "Source of truth: open-sse/utils/publicCreds.ts Tests: tests/unit/publicCreds.test.ts Last updated: 2026-05-14 — v3.8.0 Audience: Engineers integrating providers that ship public OAuth clientid / clientsecret / Firebase Web API keys in their public CLIs. Status: MANDATORY for all new code that embeds",
+    "headings": [
+      "Why this exists",
+      "The mandatory pattern",
+      "1. Adding a new public credential",
+      "2. Consumers",
+      "3. Forbidden patterns",
+      "Related controls",
+      "When NOT to use this helper",
+      "References"
+    ]
+  },
+  {
+    "slug": "stealth-guide",
+    "title": "Stealth Guide",
+    "fileName": "security/STEALTH_GUIDE.md",
+    "section": "Security",
+    "content": "Source of truth: open-sse/utils/tlsClient.ts, open-sse/services/{chatgptTlsClient,claudeCodeCCH,claudeCodeFingerprint,claudeCodeObfuscation,claudeCodeCompatible,antigravityObfuscation}.ts, open-sse/config/cliFingerprints.ts, src/mitm/ Last updated: 2026-05-13 — v3.8.0 Audience: Engineers maintaining",
+    "headings": [
       "Legal and Ethical Notice",
       "TLS Fingerprinting Layer",
       "open-sse/utils/tlsClient.ts — wreq-js (Chrome 124)",
@@ -938,17 +951,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "claudeCodeCCH.ts (Client Content Hash)",
       "claudeCodeObfuscation.ts",
       "claudeCodeCompatible.ts — anthropic-compatible-cc- providers",
-      "Antigravity Stealth",
-    ],
+      "Antigravity Stealth"
+    ]
   },
   {
-    slug: "compression-engines",
-    title: "Compression Engines",
-    fileName: "compression/COMPRESSION_ENGINES.md",
-    section: "Compression",
-    content:
-      "OmniRoute compression is built around engine contracts. A mode can run one engine directly (caveman or rtk) or a deterministic stacked pipeline that executes multiple engines in order. Mode Engine path Intended input ------------ ---------------------------------- -----------------------------------",
-    headings: [
+    "slug": "compression-engines",
+    "title": "Compression Engines",
+    "fileName": "compression/COMPRESSION_ENGINES.md",
+    "section": "Compression",
+    "content": "GateFlow compression is built around engine contracts. A mode can run one engine directly (caveman or rtk) or a deterministic stacked pipeline that executes multiple engines in order. Mode Engine path Intended input ------------ ---------------------------------- ------------------------------------",
+    "headings": [
       "Modes",
       "Engine Registry",
       "MCP description compression (related)",
@@ -958,17 +970,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Compression Combos",
       "API Surface",
       "MCP Tools",
-      "Validation",
-    ],
+      "Validation"
+    ]
   },
   {
-    slug: "compression-guide",
-    title: "🗜️ Prompt Compression Guide — OmniRoute",
-    fileName: "compression/COMPRESSION_GUIDE.md",
-    section: "Compression",
-    content:
-      "Save 15-95% on eligible context automatically. For a quick overview, see the README Compression section. OmniRoute implements a modular prompt compression pipeline that runs proactively before requests hit upstream providers. This means your token savings happen transparently — no changes needed to ",
-    headings: [
+    "slug": "compression-guide",
+    "title": "🗜️ Prompt Compression Guide — GateFlow",
+    "fileName": "compression/COMPRESSION_GUIDE.md",
+    "section": "Compression",
+    "content": "Save 15-95% on eligible context automatically. For a quick overview, see the README Compression section. GateFlow implements a modular prompt compression pipeline that runs proactively before requests hit upstream providers. This means your token savings happen transparently — no changes needed to y",
+    "headings": [
       "Overview",
       "Compression Modes",
       "Off",
@@ -978,49 +989,46 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Ultra Mode (~75% savings)",
       "RTK Mode (60-90% upstream range)",
       "Stacked Mode (78-95% eligible range)",
-      "Upstream Savings Math",
-    ],
+      "Upstream Savings Math"
+    ]
   },
   {
-    slug: "compression-language-packs",
-    title: "Compression Language Packs",
-    fileName: "compression/COMPRESSION_LANGUAGE_PACKS.md",
-    section: "Compression",
-    content:
-      "Caveman compression can load language-specific rule packs in addition to the built-in English rules. This keeps the core engine stable while allowing Portuguese, Spanish, German, French, Japanese, and future language packs to evolve independently. Language packs live under: Current shipped packs (ve",
-    headings: [
+    "slug": "compression-language-packs",
+    "title": "Compression Language Packs",
+    "fileName": "compression/COMPRESSION_LANGUAGE_PACKS.md",
+    "section": "Compression",
+    "content": "Caveman compression can load language-specific rule packs in addition to the built-in English rules. This keeps the core engine stable while allowing Portuguese, Spanish, German, French, Japanese, and future language packs to evolve independently. Language packs live under: Current shipped packs (ve",
+    "headings": [
       "Location",
       "Language Detection",
       "Config Shape",
       "Adding a Language Pack",
       "API",
-      "Operational Notes",
-    ],
+      "Operational Notes"
+    ]
   },
   {
-    slug: "compression-rules-format",
-    title: "Compression Rules Format",
-    fileName: "compression/COMPRESSION_RULES_FORMAT.md",
-    section: "Compression",
-    content:
-      "Compression rules are JSON files loaded at runtime. They are intentionally data-only so new language packs and RTK command filters can be reviewed without changing engine code. Canonical schema (source of truth): open-sse/services/compression/rules/schema.json (JSON Schema draft 2020-12). The exampl",
-    headings: [
+    "slug": "compression-rules-format",
+    "title": "Compression Rules Format",
+    "fileName": "compression/COMPRESSION_RULES_FORMAT.md",
+    "section": "Compression",
+    "content": "Compression rules are JSON files loaded at runtime. They are intentionally data-only so new language packs and RTK command filters can be reviewed without changing engine code. Canonical schema (source of truth): open-sse/services/compression/rules/schema.json (JSON Schema draft 2020-12). The exampl",
+    "headings": [
       "Caveman Rule Packs",
       "Caveman Fields",
       "RTK Filter Packs",
       "RTK Fields",
       "Safety Rules",
-      "Validation",
-    ],
+      "Validation"
+    ]
   },
   {
-    slug: "rtk-compression",
-    title: "RTK Compression",
-    fileName: "compression/RTK_COMPRESSION.md",
-    section: "Compression",
-    content:
-      "RTK compression is OmniRoute's command-aware compression engine for terminal and tool output. It is designed for coding-agent sessions where most context growth comes from test logs, build output, package manager noise, shell transcripts, Docker output, git output, and stack traces. RTK can run dire",
-    headings: [
+    "slug": "rtk-compression",
+    "title": "RTK Compression",
+    "fileName": "compression/RTK_COMPRESSION.md",
+    "section": "Compression",
+    "content": "RTK compression is GateFlow's command-aware compression engine for terminal and tool output. It is designed for coding-agent sessions where most context growth comes from test logs, build output, package manager noise, shell transcripts, Docker output, git output, and stack traces. RTK can run direc",
+    "headings": [
       "What It Compresses",
       "Filter Resolution",
       "Filter DSL",
@@ -1028,17 +1036,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "API",
       "Raw Output Recovery",
       "Verify Gate",
-      "Extending RTK",
-    ],
+      "Extending RTK"
+    ]
   },
   {
-    slug: "coverage-plan",
-    title: "Test Coverage Plan",
-    fileName: "ops/COVERAGE_PLAN.md",
-    section: "Ops",
-    content:
-      "Last updated: 2026-05-13 Status measured on 2026-05-13: lines 82.58%, statements 82.58%, functions 84.23%, branches 75.22%. Phases 1-5 are complete. Current focus is Phase 6 (=85%) and Phase 7 (=90%). There are multiple coverage numbers depending on how the report is computed. For planning, only one",
-    headings: [
+    "slug": "coverage-plan",
+    "title": "Test Coverage Plan",
+    "fileName": "ops/COVERAGE_PLAN.md",
+    "section": "Ops",
+    "content": "Last updated: 2026-05-13 Status measured on 2026-05-13: lines 82.58%, statements 82.58%, functions 84.23%, branches 75.22%. Phases 1-5 are complete. Current focus is Phase 6 (=85%) and Phase 7 (=90%). There are multiple coverage numbers depending on how the report is computed. For planning, only one",
+    "headings": [
       "Baseline",
       "Rules",
       "Current command set",
@@ -1048,17 +1055,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Phase 1: 56.95% -> 60%",
       "Phase 2: 60% -> 65%",
       "Phase 3: 65% -> 70%",
-      "Phase 4: 70% -> 75%",
-    ],
+      "Phase 4: 70% -> 75%"
+    ]
   },
   {
-    slug: "fly-io-deployment-guide",
-    title: "OmniRoute Fly.io 部署指南",
-    fileName: "ops/FLY_IO_DEPLOYMENT_GUIDE.md",
-    section: "Ops",
-    content:
-      "本文档记录 OmniRoute 在 Fly.io 上的实际部署方法，适用于两类场景： - 首次把当前项目部署到 Fly.io - 后续代码更新后继续发布 - 新项目参考同样流程部署 本文基于当前项目已经验证通过的配置整理，应用名为 omniroute。 当前仓库中的 fly.toml 已确认包含以下关键项： 说明： - app = 'omniroute' 决定实际部署到哪个 Fly 应用 - destination = '/data' 决定持久卷挂载目录 - 本项目必须让 DATADIR=/data，否则数据库和密钥会写到容器临时目录 --- Windows PowerShell： 如果安装脚",
-    headings: [
+    "slug": "fly-io-deployment-guide",
+    "title": "GateFlow Fly.io 部署指南",
+    "fileName": "ops/FLY_IO_DEPLOYMENT_GUIDE.md",
+    "section": "Ops",
+    "content": "本文档记录 GateFlow 在 Fly.io 上的实际部署方法，适用于两类场景： - 首次把当前项目部署到 Fly.io - 后续代码更新后继续发布 - 新项目参考同样流程部署 本文基于当前项目已经验证通过的配置整理，应用名为 GateFlow。 当前仓库中的 fly.toml 已确认包含以下关键项： 说明： - app = 'GateFlow' 决定实际部署到哪个 Fly 应用 - destination = '/data' 决定持久卷挂载目录 - 本项目必须让 DATADIR=/data，否则数据库和密钥会写到容器临时目录 --- Windows PowerShell： 如果安装脚本在当",
+    "headings": [
       "1. 部署目标",
       "2. 当前项目关键配置",
       "3. 必备工具",
@@ -1068,17 +1074,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "4. 首次部署当前项目",
       "4.1 获取代码并进入目录",
       "4.2 确认应用名",
-      "4.3 创建应用",
-    ],
+      "4.3 创建应用"
+    ]
   },
   {
-    slug: "proxy-guide",
-    title: "🌐 OmniRoute Proxy Guide",
-    fileName: "ops/PROXY_GUIDE.md",
-    section: "Ops",
-    content:
-      "Bypass geographic blocks, protect your identity, and route AI traffic through any proxy — with zero configuration complexity. OmniRoute includes a full-featured proxy management system that lets you route upstream AI provider traffic through HTTP, HTTPS, or SOCKS5 proxies. Whether you're in a blocke",
-    headings: [
+    "slug": "proxy-guide",
+    "title": "🌐 GateFlow Proxy Guide",
+    "fileName": "ops/PROXY_GUIDE.md",
+    "section": "Ops",
+    "content": "Bypass geographic blocks, protect your identity, and route AI traffic through any proxy — with zero configuration complexity. GateFlow includes a full-featured proxy management system that lets you route upstream AI provider traffic through HTTP, HTTPS, or SOCKS5 proxies. Whether you're in a blocked",
+    "headings": [
       "Table of Contents",
       "Why Use Proxies?",
       "Architecture Overview",
@@ -1088,17 +1093,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "What Gets Proxied",
       "Proxy Registry (CRUD)",
       "Creating a Proxy",
-      "Updating a Proxy",
-    ],
+      "Updating a Proxy"
+    ]
   },
   {
-    slug: "release-checklist",
-    title: "Release Checklist",
-    fileName: "ops/RELEASE_CHECKLIST.md",
-    section: "Ops",
-    content:
-      "Last updated: 2026-05-13 — v3.8.0 Streamlined release flow that leverages Claude Code skills for automation. - [ ] All PRs targeted to this release are merged to release/vX.Y.0 - [ ] All open Linear/issue items for this version are closed or pushed to next milestone - [ ] CI green on release/vX.Y.0 ",
-    headings: [
+    "slug": "release-checklist",
+    "title": "Release Checklist",
+    "fileName": "ops/RELEASE_CHECKLIST.md",
+    "section": "Ops",
+    "content": "Last updated: 2026-05-13 — v3.8.0 Streamlined release flow that leverages Claude Code skills for automation. - [ ] All PRs targeted to this release are merged to release/vX.Y.0 - [ ] All open Linear/issue items for this version are closed or pushed to next milestone - [ ] CI green on release/vX.Y.0 ",
+    "headings": [
       "TL;DR",
       "Detailed Checklist",
       "Pre-release",
@@ -1108,17 +1112,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Hooks (Husky validated)",
       "Conventional Commits",
       "Documentation",
-      "i18n",
-    ],
+      "i18n"
+    ]
   },
   {
-    slug: "tunnels-guide",
-    title: "Tunnels Guide",
-    fileName: "ops/TUNNELS_GUIDE.md",
-    section: "Ops",
-    content:
-      "Source of truth: src/lib/{cloudflaredTunnel,ngrokTunnel,tailscaleTunnel}.ts, src/app/api/tunnels/ Last updated: 2026-05-13 — v3.8.0 OmniRoute can expose its local server (http://localhost:20128) to the public internet via three tunnel backends. This is useful for: - OAuth callbacks from cloud provid",
-    headings: [
+    "slug": "tunnels-guide",
+    "title": "Tunnels Guide",
+    "fileName": "ops/TUNNELS_GUIDE.md",
+    "section": "Ops",
+    "content": "Source of truth: src/lib/{cloudflaredTunnel,ngrokTunnel,tailscaleTunnel}.ts, src/app/api/tunnels/ Last updated: 2026-05-13 — v3.8.0 GateFlow can expose its local server (http://localhost:20128) to the public internet via three tunnel backends. This is useful for: - OAuth callbacks from cloud provide",
+    "headings": [
       "Backends at a glance",
       "1. Cloudflare Tunnel (Quick Tunnel)",
       "Enable / disable via REST",
@@ -1128,17 +1131,16 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "Enable / disable via REST",
       "3. Tailscale Funnel",
       "Prerequisites",
-      "REST endpoints",
-    ],
+      "REST endpoints"
+    ]
   },
   {
-    slug: "vm-deployment-guide",
-    title: "OmniRoute — Deployment Guide on VM with Cloudflare",
-    fileName: "ops/VM_DEPLOYMENT_GUIDE.md",
-    section: "Ops",
-    content:
-      "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
-    headings: [
+    "slug": "vm-deployment-guide",
+    "title": "GateFlow — Deployment Guide on VM with Cloudflare",
+    "fileName": "ops/VM_DEPLOYMENT_GUIDE.md",
+    "section": "Ops",
+    "content": "🌐 Languages: 🇺🇸 English 🇧🇷 Português (Brasil) 🇪🇸 Español 🇫🇷 Français 🇮🇹 Italiano 🇷🇺 Русский 🇨🇳 中文 (简体) 🇩🇪 Deutsch 🇮🇳 हिन्दी 🇹🇭 ไทย 🇺🇦 Українська 🇸🇦 العربية 🇯🇵 日本語 🇻🇳 Tiếng Việt 🇧🇬 Български 🇩🇰 Dansk 🇫🇮 Suomi 🇮🇱 עברית 🇭🇺 Magyar 🇮🇩 Bahasa Indonesia 🇰🇷 한국어 🇲\ud83c",
+    "headings": [
       "Prerequisites",
       "1. Configure the VM",
       "1.1 Create the instance",
@@ -1147,18 +1149,21 @@ export const autoSearchIndex: AutoGenSearchItem[] = [
       "1.4 Install Docker",
       "1.5 Install nginx",
       "1.6 Configure Firewall (UFW)",
-      "2. Install OmniRoute",
-      "2.1 Create configuration directory",
-    ],
+      "2. Install GateFlow",
+      "2.1 Create configuration directory"
+    ]
   },
   {
-    slug: "api-explorer",
-    title: "API Explorer",
-    fileName: "reference/API_REFERENCE.md",
-    section: "Reference",
-    content: "interactive try it live api explorer endpoint test request response curl example",
-    headings: ["Try It", "Endpoints"],
-  },
+    "slug": "api-explorer",
+    "title": "API Explorer",
+    "fileName": "reference/API_REFERENCE.md",
+    "section": "Reference",
+    "content": "interactive try it live api explorer endpoint test request response curl example",
+    "headings": [
+      "Try It",
+      "Endpoints"
+    ]
+  }
 ];
 
 export const autoAllSlugs: string[] = [
@@ -1193,7 +1198,9 @@ export const autoAllSlugs: string[] = [
   "auto-combo",
   "reasoning-replay",
   "compliance",
+  "error-sanitization",
   "guardrails",
+  "public-creds",
   "stealth-guide",
   "compression-engines",
   "compression-guide",
@@ -1205,5 +1212,5 @@ export const autoAllSlugs: string[] = [
   "proxy-guide",
   "release-checklist",
   "tunnels-guide",
-  "vm-deployment-guide",
+  "vm-deployment-guide"
 ];

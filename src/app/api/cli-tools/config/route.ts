@@ -8,7 +8,7 @@ export async function GET(request: Request) {
   if (authError) return authError;
 
   const { searchParams } = new URL(request.url);
-  const baseUrl = searchParams.get("baseUrl") || "http://localhost:20128/v1";
+  const baseUrl = searchParams.get("baseUrl") || "http://localhost:1750/v1";
   const apiKey = searchParams.get("apiKey") || "";
 
   if (!apiKey) {
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
     }
 
     const result = await generateConfig(toolId, {
-      baseUrl: baseUrl || "http://localhost:20128/v1",
+      baseUrl: baseUrl || "http://localhost:1750/v1",
       apiKey,
       model,
     });

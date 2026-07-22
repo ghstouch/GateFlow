@@ -43,8 +43,8 @@ const ROOT = join(__dirname, "..");
 // CONSTANTS
 // ============================================================================
 
-const DEFAULT_BASE_URL = "http://localhost:20128";
-const API_PORT = 20128;
+const DEFAULT_BASE_URL = "http://localhost:1750";
+const API_PORT = 1750;
 const DASHBOARD_PORT = 20129;
 
 const CLI_TOOLS = {
@@ -106,7 +106,7 @@ const PROVIDER_HELP = {
   "provider": {
     "omniroute": {
       "name": "OmniRoute",
-      "baseURL": "http://localhost:20128/v1"
+      "baseURL": "http://localhost:1750/v1"
     }
   }
 }
@@ -115,13 +115,13 @@ const PROVIDER_HELP = {
   cursor: `Cursor configuration:
 1. Open Cursor Settings
 2. Go to Models → Add Model
-3. Set Base URL to: http://localhost:20128/v1
+3. Set Base URL to: http://localhost:1750/v1
 4. Set API Key to your OmniRoute key`,
 
   cline: `Cline configuration:
 1. Open Cline Settings
 2. Find "OpenAI Compatible" provider settings
-3. Set Base URL: http://localhost:20128/v1
+3. Set Base URL: http://localhost:1750/v1
 4. Set API Key: your OmniRoute key`,
 
   vscode: `VS Code + MCP configuration:
@@ -1233,10 +1233,10 @@ async function runStop(args) {
 
     try {
       // Send SIGTERM first for graceful shutdown, then SIGKILL if still running
-      execCommand("lsof -ti:20128 | xargs -r kill -15 2>/dev/null || true", 2000);
+      execCommand("lsof -ti:1750 | xargs -r kill -15 2>/dev/null || true", 2000);
       execCommand("lsof -ti:20129 | xargs -r kill -15 2>/dev/null || true", 2000);
       await sleep(1000);
-      execCommand("lsof -ti:20128 | xargs -r kill -9 2>/dev/null || true", 2000);
+      execCommand("lsof -ti:1750 | xargs -r kill -9 2>/dev/null || true", 2000);
       execCommand("lsof -ti:20129 | xargs -r kill -9 2>/dev/null || true", 2000);
       cleanupPidFile();
       log("Server stopped (port-based)", "green");
@@ -2817,7 +2817,7 @@ async function runEnv(args) {
 
     console.log();
     log("Defaults:", "dim");
-    log("  PORT                20128");
+    log("  PORT                1750");
     log("  DASHBOARD_PORT      20129");
     log("  DATA_DIR            ~/.omniroute");
     logEndSection();
