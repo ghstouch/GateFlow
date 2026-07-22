@@ -62,7 +62,7 @@ _The most complete open-source AI proxy — **one endpoint**, **160+ providers**
 ## 🖼️ Main Dashboard
 
 <div align="center">
-  <img src="./docs/screenshots/MainGateFlow.png" alt="GateFlow Dashboard" width="800"/>
+  <img src="./docs/screenshots/MainOmniRoute.png" alt="GateFlow Dashboard" width="800"/>
 </div>
 
 ---
