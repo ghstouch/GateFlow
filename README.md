@@ -59,35 +59,6 @@ _The most complete open-source AI proxy — **one endpoint**, **160+ providers**
 
 ---
 
-## 🖼️ Main Dashboard
-
-<div align="center">
-  <img src="./docs/screenshots/MainDashboard.png" alt="GateFlow Dashboard" width="800"/>
-</div>
-
----
-
-## 📸 Dashboard Preview
-
-<details>
-<summary><b>Click to see dashboard screenshots</b></summary>
-
-| Page           | Screenshot                                        |
-| -------------- | ------------------------------------------------- |
-| **Providers**  | ![Providers](docs/screenshots/01-providers.png)   |
-| **Combos**     | ![Combos](docs/screenshots/02-combos.png)         |
-| **Analytics**  | ![Analytics](docs/screenshots/03-analytics.png)   |
-| **Health**     | ![Health](docs/screenshots/04-health.png)         |
-| **Translator** | ![Translator](docs/screenshots/05-translator.png) |
-| **Settings**   | ![Settings](docs/screenshots/06-settings.png)     |
-| **CLI Tools**  | ![CLI Tools](docs/screenshots/07-cli-tools.png)   |
-| **Usage Logs** | ![Usage](docs/screenshots/08-usage.png)           |
-| **Endpoints**  | ![Endpoints](docs/screenshots/09-endpoint.png)    |
-
-</details>
-
----
-
 ### 🤖 Free AI Provider for your favorite coding agents
 
 _Connect any AI-powered IDE or CLI tool through GateFlow — free API gateway for unlimited coding._
