@@ -10,8 +10,9 @@ export function matchesSidebarHref(
   exact = false
 ): boolean {
   if (!pathname) return false;
-  if (exact) return pathname === href;
-  return pathname === href || pathname.startsWith(`${href}/`);
+  const hrefPath = href.split("?")[0];
+  if (exact) return pathname === hrefPath;
+  return pathname === hrefPath || pathname.startsWith(`${hrefPath}/`);
 }
 
 export function getActiveSidebarHref(

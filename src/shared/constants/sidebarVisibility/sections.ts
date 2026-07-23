@@ -74,6 +74,15 @@ const MAIN_ITEMS: readonly SidebarItemDefinition[] = [
     labelFallback: "Proxy",
     icon: "dns",
   },
+  {
+    id: "storage",
+    href: "/dashboard/settings?tab=general",
+    i18nKey: "storage",
+    subtitleKey: "storageSubtitle",
+    labelFallback: "Storage",
+    subtitleFallback: "Backup and restore",
+    icon: "storage",
+  },
 ];
 
 const MONITORING_ITEMS: readonly SidebarItemDefinition[] = [

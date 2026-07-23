@@ -22,6 +22,7 @@ export const SIDEBAR_ICON_ACCENTS: Partial<Record<HideableSidebarItemId, string>
   proxy: "#A3E635",
   analytics: "#06B6D4",
   logs: "#CBD5E1",
+  storage: "#F97316",
 };
 
 export const SIDEBAR_SUBITEM_ICON_ACCENTS: Record<string, string> = {};
@@ -97,6 +98,7 @@ const MINIMAL_SHOWN: ReadonlySet<HideableSidebarItemId> = new Set([
   "analytics",
   "logs",
   "logs-console",
+  "storage",
 ]);
 
 const DEVELOPER_SHOWN: ReadonlySet<HideableSidebarItemId> = new Set([
@@ -112,6 +114,7 @@ const DEVELOPER_SHOWN: ReadonlySet<HideableSidebarItemId> = new Set([
   "analytics",
   "logs",
   "logs-console",
+  "storage",
 ]);
 
 const ADMIN_SHOWN: ReadonlySet<HideableSidebarItemId> = new Set([
@@ -127,6 +130,7 @@ const ADMIN_SHOWN: ReadonlySet<HideableSidebarItemId> = new Set([
   "analytics",
   "logs",
   "logs-console",
+  "storage",
 ]);
 
 function buildHiddenList(shown: ReadonlySet<HideableSidebarItemId>): HideableSidebarItemId[] {

@@ -743,7 +743,12 @@
     "contextSection": "上下文与缓存",
     "contextCaveman": "Caveman",
     "contextRtk": "RTK",
-    "contextCombos": "压缩组合"
+    "contextCombos": "压缩组合",
+    "skipToContent": "Skip to content",
+    "storage": "Storage",
+    "storageSubtitle": "Backup and restore",
+    "security": "Security",
+    "securitySubtitle": "Password and access control"
   },
   "webhooks": {
     "title": "Webhook",

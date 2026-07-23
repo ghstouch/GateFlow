@@ -5,6 +5,60 @@ import { useRouter } from "next/navigation";
 import { LANGUAGES, LOCALE_COOKIE } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { useLocale } from "next-intl";
+import Flags from "country-flag-icons/react/3x2";
+
+const LOCALE_TO_COUNTRY: Record<string, string> = {
+  ar: "SA",
+  bg: "BG",
+  bn: "BD",
+  cs: "CZ",
+  da: "DK",
+  de: "DE",
+  en: "US",
+  es: "ES",
+  fa: "IR",
+  fi: "FI",
+  fr: "FR",
+  gu: "IN",
+  he: "IL",
+  hi: "IN",
+  hu: "HU",
+  id: "ID",
+  in: "ID",
+  it: "IT",
+  ja: "JP",
+  ko: "KR",
+  mr: "IN",
+  ms: "MY",
+  nl: "NL",
+  no: "NO",
+  phi: "PH",
+  pl: "PL",
+  pt: "PT",
+  "pt-BR": "BR",
+  ro: "RO",
+  ru: "RU",
+  sk: "SK",
+  sv: "SE",
+  sw: "KE",
+  ta: "IN",
+  te: "IN",
+  th: "TH",
+  tr: "TR",
+  "uk-UA": "UA",
+  ur: "PK",
+  vi: "VN",
+  "zh-CN": "CN",
+};
+
+function FlagIcon({ locale, className }: { locale: string; className?: string }) {
+  const cc = LOCALE_TO_COUNTRY[locale];
+  const Comp = cc
+    ? (Flags as Record<string, React.ComponentType<{ className?: string }>>)[cc]
+    : null;
+  if (Comp) return <Comp className={className ?? "w-5 h-3.5 rounded-sm"} />;
+  return <span className="text-base leading-none">🌐</span>;
+}
 
 /** Persist locale preference in cookie + localStorage (outside component scope for ESLint) */
 function persistLocale(code: Locale) {
@@ -54,7 +108,7 @@ export default function LanguageSelector() {
         className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm font-medium text-text-main hover:bg-surface-hover transition-all border border-transparent hover:border-border"
         title={currentLang.name}
       >
-        <span className="text-base leading-none">{currentLang.flag}</span>
+        <FlagIcon locale={currentLang.code} className="w-5 h-3.5 rounded-sm" />
         <span className="text-xs font-semibold tracking-wide">{currentLang.label}</span>
         <span
           className={`material-symbols-outlined text-[14px] text-text-muted transition-transform ${open ? "rotate-180" : ""}`}
@@ -76,7 +130,7 @@ export default function LanguageSelector() {
                   : "text-text-main hover:bg-surface-hover"
               }`}
             >
-              <span className="text-base leading-none">{lang.flag}</span>
+              <FlagIcon locale={lang.code} className="w-5 h-3.5 rounded-sm shrink-0" />
               <span className="flex-1 text-left">{lang.name}</span>
               {lang.code === locale && (
                 <span className="material-symbols-outlined text-[16px] text-primary">check</span>

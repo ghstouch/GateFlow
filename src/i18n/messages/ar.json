@@ -743,7 +743,12 @@
     "contextSection": "Context & Cache",
     "contextCaveman": "Caveman",
     "contextRtk": "RTK",
-    "contextCombos": "Compression Combos"
+    "contextCombos": "Compression Combos",
+    "skipToContent": "Skip to content",
+    "storage": "Storage",
+    "storageSubtitle": "Backup and restore",
+    "security": "Security",
+    "securitySubtitle": "Password and access control"
   },
   "webhooks": {
     "title": "__MISSING__:Webhooks",
