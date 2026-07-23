@@ -4290,7 +4290,7 @@
     "evalsStrategyContainsLabel": "Contains",
     "evalsStrategyExactLabel": "Exact Match",
     "evalsStrategyRegexLabel": "Regex",
-    "evalsStrategyContainsDescription": "Check if response contains the expected text"
+    "evalsStrategyContainsDescription": "Check if response contains the expected text",
     "scorecardHint": "Aggregated pass rates across all evaluation suites.",
     "suiteLatestRunsHint": "Most recent evaluation runs for this suite.",
     "saving": "Saving",
