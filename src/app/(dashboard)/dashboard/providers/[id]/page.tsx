@@ -1046,6 +1046,10 @@ export default function ProviderDetailPage() {
   const [syncedAvailableModels, setSyncedAvailableModels] = useState<any[]>([]);
   const [compatSavingModelId, setCompatSavingModelId] = useState<string | null>(null);
   const [modelFilter, setModelFilter] = useState("");
+  const [visibilityFilter, setVisibilityFilter] = useState<"all" | "visible" | "hidden">("all");
+  const [freeFirst, setFreeFirst] = useState(false);
+  const [autoHideFailed, setAutoHideFailed] = useState(false);
+  const [batchTestingModels, setBatchTestingModels] = useState(false);
   const [togglingModelId, setTogglingModelId] = useState<string | null>(null);
   const [testingModelId, setTestingModelId] = useState<string | null>(null);
   const [modelTestStatus, setModelTestStatus] = useState<Record<string, "ok" | "error">>({});
@@ -2946,43 +2950,105 @@ export default function ProviderDetailPage() {
       ...model,
       isHidden: effectiveModelHidden(model.id),
     }));
-    const filteredModels = modelsWithVisibility.filter((model) =>
-      matchesModelCatalogQuery(modelFilter, {
+    const filteredModels = modelsWithVisibility.filter((model) => {
+      if (!matchesModelCatalogQuery(modelFilter, {
         modelId: model.id,
         modelName: model.name,
         source: model.source,
-      })
-    );
+      })) return false;
+      if (visibilityFilter === "visible" && model.isHidden) return false;
+      if (visibilityFilter === "hidden" && !model.isHidden) return false;
+      return true;
+    });
     const activeCount = modelsWithVisibility.filter((m) => !m.isHidden).length;
     const hiddenFilteredCount = filteredModels.filter((m) => m.isHidden).length;
     const visibleFilteredCount = filteredModels.length - hiddenFilteredCount;
+    const handleTestAllDefault = async () => {
+      if (!onTestModel || batchTestingModels) return;
+      setBatchTestingModels(true);
+      for (const model of filteredModels.filter((m) => !m.isHidden)) {
+        const fullModel = `${providerDisplayAlias}/${model.id}`;
+        try { await onTestModel(model.id, fullModel); } catch {}
+        await new Promise((r) => setTimeout(r, 300));
+      }
+      setBatchTestingModels(false);
+    };
     return (
       <div>
         {importButton}
         {modelsWithVisibility.length > 0 && (
-          <ModelVisibilityToolbar
-            t={t}
-            filterValue={modelFilter}
-            onFilterChange={setModelFilter}
-            activeCount={activeCount}
-            totalCount={modelsWithVisibility.length}
-            onSelectAll={() =>
-              handleBulkToggleModelHidden(
-                providerId,
-                filteredModels.map((model) => model.id),
-                false
-              )
-            }
-            onDeselectAll={() =>
-              handleBulkToggleModelHidden(
-                providerId,
-                filteredModels.map((model) => model.id),
-                true
-              )
-            }
-            selectAllDisabled={hiddenFilteredCount === 0 || bulkVisibilityAction !== null}
-            deselectAllDisabled={visibleFilteredCount === 0 || bulkVisibilityAction !== null}
-          />
+          <div className="flex flex-col gap-3">
+            {/* Search + visibility filter */}
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="relative min-w-[220px] flex-1">
+                <span className="material-symbols-outlined pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-[15px] text-text-muted">search</span>
+                <input
+                  type="text"
+                  value={modelFilter}
+                  onChange={(e) => setModelFilter(e.target.value)}
+                  placeholder={providerText(t, "filterModels", "Filter models…")}
+                  className="w-full rounded-lg border border-border bg-sidebar/50 py-1.5 pl-7 pr-3 text-xs text-text-main placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-primary"
+                />
+              </div>
+              <div className="flex rounded-lg border border-border overflow-hidden text-[12px]">
+                {(["all", "visible", "hidden"] as const).map((vf) => (
+                  <button
+                    key={vf}
+                    onClick={() => setVisibilityFilter(vf)}
+                    className={`px-2.5 py-1 transition-colors ${visibilityFilter === vf ? "bg-primary/20 text-primary" : "bg-transparent text-text-muted hover:text-text-main"}`}
+                  >
+                    {vf === "all" ? providerText(t, "filterAll", "All") : vf === "visible" ? providerText(t, "visibleOnly", "Visible only") : providerText(t, "hiddenOnly", "Hidden only")}
+                  </button>
+                ))}
+              </div>
+              <button
+                onClick={() => setFreeFirst(!freeFirst)}
+                className={`flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[12px] transition-colors ${freeFirst ? "border-primary/40 bg-primary/10 text-primary" : "border-border bg-transparent text-text-muted hover:text-text-main"}`}
+              >
+                <span className="material-symbols-outlined text-[14px]">sort</span>
+                {providerText(t, "freeFirst", "Free first")}
+              </button>
+            </div>
+            {/* Action bar */}
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={() => setAutoHideFailed(!autoHideFailed)}
+                className={`flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[12px] transition-colors ${autoHideFailed ? "border-primary/40 bg-primary/10 text-primary" : "border-border bg-transparent text-text-muted hover:text-text-main"}`}
+              >
+                <span className="material-symbols-outlined text-[14px]">{autoHideFailed ? "visibility_off" : "visibility"}</span>
+                {providerText(t, "autoHideFailedModels", "Auto-hide failed models")}
+              </button>
+              {onTestModel && (
+                <button
+                  onClick={handleTestAllDefault}
+                  disabled={batchTestingModels}
+                  className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-[12px] font-medium transition-colors ${batchTestingModels ? "border-primary/40 bg-primary/10 text-primary animate-pulse" : "border-border bg-transparent text-text-muted hover:text-text-main hover:border-primary/40"} disabled:cursor-not-allowed disabled:opacity-50`}
+                >
+                  <span className="material-symbols-outlined text-[14px]">{batchTestingModels ? "sync" : "play_arrow"}</span>
+                  {batchTestingModels ? providerText(t, "testing", "Testing…") : providerText(t, "testAllModels", "Test all models")}
+                </button>
+              )}
+              <button
+                onClick={() => handleBulkToggleModelHidden(providerId, filteredModels.map((m) => m.id), false)}
+                disabled={hiddenFilteredCount === 0 || bulkVisibilityAction !== null}
+                className="flex items-center gap-1.5 rounded-lg border border-border bg-transparent px-2.5 py-1 text-[12px] text-text-main disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <span className="material-symbols-outlined text-[16px]">done_all</span>
+                <span>{providerText(t, "selectAllModels", "Select all")}</span>
+              </button>
+              <button
+                onClick={() => handleBulkToggleModelHidden(providerId, filteredModels.map((m) => m.id), true)}
+                disabled={visibleFilteredCount === 0 || bulkVisibilityAction !== null}
+                className="flex items-center gap-1.5 rounded-lg border border-border bg-transparent px-2.5 py-1 text-[12px] text-text-main disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <span className="material-symbols-outlined text-[16px]">remove_done</span>
+                <span>{providerText(t, "deselectAllModels", "Hide all")}</span>
+              </button>
+              <span className="whitespace-nowrap text-xs text-text-muted">
+                {providerText(t, "modelsActiveCount", "{active}/{total} active", { active: activeCount, total: modelsWithVisibility.length })}
+              </span>
+            </div>
+          </div>
         )}
         <div className="flex flex-wrap gap-3">
           {filteredModels.map((model) => {
@@ -4198,6 +4264,11 @@ function PassthroughModelsSection({
   const [newModel, setNewModel] = useState("");
   const [adding, setAdding] = useState(false);
   const [modelFilter, setModelFilter] = useState("");
+  const [visibilityFilter, setVisibilityFilter] = useState<"all" | "visible" | "hidden">("all");
+  const [pricingFilter, setPricingFilter] = useState<"all" | "free" | "paid">("all");
+  const [freeFirst, setFreeFirst] = useState(false);
+  const [autoHideFailed, setAutoHideFailed] = useState(false);
+  const [batchTestingModels, setBatchTestingModels] = useState(false);
   const customModelMap = useMemo(() => buildCompatMap(customModels), [customModels]);
 
   const providerAliases = Object.entries(modelAliases).filter(([, model]: [string, any]) =>
@@ -4218,14 +4289,24 @@ function PassthroughModelsSection({
       isHidden: isModelHidden(modelId),
     };
   });
-  const filteredModels = allModels.filter((model) =>
-    matchesModelCatalogQuery(modelFilter, {
+  const filteredModels = allModels.filter((model) => {
+    if (!matchesModelCatalogQuery(modelFilter, {
       modelId: model.modelId,
       modelName: model.displayName,
       alias: model.alias,
       source: model.source,
-    })
-  );
+    })) return false;
+    if (visibilityFilter === "visible" && model.isHidden) return false;
+    if (visibilityFilter === "hidden" && !model.isHidden) return false;
+    return true;
+  });
+  const sortedModels = freeFirst
+    ? [...filteredModels].sort((a, b) => {
+        const aFree = a.source === "free" ? 0 : 1;
+        const bFree = b.source === "free" ? 0 : 1;
+        return aFree - bFree;
+      })
+    : filteredModels;
   const activeCount = allModels.filter((model) => !model.isHidden).length;
   const hiddenFilteredCount = filteredModels.filter((model) => model.isHidden).length;
   const visibleFilteredCount = filteredModels.length - hiddenFilteredCount;
@@ -4258,6 +4339,19 @@ function PassthroughModelsSection({
     }
   };
 
+  const handleTestAllModels = async () => {
+    if (!onTestModel || batchTestingModels) return;
+    setBatchTestingModels(true);
+    for (const model of sortedModels) {
+      const fullModel = `${providerAlias}/${model.modelId}`;
+      try {
+        await onTestModel(model.modelId, fullModel);
+      } catch {}
+      await new Promise((r) => setTimeout(r, 300));
+    }
+    setBatchTestingModels(false);
+  };
+
   return (
     <div className="flex flex-col gap-4">
       <p className="text-sm text-text-muted">{t("openRouterAnyModelHint")}</p>
@@ -4286,28 +4380,77 @@ function PassthroughModelsSection({
       {/* Models list */}
       {allModels.length > 0 && (
         <div className="flex flex-col gap-3">
-          <ModelVisibilityToolbar
-            t={t}
-            filterValue={modelFilter}
-            onFilterChange={setModelFilter}
-            activeCount={activeCount}
-            totalCount={allModels.length}
-            onSelectAll={() =>
-              onBulkToggleHidden(
-                filteredModels.map((model) => model.modelId),
-                false
-              )
-            }
-            onDeselectAll={() =>
-              onBulkToggleHidden(
-                filteredModels.map((model) => model.modelId),
-                true
-              )
-            }
-            selectAllDisabled={hiddenFilteredCount === 0 || bulkTogglePending}
-            deselectAllDisabled={visibleFilteredCount === 0 || bulkTogglePending}
-          />
-          {filteredModels.map(({ modelId, fullModel, alias, isHidden, source }) => (
+          {/* Search + filters */}
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="relative min-w-[220px] flex-1">
+              <span className="material-symbols-outlined pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-[15px] text-text-muted">search</span>
+              <input
+                type="text"
+                value={modelFilter}
+                onChange={(e) => setModelFilter(e.target.value)}
+                placeholder={providerText(t, "filterModels", "Filter models…")}
+                className="w-full rounded-lg border border-border bg-sidebar/50 py-1.5 pl-7 pr-3 text-xs text-text-main placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+            </div>
+            <div className="flex rounded-lg border border-border overflow-hidden text-[12px]">
+              {(["all", "visible", "hidden"] as const).map((vf) => (
+                <button
+                  key={vf}
+                  onClick={() => setVisibilityFilter(vf)}
+                  className={`px-2.5 py-1 transition-colors ${visibilityFilter === vf ? "bg-primary/20 text-primary" : "bg-transparent text-text-muted hover:text-text-main"}`}
+                >
+                  {vf === "all" ? providerText(t, "filterAll", "All") : vf === "visible" ? providerText(t, "visibleOnly", "Visible only") : providerText(t, "hiddenOnly", "Hidden only")}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => setFreeFirst(!freeFirst)}
+              className={`flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[12px] transition-colors ${freeFirst ? "border-primary/40 bg-primary/10 text-primary" : "border-border bg-transparent text-text-muted hover:text-text-main"}`}
+            >
+              <span className="material-symbols-outlined text-[14px]">sort</span>
+              {providerText(t, "freeFirst", "Free first")}
+            </button>
+          </div>
+          {/* Action bar */}
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => setAutoHideFailed(!autoHideFailed)}
+              className={`flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[12px] transition-colors ${autoHideFailed ? "border-primary/40 bg-primary/10 text-primary" : "border-border bg-transparent text-text-muted hover:text-text-main"}`}
+            >
+              <span className="material-symbols-outlined text-[14px]">{autoHideFailed ? "visibility_off" : "visibility"}</span>
+              {providerText(t, "autoHideFailedModels", "Auto-hide failed models")}
+            </button>
+            {onTestModel && (
+              <button
+                onClick={handleTestAllModels}
+                disabled={batchTestingModels}
+                className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-[12px] font-medium transition-colors ${batchTestingModels ? "border-primary/40 bg-primary/10 text-primary animate-pulse" : "border-border bg-transparent text-text-muted hover:text-text-main hover:border-primary/40"} disabled:cursor-not-allowed disabled:opacity-50`}
+              >
+                <span className="material-symbols-outlined text-[14px]">{batchTestingModels ? "sync" : "play_arrow"}</span>
+                {batchTestingModels ? providerText(t, "testing", "Testing…") : providerText(t, "testAllModels", "Test all models")}
+              </button>
+            )}
+            <button
+              onClick={() => onBulkToggleHidden(sortedModels.map((m) => m.modelId), false)}
+              disabled={hiddenFilteredCount === 0 || bulkTogglePending}
+              className="flex items-center gap-1.5 rounded-lg border border-border bg-transparent px-2.5 py-1 text-[12px] text-text-main disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <span className="material-symbols-outlined text-[16px]">done_all</span>
+              <span>{providerText(t, "selectAllModels", "Select all")}</span>
+            </button>
+            <button
+              onClick={() => onBulkToggleHidden(sortedModels.map((m) => m.modelId), true)}
+              disabled={visibleFilteredCount === 0 || bulkTogglePending}
+              className="flex items-center gap-1.5 rounded-lg border border-border bg-transparent px-2.5 py-1 text-[12px] text-text-main disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <span className="material-symbols-outlined text-[16px]">remove_done</span>
+              <span>{providerText(t, "deselectAllModels", "Hide all")}</span>
+            </button>
+            <span className="whitespace-nowrap text-xs text-text-muted">
+              {providerText(t, "modelsActiveCount", "{active}/{total} active", { active: activeCount, total: allModels.length })}
+            </span>
+          </div>
+          {sortedModels.map(({ modelId, fullModel, alias, isHidden, source }) => (
             <PassthroughModelRow
               key={fullModel as string}
               modelId={modelId}

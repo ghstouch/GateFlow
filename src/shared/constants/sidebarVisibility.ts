@@ -93,11 +93,9 @@ const MINIMAL_SHOWN: ReadonlySet<HideableSidebarItemId> = new Set([
   "combos",
   "quota",
   "cli-code",
-  "api-endpoints",
   "proxy",
   "analytics",
   "logs",
-  "logs-console",
   "storage",
 ]);
 
@@ -109,11 +107,9 @@ const DEVELOPER_SHOWN: ReadonlySet<HideableSidebarItemId> = new Set([
   "combos",
   "quota",
   "cli-code",
-  "api-endpoints",
   "proxy",
   "analytics",
   "logs",
-  "logs-console",
   "storage",
 ]);
 
@@ -125,11 +121,9 @@ const ADMIN_SHOWN: ReadonlySet<HideableSidebarItemId> = new Set([
   "combos",
   "quota",
   "cli-code",
-  "api-endpoints",
   "proxy",
   "analytics",
   "logs",
-  "logs-console",
   "storage",
 ]);
 
