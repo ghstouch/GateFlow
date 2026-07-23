@@ -144,42 +144,6 @@ _Connect any AI-powered IDE or CLI tool through GateFlow — free API gateway fo
 
 ---
 
-## 📺 GateFlow in Action — Video Guides
-
-<div align="center">
-
-<table>
-  <tr>
-    <td align="center" width="320">
-      <a href="https://www.youtube.com/watch?v=Rxdc36yUyOQ">
-        <img src="https://img.youtube.com/vi/Rxdc36yUyOQ/maxresdefault.jpg" alt="GateFlow — Guia em Português" width="300"/>
-      </a><br/>
-      <b>🇧🇷 Português</b><br/>
-      <sub>Guia completo do GateFlow</sub>
-    </td>
-    <td align="center" width="320">
-      <a href="https://www.youtube.com/watch?v=CMzyOiUyEVc">
-        <img src="https://img.youtube.com/vi/CMzyOiUyEVc/maxresdefault.jpg" alt="GateFlow — English Guide" width="300"/>
-      </a><br/>
-      <b>🇺🇸 English</b><br/>
-      <sub>Complete GateFlow walkthrough</sub>
-    </td>
-    <td align="center" width="320">
-      <a href="https://www.youtube.com/watch?v=il_5Ii6v4-Y">
-        <img src="https://img.youtube.com/vi/il_5Ii6v4-Y/maxresdefault.jpg" alt="GateFlow — Руководство на русском" width="300"/>
-      </a><br/>
-      <b>🇷🇺 Русский</b><br/>
-      <sub>Полное руководство по GateFlow</sub>
-    </td>
-  </tr>
-</table>
-
-</div>
-
-> 🎬 **Made a video about GateFlow?** We'd love to feature it here! Open an [issue](https://github.com/ghstouch/GateFlow/issues/new) or [discussion](https://github.com/ghstouch/GateFlow/discussions) with the link and we'll add it to this showcase.
-
----
-
 ## 🤔 Why GateFlow?
 
 **Stop wasting money, tokens and hitting limits:**
