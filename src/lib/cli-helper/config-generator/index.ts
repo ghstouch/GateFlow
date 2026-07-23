@@ -39,12 +39,12 @@ const TOOL_CONFIG_PATHS: Record<string, string> = {
 
 async function importGenerator(toolId: string) {
   const generators: Record<string, { module: string; export: string }> = {
-    claude: { module: "./claude.js", export: "generateClaudeConfig" },
-    codex: { module: "./codex.js", export: "generateCodexConfig" },
-    opencode: { module: "./opencode.js", export: "generateOpencodeConfig" },
-    cline: { module: "./cline.js", export: "generateClineConfig" },
-    kilocode: { module: "./kilocode.js", export: "generateKilocodeConfig" },
-    continue: { module: "./continue.js", export: "generateContinueConfig" },
+    claude: { module: "./claude.ts", export: "generateClaudeConfig" },
+    codex: { module: "./codex.ts", export: "generateCodexConfig" },
+    opencode: { module: "./opencode.ts", export: "generateOpencodeConfig" },
+    cline: { module: "./cline.ts", export: "generateClineConfig" },
+    kilocode: { module: "./kilocode.ts", export: "generateKilocodeConfig" },
+    continue: { module: "./continue.ts", export: "generateContinueConfig" },
   };
 
   const gen = generators[toolId];
