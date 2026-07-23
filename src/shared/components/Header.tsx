@@ -45,7 +45,6 @@ const HEADER_DESCRIPTIONS: Partial<Record<HideableSidebarItemId | "omni-skills",
   proxy: "proxyDescription",
   analytics: "analyticsDescription",
   logs: "logsDescription",
-  "logs-console": "logsConsoleDescription",
 };
 
 const sidebarByHref = new Map<string, SidebarItemDefinition>();

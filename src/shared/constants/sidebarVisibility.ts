@@ -22,7 +22,6 @@ export const SIDEBAR_ICON_ACCENTS: Partial<Record<HideableSidebarItemId, string>
   proxy: "#A3E635",
   analytics: "#06B6D4",
   logs: "#CBD5E1",
-  "logs-console": "#FACC15",
 };
 
 export const SIDEBAR_SUBITEM_ICON_ACCENTS: Record<string, string> = {};

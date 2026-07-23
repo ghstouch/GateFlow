@@ -93,14 +93,6 @@ const MONITORING_ITEMS: readonly SidebarItemDefinition[] = [
     labelFallback: "Logs",
     icon: "description",
   },
-  {
-    id: "logs-console",
-    href: "/dashboard/logs?tab=console",
-    i18nKey: "consoleLogs",
-    subtitleKey: "consoleLogsSubtitle",
-    labelFallback: "Console Logs",
-    icon: "terminal",
-  },
 ];
 
 export const SIDEBAR_SECTIONS: readonly SidebarSectionDefinition[] = [

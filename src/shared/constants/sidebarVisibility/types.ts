@@ -9,7 +9,6 @@ export const HIDEABLE_SIDEBAR_ITEM_IDS = [
   "proxy",
   "analytics",
   "logs",
-  "logs-console",
 ] as const;
 
 export type HideableSidebarItemId = (typeof HIDEABLE_SIDEBAR_ITEM_IDS)[number];
