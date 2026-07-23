@@ -102,7 +102,7 @@ export async function runUpdateCommand(argv) {
     return 1;
   }
 
-  printHeading("OmniRoute Update");
+  printHeading("GateFlow Update");
   console.log(`  Current version: ${current}`);
   console.log(`  Latest version:  ${latest}`);
 
@@ -149,7 +149,7 @@ export async function runUpdateCommand(argv) {
     }
   }
 
-  printInfo("Updating OmniRoute...");
+  printInfo("Updating GateFlow...");
   try {
     const { execSync } = await import("child_process");
     execSync("npm install -g omniroute@latest", { stdio: "inherit" });

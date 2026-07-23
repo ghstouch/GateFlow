@@ -48,7 +48,7 @@ export async function runProviderCommand(argv) {
     }
 
     if (providerName === "omniroute") {
-      // Special case: add OmniRoute as a provider in OpenCode config
+      // Special case: add GateFlow as a provider in OpenCode config
       const opencodePath = path.join(
         process.env.HOME || os.homedir(),
         ".config",

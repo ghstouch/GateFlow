@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
 /**
- * OmniRoute CLI - Production-grade CLI Integration Suite
+ * GateFlow CLI - Production-grade CLI Integration Suite
  *
  * Commands:
- *   setup     - Configure CLI tools to use OmniRoute
+ *   setup     - Configure CLI tools to use GateFlow
  *   doctor    - Run health diagnostics
  *   status    - Show comprehensive status
  *   logs      - View application logs
- *   provider  - Add OmniRoute as provider for tools
- *   config    - Show current OmniRoute configuration
+ *   provider  - Add GateFlow as provider for tools
+ *   config    - Show current GateFlow configuration
  *   test      - Test provider/model connectivity
  *   update    - Check for updates
  */
@@ -105,7 +105,7 @@ const PROVIDER_HELP = {
 {
   "provider": {
     "omniroute": {
-      "name": "OmniRoute",
+      "name": "GateFlow",
       "baseURL": "http://localhost:1750/v1"
     }
   }
@@ -116,13 +116,13 @@ const PROVIDER_HELP = {
 1. Open Cursor Settings
 2. Go to Models → Add Model
 3. Set Base URL to: http://localhost:1750/v1
-4. Set API Key to your OmniRoute key`,
+4. Set API Key to your GateFlow key`,
 
   cline: `Cline configuration:
 1. Open Cline Settings
 2. Find "OpenAI Compatible" provider settings
 3. Set Base URL: http://localhost:1750/v1
-4. Set API Key: your OmniRoute key`,
+4. Set API Key: your GateFlow key`,
 
   vscode: `VS Code + MCP configuration:
 1. Install Cline extension
@@ -399,7 +399,7 @@ model = "gpt-4o"
       case "opencode":
         config.provider = config.provider || {};
         config.provider.omniroute = {
-          name: "OmniRoute",
+          name: "GateFlow",
           baseURL: `${baseUrl}/v1`,
           apiKey: apiKey,
         };
@@ -420,7 +420,7 @@ model = "gpt-4o"
       case "continue":
         config.models = config.models || [];
         config.models.push({
-          name: "OmniRoute",
+          name: "GateFlow",
           provider: "openai-compatible",
           apiKey: apiKey,
           baseUrl: `${baseUrl}/v1`,
@@ -595,7 +595,7 @@ async function runSetup(args) {
     return;
   }
 
-  logSection("OmniRoute CLI Setup");
+  logSection("GateFlow CLI Setup");
 
   // Detect installed tools
   const installed = detectInstalledTools().filter((t) => t.installed);
@@ -661,7 +661,7 @@ async function runDoctor(args) {
   const verbose = args.includes("--verbose");
   const serverRunning = await checkServerHealth();
 
-  logSection("OmniRoute Doctor");
+  logSection("GateFlow Doctor");
 
   // Server status
   if (serverRunning) {
@@ -784,7 +784,7 @@ async function runStatus(args) {
     return;
   }
 
-  logSection("OmniRoute Status");
+  logSection("GateFlow Status");
   log(
     `Server:       ${serverRunning ? colorize("✓ Running", "green") : colorize("✗ Stopped", "red")}`
   );
@@ -940,7 +940,7 @@ async function runConfig(args) {
   if (action === "show") {
     const config = getOmniRouteConfig();
 
-    logSection("OmniRoute Configuration");
+    logSection("GateFlow Configuration");
     log(`API Port:        ${config.port}`);
     log(`Dashboard Port:  ${config.dashboardPort}`);
     log(`Base URL:        ${config.baseUrl}`);
@@ -1107,7 +1107,7 @@ async function runServe(args) {
   const port = portArg ? parseInt(portArg) : API_PORT;
   const daemonArg = args.includes("--daemon");
 
-  logSection("Starting OmniRoute Server");
+  logSection("Starting GateFlow Server");
 
   // Check if already running via PID file
   const existingPid = readPidFile();
@@ -1199,7 +1199,7 @@ async function runServe(args) {
 }
 
 async function runStop(args) {
-  logSection("Stopping OmniRoute Server");
+  logSection("Stopping GateFlow Server");
 
   const pid = readPidFile();
 
@@ -1249,7 +1249,7 @@ async function runStop(args) {
 }
 
 async function runRestart(args) {
-  logSection("Restarting OmniRoute Server");
+  logSection("Restarting GateFlow Server");
 
   const portArg = args.find((a) => a.startsWith("--port="))?.split("=")[1] || String(API_PORT);
 
@@ -1948,7 +1948,7 @@ async function runCompletion(args) {
 
 function generateBashCompletion() {
   const script = `#!/bin/bash
-# OmniRoute CLI Bash Completion
+# GateFlow CLI Bash Completion
 
 _omniroute() {
   local cur prev opts cmds
@@ -2034,11 +2034,11 @@ function generateZshCompletion() {
 
 local -a commands
 commands=(
-  'setup:Configure CLI tools to use OmniRoute'
+  'setup:Configure CLI tools to use GateFlow'
   'doctor:Run health diagnostics'
   'status:Show server and tools status'
   'logs:View application logs'
-  'provider:Add OmniRoute as provider'
+  'provider:Add GateFlow as provider'
   'config:Show configuration'
   'test:Test provider connectivity'
   'update:Check for updates'
@@ -2101,7 +2101,7 @@ esac
 }
 
 function generateFishCompletion() {
-  return `# OmniRoute CLI Fish Completion
+  return `# GateFlow CLI Fish Completion
 
 complete -c omniroute -f
 
@@ -2326,7 +2326,7 @@ async function runRestore(args) {
     }
 
     log("Backup restored successfully!", "green");
-    log("Restart OmniRoute to load restored data", "dim");
+    log("Restart GateFlow to load restored data", "dim");
   } catch (err) {
     log(`Restore failed: ${err.message}`, "red");
   }
@@ -2433,7 +2433,7 @@ async function runHealth(args) {
   const verbose = args.includes("--verbose");
   const jsonOutput = args.includes("--json");
 
-  logSection("OmniRoute Health");
+  logSection("GateFlow Health");
 
   const serverRunning = await checkServerHealth();
 

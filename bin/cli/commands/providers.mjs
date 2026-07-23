@@ -41,7 +41,7 @@ Options:
   --category <category>  Filter available providers by category
 
 Notes:
-  "available" shows the OmniRoute provider catalog.
+  "available" shows the GateFlow provider catalog.
   "list" shows provider connections already configured in local SQLite.
   Provider commands read local SQLite directly and do not require the server to be running.
   API-key provider tests update test_status, last_tested, and error fields in SQLite.
@@ -62,7 +62,7 @@ Options:
   --category <category>  Filter by category, for example api-key, oauth, free
 
 Notes:
-  Shows the OmniRoute provider catalog, not locally configured provider connections.
+  Shows the GateFlow provider catalog, not locally configured provider connections.
 `);
 }
 
@@ -292,7 +292,7 @@ async function availableCommand(flags) {
   if (hasFlag(flags, "json")) {
     console.log(JSON.stringify({ count: providers.length, categories, providers }, null, 2));
   } else {
-    printHeading("OmniRoute Available Providers");
+    printHeading("GateFlow Available Providers");
     printAvailableProviderTable(providers, categories);
   }
 
@@ -306,7 +306,7 @@ async function listCommand(flags) {
     if (hasFlag(flags, "json")) {
       console.log(JSON.stringify({ providers: connections }, null, 2));
     } else {
-      printHeading("OmniRoute Providers");
+      printHeading("GateFlow Providers");
       printProviderTable(connections);
     }
     return 0;
@@ -364,7 +364,7 @@ async function testAllCommand(flags) {
     if (hasFlag(flags, "json")) {
       console.log(JSON.stringify({ results }, null, 2));
     } else {
-      printHeading("OmniRoute Provider Tests");
+      printHeading("GateFlow Provider Tests");
       for (const result of results) {
         const label = result.valid
           ? "\x1b[32mOK\x1b[0m"
@@ -390,7 +390,7 @@ async function validateCommand(flags) {
     if (hasFlag(flags, "json")) {
       console.log(JSON.stringify({ results }, null, 2));
     } else {
-      printHeading("OmniRoute Provider Validation");
+      printHeading("GateFlow Provider Validation");
       if (results.length === 0) {
         console.log("No providers configured.");
       }

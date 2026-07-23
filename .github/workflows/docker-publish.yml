@@ -92,5 +92,5 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: diegosouzapw/omniroute
-          short-description: "OmniRoute — Unified AI proxy. Route any LLM through one endpoint."
+          short-description: "GateFlow — Unified AI proxy. Route any LLM through one endpoint."
           readme-filepath: ./README.md

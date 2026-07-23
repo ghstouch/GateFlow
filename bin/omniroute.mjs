@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * OmniRoute CLI — Smart AI Router with Auto Fallback
+ * GateFlow CLI — Smart AI Router with Auto Fallback
  *
  * Usage:
  *   omniroute                          Start the server (default port 1750)
@@ -103,7 +103,7 @@ if (CLI_COMMANDS.has(command)) {
 
 if (args.includes("--help") || args.includes("-h")) {
   console.log(`
-  \x1b[1m\x1b[36m⚡ OmniRoute\x1b[0m — Smart AI Router with Auto Fallback
+  \x1b[1m\x1b[36m⚡ GateFlow\x1b[0m — Smart AI Router with Auto Fallback
 
   \x1b[1mUsage:\x1b[0m
     omniroute                 Start the server
@@ -117,7 +117,7 @@ if (args.includes("--help") || args.includes("-h")) {
     omniroute reset-encrypted-columns  Reset encrypted credentials (recovery)
 
   \x1b[1mServer Management:\x1b[0m
-    omniroute serve           Start the OmniRoute server
+    omniroute serve           Start the GateFlow server
     omniroute stop            Stop the running server
     omniroute restart         Restart the server
     omniroute dashboard       Open dashboard in browser
@@ -132,7 +132,7 @@ if (args.includes("--help") || args.includes("-h")) {
 
   \x1b[1mProvider & Keys:\x1b[0m
     omniroute provider list  List available providers
-    omniroute provider add   Add OmniRoute as provider
+    omniroute provider add   Add GateFlow as provider
     omniroute keys add       Add API key for provider
     omniroute keys list      List configured API keys
     omniroute keys remove   Remove API key
@@ -180,7 +180,7 @@ if (args.includes("--help") || args.includes("-h")) {
     omniroute --version       Show version
 
   \x1b[1mMCP Integration:\x1b[0m
-    The --mcp flag starts an MCP server over stdio, exposing OmniRoute
+    The --mcp flag starts an MCP server over stdio, exposing GateFlow
     tools for AI agents in VS Code, Cursor, Claude Desktop, and Copilot.
 
     Available tools: omniroute_get_health, omniroute_list_combos,
@@ -216,7 +216,7 @@ if (args.includes("--help") || args.includes("-h")) {
     omniroute config validate <tool>       Validate config without writing
     omniroute status                       Offline status dashboard
     omniroute logs [--follow] [--filter]   Stream usage logs
-    omniroute update [--check] [--dry-run] Check or apply OmniRoute update
+    omniroute update [--check] [--dry-run] Check or apply GateFlow update
     omniroute provider add <name>          Add a provider connection
     omniroute provider list                List configured providers
     omniroute provider test <name|id>      Test a provider connection
@@ -511,7 +511,7 @@ server.on("exit", (code) => {
 });
 
 function shutdown() {
-  console.log("\n\x1b[33m⏹ Shutting down OmniRoute...\x1b[0m");
+  console.log("\n\x1b[33m⏹ Shutting down GateFlow...\x1b[0m");
   server.kill("SIGTERM");
   setTimeout(() => {
     server.kill("SIGKILL");
@@ -527,7 +527,7 @@ async function onReady() {
   const apiUrl = `http://localhost:${apiPort}`;
 
   console.log(`
-  \x1b[32m✔ OmniRoute is running!\x1b[0m
+  \x1b[32m✔ GateFlow is running!\x1b[0m
 
   \x1b[1m  Dashboard:\x1b[0m  ${dashboardUrl}
   \x1b[1m  API Base:\x1b[0m   ${apiUrl}/v1

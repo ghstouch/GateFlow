@@ -13,7 +13,7 @@ Usage:
   omniroute config validate <tool>         Validate config format without writing
 
 Options:
-  --base-url <url>     OmniRoute API base URL (default: http://localhost:1750/v1)
+  --base-url <url>     GateFlow API base URL (default: http://localhost:1750/v1)
   --api-key <key>      API key for the tool
   --model <model>      Model identifier (where applicable)
   --json               Output as JSON

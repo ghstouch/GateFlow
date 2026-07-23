@@ -529,7 +529,7 @@ export async function runDoctorCommand(argv, context = {}) {
   if (hasFlag(flags, "json")) {
     console.log(JSON.stringify(result, null, 2));
   } else {
-    printHeading("OmniRoute Doctor");
+    printHeading("GateFlow Doctor");
     console.log(`Data dir: ${result.dataDir}`);
     console.log(`Database: ${result.dbPath}\n`);
     for (const check of result.checks) {

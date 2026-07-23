@@ -62,7 +62,7 @@ export async function runStatusCommand(argv) {
     return 0;
   }
 
-  printHeading("OmniRoute Status");
+  printHeading("GateFlow Status");
   console.log(`  Version:     ${status.version}`);
   console.log(`  Data Dir:    ${status.dataDir}`);
   console.log(

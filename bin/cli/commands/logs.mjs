@@ -11,7 +11,7 @@ Options:
   --filter <level>      Filter by level (error, warn, info) — comma-separated
   --lines <n>           Number of lines to fetch (default: 100)
   --timeout <ms>        Connection timeout in ms (default: 30000)
-  --base-url <url>      OmniRoute API base URL (default: http://localhost:1750)
+  --base-url <url>      GateFlow API base URL (default: http://localhost:1750)
   --json                Output as JSON
   --help                Show this help
 `);
