@@ -170,29 +170,6 @@ _Connect any AI-powered IDE or CLI tool through GateFlow — free API gateway fo
 
 ---
 
-## 📧 Support
-
-> 💬 **Join our community!** [WhatsApp Group](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t) — Get help, share tips, and stay updated.
-
-- **Website**: [GateFlow.online](https://GateFlow.online)
-- **GitHub**: [github.com/ghstouch/GateFlow](https://github.com/ghstouch/GateFlow)
-- **Issues**: [github.com/ghstouch/GateFlow/issues](https://github.com/ghstouch/GateFlow/issues)
-- **WhatsApp**: [Community Group](https://chat.whatsapp.com/JI7cDQ1GyaiDHhVBpLxf8b?mode=gi_t)
-- **Contributing**: See [CONTRIBUTING.md](CONTRIBUTING.md), open a PR, or pick a `good first issue`
-- **Original Project**: [9router by decolua](https://github.com/decolua/9router)
-
-### 🐛 Reporting a Bug?
-
-When opening an issue, please run the system-info command and attach the generated file:
-
-```bash
-npm run system-info
-```
-
-This generates a `system-info.txt` with your Node.js version, GateFlow version, OS details, installed CLI tools (qoder, gemini, claude, codex, antigravity, droid, etc.), Docker/PM2 status, and system packages — everything we need to reproduce your issue quickly. Attach the file directly to your GitHub issue.
-
----
-
 ## 🛠️ Supported CLI Tools
 
 GateFlow works seamlessly with **16+ AI coding tools** — one config, all tools:
