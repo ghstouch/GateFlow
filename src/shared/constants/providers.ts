@@ -2076,14 +2076,15 @@ export const USAGE_SUPPORTED_PROVIDERS = [
 ];
 
 // ── Zod validation at module load (Phase 7.2) ──
-import { validateProviders } from "../validation/providerSchema";
-
-validateProviders(FREE_PROVIDERS, "FREE_PROVIDERS");
-validateProviders(OAUTH_PROVIDERS, "OAUTH_PROVIDERS");
-validateProviders(APIKEY_PROVIDERS, "APIKEY_PROVIDERS");
-validateProviders(WEB_COOKIE_PROVIDERS, "WEB_COOKIE_PROVIDERS");
-validateProviders(LOCAL_PROVIDERS, "LOCAL_PROVIDERS");
-validateProviders(SEARCH_PROVIDERS, "SEARCH_PROVIDERS");
-validateProviders(AUDIO_ONLY_PROVIDERS, "AUDIO_ONLY_PROVIDERS");
-validateProviders(UPSTREAM_PROXY_PROVIDERS, "UPSTREAM_PROXY_PROVIDERS");
-validateProviders(CLOUD_AGENT_PROVIDERS, "CLOUD_AGENT_PROVIDERS");
+// Lazy-loaded to avoid Turbopack SSR circular chunk evaluation issues
+import("../validation/providerSchema").then(({ validateProviders }) => {
+  validateProviders(FREE_PROVIDERS, "FREE_PROVIDERS");
+  validateProviders(OAUTH_PROVIDERS, "OAUTH_PROVIDERS");
+  validateProviders(APIKEY_PROVIDERS, "APIKEY_PROVIDERS");
+  validateProviders(WEB_COOKIE_PROVIDERS, "WEB_COOKIE_PROVIDERS");
+  validateProviders(LOCAL_PROVIDERS, "LOCAL_PROVIDERS");
+  validateProviders(SEARCH_PROVIDERS, "SEARCH_PROVIDERS");
+  validateProviders(AUDIO_ONLY_PROVIDERS, "AUDIO_ONLY_PROVIDERS");
+  validateProviders(UPSTREAM_PROXY_PROVIDERS, "UPSTREAM_PROXY_PROVIDERS");
+  validateProviders(CLOUD_AGENT_PROVIDERS, "CLOUD_AGENT_PROVIDERS");
+});

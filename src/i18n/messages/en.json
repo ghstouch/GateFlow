@@ -2669,10 +2669,13 @@
   },
   "providers": {
     "title": "Providers",
+    "allProviders": "All Providers",
     "addProvider": "Add Provider",
     "editProvider": "Edit Provider",
     "deleteProvider": "Delete Provider",
     "noProviders": "No providers configured",
+    "noProvidersFound": "No providers match your search.",
+    "noProvidersInCategory": "No providers in this category",
     "modelAvailability": "Model Availability",
     "accounts": "Accounts",
     "newAccount": "New Account",
@@ -3166,7 +3169,10 @@
     "zedImportNetworkError": "Zed Import Network Error",
     "zedImportNone": "Zed Import None",
     "zedImportSuccess": "Zed Import Success",
-    "zedImporting": "Zed Importing"
+    "zedImporting": "Zed Importing",
+    "providerCategories": "Provider Categories",
+    "expandMenu": "Expand menu",
+    "collapseMenu": "Collapse menu"
   },
   "settings": {
     "title": "Settings",
